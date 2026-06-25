@@ -8,23 +8,23 @@
   publish = "."
 
 # Serve the landing page as the site root.
-# The file is TTSoft-landing-page.html (not index.html), so redirect "/" to it.
+# The file is index.html (not index.html), so redirect "/" to it.
 [[redirects]]
   from = "/"
-  to = "/TTSoft-landing-page.html"
+  to = "/index.html"
   status = 200
   force = false
 
 # Friendly URL: /landing and /home also resolve to the landing page.
 [[redirects]]
   from = "/landing"
-  to = "/TTSoft-landing-page.html"
+  to = "/index.html"
   status = 302
 
 # Any unknown path falls back to the landing page (single-page site).
 [[redirects]]
   from = "/*"
-  to = "/TTSoft-landing-page.html"
+  to = "/index.html"
   status = 200
 
 # --- Security headers ---
