@@ -1,0 +1,45 @@
+# Netlify configuration for the TTSoft landing page.
+# The site is a single, self-contained static HTML file with no build step.
+
+[build]
+  # No build command — the repo ships ready-to-serve static files.
+  command = ""
+  # Publish the repository root so the HTML file is served directly.
+  publish = "."
+
+# Serve the landing page as the site root.
+# The file is TTSoft-landing-page.html (not index.html), so redirect "/" to it.
+[[redirects]]
+  from = "/"
+  to = "/TTSoft-landing-page.html"
+  status = 200
+  force = false
+
+# Friendly URL: /landing and /home also resolve to the landing page.
+[[redirects]]
+  from = "/landing"
+  to = "/TTSoft-landing-page.html"
+  status = 302
+
+# Any unknown path falls back to the landing page (single-page site).
+[[redirects]]
+  from = "/*"
+  to = "/TTSoft-landing-page.html"
+  status = 200
+
+# --- Security headers ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    X-XSS-Protection = "1; mode=block"
+
+# --- Caching ---
+# HTML: revalidate often so content updates roll out quickly.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
