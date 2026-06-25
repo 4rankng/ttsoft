@@ -1,0 +1,1819 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07070b" />
+  <meta name="description" content="TTSoft — Giải pháp phần mềm tinh gọn, hiện đại và có khả năng mở rộng cho doanh nghiệp." />
+  <title>TTSoft — Giải pháp phần mềm cho doanh nghiệp hiện đại</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #07070b;
+      --bg-soft: #0d0d14;
+      --surface: rgba(255, 255, 255, 0.055);
+      --surface-strong: rgba(255, 255, 255, 0.09);
+      --line: rgba(255, 255, 255, 0.12);
+      --line-soft: rgba(255, 255, 255, 0.07);
+      --text: #f4f3f8;
+      --muted: #a6a4b2;
+      --violet: #8b5cf6;
+      --violet-2: #6d5dfc;
+      --cyan: #22d3ee;
+      --lime: #b8ff6a;
+      --radius: 24px;
+      --radius-sm: 16px;
+      --container: 1180px;
+      --shadow: 0 32px 90px rgba(0, 0, 0, 0.42);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 76% 12%, rgba(109, 93, 252, 0.11), transparent 28rem),
+        radial-gradient(circle at 10% 42%, rgba(34, 211, 238, 0.055), transparent 31rem),
+        var(--bg);
+      font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.menu-open { overflow: hidden; }
+
+    ::selection {
+      color: #08080c;
+      background: var(--lime);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+
+    .skip-link {
+      position: fixed;
+      left: 16px;
+      top: -80px;
+      z-index: 1000;
+      padding: 12px 16px;
+      color: #09090d;
+      background: var(--lime);
+      border-radius: 12px;
+      font-weight: 800;
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 16px; }
+
+    .scroll-progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 120;
+      width: 100%;
+      height: 2px;
+      transform: scaleX(0);
+      transform-origin: left center;
+      background: linear-gradient(90deg, var(--violet), var(--cyan), var(--lime));
+      box-shadow: 0 0 18px rgba(34, 211, 238, .45);
+    }
+
+    #webgl {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: .05;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    .cursor-glow {
+      position: fixed;
+      z-index: 2;
+      width: 360px;
+      height: 360px;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+      opacity: .14;
+      transform: translate3d(-50%, -50%, 0);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 92, 246, .75), rgba(34, 211, 238, .16) 38%, transparent 70%);
+      filter: blur(24px);
+      will-change: transform;
+    }
+
+    .site-shell {
+      position: relative;
+      z-index: 3;
+      isolation: isolate;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 120px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      color: #d7d5df;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      box-shadow: 0 0 10px rgba(34, 211, 238, .5);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, .65fr);
+      align-items: end;
+      gap: 48px;
+      margin-bottom: 56px;
+    }
+
+    .section-title {
+      max-width: 800px;
+      margin: 0;
+      font-family: "Space Grotesk", "Manrope", sans-serif;
+      font-size: clamp(2.35rem, 5.2vw, 4.8rem);
+      line-height: .99;
+      letter-spacing: -.055em;
+    }
+
+    .section-copy {
+      max-width: 520px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.8;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(115deg, #ffffff 5%, #c7b9ff 35%, #65e6f7 64%, #c8ff8a 96%);
+      background-size: 180% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: gradient-shift 8s linear infinite;
+    }
+
+    @keyframes gradient-shift {
+      to { background-position: 180% center; }
+    }
+
+    /* Navigation */
+    .nav-wrap {
+      position: fixed;
+      z-index: 100;
+      top: 18px;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 68px;
+      padding: 10px 12px 10px 18px;
+      pointer-events: auto;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 19px;
+      background: rgba(8, 8, 13, .58);
+      box-shadow: 0 18px 60px rgba(0,0,0,.22);
+      backdrop-filter: blur(18px) saturate(135%);
+      -webkit-backdrop-filter: blur(18px) saturate(135%);
+      transition: background .25s ease, border-color .25s ease, transform .25s ease;
+    }
+
+    .nav.scrolled {
+      background: rgba(8, 8, 13, .82);
+      border-color: rgba(255,255,255,.13);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 39px;
+      height: 39px;
+      overflow: hidden;
+      color: #09090d;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #b7abff 36%, #5de4f7 72%, #c4ff75 100%);
+      box-shadow: 0 8px 28px rgba(109, 93, 252, .32), inset 0 1px 1px rgba(255,255,255,.9);
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 800;
+      letter-spacing: -.08em;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: -60% -40%;
+      transform: rotate(25deg) translateX(-70%);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
+      animation: mark-shine 5s ease-in-out infinite;
+    }
+
+    @keyframes mark-shine {
+      0%, 65%, 100% { transform: rotate(25deg) translateX(-75%); }
+      82% { transform: rotate(25deg) translateX(75%); }
+    }
+
+    .brand-copy { display: grid; line-height: 1.05; }
+    .brand-name { font-family: "Space Grotesk", sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: -.025em; }
+    .brand-sub { margin-top: 4px; color: #8e8c99; font-size: .61rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 12px 14px;
+      color: #aaa8b4;
+      border-radius: 12px;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: color .2s ease, background .2s ease;
+    }
+    .nav-link:hover, .nav-link:focus-visible { color: #fff; background: rgba(255,255,255,.055); }
+
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+
+    .nav-cta, .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      overflow: hidden;
+      border: 0;
+      cursor: pointer;
+      isolation: isolate;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+
+    .nav-cta {
+      min-height: 44px;
+      padding: 0 17px;
+      color: #09090d;
+      border-radius: 13px;
+      background: #f5f4f8;
+      font-size: .8rem;
+      font-weight: 800;
+    }
+
+    .nav-cta::before, .btn-primary::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: 0;
+      background: linear-gradient(115deg, #b8ff6a, #65e6f7, #a88cff);
+      transition: opacity .25s ease;
+    }
+    .nav-cta:hover::before, .btn-primary:hover::before { opacity: 1; }
+    .nav-cta:hover, .btn:hover { transform: translateY(-2px); }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgba(255,255,255,.055);
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      margin: 5px auto;
+      background: #fff;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+    .menu-toggle.active span:first-child { transform: translateY(3.25px) rotate(45deg); }
+    .menu-toggle.active span:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+
+    .mobile-panel {
+      display: none;
+      position: fixed;
+      z-index: 90;
+      inset: 0;
+      padding: 112px 20px 24px;
+      background: rgba(7,7,11,.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+    .mobile-panel.active { display: block; }
+    .mobile-panel-inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.035);
+    }
+    .mobile-link {
+      padding: 17px 0;
+      border-bottom: 1px solid var(--line-soft);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: -.035em;
+    }
+    .mobile-panel .btn { margin-top: auto; }
+
+    /* Buttons */
+    .btn {
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 15px;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .btn-primary {
+      color: #09090d;
+      background: #f6f5f8;
+      box-shadow: 0 14px 36px rgba(255,255,255,.11);
+    }
+
+    .btn-secondary {
+      color: #f1f0f5;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.055);
+      backdrop-filter: blur(12px);
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.08); }
+
+    .btn svg { width: 17px; height: 17px; transition: transform .22s ease; }
+    .btn:hover svg { transform: translate(3px, -2px); }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      align-items: center;
+      min-height: 100svh;
+      padding: 150px 0 76px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(360px, .88fr);
+      align-items: center;
+      gap: 24px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 3;
+      max-width: 730px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding: 8px 12px 8px 9px;
+      color: #d9d7e2;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 999px;
+      background: rgba(255,255,255,.045);
+      box-shadow: inset 0 1px rgba(255,255,255,.05);
+      backdrop-filter: blur(12px);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .pulse-dot {
+      position: relative;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 12px rgba(184,255,106,.8);
+    }
+    .pulse-dot::after {
+      content: "";
+      position: absolute;
+      inset: -5px;
+      border: 1px solid rgba(184,255,106,.35);
+      border-radius: inherit;
+      animation: pulse 2.1s ease-out infinite;
+    }
+    @keyframes pulse { 70%, 100% { opacity: 0; transform: scale(1.9); } }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0;
+      font-family: "Space Grotesk", "Manrope", sans-serif;
+      font-size: clamp(3.2rem, 7vw, 6.65rem);
+      font-weight: 600;
+      line-height: .92;
+      letter-spacing: -.068em;
+    }
+
+    .hero h1 .line { display: block; overflow: hidden; padding-bottom: .08em; }
+    .hero h1 .line > span { display: block; }
+
+    .hero-description {
+      max-width: 620px;
+      margin: 25px 0 0;
+      color: #aaa8b5;
+      font-size: clamp(1rem, 1.35vw, 1.13rem);
+      line-height: 1.78;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 24px;
+      margin-top: 38px;
+      color: #85838f;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+    .hero-foot span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero-foot span::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: linear-gradient(135deg, var(--cyan), var(--violet)); box-shadow: 0 0 9px rgba(34,211,238,.55); }
+
+    .hero-stage {
+      position: relative;
+      min-height: 590px;
+      pointer-events: none;
+    }
+
+    .stage-halo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: min(38vw, 500px);
+      aspect-ratio: 1;
+      transform: translate(-45%, -50%);
+      border: 1px solid rgba(139, 92, 246, .12);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 45px rgba(255,255,255,.014),
+        0 0 0 90px rgba(255,255,255,.008),
+        0 0 120px rgba(109,93,252,.10);
+      opacity: .72;
+    }
+
+    .stage-label {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 172px;
+      padding: 13px 14px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 15px;
+      background: rgba(12,12,19,.58);
+      box-shadow: 0 18px 60px rgba(0,0,0,.25), inset 0 1px rgba(255,255,255,.045);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .stage-label.one { top: 18%; right: -2%; animation: float-a 5s ease-in-out infinite; }
+    .stage-label.two { bottom: 23%; left: 0; animation: float-b 6.2s ease-in-out infinite; }
+    .stage-label.three { right: 3%; bottom: 10%; animation: float-a 5.7s ease-in-out -1.8s infinite; }
+    .stage-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(139,92,246,.3), rgba(34,211,238,.18));
+      box-shadow: inset 0 1px rgba(255,255,255,.1);
+    }
+    .stage-icon svg { width: 16px; height: 16px; }
+    .stage-text small { display: block; color: #888692; font-size: .61rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .stage-text strong { display: block; margin-top: 4px; font-size: .78rem; }
+
+    @keyframes float-a { 50% { transform: translate3d(0,-10px,0); } }
+    @keyframes float-b { 50% { transform: translate3d(7px,9px,0); } }
+
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 27px;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      transform: translateX(-50%);
+      color: #777581;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 50%;
+      background: rgba(255,255,255,.025);
+    }
+    .scroll-cue svg { width: 16px; animation: scroll-cue 1.8s ease-in-out infinite; }
+    @keyframes scroll-cue { 50% { transform: translateY(4px); color: #fff; } }
+
+    /* Capability rail */
+    .capability-rail {
+      position: relative;
+      overflow: hidden;
+      border-block: 1px solid var(--line-soft);
+      background: rgba(255,255,255,.018);
+    }
+    .capability-track {
+      display: flex;
+      width: max-content;
+      padding: 18px 0;
+      animation: marquee 32s linear infinite;
+    }
+    .capability-group { display: flex; align-items: center; }
+    .capability-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-right: 44px;
+      color: #8d8b97;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .capability-item::after {
+      content: "✦";
+      color: rgba(184,255,106,.72);
+      font-size: .72rem;
+    }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* Intro / Bento */
+    .intro-section { padding-top: 150px; }
+    .intro-lead {
+      max-width: 1020px;
+      margin: 0 0 58px;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2.5rem, 5.35vw, 5.35rem);
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -.06em;
+    }
+    .intro-lead .muted { color: #55535e; }
+
+    .bento {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr .85fr;
+      grid-auto-rows: minmax(240px, auto);
+      gap: 16px;
+    }
+
+    .glass-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(255,255,255,.058), rgba(255,255,255,.022));
+      box-shadow: inset 0 1px rgba(255,255,255,.035), var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .glass-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(139,92,246,.14), transparent 35%);
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+    .glass-card:hover::after { opacity: 1; }
+
+    .bento-main {
+      grid-row: span 2;
+      min-height: 500px;
+      padding: 34px;
+    }
+    .bento-main .mini-label, .project-label {
+      color: #9e9ca8;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .bento-main h3 {
+      max-width: 440px;
+      margin: 18px 0 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      line-height: 1.02;
+      letter-spacing: -.05em;
+    }
+    .bento-main p { max-width: 470px; color: var(--muted); line-height: 1.75; }
+
+    .system-visual {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 30px;
+      height: 210px;
+    }
+    .system-ring {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 50%;
+      transform: translate(-50%,-50%);
+    }
+    .system-ring.r1 { width: 190px; height: 190px; animation: rotate 18s linear infinite; border-top-color: var(--cyan); }
+    .system-ring.r2 { width: 132px; height: 132px; animation: rotate 12s linear infinite reverse; border-right-color: var(--violet); }
+    .system-ring.r3 { width: 76px; height: 76px; border-color: rgba(184,255,106,.35); box-shadow: 0 0 50px rgba(139,92,246,.18); }
+    .system-core {
+      position: absolute;
+      left: 50%; top: 50%;
+      display: grid;
+      place-items: center;
+      width: 48px; height: 48px;
+      transform: translate(-50%,-50%) rotate(-8deg);
+      color: #09090d;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #fff, #9deff8 45%, #aa93ff 100%);
+      box-shadow: 0 0 38px rgba(34,211,238,.25);
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 800;
+    }
+    .system-node {
+      position: absolute;
+      display: grid;
+      place-items: center;
+      width: 36px; height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #111119;
+      box-shadow: 0 8px 30px rgba(0,0,0,.3);
+      font-size: .68rem;
+      font-weight: 800;
+    }
+    .system-node.n1 { left: 8%; top: 18%; }
+    .system-node.n2 { right: 7%; top: 24%; }
+    .system-node.n3 { left: 18%; bottom: 4%; }
+    .system-node.n4 { right: 20%; bottom: 2%; }
+    @keyframes rotate { to { transform: translate(-50%,-50%) rotate(360deg); } }
+
+    .bento-small { min-height: 240px; padding: 28px; }
+    .bento-small h3 { margin: 46px 0 10px; font-family: "Space Grotesk", sans-serif; font-size: 1.5rem; letter-spacing: -.035em; }
+    .bento-small p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+    .card-number { color: #74727e; font-family: "Space Grotesk", sans-serif; font-size: .74rem; font-weight: 800; }
+    .card-glyph {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      display: grid;
+      place-items: center;
+      width: 43px; height: 43px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: rgba(255,255,255,.045);
+    }
+    .card-glyph svg { width: 19px; }
+
+    .bento-wide {
+      grid-column: span 2;
+      min-height: 240px;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 75% 50%, rgba(109,93,252,.16), transparent 34%),
+        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+    }
+    .bento-wide h3 { max-width: 500px; margin: 64px 0 8px; font-family: "Space Grotesk", sans-serif; font-size: clamp(1.7rem, 3vw, 2.6rem); letter-spacing: -.045em; }
+    .bento-wide p { max-width: 520px; margin: 0; color: var(--muted); line-height: 1.7; }
+    .code-lines {
+      position: absolute;
+      top: 40px;
+      right: 32px;
+      width: 34%;
+      opacity: .72;
+    }
+    .code-line { height: 7px; margin: 12px 0; border-radius: 999px; background: linear-gradient(90deg, rgba(34,211,238,.65), rgba(139,92,246,.3)); transform-origin: left; animation: code-pulse 3.5s ease-in-out infinite; }
+    .code-line:nth-child(2) { width: 72%; animation-delay: -.6s; }
+    .code-line:nth-child(3) { width: 88%; animation-delay: -1.2s; }
+    .code-line:nth-child(4) { width: 54%; animation-delay: -1.8s; }
+    .code-line:nth-child(5) { width: 78%; animation-delay: -2.4s; }
+    @keyframes code-pulse { 50% { opacity: .28; transform: scaleX(.74); } }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 380px;
+      padding: 38px;
+      border-bottom: 1px solid var(--line);
+      transition: background .3s ease;
+    }
+    .service-card:nth-child(odd) { border-right: 1px solid var(--line); }
+    .service-card:hover { background: rgba(255,255,255,.025); }
+    .service-top { display: flex; align-items: center; justify-content: space-between; }
+    .service-index { color: #767480; font-family: "Space Grotesk", sans-serif; font-size: .78rem; font-weight: 700; }
+    .service-arrow {
+      display: grid;
+      place-items: center;
+      width: 42px; height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      transition: transform .3s ease, background .3s ease, color .3s ease;
+    }
+    .service-card:hover .service-arrow { transform: rotate(45deg); color: #08080c; background: var(--lime); }
+    .service-arrow svg { width: 17px; }
+    .service-icon {
+      display: grid;
+      place-items: center;
+      width: 66px; height: 66px;
+      margin-top: 54px;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(139,92,246,.18), rgba(34,211,238,.06));
+      box-shadow: inset 0 1px rgba(255,255,255,.08), 0 18px 45px rgba(0,0,0,.2);
+    }
+    .service-icon svg { width: 28px; }
+    .service-card h3 { margin: 26px 0 12px; font-family: "Space Grotesk", sans-serif; font-size: clamp(1.65rem, 2.6vw, 2.4rem); letter-spacing: -.045em; }
+    .service-card p { max-width: 490px; margin: 0; color: var(--muted); line-height: 1.75; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .service-tag { padding: 7px 10px; color: #96949f; border: 1px solid var(--line-soft); border-radius: 999px; font-size: .66rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+
+    /* Solutions showcase */
+    .solutions {
+      overflow: hidden;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.018), transparent);
+    }
+
+    .projects { display: grid; gap: 22px; }
+    .project {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      min-height: 570px;
+      border: 1px solid var(--line-soft);
+      border-radius: 28px;
+      background: #0b0b11;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .project:nth-child(even) { grid-template-columns: 1.22fr .78fr; }
+    .project:nth-child(even) .project-copy { order: 2; }
+    .project-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 42px;
+      border-right: 1px solid var(--line-soft);
+    }
+    .project:nth-child(even) .project-copy { border-right: 0; border-left: 1px solid var(--line-soft); }
+    .project-copy h3 { max-width: 420px; margin: 18px 0; font-family: "Space Grotesk", sans-serif; font-size: clamp(2.2rem, 4vw, 4.15rem); line-height: 1; letter-spacing: -.055em; }
+    .project-copy p { max-width: 440px; margin: 0; color: var(--muted); line-height: 1.75; }
+    .project-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .project-meta span { padding: 8px 10px; color: #aaa8b3; border: 1px solid var(--line-soft); border-radius: 999px; font-size: .67rem; font-weight: 800; }
+    .project-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 30px; font-size: .8rem; font-weight: 800; }
+    .project-link span { display: grid; place-items: center; width: 34px; height: 34px; color: #09090d; border-radius: 50%; background: #f5f4f7; transition: transform .2s ease, background .2s ease; }
+    .project-link:hover span { transform: translate(3px,-3px); background: var(--lime); }
+    .project-link svg { width: 14px; }
+
+    .project-visual {
+      position: relative;
+      overflow: hidden;
+      min-height: 570px;
+      background:
+        radial-gradient(circle at 60% 40%, rgba(109,93,252,.27), transparent 32%),
+        radial-gradient(circle at 25% 75%, rgba(34,211,238,.11), transparent 27%),
+        #0e0e16;
+    }
+    .project:nth-child(2) .project-visual {
+      background:
+        radial-gradient(circle at 40% 44%, rgba(34,211,238,.19), transparent 33%),
+        radial-gradient(circle at 72% 75%, rgba(184,255,106,.08), transparent 28%),
+        #0d1013;
+    }
+    .project:nth-child(3) .project-visual {
+      background:
+        radial-gradient(circle at 64% 36%, rgba(139,92,246,.22), transparent 32%),
+        radial-gradient(circle at 28% 72%, rgba(255,115,190,.08), transparent 28%),
+        #100d14;
+    }
+
+    .mock-window {
+      position: absolute;
+      left: 9%;
+      top: 10%;
+      width: 86%;
+      height: 80%;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 18px;
+      background: rgba(10,10,16,.72);
+      box-shadow: 0 40px 110px rgba(0,0,0,.48);
+      backdrop-filter: blur(18px);
+      transform: perspective(1200px) rotateY(-7deg) rotateX(2deg);
+      transition: transform .5s cubic-bezier(.2,.8,.2,1);
+    }
+    .project:nth-child(even) .mock-window { left: 6%; transform: perspective(1200px) rotateY(7deg) rotateX(2deg); }
+    .project:hover .mock-window { transform: perspective(1200px) rotateY(0) rotateX(0) translateY(-5px); }
+    .mock-bar { display: flex; align-items: center; gap: 6px; height: 43px; padding: 0 15px; border-bottom: 1px solid var(--line-soft); background: rgba(255,255,255,.025); }
+    .mock-dot { width: 7px; height: 7px; border-radius: 50%; background: #4d4b57; }
+    .mock-dot:nth-child(1) { background: #ff6b7a; }
+    .mock-dot:nth-child(2) { background: #ffd66b; }
+    .mock-dot:nth-child(3) { background: #85e68d; }
+    .mock-title { margin-left: 10px; color: #6f6d78; font-size: .62rem; font-weight: 700; }
+    .mock-body { display: grid; grid-template-columns: 68px 1fr; height: calc(100% - 43px); }
+    .mock-sidebar { border-right: 1px solid var(--line-soft); padding: 15px 12px; }
+    .mock-logo { width: 28px; height: 28px; margin: 0 auto 22px; border-radius: 9px; background: linear-gradient(135deg, var(--violet), var(--cyan)); box-shadow: 0 0 22px rgba(139,92,246,.3); }
+    .mock-nav-line { height: 6px; margin: 14px 0; border-radius: 99px; background: rgba(255,255,255,.08); }
+    .mock-content { padding: 22px; }
+    .mock-head { display: flex; justify-content: space-between; align-items: center; }
+    .mock-heading { width: 34%; height: 11px; border-radius: 99px; background: rgba(255,255,255,.15); }
+    .mock-chip { width: 74px; height: 24px; border-radius: 8px; background: rgba(139,92,246,.19); border: 1px solid rgba(139,92,246,.25); }
+    .metric-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 22px; }
+    .metric-card { min-height: 88px; padding: 13px; border: 1px solid var(--line-soft); border-radius: 12px; background: rgba(255,255,255,.03); }
+    .metric-card span { display: block; width: 44%; height: 6px; border-radius: 99px; background: rgba(255,255,255,.08); }
+    .metric-card strong { display: block; margin-top: 18px; color: #e6e4ea; font-family: "Space Grotesk", sans-serif; font-size: 1.35rem; }
+    .chart-card { position: relative; height: 210px; margin-top: 12px; overflow: hidden; border: 1px solid var(--line-soft); border-radius: 13px; background: rgba(255,255,255,.025); }
+    .chart-grid { position: absolute; inset: 0; opacity: .4; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 42px 42px; }
+    .chart-svg { position: absolute; inset: 20px 10px 10px; width: calc(100% - 20px); height: calc(100% - 30px); overflow: visible; }
+    .chart-path { fill: none; stroke: url(#chartGradient); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 9px rgba(34,211,238,.35)); stroke-dasharray: 700; stroke-dashoffset: 700; animation: chart-draw 3.2s ease-in-out infinite alternate; }
+    .chart-area { fill: url(#areaGradient); opacity: .25; }
+    @keyframes chart-draw { to { stroke-dashoffset: 0; } }
+
+    .commerce-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px; }
+    .product-card { min-height: 170px; padding: 12px; border: 1px solid var(--line-soft); border-radius: 13px; background: rgba(255,255,255,.025); }
+    .product-image { position: relative; height: 100px; overflow: hidden; border-radius: 9px; background: linear-gradient(135deg, rgba(34,211,238,.11), rgba(139,92,246,.18)); }
+    .product-orb { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; transform: translate(-50%,-50%); border-radius: 18px 26px 17px 27px; background: linear-gradient(135deg, #9af3ff, #8b5cf6 60%, #ff78c4); box-shadow: 0 0 35px rgba(139,92,246,.34); animation: morph 6s ease-in-out infinite; }
+    .product-card:nth-child(2) .product-orb { border-radius: 50%; background: linear-gradient(135deg, #c9ff86, #22d3ee 60%, #6d5dfc); animation-delay: -1.5s; }
+    .product-card:nth-child(3) .product-orb { transform: translate(-50%,-50%) rotate(45deg); border-radius: 12px; background: linear-gradient(135deg, #fff, #8b5cf6); animation-delay: -3s; }
+    .product-card:nth-child(4) .product-orb { border-radius: 50% 20% 50% 20%; background: linear-gradient(135deg, #ff96ce, #8b5cf6 55%, #22d3ee); animation-delay: -4.5s; }
+    @keyframes morph { 50% { transform: translate(-50%,-50%) rotate(35deg) scale(.9); border-radius: 50%; } }
+    .product-lines { margin-top: 12px; }
+    .product-lines span { display:block; height: 6px; margin-top: 7px; border-radius: 99px; background: rgba(255,255,255,.09); }
+    .product-lines span:last-child { width: 55%; background: rgba(184,255,106,.22); }
+
+    .ai-grid { display: grid; grid-template-columns: 1fr .7fr; height: calc(100% - 43px); gap: 12px; padding: 18px; }
+    .ai-panel { position: relative; overflow: hidden; border: 1px solid var(--line-soft); border-radius: 13px; background: rgba(255,255,255,.025); }
+    .ai-panel-title { height: 8px; width: 34%; margin: 15px; border-radius: 99px; background: rgba(255,255,255,.12); }
+    .bars { display: flex; align-items: flex-end; gap: 7px; height: 180px; padding: 20px; }
+    .bar { flex: 1; min-width: 8px; border-radius: 7px 7px 2px 2px; background: linear-gradient(180deg, rgba(34,211,238,.85), rgba(139,92,246,.25)); transform-origin: bottom; animation: bar-dance 2.8s ease-in-out infinite alternate; }
+    .bar:nth-child(1) { height: 36%; animation-delay: -.2s; }
+    .bar:nth-child(2) { height: 68%; animation-delay: -.7s; }
+    .bar:nth-child(3) { height: 48%; animation-delay: -1.2s; }
+    .bar:nth-child(4) { height: 88%; animation-delay: -1.7s; }
+    .bar:nth-child(5) { height: 63%; animation-delay: -2.2s; }
+    .bar:nth-child(6) { height: 78%; animation-delay: -2.7s; }
+    @keyframes bar-dance { 50% { transform: scaleY(.72); filter: brightness(1.25); } }
+    .score-list { padding: 12px; }
+    .score-item { margin: 14px 0; }
+    .score-label { display: flex; justify-content: space-between; color: #8e8c98; font-size: .58rem; font-weight: 800; }
+    .score-track { height: 5px; margin-top: 7px; overflow: hidden; border-radius: 99px; background: rgba(255,255,255,.07); }
+    .score-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--violet), var(--cyan)); animation: score 3s ease-in-out infinite alternate; transform-origin: left; }
+    .score-item:nth-child(2) .score-fill { width: 84%; animation-delay: -.8s; }
+    .score-item:nth-child(3) .score-fill { width: 67%; animation-delay: -1.6s; }
+    .score-item:nth-child(4) .score-fill { width: 91%; animation-delay: -2.4s; }
+    @keyframes score { 50% { transform: scaleX(.82); } }
+
+    /* Process */
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+    .process-step { position: relative; min-height: 330px; padding: 30px 24px 20px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); }
+    .process-step:last-child { border-right: 0; }
+    .process-number { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; color: #0a0a0e; border-radius: 10px; background: linear-gradient(135deg,#fff,#a3eefa); font-family: "Space Grotesk", sans-serif; font-size: .72rem; font-weight: 800; }
+    .process-step h3 { margin: 90px 0 12px; font-family: "Space Grotesk", sans-serif; font-size: 1.45rem; letter-spacing: -.035em; }
+    .process-step p { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.7; }
+    .process-line { position: absolute; left: 24px; right: 24px; top: 76px; height: 1px; overflow: hidden; background: var(--line-soft); }
+    .process-line::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent, var(--cyan), var(--violet), transparent); transition: transform .8s ease; }
+    .process-step:hover .process-line::after { transform: translateX(100%); }
+
+    /* Tech */
+    .tech-section { padding: 80px 0 140px; }
+    .tech-box {
+      padding: 58px 0;
+      overflow: hidden;
+      border: 1px solid var(--line-soft);
+      border-radius: 28px;
+      background: radial-gradient(circle at 50% 0%, rgba(139,92,246,.11), transparent 35%), rgba(255,255,255,.02);
+    }
+    .tech-title { margin: 0 0 40px; text-align: center; color: #8c8a96; font-size: .72rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .tech-row { position: relative; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+    .tech-track { display: flex; width: max-content; animation: tech-marquee 26s linear infinite; }
+    .tech-group { display: flex; align-items: center; }
+    .tech-item { display: flex; align-items: center; gap: 10px; padding: 0 30px; color: #d5d3dc; font-family: "Space Grotesk", sans-serif; font-size: 1.15rem; font-weight: 600; white-space: nowrap; }
+    .tech-symbol { display: grid; place-items: center; width: 32px; height: 32px; color: #a8f4ff; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,255,255,.04); font-size: .7rem; font-weight: 800; }
+    @keyframes tech-marquee { to { transform: translateX(-50%); } }
+
+    /* CTA */
+    .cta-section { padding: 40px 0 90px; }
+    .cta-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 580px;
+      padding: 72px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 75% 28%, rgba(34,211,238,.18), transparent 24%),
+        radial-gradient(circle at 78% 72%, rgba(139,92,246,.25), transparent 27%),
+        linear-gradient(135deg, #11111a, #0b0b11 60%);
+      box-shadow: 0 50px 140px rgba(0,0,0,.5), inset 0 1px rgba(255,255,255,.06);
+    }
+    .cta-content { position: relative; z-index: 2; max-width: 810px; }
+    .cta-card h2 { margin: 0; font-family: "Space Grotesk", sans-serif; font-size: clamp(3rem, 7vw, 6.8rem); line-height: .92; letter-spacing: -.068em; }
+    .cta-card p { max-width: 560px; margin: 26px 0 0; color: #aaa8b4; font-size: 1.05rem; line-height: 1.8; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .cta-orbit { position: absolute; right: -70px; bottom: -160px; width: 540px; height: 540px; border: 1px solid rgba(255,255,255,.08); border-radius: 50%; box-shadow: 0 0 0 55px rgba(255,255,255,.018), 0 0 0 110px rgba(255,255,255,.012); }
+    .cta-orbit::before { content: ""; position: absolute; inset: 22%; border: 1px solid rgba(34,211,238,.22); border-radius: 44% 56% 52% 48%; animation: rotate-simple 12s linear infinite; }
+    .cta-orbit::after { content: "TT"; position: absolute; left: 50%; top: 50%; display: grid; place-items: center; width: 110px; height: 110px; transform: translate(-50%,-50%) rotate(-9deg); color: #09090d; border-radius: 30px; background: linear-gradient(135deg,#fff,#88e7f4 50%,#a584ff); box-shadow: 0 0 90px rgba(109,93,252,.35); font-family: "Space Grotesk", sans-serif; font-size: 2rem; font-weight: 800; letter-spacing: -.12em; }
+    @keyframes rotate-simple { to { transform: rotate(360deg); } }
+
+    /* Footer */
+    footer { padding: 32px 0 40px; }
+    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 40px; padding: 42px 0; border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+    .footer-brand { max-width: 340px; }
+    .footer-brand p { margin: 20px 0 0; color: #85838f; font-size: .86rem; line-height: 1.7; }
+    .footer-links { display: grid; grid-template-columns: repeat(2, minmax(140px, 1fr)); gap: 60px; }
+    .footer-column h4 { margin: 0 0 16px; color: #777580; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; }
+    .footer-column a { display: block; margin: 11px 0; color: #b8b6c0; font-size: .84rem; transition: color .2s ease; }
+    .footer-column a:hover { color: #fff; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 24px; color: #6f6d78; font-size: .72rem; }
+    .back-top { display: inline-flex; align-items: center; gap: 8px; color: #aaa8b2; font-weight: 700; }
+    .back-top svg { width: 14px; }
+
+    .reveal { opacity: 0; transform: translateY(32px); }
+
+    @media (max-width: 1050px) {
+      .hero-grid { grid-template-columns: 1fr .72fr; }
+      .hero-stage { min-height: 520px; }
+      .stage-label.one { right: -10px; }
+      .stage-label.two { left: -25px; }
+      .bento { grid-template-columns: 1fr 1fr; }
+      .bento-main { grid-row: span 2; }
+      .bento-wide { grid-column: span 1; }
+      .code-lines { width: 42%; opacity: .5; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-step:nth-child(2) { border-right: 0; }
+      .process-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    }
+
+    @media (max-width: 860px) {
+      .section { padding: 92px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .menu-toggle { display: block; }
+      .section-heading { grid-template-columns: 1fr; gap: 22px; }
+      .hero { min-height: auto; padding: 148px 0 80px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-copy { max-width: 700px; }
+      .hero-stage { min-height: 450px; margin-top: -30px; }
+      .stage-halo { width: 410px; transform: translate(-50%, -50%); }
+      .stage-label.one { top: 15%; right: 3%; }
+      .stage-label.two { left: 2%; bottom: 18%; }
+      .stage-label.three { right: 7%; bottom: 2%; }
+      .scroll-cue { display: none; }
+      .intro-section { padding-top: 110px; }
+      .bento { grid-template-columns: 1fr 1fr; }
+      .bento-main { grid-column: span 2; min-height: 520px; }
+      .bento-wide { grid-column: span 2; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card:nth-child(odd) { border-right: 0; }
+      .project, .project:nth-child(even) { grid-template-columns: 1fr; }
+      .project-copy, .project:nth-child(even) .project-copy { order: 0; border: 0; border-bottom: 1px solid var(--line-soft); }
+      .project-visual { min-height: 510px; }
+      .cta-card { padding: 52px 38px; }
+      .cta-orbit { opacity: .55; right: -200px; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(calc(100% - 28px), var(--container)); }
+      .nav-wrap { top: 10px; }
+      .nav { min-height: 61px; padding-left: 12px; border-radius: 17px; }
+      .brand-mark { width: 36px; height: 36px; }
+      .brand-name { font-size: .92rem; }
+      .brand-sub { font-size: .52rem; }
+      .mobile-panel { padding: 86px 14px 14px; }
+      .hero { padding-top: 126px; }
+      .hero h1 { font-size: clamp(3.05rem, 15vw, 4.7rem); }
+      .hero-description { font-size: .96rem; }
+      .hero-actions { align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+      .hero-foot { gap: 8px 16px; }
+      .hero-stage { min-height: 370px; margin-top: -22px; }
+      .stage-halo { width: 310px; }
+      .stage-label { min-width: 150px; padding: 10px; }
+      .stage-label.one { top: 12%; right: -8px; }
+      .stage-label.two { left: -7px; bottom: 14%; }
+      .stage-label.three { display: none; }
+      .intro-lead { font-size: clamp(2.45rem, 12vw, 4rem); }
+      .bento { grid-template-columns: 1fr; }
+      .bento-main, .bento-wide { grid-column: auto; }
+      .bento-main { min-height: 560px; padding: 26px; }
+      .system-visual { left: 20px; right: 20px; }
+      .bento-small, .bento-wide { min-height: 235px; padding: 24px; }
+      .bento-wide h3 { margin-top: 88px; }
+      .code-lines { top: 26px; right: 24px; width: 62%; }
+      .service-card { min-height: 350px; padding: 28px 22px; }
+      .service-icon { margin-top: 44px; }
+      .project-copy { padding: 30px 24px; }
+      .project-copy h3 { font-size: 2.65rem; }
+      .project-visual { min-height: 390px; }
+      .mock-window, .project:nth-child(even) .mock-window { left: 3%; top: 8%; width: 94%; height: 84%; transform: none; }
+      .metric-row { gap: 5px; }
+      .metric-card { padding: 9px; }
+      .metric-card strong { font-size: .95rem; }
+      .chart-card { height: 160px; }
+      .commerce-grid { gap: 7px; padding: 10px; }
+      .product-card { min-height: 140px; padding: 8px; }
+      .product-image { height: 80px; }
+      .ai-grid { grid-template-columns: 1fr; overflow: hidden; }
+      .ai-panel:last-child { display: none; }
+      .process-grid { grid-template-columns: 1fr; }
+      .process-step, .process-step:nth-child(2) { border-right: 0; }
+      .process-step { min-height: 285px; }
+      .process-step h3 { margin-top: 72px; }
+      .tech-box { padding: 45px 0; border-radius: 22px; }
+      .tech-item { padding: 0 22px; }
+      .cta-card { min-height: 610px; padding: 38px 24px; border-radius: 26px; }
+      .cta-actions .btn { width: 100%; }
+      .cta-orbit { right: -230px; bottom: -190px; }
+      .footer-top { flex-direction: column; }
+      .footer-links { width: 100%; gap: 28px; }
+      .footer-bottom { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+      .cursor-glow { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <canvas id="webgl" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <div class="site-shell">
+    <header class="nav-wrap">
+      <nav class="nav container" aria-label="Điều hướng chính">
+        <a class="brand" href="#home" aria-label="TTSoft - Trang chủ">
+          <span class="brand-mark">TT</span>
+          <span class="brand-copy">
+            <span class="brand-name">TTSoft</span>
+            <span class="brand-sub">Giải pháp phần mềm Ting Ting</span>
+          </span>
+        </a>
+
+        <div class="nav-links">
+          <a class="nav-link" href="#about">Về chúng tôi</a>
+          <a class="nav-link" href="#services">Dịch vụ</a>
+          <a class="nav-link" href="#solutions">Giải pháp</a>
+          <a class="nav-link" href="#process">Quy trình</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="nav-cta magnetic" href="#contact">Trao đổi dự án</a>
+          <button class="menu-toggle" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span></span><span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <div class="mobile-panel" id="mobile-menu" aria-hidden="true">
+      <div class="mobile-panel-inner">
+        <a class="mobile-link" href="#about">Về chúng tôi</a>
+        <a class="mobile-link" href="#services">Dịch vụ</a>
+        <a class="mobile-link" href="#solutions">Giải pháp</a>
+        <a class="mobile-link" href="#process">Quy trình</a>
+        <a class="btn btn-primary" href="#contact">Bắt đầu dự án</a>
+      </div>
+    </div>
+
+    <main id="main-content">
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <div class="hero-badge hero-reveal"><span class="pulse-dot"></span> Đối tác công nghệ cho doanh nghiệp hiện đại</div>
+            <h1 aria-label="Biến quy trình phức tạp thành phần mềm tinh gọn">
+              <span class="line"><span>Biến quy trình</span></span>
+              <span class="line"><span>phức tạp thành</span></span>
+              <span class="line"><span class="gradient-text">phần mềm tinh gọn.</span></span>
+            </h1>
+            <p class="hero-description hero-reveal">
+              TTSoft thiết kế và phát triển sản phẩm số có hiệu năng cao — từ hệ thống vận hành, nền tảng web đến dữ liệu và AI — để doanh nghiệp tăng tốc bền vững.
+            </p>
+            <div class="hero-actions hero-reveal">
+              <a class="btn btn-primary magnetic" href="#contact">
+                Khởi động dự án
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a class="btn btn-secondary" href="#solutions">
+                Khám phá năng lực
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </div>
+            <div class="hero-foot hero-reveal" aria-label="Năng lực chính">
+              <span>Web &amp; Mobile</span><span>Automation</span><span>Cloud &amp; AI</span>
+            </div>
+          </div>
+
+          <div class="hero-stage" aria-hidden="true">
+            <div class="stage-halo"></div>
+            <div class="stage-label one">
+              <span class="stage-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg>
+              </span>
+              <span class="stage-text"><small>Data layer</small><strong>Insight-ready</strong></span>
+            </div>
+            <div class="stage-label two">
+              <span class="stage-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="7"/></svg>
+              </span>
+              <span class="stage-text"><small>Architecture</small><strong>Scale by design</strong></span>
+            </div>
+            <div class="stage-label three">
+              <span class="stage-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z"/></svg>
+              </span>
+              <span class="stage-text"><small>Experience</small><strong>Crafted with care</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <a class="scroll-cue" href="#about" aria-label="Cuộn xuống">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+      </section>
+
+      <div class="capability-rail" aria-label="Các năng lực của TTSoft">
+        <div class="capability-track">
+          <div class="capability-group">
+            <span class="capability-item">Product strategy</span><span class="capability-item">UX / UI design</span><span class="capability-item">Web applications</span><span class="capability-item">Mobile platforms</span><span class="capability-item">Cloud architecture</span><span class="capability-item">Data &amp; AI</span>
+          </div>
+          <div class="capability-group" aria-hidden="true">
+            <span class="capability-item">Product strategy</span><span class="capability-item">UX / UI design</span><span class="capability-item">Web applications</span><span class="capability-item">Mobile platforms</span><span class="capability-item">Cloud architecture</span><span class="capability-item">Data &amp; AI</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="section intro-section" id="about">
+        <div class="container">
+          <p class="eyebrow reveal">Cách TTSoft tạo khác biệt</p>
+          <h2 class="intro-lead reveal">
+            Không chỉ viết code. <span class="muted">Chúng tôi kiến tạo đòn bẩy vận hành cho doanh nghiệp.</span>
+          </h2>
+
+          <div class="bento">
+            <article class="glass-card bento-main reveal">
+              <span class="mini-label">Một hệ sinh thái — Một đối tác</span>
+              <h3>Từ ý tưởng đến sản phẩm vận hành thực tế.</h3>
+              <p>Chiến lược, trải nghiệm, kỹ thuật và tối ưu sau triển khai được kết nối trong một quy trình thống nhất.</p>
+              <div class="system-visual" aria-hidden="true">
+                <div class="system-ring r1"></div><div class="system-ring r2"></div><div class="system-ring r3"></div>
+                <div class="system-core">TT</div>
+                <div class="system-node n1">UX</div><div class="system-node n2">API</div><div class="system-node n3">AI</div><div class="system-node n4">DB</div>
+              </div>
+            </article>
+
+            <article class="glass-card bento-small reveal">
+              <span class="card-number">01 / TINH GỌN</span>
+              <span class="card-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M7 12h10M10 18h4"/></svg></span>
+              <h3>Đúng bài toán</h3>
+              <p>Bắt đầu từ quy trình và mục tiêu kinh doanh, không bắt đầu từ công nghệ.</p>
+            </article>
+
+            <article class="glass-card bento-small reveal">
+              <span class="card-number">02 / MỞ RỘNG</span>
+              <span class="card-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/><path d="M5 12v7h7"/></svg></span>
+              <h3>Kiến trúc dài hạn</h3>
+              <p>Module hoá, bảo mật và sẵn sàng tăng trưởng khi nhu cầu thay đổi.</p>
+            </article>
+
+            <article class="glass-card bento-wide reveal">
+              <span class="card-number">03 / MINH BẠCH</span>
+              <div class="code-lines" aria-hidden="true"><div class="code-line"></div><div class="code-line"></div><div class="code-line"></div><div class="code-line"></div><div class="code-line"></div></div>
+              <h3>Tiến độ rõ ràng. Chất lượng có thể kiểm chứng.</h3>
+              <p>Mỗi sprint đều có đầu ra, tiêu chí nghiệm thu và dữ liệu để cùng ra quyết định.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow reveal">Dịch vụ cốt lõi</p>
+              <h2 class="section-title reveal">Năng lực số cho mọi giai đoạn tăng trưởng.</h2>
+            </div>
+            <p class="section-copy reveal">Từ một MVP cần ra mắt nhanh đến hệ thống doanh nghiệp cần tái cấu trúc, TTSoft chọn đúng phương pháp và nền tảng cho từng bối cảnh.</p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card reveal">
+              <div class="service-top"><span class="service-index">01</span><span class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 15h3M15 15h1"/></svg></div>
+              <h3>Phần mềm theo yêu cầu</h3>
+              <p>Web app, mobile app, cổng nội bộ và nền tảng nghiệp vụ được thiết kế sát quy trình riêng.</p>
+              <div class="service-tags"><span class="service-tag">Web app</span><span class="service-tag">Mobile</span><span class="service-tag">SaaS</span></div>
+            </article>
+
+            <article class="service-card reveal">
+              <div class="service-top"><span class="service-index">02</span><span class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 6h8M6 10h12M4 14h16M8 18h8"/><circle cx="4" cy="6" r="1"/><circle cx="20" cy="18" r="1"/></svg></div>
+              <h3>Tự động hoá &amp; tích hợp</h3>
+              <p>Kết nối hệ thống, đồng bộ dữ liệu và loại bỏ thao tác lặp để đội ngũ tập trung vào việc có giá trị.</p>
+              <div class="service-tags"><span class="service-tag">API</span><span class="service-tag">Workflow</span><span class="service-tag">ERP / CRM</span></div>
+            </article>
+
+            <article class="service-card reveal">
+              <div class="service-top"><span class="service-index">03</span><span class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 18V9M10 18V5M15 18v-6M20 18V3"/><path d="M3 21h19"/></svg></div>
+              <h3>Dữ liệu &amp; AI</h3>
+              <p>Dashboard, kho dữ liệu, trợ lý AI và mô hình dự báo biến dữ liệu rời rạc thành quyết định nhanh hơn.</p>
+              <div class="service-tags"><span class="service-tag">Analytics</span><span class="service-tag">GenAI</span><span class="service-tag">Data platform</span></div>
+            </article>
+
+            <article class="service-card reveal">
+              <div class="service-top"><span class="service-index">04</span><span class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 18a4 4 0 0 1-.4-8A6 6 0 0 1 18 8a5 5 0 0 1 0 10H7Z"/><path d="m9 14 3-3 3 3M12 11v9"/></svg></div>
+              <h3>Cloud &amp; hiện đại hoá</h3>
+              <p>Tối ưu kiến trúc, hiệu năng, bảo mật và khả năng triển khai để hệ thống vận hành ổn định ở quy mô lớn.</p>
+              <div class="service-tags"><span class="service-tag">Cloud</span><span class="service-tag">DevOps</span><span class="service-tag">Modernization</span></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section solutions" id="solutions">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow reveal">Năng lực giải pháp</p>
+              <h2 class="section-title reveal">Sản phẩm số đẹp ở giao diện, mạnh ở lõi.</h2>
+            </div>
+            <p class="section-copy reveal">Ba hướng giải pháp tiêu biểu có thể được tuỳ biến theo mô hình, dữ liệu và hệ thống hiện hữu của doanh nghiệp.</p>
+          </div>
+
+          <div class="projects">
+            <article class="project reveal">
+              <div class="project-copy">
+                <div>
+                  <span class="project-label">Operations platform</span>
+                  <h3>TT Operations Hub</h3>
+                  <p>Không gian vận hành hợp nhất giúp theo dõi công việc, chỉ số và luồng phê duyệt theo thời gian thực.</p>
+                  <div class="project-meta"><span>Dashboard</span><span>Workflow</span><span>Role-based access</span></div>
+                </div>
+                <a class="project-link" href="#contact">Xây giải pháp tương tự <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+              </div>
+              <div class="project-visual" aria-hidden="true">
+                <div class="mock-window">
+                  <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-title">TT OPERATIONS / OVERVIEW</span></div>
+                  <div class="mock-body">
+                    <div class="mock-sidebar"><div class="mock-logo"></div><div class="mock-nav-line"></div><div class="mock-nav-line"></div><div class="mock-nav-line"></div><div class="mock-nav-line"></div></div>
+                    <div class="mock-content">
+                      <div class="mock-head"><div class="mock-heading"></div><div class="mock-chip"></div></div>
+                      <div class="metric-row"><div class="metric-card"><span></span><strong>24</strong></div><div class="metric-card"><span></span><strong>86%</strong></div><div class="metric-card"><span></span><strong>1.8k</strong></div></div>
+                      <div class="chart-card"><div class="chart-grid"></div><svg class="chart-svg" viewBox="0 0 600 180" preserveAspectRatio="none"><defs><linearGradient id="chartGradient"><stop offset="0%" stop-color="#8b5cf6"/><stop offset="55%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#b8ff6a"/></linearGradient><linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/></linearGradient></defs><path class="chart-area" d="M0 150 C70 138 85 105 135 118 S215 55 270 82 S350 28 410 61 S510 25 600 18 L600 180 L0 180 Z"/><path class="chart-path" d="M0 150 C70 138 85 105 135 118 S215 55 270 82 S350 28 410 61 S510 25 600 18"/></svg></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-copy">
+                <div>
+                  <span class="project-label">Digital commerce</span>
+                  <h3>Smart Commerce</h3>
+                  <p>Trải nghiệm bán hàng đa kênh nhanh, liền mạch và kết nối trực tiếp với kho, đơn hàng, khách hàng.</p>
+                  <div class="project-meta"><span>Headless</span><span>Omnichannel</span><span>Personalization</span></div>
+                </div>
+                <a class="project-link" href="#contact">Xây giải pháp tương tự <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+              </div>
+              <div class="project-visual" aria-hidden="true">
+                <div class="mock-window">
+                  <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-title">SMART COMMERCE / COLLECTION</span></div>
+                  <div class="commerce-grid">
+                    <div class="product-card"><div class="product-image"><div class="product-orb"></div></div><div class="product-lines"><span></span><span></span></div></div>
+                    <div class="product-card"><div class="product-image"><div class="product-orb"></div></div><div class="product-lines"><span></span><span></span></div></div>
+                    <div class="product-card"><div class="product-image"><div class="product-orb"></div></div><div class="product-lines"><span></span><span></span></div></div>
+                    <div class="product-card"><div class="product-image"><div class="product-orb"></div></div><div class="product-lines"><span></span><span></span></div></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project reveal">
+              <div class="project-copy">
+                <div>
+                  <span class="project-label">Intelligence layer</span>
+                  <h3>Insight Engine</h3>
+                  <p>Lớp dữ liệu và AI tổng hợp tín hiệu kinh doanh, phát hiện bất thường và đề xuất hành động tiếp theo.</p>
+                  <div class="project-meta"><span>Data warehouse</span><span>AI assistant</span><span>Forecasting</span></div>
+                </div>
+                <a class="project-link" href="#contact">Xây giải pháp tương tự <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+              </div>
+              <div class="project-visual" aria-hidden="true">
+                <div class="mock-window">
+                  <div class="mock-bar"><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-title">INSIGHT ENGINE / SIGNALS</span></div>
+                  <div class="ai-grid">
+                    <div class="ai-panel"><div class="ai-panel-title"></div><div class="bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></div>
+                    <div class="ai-panel"><div class="ai-panel-title"></div><div class="score-list"><div class="score-item"><div class="score-label"><span>Growth</span><span>78%</span></div><div class="score-track"><div class="score-fill" style="width:78%"></div></div></div><div class="score-item"><div class="score-label"><span>Quality</span><span>84%</span></div><div class="score-track"><div class="score-fill"></div></div></div><div class="score-item"><div class="score-label"><span>Velocity</span><span>67%</span></div><div class="score-track"><div class="score-fill"></div></div></div><div class="score-item"><div class="score-label"><span>Signal</span><span>91%</span></div><div class="score-track"><div class="score-fill"></div></div></div></div></div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow reveal">Quy trình hợp tác</p>
+              <h2 class="section-title reveal">Nhanh để tạo đà. Chặt để đi xa.</h2>
+            </div>
+            <p class="section-copy reveal">Một quy trình bốn bước giúp giảm rủi ro, tạo phản hồi sớm và giữ mọi quyết định gắn với hiệu quả kinh doanh.</p>
+          </div>
+
+          <div class="process-grid">
+            <article class="process-step reveal"><span class="process-number">01</span><div class="process-line"></div><h3>Khám phá</h3><p>Làm rõ vấn đề, người dùng, dữ liệu, ràng buộc và định nghĩa kết quả cần đạt.</p></article>
+            <article class="process-step reveal"><span class="process-number">02</span><div class="process-line"></div><h3>Thiết kế</h3><p>Xây kiến trúc, luồng trải nghiệm và prototype để kiểm chứng trước khi đầu tư sâu.</p></article>
+            <article class="process-step reveal"><span class="process-number">03</span><div class="process-line"></div><h3>Phát triển</h3><p>Triển khai theo sprint, kiểm thử liên tục và demo đầu ra có thể sử dụng được.</p></article>
+            <article class="process-step reveal"><span class="process-number">04</span><div class="process-line"></div><h3>Mở rộng</h3><p>Đo lường, tối ưu, vận hành và phát triển thêm module theo nhu cầu thực tế.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tech-section">
+        <div class="container">
+          <div class="tech-box reveal">
+            <p class="tech-title">Công nghệ hiện đại, lựa chọn theo đúng bài toán</p>
+            <div class="tech-row">
+              <div class="tech-track">
+                <div class="tech-group">
+                  <span class="tech-item"><span class="tech-symbol">3D</span>Three.js</span><span class="tech-item"><span class="tech-symbol">TS</span>TypeScript</span><span class="tech-item"><span class="tech-symbol">R</span>React</span><span class="tech-item"><span class="tech-symbol">N</span>Node.js</span><span class="tech-item"><span class="tech-symbol">PG</span>PostgreSQL</span><span class="tech-item"><span class="tech-symbol">D</span>Docker</span><span class="tech-item"><span class="tech-symbol">☁</span>Cloud</span>
+                </div>
+                <div class="tech-group" aria-hidden="true">
+                  <span class="tech-item"><span class="tech-symbol">3D</span>Three.js</span><span class="tech-item"><span class="tech-symbol">TS</span>TypeScript</span><span class="tech-item"><span class="tech-symbol">R</span>React</span><span class="tech-item"><span class="tech-symbol">N</span>Node.js</span><span class="tech-item"><span class="tech-symbol">PG</span>PostgreSQL</span><span class="tech-item"><span class="tech-symbol">D</span>Docker</span><span class="tech-item"><span class="tech-symbol">☁</span>Cloud</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section" id="contact">
+        <div class="container">
+          <div class="cta-card reveal">
+            <div class="cta-content">
+              <p class="eyebrow">Bắt đầu từ một cuộc trò chuyện</p>
+              <h2>Ý tưởng tốt cần một <span class="gradient-text">đội ngũ đúng.</span></h2>
+              <p>Chia sẻ bài toán của bạn. TTSoft sẽ cùng xác định phạm vi, hướng tiếp cận và bước đi khả thi đầu tiên.</p>
+              <div class="cta-actions">
+                <!-- Thay email bên dưới bằng email thật của TTSoft -->
+                <a class="btn btn-primary magnetic" href="mailto:hello@ttsoft.vn?subject=Trao%20đổi%20dự%20án%20với%20TTSoft">Gửi yêu cầu dự án <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a class="btn btn-secondary" href="#services">Xem lại dịch vụ</a>
+              </div>
+            </div>
+            <div class="cta-orbit" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="brand" href="#home"><span class="brand-mark">TT</span><span class="brand-copy"><span class="brand-name">TTSoft</span><span class="brand-sub">Giải pháp phần mềm Ting Ting</span></span></a>
+            <p>Thiết kế và phát triển phần mềm giúp doanh nghiệp vận hành tinh gọn, thích ứng nhanh và tăng trưởng bền vững.</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column"><h4>Điều hướng</h4><a href="#about">Về TTSoft</a><a href="#services">Dịch vụ</a><a href="#solutions">Giải pháp</a><a href="#process">Quy trình</a></div>
+            <div class="footer-column"><h4>Liên hệ</h4><a href="mailto:hello@ttsoft.vn">hello@ttsoft.vn</a><a href="#contact">Đặt lịch trao đổi</a><a href="#home">LinkedIn</a></div>
+          </div>
+        </div>
+        <div class="footer-bottom"><span>© <span id="year"></span> TTSoft. All rights reserved.</span><a class="back-top" href="#home">Về đầu trang <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 15 6-6 6 6"/></svg></a></div>
+      </div>
+    </footer>
+  </div>
+
+  <noscript>Trang này cần JavaScript để hiển thị hiệu ứng 3D và chuyển động.</noscript>
+
+  <script>
+    // Safety fallback: reveal content even if a CDN module is unavailable.
+    window.__ttsoftRevealFallback = setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach((element) => {
+        element.style.opacity = '1';
+        element.style.transform = 'none';
+      });
+    }, 2800);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.184.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.184.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+    import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+    const gsap = window.gsap;
+    const ScrollTrigger = window.ScrollTrigger;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    const canvas = document.querySelector('#webgl');
+    clearTimeout(window.__ttsoftRevealFallback);
+
+    // -------------------------------
+    // Three.js ambient brand sculpture
+    // -------------------------------
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+    } catch (error) {
+      console.warn('WebGL không khả dụng; trang vẫn hoạt động với giao diện CSS.', error);
+      canvas.style.display = 'none';
+    }
+
+    if (renderer) {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(38, innerWidth / innerHeight, 0.1, 100);
+      camera.position.set(0, 0, 9.2);
+
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isTouch ? 1.35 : 1.8));
+      renderer.setSize(innerWidth, innerHeight);
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.05;
+
+      const composer = new EffectComposer(renderer);
+      composer.addPass(new RenderPass(scene, camera));
+      const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), isTouch ? 0.48 : 0.72, 0.62, 0.16);
+      composer.addPass(bloom);
+      composer.addPass(new OutputPass());
+
+      const root = new THREE.Group();
+      const sculpture = new THREE.Group();
+      root.add(sculpture);
+      scene.add(root);
+
+      const coreGeometry = new THREE.IcosahedronGeometry(1.42, isTouch ? 3 : 4);
+      const coreMaterial = new THREE.MeshPhysicalMaterial({
+        color: 0x735cff,
+        emissive: 0x160c45,
+        emissiveIntensity: 0.85,
+        metalness: 0.42,
+        roughness: 0.22,
+        clearcoat: 1,
+        clearcoatRoughness: 0.18,
+        iridescence: 0.75,
+        iridescenceIOR: 1.35,
+        sheen: 0.65,
+        sheenColor: new THREE.Color(0x22d3ee)
+      });
+      const core = new THREE.Mesh(coreGeometry, coreMaterial);
+      sculpture.add(core);
+
+      const wire = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(1.62, 2),
+        new THREE.MeshBasicMaterial({ color: 0xbcaeff, wireframe: true, transparent: true, opacity: 0.17, blending: THREE.AdditiveBlending })
+      );
+      wire.rotation.set(0.2, -0.3, 0.1);
+      sculpture.add(wire);
+
+      // Dotted shell
+      const shellCount = isTouch ? 550 : 1000;
+      const shellPositions = new Float32Array(shellCount * 3);
+      for (let i = 0; i < shellCount; i++) {
+        const y = 1 - (i / (shellCount - 1)) * 2;
+        const radius = Math.sqrt(1 - y * y);
+        const theta = Math.PI * (3 - Math.sqrt(5)) * i;
+        const spread = 2.08 + Math.sin(i * 0.91) * 0.07;
+        shellPositions[i * 3] = Math.cos(theta) * radius * spread;
+        shellPositions[i * 3 + 1] = y * spread;
+        shellPositions[i * 3 + 2] = Math.sin(theta) * radius * spread;
+      }
+      const shellGeometry = new THREE.BufferGeometry();
+      shellGeometry.setAttribute('position', new THREE.BufferAttribute(shellPositions, 3));
+      const shell = new THREE.Points(shellGeometry, new THREE.PointsMaterial({ color: 0x7be9ff, size: isTouch ? 0.017 : 0.021, transparent: true, opacity: 0.48, blending: THREE.AdditiveBlending, depthWrite: false }));
+      sculpture.add(shell);
+
+      const ringColors = [0x22d3ee, 0x8b5cf6, 0xb8ff6a];
+      const rings = [];
+      [2.22, 2.48, 2.72].forEach((radius, index) => {
+        const ring = new THREE.Mesh(
+          new THREE.TorusGeometry(radius, index === 0 ? 0.012 : 0.008, 6, isTouch ? 120 : 220),
+          new THREE.MeshBasicMaterial({ color: ringColors[index], transparent: true, opacity: index === 2 ? 0.15 : 0.25, blending: THREE.AdditiveBlending })
+        );
+        ring.rotation.set(Math.PI * (0.18 + index * 0.17), Math.PI * (0.13 + index * 0.21), Math.PI * index * 0.13);
+        sculpture.add(ring);
+        rings.push(ring);
+      });
+
+      const satelliteMaterial = new THREE.MeshBasicMaterial({ color: 0xe8ffff });
+      const satelliteA = new THREE.Mesh(new THREE.SphereGeometry(0.065, 16, 16), satelliteMaterial);
+      const satelliteB = new THREE.Mesh(new THREE.SphereGeometry(0.045, 16, 16), new THREE.MeshBasicMaterial({ color: 0xb8ff6a }));
+      sculpture.add(satelliteA, satelliteB);
+
+      // Deep-space particles
+      const starCount = isTouch ? 450 : 950;
+      const starPositions = new Float32Array(starCount * 3);
+      for (let i = 0; i < starCount; i++) {
+        starPositions[i * 3] = (Math.random() - 0.5) * 21;
+        starPositions[i * 3 + 1] = (Math.random() - 0.5) * 15;
+        starPositions[i * 3 + 2] = -2 - Math.random() * 9;
+      }
+      const starGeometry = new THREE.BufferGeometry();
+      starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+      const stars = new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0xa9a3c9, size: isTouch ? 0.012 : 0.017, transparent: true, opacity: 0.38, depthWrite: false }));
+      scene.add(stars);
+
+      scene.add(new THREE.HemisphereLight(0x8ca7ff, 0x080812, 1.8));
+      const keyLight = new THREE.PointLight(0x9b7dff, 46, 13, 2);
+      keyLight.position.set(4.3, 3.5, 5);
+      scene.add(keyLight);
+      const cyanLight = new THREE.PointLight(0x22d3ee, 34, 12, 2);
+      cyanLight.position.set(-4, -1.5, 4);
+      scene.add(cyanLight);
+      const limeLight = new THREE.PointLight(0xb8ff6a, 12, 9, 2);
+      limeLight.position.set(2, -4, 2);
+      scene.add(limeLight);
+
+      const pointer = new THREE.Vector2(0, 0);
+      const targetPointer = new THREE.Vector2(0, 0);
+      window.addEventListener('pointermove', (event) => {
+        if (isTouch || reducedMotion) return;
+        targetPointer.x = (event.clientX / innerWidth - 0.5) * 2;
+        targetPointer.y = (event.clientY / innerHeight - 0.5) * 2;
+      }, { passive: true });
+
+      const positionSculpture = () => {
+        const mobile = innerWidth < 861;
+        root.position.x = mobile ? 0 : Math.min(3.45, innerWidth / 360);
+        root.position.y = mobile ? -1.25 : 0.05;
+        root.scale.setScalar(mobile ? 0.74 : 1);
+      };
+      positionSculpture();
+
+      const clock = new THREE.Clock();
+      let frameId;
+      const renderScene = () => {
+        const t = clock.getElapsedTime();
+        pointer.lerp(targetPointer, 0.045);
+
+        if (!reducedMotion) {
+          sculpture.rotation.y = t * 0.105 + pointer.x * 0.12;
+          sculpture.rotation.x = Math.sin(t * 0.23) * 0.08 - pointer.y * 0.09;
+          core.rotation.y = -t * 0.08;
+          core.rotation.z = Math.sin(t * 0.35) * 0.14;
+          wire.rotation.y = t * 0.12;
+          shell.rotation.y = -t * 0.07;
+          rings[0].rotation.z += 0.0008;
+          rings[1].rotation.x -= 0.00065;
+          rings[2].rotation.y += 0.00055;
+          satelliteA.position.set(Math.cos(t * .72) * 2.2, Math.sin(t * .92) * .72, Math.sin(t * .72) * 2.2);
+          satelliteB.position.set(Math.cos(-t * .48 + 1.2) * 2.65, Math.sin(t * .62) * 1.05, Math.sin(-t * .48 + 1.2) * 2.65);
+          stars.rotation.y = t * 0.006;
+          stars.position.y = Math.sin(t * .12) * .08;
+        }
+
+        composer.render();
+        frameId = requestAnimationFrame(renderScene);
+      };
+      renderScene();
+
+      const onResize = () => {
+        camera.aspect = innerWidth / innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, isTouch ? 1.35 : 1.8));
+        renderer.setSize(innerWidth, innerHeight);
+        composer.setSize(innerWidth, innerHeight);
+        positionSculpture();
+      };
+      window.addEventListener('resize', onResize, { passive: true });
+
+      // Integrate the 3D object with the page scroll.
+      if (window.gsap && window.ScrollTrigger && !reducedMotion) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(root.rotation, {
+          z: Math.PI * 0.55,
+          y: Math.PI * 0.65,
+          ease: 'none',
+          scrollTrigger: { trigger: '#about', start: 'top bottom', end: '#services bottom top', scrub: 1.3 }
+        });
+        gsap.to(root.position, {
+          y: -3.5,
+          ease: 'none',
+          scrollTrigger: { trigger: '#about', start: 'top bottom', end: '#solutions top top', scrub: 1.2 }
+        });
+        gsap.to(coreMaterial, {
+          emissiveIntensity: 0.25,
+          ease: 'none',
+          scrollTrigger: { trigger: '#services', start: 'top center', end: '#solutions bottom center', scrub: true }
+        });
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) cancelAnimationFrame(frameId);
+        else renderScene();
+      });
+    }
+
+    // -------------------------------
+    // Interface motion and interactions
+    // -------------------------------
+    if (gsap && ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      heroTimeline
+        .from('.nav', { y: -30, opacity: 0, duration: .8 })
+        .from('.hero-badge', { y: 18, opacity: 0, duration: .65 }, '-=.25')
+        .from('.hero h1 .line > span', { yPercent: 112, duration: .95, stagger: .08 }, '-=.35')
+        .from('.hero-description, .hero-actions, .hero-foot', { y: 22, opacity: 0, duration: .7, stagger: .1 }, '-=.5')
+        .from('.stage-label', { scale: .85, opacity: 0, duration: .7, stagger: .1 }, '-=.75');
+
+      gsap.utils.toArray('.reveal').forEach((element) => {
+        gsap.to(element, {
+          y: 0,
+          opacity: 1,
+          duration: .9,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: element, start: 'top 88%', once: true }
+        });
+      });
+
+      gsap.utils.toArray('.project').forEach((project) => {
+        const visual = project.querySelector('.mock-window');
+        if (!visual || reducedMotion) return;
+        gsap.fromTo(visual, { y: 38 }, {
+          y: -18,
+          ease: 'none',
+          scrollTrigger: { trigger: project, start: 'top bottom', end: 'bottom top', scrub: 1.1 }
+        });
+      });
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => { el.style.opacity = 1; el.style.transform = 'none'; });
+    }
+
+    // Scroll progress and navigation state
+    const progress = document.querySelector('.scroll-progress');
+    const nav = document.querySelector('.nav');
+    const updateScrollUI = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      const ratio = max > 0 ? scrollY / max : 0;
+      progress.style.transform = `scaleX(${ratio})`;
+      nav.classList.toggle('scrolled', scrollY > 20);
+    };
+    updateScrollUI();
+    window.addEventListener('scroll', updateScrollUI, { passive: true });
+
+    // Mobile menu
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobilePanel = document.querySelector('.mobile-panel');
+    const closeMenu = () => {
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      mobilePanel.classList.remove('active');
+      mobilePanel.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('menu-open');
+    };
+    menuToggle.addEventListener('click', () => {
+      const opening = !menuToggle.classList.contains('active');
+      menuToggle.classList.toggle('active', opening);
+      menuToggle.setAttribute('aria-expanded', String(opening));
+      mobilePanel.classList.toggle('active', opening);
+      mobilePanel.setAttribute('aria-hidden', String(!opening));
+      document.body.classList.toggle('menu-open', opening);
+    });
+    mobilePanel.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => { if (innerWidth > 860) closeMenu(); }, { passive: true });
+
+    // Cursor glow
+    const cursorGlow = document.querySelector('.cursor-glow');
+    if (!isTouch && !reducedMotion) {
+      let glowX = innerWidth / 2, glowY = innerHeight / 2;
+      let targetX = glowX, targetY = glowY;
+      window.addEventListener('pointermove', event => { targetX = event.clientX; targetY = event.clientY; }, { passive: true });
+      const moveGlow = () => {
+        glowX += (targetX - glowX) * .09;
+        glowY += (targetY - glowY) * .09;
+        cursorGlow.style.transform = `translate3d(${glowX - 180}px, ${glowY - 180}px, 0)`;
+        requestAnimationFrame(moveGlow);
+      };
+      moveGlow();
+    }
+
+    // Subtle card spotlight
+    document.querySelectorAll('.glass-card').forEach(card => {
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+        card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+      });
+    });
+
+    // Magnetic buttons on fine pointers
+    if (!isTouch && !reducedMotion && gsap) {
+      document.querySelectorAll('.magnetic').forEach(button => {
+        button.addEventListener('pointermove', event => {
+          const rect = button.getBoundingClientRect();
+          const x = (event.clientX - rect.left - rect.width / 2) * .16;
+          const y = (event.clientY - rect.top - rect.height / 2) * .16;
+          gsap.to(button, { x, y, duration: .25, ease: 'power2.out' });
+        });
+        button.addEventListener('pointerleave', () => gsap.to(button, { x: 0, y: 0, duration: .55, ease: 'elastic.out(1, .45)' }));
+      });
+    }
+
+    document.querySelector('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
