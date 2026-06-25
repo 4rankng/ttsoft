@@ -1,0 +1,2032 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="TTSoft — Giải pháp phần mềm tinh gọn, hiện đại và có khả năng mở rộng cho doanh nghiệp Việt." />
+  <title>TTSoft — Phần mềm tinh gọn cho doanh nghiệp hiện đại</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #f6f8fc;
+      --bg-tint: #eef2ff;
+      --surface: #ffffff;
+      --line: rgba(15, 23, 42, 0.08);
+      --line-soft: rgba(15, 23, 42, 0.05);
+      --text: #0b1220;
+      --text-2: #1e293b;
+      --muted: #64748b;
+      --muted-2: #94a3b8;
+
+      --indigo: #4f46e5;
+      --indigo-2: #6366f1;
+      --cyan: #06b6d4;
+      --pink: #ec4899;
+      --violet: #8b5cf6;
+
+      --grad-1: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+      --grad-2: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+      --grad-3: linear-gradient(135deg, #4f46e5 0%, #8b5cf6 50%, #ec4899 100%);
+
+      --radius: 22px;
+      --radius-sm: 14px;
+      --container: 1240px;
+
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04), 0 2px 6px rgba(15, 23, 42, 0.04);
+      --shadow: 0 4px 18px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 24px 60px rgba(79, 70, 229, 0.16), 0 8px 24px rgba(15, 23, 42, 0.08);
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--text);
+      background: var(--bg);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      line-height: 1.55;
+    }
+
+    body.menu-open { overflow: hidden; }
+
+    ::selection { color: #fff; background: var(--indigo); }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { color: inherit; cursor: pointer; }
+    img, svg { display: block; max-width: 100%; }
+
+    /* ============== Three.js scene layer ============== */
+    #three-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+    #three-hero {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ============== Layout ============== */
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(80px, 10vw, 140px) 0;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--bg-tint);
+      color: var(--indigo);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      border: 1px solid rgba(79, 70, 229, 0.18);
+    }
+    .section-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--indigo);
+      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 18px 0 18px;
+      color: var(--text);
+    }
+    .section-title .grad {
+      background: var(--grad-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .section-copy {
+      font-size: clamp(15px, 1.2vw, 17px);
+      color: var(--muted);
+      max-width: 640px;
+      line-height: 1.65;
+    }
+    .section-head { max-width: 760px; }
+    .section-head.center { margin-inline: auto; text-align: center; }
+    .section-head.center .section-copy { margin-inline: auto; }
+
+    .eyebrow {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--indigo);
+      margin-bottom: 14px;
+    }
+
+    .muted { color: var(--muted); }
+
+    /* ============== Navbar ============== */
+    .nav-wrap {
+      position: fixed;
+      top: 16px;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .nav {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 10px 14px 10px 18px;
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: saturate(180%) blur(18px);
+      -webkit-backdrop-filter: saturate(180%) blur(18px);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      max-width: calc(100% - 32px);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-right: 12px;
+    }
+    .brand-mark {
+      width: 32px; height: 32px;
+      border-radius: 9px;
+      background: var(--grad-1);
+      color: #fff;
+      display: grid; place-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: -0.02em;
+      box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .nav-link {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-2);
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav-link:hover { background: var(--bg-tint); color: var(--indigo); }
+    .nav-cta {
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      background: var(--text);
+      color: #fff;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18); }
+
+    .menu-toggle {
+      display: none;
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 16px; height: 1.5px;
+      background: var(--text);
+      margin: 3px 0;
+      transition: transform 0.2s;
+    }
+
+    /* ============== Hero ============== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding-top: 140px;
+      padding-bottom: 80px;
+      overflow: hidden;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-copy { max-width: 620px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-2);
+      box-shadow: var(--shadow-sm);
+    }
+    .pulse-dot {
+      position: relative;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--indigo);
+    }
+    .pulse-dot::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--indigo);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      margin: 24px 0 22px;
+    }
+    .hero h1 .line { display: block; overflow: hidden; }
+    .hero h1 .accent {
+      background: var(--grad-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-desc {
+      font-size: clamp(16px, 1.3vw, 19px);
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.65;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 14px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--text);
+      color: #fff;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.18);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(15, 23, 42, 0.24); }
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border-color: var(--line);
+    }
+    .btn-secondary:hover { transform: translateY(-2px); border-color: var(--indigo); color: var(--indigo); }
+    .btn-grad {
+      background: var(--grad-1);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(79, 70, 229, 0.32);
+    }
+    .btn-grad:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(79, 70, 229, 0.4); }
+    .btn svg { width: 16px; height: 16px; }
+
+    .hero-meta {
+      display: flex;
+      gap: 28px;
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+    .hero-meta-item .num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      background: var(--grad-1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-meta-item .label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 1;
+      width: 100%;
+      max-width: 580px;
+      margin-left: auto;
+    }
+    #three-hero { width: 100%; height: 100%; }
+    .hero-orbit {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .floating-chip {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      z-index: 3;
+    }
+    .floating-chip .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--indigo);
+      box-shadow: 0 0 12px var(--indigo);
+    }
+    .chip-1 { top: 8%; left: -4%; animation: float 6s ease-in-out infinite; }
+    .chip-2 { top: 38%; right: -8%; animation: float 7s ease-in-out -2s infinite; }
+    .chip-3 { bottom: 14%; left: 6%; animation: float 5.5s ease-in-out -1s infinite; }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    /* ============== Marquee ============== */
+    .marquee {
+      position: relative;
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--bg-soft);
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 56px;
+      animation: scroll 30s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--text-2);
+    }
+    .marquee-item svg { width: 22px; height: 22px; color: var(--indigo); }
+
+    /* ============== Bento / About ============== */
+    .bento {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 18px;
+      margin-top: 60px;
+    }
+    .glass {
+      position: relative;
+      padding: 32px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      overflow: hidden;
+    }
+    .glass:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .glass::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 50%);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .bento-main { grid-column: span 1; grid-row: span 2; padding: 40px; }
+    .bento-main h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(24px, 2.5vw, 32px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 14px 0 16px;
+    }
+    .bento-main p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      max-width: 460px;
+    }
+
+    .mini-label {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--indigo);
+      padding: 5px 10px;
+      background: var(--bg-tint);
+      border-radius: 6px;
+    }
+
+    .bento-feature h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      margin: 16px 0 8px;
+    }
+    .bento-feature p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .bento-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: grid; place-items: center;
+      background: var(--grad-1);
+      color: #fff;
+      margin-bottom: 18px;
+      box-shadow: 0 8px 16px rgba(79, 70, 229, 0.25);
+    }
+    .bento-icon svg { width: 22px; height: 22px; }
+    .bento-icon.pink { background: var(--grad-2); box-shadow: 0 8px 16px rgba(236, 72, 153, 0.25); }
+    .bento-icon.cyan { background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%); box-shadow: 0 8px 16px rgba(6, 182, 212, 0.25); }
+
+    /* ============== Services ============== */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 60px;
+      perspective: 1500px;
+    }
+    .service {
+      position: relative;
+      padding: 32px 28px;
+      border-radius: var(--radius);
+      background: #fff;
+      border: 1px solid var(--line);
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s, border-color 0.3s;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+    .service::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius);
+      padding: 1px;
+      background: var(--grad-1);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .service:hover { box-shadow: var(--shadow-lg); }
+    .service:hover::after { opacity: 1; }
+    .service-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .service-num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--muted-2);
+      letter-spacing: 0.04em;
+    }
+    .service-arrow {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--bg-soft);
+      display: grid; place-items: center;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .service-arrow svg { width: 14px; height: 14px; transition: transform 0.3s; }
+    .service:hover .service-arrow { background: var(--text); color: #fff; transform: rotate(-15deg); }
+    .service:hover .service-arrow svg { transform: translate(2px, -2px); }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: var(--bg-tint);
+      color: var(--indigo);
+      display: grid; place-items: center;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+    .service:hover .service-icon { transform: scale(1.06) rotate(-4deg); }
+    .service-icon svg { width: 24px; height: 24px; }
+
+    .service h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: -0.01em;
+      margin: 0 0 10px;
+    }
+    .service p {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin: 0 0 18px;
+    }
+    .service-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .service-tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 500;
+      background: var(--bg-soft);
+      color: var(--muted);
+      border: 1px solid var(--line);
+    }
+
+    /* ============== Solutions ============== */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 60px;
+    }
+    .project {
+      position: relative;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%);
+      border: 1px solid var(--line);
+      padding: 28px;
+      overflow: hidden;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .project:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .project-num {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+    }
+    .project h3 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: -0.01em;
+      margin: 10px 0 12px;
+    }
+    .project p {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin: 0 0 20px;
+    }
+    .project-mock {
+      position: relative;
+      height: 180px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f0f3ff 0%, #fdf4ff 100%);
+      overflow: hidden;
+      border: 1px solid rgba(79, 70, 229, 0.08);
+    }
+
+    /* Mock 1: Operations */
+    .mock-ops {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .mock-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .mock-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #fda4af;
+    }
+    .mock-dot:nth-child(2) { background: #fcd34d; }
+    .mock-dot:nth-child(3) { background: #86efac; }
+    .mock-ops-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .mock-cell {
+      background: rgba(255,255,255,0.85);
+      border-radius: 6px;
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .mock-cell .v {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .mock-cell .l {
+      font-size: 8px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .mock-cell .bar {
+      height: 3px;
+      border-radius: 2px;
+      background: var(--grad-1);
+      margin-top: 4px;
+    }
+
+    /* Mock 2: Commerce */
+    .mock-commerce {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .mock-product {
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+    }
+    .mock-product .img {
+      height: 50px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #fce7f3, #ddd6fe);
+      margin-bottom: 6px;
+    }
+    .mock-product .img.b { background: linear-gradient(135deg, #cffafe, #dbeafe); }
+    .mock-product .img.c { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+    .mock-product .img.d { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+    .mock-product .n {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .mock-product .p {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--indigo);
+      font-family: var(--font-display);
+    }
+
+    /* Mock 3: Insights */
+    .mock-insights {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .insight-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+    }
+    .insight-row .lab {
+      width: 50px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .insight-row .track {
+      flex: 1;
+      height: 6px;
+      background: rgba(15, 23, 42, 0.06);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .insight-row .fill {
+      height: 100%;
+      background: var(--grad-1);
+      border-radius: 3px;
+    }
+    .insight-row .fill.pink { background: var(--grad-2); }
+    .insight-row .fill.cyan { background: linear-gradient(135deg, #06b6d4, #0ea5e9); }
+    .insight-row .val {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--text);
+      width: 30px;
+      text-align: right;
+    }
+    .insight-chart {
+      height: 50px;
+      margin-top: 4px;
+      background: linear-gradient(180deg, transparent 0%, rgba(79, 70, 229, 0.1) 100%);
+      border-radius: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+    .insight-chart svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ============== Process ============== */
+    .process-track {
+      position: relative;
+      margin-top: 80px;
+      padding: 40px 0;
+    }
+    .process-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--indigo) 0%, var(--cyan) 50%, var(--pink) 100%);
+      opacity: 0.2;
+      transform: translateY(-50%);
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+    }
+    .step {
+      position: relative;
+      text-align: center;
+    }
+    .step-bubble {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--line);
+      display: grid;
+      place-items: center;
+      position: relative;
+      transition: all 0.3s;
+      box-shadow: var(--shadow-sm);
+    }
+    .step:hover .step-bubble {
+      border-color: var(--indigo);
+      transform: scale(1.08);
+      box-shadow: 0 12px 28px rgba(79, 70, 229, 0.25);
+    }
+    .step-bubble svg { width: 28px; height: 28px; color: var(--indigo); }
+    .step-num {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--grad-1);
+      color: #fff;
+      display: grid; place-items: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+    }
+    .step h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+      margin: 0 0 6px;
+    }
+    .step p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+
+    /* ============== Tech stack ============== */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 50px;
+    }
+    .tech-item {
+      padding: 22px 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .tech-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--indigo);
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.12);
+    }
+    .tech-symbol {
+      display: inline-flex;
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      background: var(--bg-tint);
+      color: var(--indigo);
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .tech-item .name {
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .tech-item .desc {
+      display: block;
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ============== Contact ============== */
+    .contact-card {
+      position: relative;
+      margin-top: 60px;
+      padding: clamp(40px, 5vw, 64px);
+      border-radius: 28px;
+      background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #8b5cf6 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(236, 72, 153, 0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.4) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .contact-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .contact-card h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin: 18px 0 16px;
+    }
+    .contact-card p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.85);
+      max-width: 480px;
+      line-height: 1.65;
+    }
+    .contact-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(14px);
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border-radius: 12px;
+      font-size: 14px;
+      transition: border 0.2s, background 0.2s;
+    }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.6); }
+    .contact-form input:focus, .contact-form textarea:focus {
+      outline: none;
+      border-color: #fff;
+      background: rgba(255,255,255,0.15);
+    }
+    .contact-form textarea { resize: vertical; min-height: 90px; }
+    .contact-form button {
+      margin-top: 4px;
+      padding: 14px 18px;
+      background: #fff;
+      color: var(--indigo);
+      border: none;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .contact-form button:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.18); }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+    }
+    .contact-info-item svg { width: 18px; height: 18px; opacity: 0.85; }
+
+    /* ============== Footer ============== */
+    footer {
+      position: relative;
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--line);
+      background: var(--bg-soft);
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-brand p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      margin: 14px 0 20px;
+      max-width: 320px;
+    }
+    .footer-col h5 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin: 0 0 16px;
+    }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--indigo); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 50px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .socials { display: flex; gap: 10px; }
+    .socials a {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      display: grid; place-items: center;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .socials a:hover { transform: translateY(-2px); border-color: var(--indigo); }
+    .socials svg { width: 16px; height: 16px; color: var(--text); }
+
+    /* ============== Reveal animations ============== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============== Responsive ============== */
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { max-width: 420px; margin: 0 auto; }
+      .bento { grid-template-columns: 1fr 1fr; }
+      .bento-main { grid-column: span 2; grid-row: auto; }
+      .solutions-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-line { display: none; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding-top: 110px; }
+      .bento { grid-template-columns: 1fr; }
+      .bento-main { grid-column: span 1; }
+      .process-steps { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 14px; }
+      .floating-chip { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="three-canvas"></canvas>
+
+  <!-- Floating Nav -->
+  <div class="nav-wrap">
+    <nav class="nav container" aria-label="Điều hướng chính">
+      <a class="brand" href="#home" aria-label="TTSoft - Trang chủ">
+        <span class="brand-mark">TT</span>
+        <span class="brand-name">TTSoft</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="#about">Giới thiệu</a>
+        <a class="nav-link" href="#services">Dịch vụ</a>
+        <a class="nav-link" href="#solutions">Giải pháp</a>
+        <a class="nav-link" href="#process">Quy trình</a>
+        <a class="nav-link" href="#tech">Công nghệ</a>
+      </div>
+      <a class="nav-cta" href="#contact">Trao đổi dự án</a>
+      <button class="menu-toggle" type="button" aria-label="Mở menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="hero-badge reveal">
+            <span class="pulse-dot"></span>
+            Đối tác công nghệ cho doanh nghiệp Việt
+          </span>
+          <h1 class="reveal">
+            <span class="line"><span>Biến quy trình</span></span>
+            <span class="line"><span>phức tạp thành</span></span>
+            <span class="line"><span class="accent">phần mềm tinh gọn.</span></span>
+          </h1>
+          <p class="hero-desc reveal">
+            TTSoft thiết kế và phát triển phần mềm theo yêu cầu — từ ứng dụng web, di động đến
+            hệ thống quản trị — giúp doanh nghiệp vận hành nhanh hơn, thông minh hơn và sẵn sàng mở rộng.
+          </p>
+          <div class="hero-cta reveal">
+            <a class="btn btn-primary" href="#contact">
+              Bắt đầu dự án
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-secondary" href="#solutions">
+              Xem giải pháp
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+          <div class="hero-meta reveal">
+            <div class="hero-meta-item">
+              <div class="num">120+</div>
+              <span class="label">Dự án đã triển khai</span>
+            </div>
+            <div class="hero-meta-item">
+              <div class="num">98%</div>
+              <span class="label">Khách hàng quay lại</span>
+            </div>
+            <div class="hero-meta-item">
+              <div class="num">5 năm</div>
+              <span class="label">Kinh nghiệm thực chiến</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <canvas id="three-hero"></canvas>
+          <div class="floating-chip chip-1">
+            <span class="dot"></span> Three.js · WebGL
+          </div>
+          <div class="floating-chip chip-2">
+            <span class="dot" style="background:#ec4899;box-shadow:0 0 12px #ec4899"></span> TypeScript
+          </div>
+          <div class="floating-chip chip-3">
+            <span class="dot" style="background:#06b6d4;box-shadow:0 0 12px #06b6d4"></span> Cloud Native
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <section class="marquee" aria-label="Năng lực của chúng tôi">
+      <div class="marquee-track">
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z"/></svg>Ứng dụng web</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M11 18h2"/></svg>Ứng dụng di động</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08 4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08 4.24-4.24"/></svg>Tự động hoá</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10a8 8 0 1 0-8 8c1.5 0 3-.4 4-1l5 3-1-5c.6-1 1-2.5 1-4Z"/></svg>Trợ lý AI</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Dữ liệu lớn</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 18V9M10 18V5M15 18v-6M20 18V3"/></svg>Phân tích thông minh</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a4 4 0 0 1-.4-8A6 6 0 0 1 18 8a5 5 0 0 1 0 10H7Z"/></svg>Đám mây</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/><path d="m9 12 2 2 4-4"/></svg>Đảm bảo chất lượng</span>
+        <!-- Duplicate for seamless scroll -->
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 2 3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7Z"/></svg>Ứng dụng web</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="2"/><path d="M11 18h2"/></svg>Ứng dụng di động</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08 4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08 4.24-4.24"/></svg>Tự động hoá</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10a8 8 0 1 0-8 8c1.5 0 3-.4 4-1l5 3-1-5c.6-1 1-2.5 1-4Z"/></svg>Trợ lý AI</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Dữ liệu lớn</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 18V9M10 18V5M15 18v-6M20 18V3"/></svg>Phân tích thông minh</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a4 4 0 0 1-.4-8A6 6 0 0 1 18 8a5 5 0 0 1 0 10H7Z"/></svg>Đám mây</span>
+        <span class="marquee-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/><path d="m9 12 2 2 4-4"/></svg>Đảm bảo chất lượng</span>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT / BENTO ============ -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Cách TTSoft tạo khác biệt</p>
+          <h2 class="section-title">
+            Không chỉ viết code. <span class="muted">Chúng tôi kiến tạo đòn bẩy vận hành cho doanh nghiệp Việt.</span>
+          </h2>
+        </div>
+
+        <div class="bento">
+          <article class="glass bento-main reveal">
+            <span class="mini-label">Một hệ sinh thái · Một đối tác</span>
+            <h3>Từ ý tưởng đến sản phẩm vận hành thực tế.</h3>
+            <p>Chiến lược sản phẩm, trải nghiệm người dùng, kỹ thuật và vận hành sau triển khai được kết nối trong một quy trình thống nhất. Mọi quyết định đều xuất phát từ bài toán kinh doanh và dữ liệu thực tế của khách hàng.</p>
+          </article>
+
+          <article class="glass bento-feature reveal">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+            </div>
+            <h3>Đúng bài toán</h3>
+            <p>Bắt đầu từ quy trình và mục tiêu kinh doanh — không bắt đầu từ công nghệ.</p>
+          </article>
+
+          <article class="glass bento-feature reveal">
+            <div class="bento-icon cyan">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/><path d="M5 12v7h7"/></svg>
+            </div>
+            <h3>Kiến trúc dài hạn</h3>
+            <p>Module hoá, bảo mật và sẵn sàng mở rộng khi nhu cầu thay đổi.</p>
+          </article>
+
+          <article class="glass bento-feature reveal">
+            <div class="bento-icon pink">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3>Minh bạch &amp; tin cậy</h3>
+            <p>Mỗi sprint có đầu ra rõ ràng, tiêu chí nghiệm thu và dữ liệu để cùng ra quyết định.</p>
+          </article>
+
+          <article class="glass bento-feature reveal">
+            <div class="bento-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+            </div>
+            <h3>Đội ngũ Việt, tầm quốc tế</h3>
+            <p>100% kỹ sư Việt Nam, quy trình theo chuẩn quốc tế, hỗ trợ trực tiếp trong nước.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="section" style="background: var(--bg-soft);">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Dịch vụ cốt lõi</p>
+          <h2 class="section-title">
+            Năng lực số cho <span class="grad">mọi giai đoạn tăng trưởng.</span>
+          </h2>
+          <p class="section-copy">
+            Từ một MVP cần ra mắt nhanh đến hệ thống doanh nghiệp cần tái cấu trúc —
+            TTSoft chọn đúng phương pháp và nền tảng cho từng bối cảnh.
+          </p>
+        </div>
+
+        <div class="services">
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="service-num">01 / DỊCH VỤ</span>
+              <span class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+            </div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M8 15h3M15 15h1"/></svg>
+            </div>
+            <h3>Phần mềm theo yêu cầu</h3>
+            <p>Ứng dụng web, ứng dụng di động, cổng nội bộ và nền tảng nghiệp vụ được thiết kế sát quy trình riêng của doanh nghiệp bạn.</p>
+            <div class="service-tags">
+              <span class="service-tag">Ứng dụng web</span>
+              <span class="service-tag">Di động</span>
+              <span class="service-tag">SaaS</span>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="service-num">02 / DỊCH VỤ</span>
+              <span class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+            </div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 6h8M6 10h12M4 14h16M8 18h8"/><circle cx="4" cy="6" r="1"/><circle cx="20" cy="18" r="1"/></svg>
+            </div>
+            <h3>Tự động hoá &amp; tích hợp</h3>
+            <p>Kết nối hệ thống, đồng bộ dữ liệu và loại bỏ thao tác lặp để đội ngũ tập trung vào việc có giá trị.</p>
+            <div class="service-tags">
+              <span class="service-tag">API</span>
+              <span class="service-tag">Quy trình</span>
+              <span class="service-tag">ERP / CRM</span>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="service-num">03 / DỊCH VỤ</span>
+              <span class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+            </div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 18V9M10 18V5M15 18v-6M20 18V3"/><path d="M3 21h19"/></svg>
+            </div>
+            <h3>Dữ liệu &amp; AI</h3>
+            <p>Bảng điều khiển, kho dữ liệu, trợ lý AI và mô hình dự báo biến dữ liệu rời rạc thành quyết định nhanh hơn.</p>
+            <div class="service-tags">
+              <span class="service-tag">Phân tích</span>
+              <span class="service-tag">AI tạo sinh</span>
+              <span class="service-tag">Nền tảng dữ liệu</span>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-top">
+              <span class="service-num">04 / DỊCH VỤ</span>
+              <span class="service-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+            </div>
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 18a4 4 0 0 1-.4-8A6 6 0 0 1 18 8a5 5 0 0 1 0 10H7Z"/><path d="m9 14 3-3 3 3M12 11v9"/></svg>
+            </div>
+            <h3>Đám mây &amp; hiện đại hoá</h3>
+            <p>Tối ưu kiến trúc, hiệu năng, bảo mật và khả năng triển khai để hệ thống vận hành ổn định ở quy mô lớn.</p>
+            <div class="service-tags">
+              <span class="service-tag">Đám mây</span>
+              <span class="service-tag">DevOps</span>
+              <span class="service-tag">Hiện đại hoá</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOLUTIONS ============ -->
+    <section id="solutions" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Năng lực giải pháp</p>
+          <h2 class="section-title">
+            Sản phẩm số đẹp ở giao diện, <span class="grad">mạnh ở lõi.</span>
+          </h2>
+          <p class="section-copy">
+            Ba hướng giải pháp tiêu biểu có thể được tuỳ biến theo mô hình, dữ liệu và hệ thống hiện hữu của doanh nghiệp.
+          </p>
+        </div>
+
+        <div class="solutions-grid">
+          <article class="project reveal">
+            <span class="project-num">NỀN TẢNG VẬN HÀNH</span>
+            <h3>TT Operations Hub</h3>
+            <p>Không gian vận hành hợp nhất giúp theo dõi công việc, chỉ số và luồng phê duyệt theo thời gian thực.</p>
+            <div class="project-mock mock-ops">
+              <div class="mock-bar">
+                <span class="mock-dot"></span><span class="mock-dot"></span><span class="mock-dot"></span>
+                <span style="margin-left:auto">TT OPERATIONS / TỔNG QUAN</span>
+              </div>
+              <div class="mock-ops-grid">
+                <div class="mock-cell"><span class="l">Đơn hàng</span><span class="v">1.284</span><div class="bar" style="width:78%"></div></div>
+                <div class="mock-cell"><span class="l">Phê duyệt</span><span class="v">42</span><div class="bar" style="width:54%"></div></div>
+                <div class="mock-cell"><span class="l">Doanh thu</span><span class="v">328tr</span><div class="bar" style="width:88%"></div></div>
+                <div class="mock-cell"><span class="l">Khách mới</span><span class="v">96</span><div class="bar" style="width:46%"></div></div>
+                <div class="mock-cell"><span class="l">Lỗi</span><span class="v">2</span><div class="bar" style="width:8%"></div></div>
+                <div class="mock-cell"><span class="l">NPS</span><span class="v">68</span><div class="bar" style="width:92%"></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <span class="project-num">THƯƠNG MẠI SỐ</span>
+            <h3>Thương mại thông minh</h3>
+            <p>Nền tảng bán hàng đa kênh với khả năng cá nhân hoá trải nghiệm và tối ưu chuyển đổi theo dữ liệu.</p>
+            <div class="project-mock mock-commerce">
+              <div class="mock-product"><div class="img"></div><div class="n">Áo thu đông</div><div class="p">450.000đ</div></div>
+              <div class="mock-product"><div class="img b"></div><div class="n">Túi tote</div><div class="p">290.000đ</div></div>
+              <div class="mock-product"><div class="img c"></div><div class="n">Mũ len</div><div class="p">180.000đ</div></div>
+              <div class="mock-product"><div class="img d"></div><div class="n">Giày sneaker</div><div class="p">1.250.000đ</div></div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <span class="project-num">CỖ MÁY PHÂN TÍCH</span>
+            <h3>Cỗ máy phân tích</h3>
+            <p>Kho dữ liệu, trợ lý AI và mô hình dự báo giúp đội ngũ đi từ dữ liệu rời rạc đến quyết định có căn cứ.</p>
+            <div class="project-mock mock-insights">
+              <div class="insight-row">
+                <span class="lab">Tăng trưởng</span>
+                <div class="track"><div class="fill" style="width:78%"></div></div>
+                <span class="val">78%</span>
+              </div>
+              <div class="insight-row">
+                <span class="lab">Chất lượng</span>
+                <div class="track"><div class="fill pink" style="width:84%"></div></div>
+                <span class="val">84%</span>
+              </div>
+              <div class="insight-row">
+                <span class="lab">Tốc độ</span>
+                <div class="track"><div class="fill cyan" style="width:67%"></div></div>
+                <span class="val">67%</span>
+              </div>
+              <div class="insight-row">
+                <span class="lab">Tín hiệu</span>
+                <div class="track"><div class="fill" style="width:91%"></div></div>
+                <span class="val">91%</span>
+              </div>
+              <div class="insight-chart">
+                <svg viewBox="0 0 200 50" preserveAspectRatio="none">
+                  <path d="M0 40 C 30 36, 50 28, 70 30 S 110 18, 130 22 S 170 8, 200 12 L 200 50 L 0 50 Z" fill="url(#g1)" opacity="0.3"/>
+                  <path d="M0 40 C 30 36, 50 28, 70 30 S 110 18, 130 22 S 170 8, 200 12" stroke="#4f46e5" stroke-width="1.5" fill="none"/>
+                  <defs>
+                    <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.5"/>
+                      <stop offset="100%" stop-color="#4f46e5" stop-opacity="0"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section id="process" class="section" style="background: var(--bg-soft);">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Quy trình làm việc</p>
+          <h2 class="section-title">Bốn bước rõ ràng, <span class="grad">không mơ hồ.</span></h2>
+          <p class="section-copy">Mỗi dự án đều đi qua một quy trình chuẩn hoá nhưng vẫn linh hoạt theo bối cảnh riêng của doanh nghiệp.</p>
+        </div>
+
+        <div class="process-track">
+          <div class="process-line"></div>
+          <div class="process-steps">
+            <div class="step reveal">
+              <div class="step-bubble">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+                <span class="step-num">1</span>
+              </div>
+              <h4>Khám phá</h4>
+              <p>Tìm hiểu bài toán kinh doanh, người dùng và ràng buộc kỹ thuật.</p>
+            </div>
+            <div class="step reveal">
+              <div class="step-bubble">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+                <span class="step-num">2</span>
+              </div>
+              <h4>Thiết kế</h4>
+              <p>Phác thảo kiến trúc, luồng trải nghiệm và bản mẫu trực quan.</p>
+            </div>
+            <div class="step reveal">
+              <div class="step-bubble">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <span class="step-num">3</span>
+              </div>
+              <h4>Phát triển</h4>
+              <p>Xây dựng theo sprint, tích hợp liên tục và kiểm thử tự động.</p>
+            </div>
+            <div class="step reveal">
+              <div class="step-bubble">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span class="step-num">4</span>
+              </div>
+              <h4>Vận hành</h4>
+              <p>Triển khai, giám sát, tối ưu và đồng hành sau ra mắt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TECH STACK ============ -->
+    <section id="tech" class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Công nghệ &amp; nền tảng</p>
+          <h2 class="section-title">Chọn đúng <span class="grad">công cụ cho đúng bài toán.</span></h2>
+          <p class="section-copy">Ngăn xếp công nghệ hiện đại, mã nguồn mở và được cộng đồng quốc tế hỗ trợ rộng rãi.</p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-item reveal"><div class="tech-symbol">3D</div><span class="name">Three.js</span><span class="desc">Trực quan hoá 3D</span></div>
+          <div class="tech-item reveal"><div class="tech-symbol">TS</div><span class="name">TypeScript</span><span class="desc">An toàn &amp; rõ ràng</span></div>
+          <div class="tech-item reveal"><div class="tech-symbol">R</div><span class="name">React</span><span class="desc">Giao diện hiện đại</span></div>
+          <div class="tech-item reveal"><div class="tech-symbol">N</div><span class="name">Node.js</span><span class="desc">Hệ thống phía sau</span></div>
+          <div class="tech-item reveal"><div class="tech-symbol">PG</div><span class="name">PostgreSQL</span><span class="desc">Cơ sở dữ liệu</span></div>
+          <div class="tech-item reveal"><div class="tech-symbol">D</div><span class="name">Docker</span><span class="desc">Đóng gói &amp; triển khai</span></div>
+          <div class="tech-item reveal"><div class="tech-symbol">☁</div><span class="name">Đám mây</span><span class="desc">AWS · GCP · Azure</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="section" style="padding-bottom: 80px;">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-inner">
+            <div>
+              <span class="contact-tag">
+                <span class="pulse-dot"></span>
+                Sẵn sàng cho dự án tiếp theo
+              </span>
+              <h2>Cùng nhau biến ý tưởng thành sản phẩm vận hành thực tế.</h2>
+              <p>Chia sẻ ngắn gọn về bài toán của bạn — đội ngũ TTSoft sẽ phản hồi trong vòng 24 giờ làm việc với phương án và ước lượng ban đầu.</p>
+
+              <div class="contact-info">
+                <div class="contact-info-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1 0 2 1 2 2v12c0 1-1 2-2 2H4c-1 0-2-1-2-2V6c0-1 1-2 2-2Z"/><path d="m2 6 10 7 10-7"/></svg>
+                  hello@ttsoft.vn
+                </div>
+                <div class="contact-info-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V21a1 1 0 0 1-1.11 1A19.86 19.86 0 0 1 2 4.11 1 1 0 0 1 3 3h4.09a1 1 0 0 1 1 .75l1 4a1 1 0 0 1-.29 1L7 10.5a16 16 0 0 0 6.5 6.5l1.75-1.79a1 1 0 0 1 1-.29l4 1a1 1 0 0 1 .75 1Z"/></svg>
+                  +84 909 123 456
+                </div>
+                <div class="contact-info-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  TP. Hồ Chí Minh &amp; Hà Nội
+                </div>
+              </div>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Đã gửi · Cảm ơn bạn!'; this.reset(); setTimeout(()=>this.querySelector('button').textContent='Gửi yêu cầu',3000);">
+              <input type="text" placeholder="Họ và tên" required />
+              <input type="email" placeholder="Email công việc" required />
+              <input type="text" placeholder="Tên doanh nghiệp" />
+              <textarea placeholder="Mô tả ngắn về dự án hoặc bài toán của bạn"></textarea>
+              <button type="submit">Gửi yêu cầu</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="#home">
+            <span class="brand-mark">TT</span>
+            <span class="brand-name">TTSoft</span>
+          </a>
+          <p>Đối tác công nghệ đồng hành cùng doanh nghiệp Việt xây dựng phần mềm tinh gọn, hiện đại và có khả năng mở rộng.</p>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg></a>
+            <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.92.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.36-3.87-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.68 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.27-5.24-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.94 10.94 0 0 1 5.74 0c2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.65.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56C20.21 21.38 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Dịch vụ</h5>
+          <ul>
+            <li><a href="#services">Phần mềm theo yêu cầu</a></li>
+            <li><a href="#services">Tự động hoá &amp; tích hợp</a></li>
+            <li><a href="#services">Dữ liệu &amp; AI</a></li>
+            <li><a href="#services">Đám mây &amp; hiện đại hoá</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Giải pháp</h5>
+          <ul>
+            <li><a href="#solutions">TT Operations Hub</a></li>
+            <li><a href="#solutions">Thương mại thông minh</a></li>
+            <li><a href="#solutions">Cỗ máy phân tích</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Công ty</h5>
+          <ul>
+            <li><a href="#about">Về TTSoft</a></li>
+            <li><a href="#process">Quy trình</a></li>
+            <li><a href="#contact">Liên hệ</a></li>
+            <li><a href="#contact">Tuyển dụng</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 TTSoft. Đã đăng ký bản quyền.</span>
+        <span>Thiết kế &amp; phát triển bởi đội ngũ TTSoft tại Việt Nam.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ THREE.JS ============ -->
+  <script type="module">
+    import * as THREE from 'three';
+
+    // ====================================================
+    // 1) Background scene — floating wireframe shapes + particle network (fixed full-viewport)
+    // ====================================================
+    (function initBackground() {
+      const canvas = document.getElementById('three-canvas');
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setClearColor(0xffffff, 0);
+
+      const scene = new THREE.Scene();
+      scene.fog = new THREE.Fog(0xffffff, 8, 30);
+
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+      camera.position.set(0, 0, 14);
+
+      // Lights
+      const ambient = new THREE.AmbientLight(0xffffff, 0.9);
+      scene.add(ambient);
+      const key = new THREE.DirectionalLight(0x4f46e5, 0.6);
+      key.position.set(5, 5, 5);
+      scene.add(key);
+      const rim = new THREE.DirectionalLight(0xec4899, 0.3);
+      rim.position.set(-5, -3, 3);
+      scene.add(rim);
+
+      // Floating wireframe primitives — drift around in parallax
+      const shapes = [];
+      const matIndigo = new THREE.LineBasicMaterial({ color: 0x4f46e5, transparent: true, opacity: 0.55 });
+      const matCyan = new THREE.LineBasicMaterial({ color: 0x06b6d4, transparent: true, opacity: 0.5 });
+      const matPink = new THREE.LineBasicMaterial({ color: 0xec4899, transparent: true, opacity: 0.45 });
+
+      function addShape(geom, mat, pos, scale, speed) {
+        const wire = new THREE.LineSegments(new THREE.EdgesGeometry(geom), mat);
+        wire.position.set(pos.x, pos.y, pos.z);
+        wire.scale.setScalar(scale);
+        wire.userData = { speed, offset: Math.random() * Math.PI * 2 };
+        scene.add(wire);
+        shapes.push(wire);
+      }
+
+      addShape(new THREE.IcosahedronGeometry(1, 1), matIndigo, { x: -8, y: 4, z: -4 }, 1.2, 0.15);
+      addShape(new THREE.OctahedronGeometry(1, 0), matPink,    { x: 9, y: -3, z: -6 }, 1.0, 0.2);
+      addShape(new THREE.TorusGeometry(1.2, 0.3, 8, 16), matCyan, { x: 7, y: 5, z: -8 }, 1.0, 0.12);
+      addShape(new THREE.TetrahedronGeometry(1, 0), matIndigo, { x: -10, y: -5, z: -3 }, 0.9, 0.18);
+      addShape(new THREE.DodecahedronGeometry(0.8, 0), matCyan, { x: -6, y: -2, z: -10 }, 1.0, 0.14);
+      addShape(new THREE.BoxGeometry(1.2, 1.2, 1.2), matPink, { x: 10, y: 2, z: -5 }, 0.8, 0.16);
+
+      // Particle network — connecting dots
+      const particleCount = 90;
+      const positions = new Float32Array(particleCount * 3);
+      for (let i = 0; i < particleCount; i++) {
+        positions[i * 3]     = (Math.random() - 0.5) * 30;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 18;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 8 - 4;
+      }
+      const pGeom = new THREE.BufferGeometry();
+      pGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const pMat = new THREE.PointsMaterial({
+        color: 0x6366f1,
+        size: 0.05,
+        transparent: true,
+        opacity: 0.7,
+        sizeAttenuation: true
+      });
+      const points = new THREE.Points(pGeom, pMat);
+      scene.add(points);
+
+      // Connection lines (close particles)
+      const lineSegs = [];
+      const lineGeom = new THREE.BufferGeometry();
+      const linePositions = new Float32Array(particleCount * particleCount * 6);
+      lineGeom.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+      const lineMat = new THREE.LineBasicMaterial({ color: 0x6366f1, transparent: true, opacity: 0.18 });
+      const lines = new THREE.LineSegments(lineGeom, lineMat);
+      scene.add(lines);
+
+      // Mouse parallax
+      const mouse = { x: 0, y: 0 };
+      window.addEventListener('mousemove', (e) => {
+        mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouse.y = (e.clientY / window.innerHeight - 0.5) * 2;
+      });
+
+      // Resize
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      const clock = new THREE.Clock();
+      function animate() {
+        const t = clock.getElapsedTime();
+        const dt = clock.getDelta();
+
+        // Float shapes
+        shapes.forEach((s, i) => {
+          s.rotation.x += 0.002 * s.userData.speed;
+          s.rotation.y += 0.003 * s.userData.speed;
+          s.position.y += Math.sin(t * 0.3 + s.userData.offset) * 0.002;
+          s.position.x += Math.cos(t * 0.2 + s.userData.offset) * 0.001;
+        });
+
+        // Particles drift
+        const pos = pGeom.attributes.position.array;
+        for (let i = 0; i < particleCount; i++) {
+          pos[i * 3 + 1] += Math.sin(t * 0.4 + i) * 0.002;
+        }
+        pGeom.attributes.position.needsUpdate = true;
+
+        // Rebuild connection lines for nearby particles
+        let idx = 0;
+        const maxDist = 3.2;
+        for (let i = 0; i < particleCount; i++) {
+          for (let j = i + 1; j < particleCount; j++) {
+            const dx = pos[i * 3]     - pos[j * 3];
+            const dy = pos[i * 3 + 1] - pos[j * 3 + 1];
+            const dz = pos[i * 3 + 2] - pos[j * 3 + 2];
+            const d = Math.sqrt(dx * dx + dy * dy + dz * dz);
+            if (d < maxDist) {
+              linePositions[idx++] = pos[i * 3];
+              linePositions[idx++] = pos[i * 3 + 1];
+              linePositions[idx++] = pos[i * 3 + 2];
+              linePositions[idx++] = pos[j * 3];
+              linePositions[idx++] = pos[j * 3 + 1];
+              linePositions[idx++] = pos[j * 3 + 2];
+            }
+          }
+        }
+        lineGeom.setDrawRange(0, idx / 3);
+        lineGeom.attributes.position.needsUpdate = true;
+
+        // Mouse parallax — gentle camera shift
+        camera.position.x += (mouse.x * 1.5 - camera.position.x) * 0.04;
+        camera.position.y += (-mouse.y * 0.8 - camera.position.y) * 0.04;
+        camera.lookAt(0, 0, 0);
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // ====================================================
+    // 2) Hero scene — interactive 3D wireframe sphere with orbiting tech nodes
+    // ====================================================
+    (function initHero() {
+      const canvas = document.getElementById('three-hero');
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.set(0, 0, 5);
+
+      const fit = () => {
+        const w = canvas.clientWidth;
+        const h = canvas.clientHeight;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      };
+      fit();
+      window.addEventListener('resize', fit);
+
+      // Lights
+      scene.add(new THREE.AmbientLight(0xffffff, 0.85));
+      const dl = new THREE.DirectionalLight(0xffffff, 0.6);
+      dl.position.set(2, 2, 2);
+      scene.add(dl);
+      const dl2 = new THREE.DirectionalLight(0x4f46e5, 0.5);
+      dl2.position.set(-2, -1, 1);
+      scene.add(dl2);
+
+      // Main wireframe sphere — the centerpiece
+      const sphereGeom = new THREE.IcosahedronGeometry(1.6, 4);
+      const sphereWire = new THREE.LineSegments(
+        new THREE.EdgesGeometry(sphereGeom),
+        new THREE.LineBasicMaterial({ color: 0x4f46e5, transparent: true, opacity: 0.35 })
+      );
+      scene.add(sphereWire);
+
+      // Inner glowing sphere
+      const innerMat = new THREE.MeshBasicMaterial({
+        color: 0x6366f1,
+        transparent: true,
+        opacity: 0.04,
+        wireframe: false
+      });
+      const innerSphere = new THREE.Mesh(new THREE.SphereGeometry(1.55, 32, 32), innerMat);
+      scene.add(innerSphere);
+
+      // Orbiting tech nodes
+      const orbiters = [];
+      const colors = [0x4f46e5, 0x06b6d4, 0xec4899, 0x8b5cf6, 0x06b6d4];
+      const geometries = [
+        new THREE.IcosahedronGeometry(0.15, 0),
+        new THREE.OctahedronGeometry(0.15, 0),
+        new THREE.TetrahedronGeometry(0.15, 0),
+        new THREE.BoxGeometry(0.2, 0.2, 0.2),
+        new THREE.DodecahedronGeometry(0.13, 0)
+      ];
+
+      for (let i = 0; i < 5; i++) {
+        const mat = new THREE.MeshStandardMaterial({
+          color: colors[i],
+          roughness: 0.3,
+          metalness: 0.6,
+          emissive: colors[i],
+          emissiveIntensity: 0.25
+        });
+        const mesh = new THREE.Mesh(geometries[i], mat);
+        const angle = (i / 5) * Math.PI * 2;
+        const radius = 2.2 + Math.random() * 0.3;
+        mesh.userData = {
+          angle,
+          radius,
+          speed: 0.3 + Math.random() * 0.3,
+          yOffset: (Math.random() - 0.5) * 0.6,
+          ySpeed: 0.5 + Math.random() * 0.5
+        };
+        scene.add(mesh);
+        orbiters.push(mesh);
+
+        // Trailing line from sphere center to orbiter
+        const lineGeom = new THREE.BufferGeometry();
+        const linePos = new Float32Array(6);
+        lineGeom.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+        const lineMat = new THREE.LineBasicMaterial({
+          color: colors[i],
+          transparent: true,
+          opacity: 0.35
+        });
+        const line = new THREE.Line(lineGeom, lineMat);
+        scene.add(line);
+        mesh.userData.line = line;
+      }
+
+      // Floating ambient particles around hero
+      const heroParticlesCount = 200;
+      const hpPos = new Float32Array(heroParticlesCount * 3);
+      for (let i = 0; i < heroParticlesCount; i++) {
+        const theta = Math.random() * Math.PI * 2;
+        const r = 1.5 + Math.random() * 2;
+        hpPos[i * 3]     = Math.cos(theta) * r;
+        hpPos[i * 3 + 1] = (Math.random() - 0.5) * 3;
+        hpPos[i * 3 + 2] = Math.sin(theta) * r;
+      }
+      const hpGeom = new THREE.BufferGeometry();
+      hpGeom.setAttribute('position', new THREE.BufferAttribute(hpPos, 3));
+      const hpMat = new THREE.PointsMaterial({
+        color: 0x6366f1,
+        size: 0.025,
+        transparent: true,
+        opacity: 0.6,
+        sizeAttenuation: true
+      });
+      const heroPoints = new THREE.Points(hpGeom, hpMat);
+      scene.add(heroPoints);
+
+      // Mouse interaction
+      const targetRotation = { x: 0, y: 0 };
+      const currentRotation = { x: 0, y: 0 };
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        targetRotation.y = ((e.clientX - rect.left) / rect.width - 0.5) * 0.6;
+        targetRotation.x = ((e.clientY - rect.top) / rect.height - 0.5) * 0.4;
+      });
+      canvas.addEventListener('mouseleave', () => {
+        targetRotation.x = 0;
+        targetRotation.y = 0;
+      });
+
+      const clock = new THREE.Clock();
+      function animate() {
+        const t = clock.getElapsedTime();
+
+        // Smooth rotation follow mouse
+        currentRotation.x += (targetRotation.x - currentRotation.x) * 0.05;
+        currentRotation.y += (targetRotation.y - currentRotation.y) * 0.05;
+
+        sphereWire.rotation.x = currentRotation.x + t * 0.05;
+        sphereWire.rotation.y = currentRotation.y + t * 0.08;
+        innerSphere.rotation.copy(sphereWire.rotation);
+
+        // Animate orbiters
+        orbiters.forEach((mesh) => {
+          const a = mesh.userData.angle + t * mesh.userData.speed;
+          mesh.position.x = Math.cos(a) * mesh.userData.radius;
+          mesh.position.z = Math.sin(a) * mesh.userData.radius;
+          mesh.position.y = mesh.userData.yOffset + Math.sin(t * mesh.userData.ySpeed) * 0.25;
+          mesh.rotation.x += 0.015;
+          mesh.rotation.y += 0.02;
+
+          // Update trailing line
+          const lp = mesh.userData.line.geometry.attributes.position.array;
+          lp[0] = 0; lp[1] = 0; lp[2] = 0;
+          lp[3] = mesh.position.x;
+          lp[4] = mesh.position.y;
+          lp[5] = mesh.position.z;
+          mesh.userData.line.geometry.attributes.position.needsUpdate = true;
+        });
+
+        // Rotate hero particles slowly
+        heroPoints.rotation.y = t * 0.05;
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
+
+    // ====================================================
+    // 3) Reveal-on-scroll
+    // ====================================================
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+    // ====================================================
+    // 4) Service cards — 3D tilt on hover
+    // ====================================================
+    document.querySelectorAll('.service').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        const rotateX = (0.5 - y) * 8;
+        const rotateY = (x - 0.5) * 8;
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    // ====================================================
+    // 5) Smooth nav links
+    // ====================================================
+    document.querySelectorAll('a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = a.getAttribute('href');
+        if (id.length > 1) {
+          const el = document.querySelector(id);
+          if (el) {
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

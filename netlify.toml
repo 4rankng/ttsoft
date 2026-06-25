@@ -1,27 +1,9 @@
-# Netlify configuration for the TTSoft landing page.
-# The site is a single, self-contained static HTML file with no build step.
+# Netlify configuration for the TTSoft landing page (Vite + React + R3F).
 
 [build]
-  # No build command — the repo ships ready-to-serve static files.
-  command = ""
-  # Publish the repository root so the HTML file is served directly.
-  publish = "."
+  command = "npm run build"
+  publish = "dist"
 
-# Serve the landing page as the site root.
-# The file is index.html (not index.html), so redirect "/" to it.
-[[redirects]]
-  from = "/"
-  to = "/index.html"
-  status = 200
-  force = false
-
-# Friendly URL: /landing and /home also resolve to the landing page.
-[[redirects]]
-  from = "/landing"
-  to = "/index.html"
-  status = 302
-
-# Any unknown path falls back to the landing page (single-page site).
 [[redirects]]
   from = "/*"
   to = "/index.html"
@@ -35,7 +17,6 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-    X-XSS-Protection = "1; mode=block"
 
 # --- Caching ---
 # HTML: revalidate often so content updates roll out quickly.
@@ -43,3 +24,9 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
+
+# Hashed assets: immutable.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
