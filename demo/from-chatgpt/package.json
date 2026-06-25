@@ -1,0 +1,17 @@
+{
+  "name": "ttsoft-vietnamese-threejs-redesign",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vietnamese-first light-theme concept for TTSoft with a performance-conscious Three.js hero.",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "npx serve site",
+    "preview": "npx serve dist"
+  },
+  "dependencies": {
+    "three": "0.184.0"
+  },
+  "devDependencies": {
+    "@netlify/plugin-lighthouse": "^6.0.4"
+  }
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f9fc">
+  <meta name="color-scheme" content="light">
+  <title>TTSoft — Đồng hành số hóa cho doanh nghiệp vừa và nhỏ</title>
+  <meta name="description" content="TTSoft đồng hành cùng doanh nghiệp vừa và nhỏ Việt Nam chuyển đổi số từng bước — từ quản lý thủ công, Excel, sổ sách sang phần mềm vận hành, tự động hóa và ra quyết định bằng dữ liệu.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:title" content="TTSoft — Đồng hành số hóa cho SME Việt Nam">
+  <meta property="og:description" content="Từng bước số hóa vận hành cho doanh nghiệp nhỏ: phần mềm theo yêu cầu, tự động hóa quy trình, dữ liệu và AI — đồng hành minh bạch, không ôm đồm, đi cùng tốc độ của bạn.">
+  <meta property="og:image" content="/og-image.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/src/styles.css" as="style">
+  <link rel="stylesheet" href="/src/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TTSoft",
+    "url": "https://ttsoft.netlify.app/",
+    "email": "hello@ttsoft.vn",
+    "description": "Đối tác đồng hành số hóa cho doanh nghiệp vừa và nhỏ tại Việt Nam — thiết kế phần mềm, tự động hóa vận hành và phân tích dữ liệu theo từng bước.",
+    "areaServed": "VN"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#noi-dung">Bỏ qua điều hướng</a>
+  <div class="page-progress" aria-hidden="true"><span></span></div>
+
+  <!-- Netlify forms: a hidden static form is required at build time so the
+       Netlify post-processing bot can detect the form name "yeu-cau-du-an".
+       The visible, React-rendered form in src/components/Contact.tsx mirrors
+       these exact field names and submits to the same endpoint. -->
+  <form name="yeu-cau-du-an" netlify netlify-honeypot="truong-khong-dien" action="/cam-on.html" method="POST" hidden aria-hidden="true">
+    <input type="hidden" name="form-name" value="yeu-cau-du-an">
+    <p><label>Không điền trường này: <input name="truong-khong-dien"></label></p>
+    <input type="text" name="ho-ten">
+    <input type="email" name="email">
+    <input type="text" name="doanh-nghiep">
+    <input type="tel" name="so-dien-thoai">
+    <select name="nhu-cau"><option>Phần mềm theo yêu cầu</option></select>
+    <textarea name="mo-ta"></textarea>
+    <button type="submit">Gửi</button>
+  </form>
+
+  <div id="root"></div>
+
+  <noscript><p class="noscript">Trang vẫn sử dụng được khi tắt JavaScript; hiệu ứng 3D và chuyển động sẽ không hiển thị.</p></noscript>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
