@@ -11,9 +11,6 @@ export function useReveal<T extends HTMLElement = HTMLElement>() {
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const node = ref.current;
-    if (!node) return;
-
     const reveal = (target: Element) => target.classList.add('is-visible');
 
     if (reduced || !('IntersectionObserver' in window)) {

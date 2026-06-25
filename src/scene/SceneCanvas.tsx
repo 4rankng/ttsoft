@@ -22,8 +22,18 @@ export function SceneCanvas() {
 
   const wrapRef = useRef<HTMLDivElement>(null);
   const [heroInView, setHeroInView] = useState(true);
+  const [readyToMount, setReadyToMount] = useState(false);
+  const [contextLost, setContextLost] = useState(false);
   const pointer = useRef(new THREE.Vector2(0, 0));
   const pointerTarget = useRef(new THREE.Vector2(0, 0));
+
+  // React StrictMode intentionally mounts, unmounts, then remounts components in
+  // development. Defer the actual WebGL canvas so the probe mount does not
+  // create and immediately lose a WebGL context.
+  useEffect(() => {
+    const id = window.setTimeout(() => setReadyToMount(true), 0);
+    return () => window.clearTimeout(id);
+  }, []);
 
   // Observe the hero wrap to pause rendering when offscreen.
   useEffect(() => {
@@ -84,29 +94,49 @@ export function SceneCanvas() {
 
   // After mount, fade the canvas in by tagging the wrap with `.scene-ready`.
   useEffect(() => {
+    if (!readyToMount || contextLost) return;
     const wrap = wrapRef.current?.parentElement;
     if (!wrap) return;
     // Defer one frame so the first GL frame has rendered.
     const id = window.setTimeout(() => wrap.classList.add('scene-ready'), 60);
-    return () => window.clearTimeout(id);
-  }, []);
+    return () => {
+      window.clearTimeout(id);
+      wrap.classList.remove('scene-ready');
+    };
+  }, [contextLost, readyToMount]);
 
   return (
-    <div ref={wrapRef} style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0, transition: 'opacity .8s ease' }}>
-      <Canvas
-        frameloop={frameloop}
-        dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-        onCreated={({ gl }) => {
-          gl.setClearColor(new THREE.Color(0x000000), 0);
-          gl.toneMapping = THREE.ACESFilmicToneMapping;
-          gl.toneMappingExposure = 1.05;
-          gl.outputColorSpace = THREE.SRGBColorSpace;
-        }}
-        aria-hidden
-      >
-        <SceneContent reducedMotion={reduced} pointer={pointer} />
-      </Canvas>
+    <div
+      ref={wrapRef}
+      className="scene-canvas-layer"
+      style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0, transition: 'opacity .8s ease' }}
+    >
+      {readyToMount && !contextLost ? (
+        <Canvas
+          frameloop={frameloop}
+          dpr={[1, 1.5]}
+          gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+          onCreated={({ gl }) => {
+            gl.setClearColor(new THREE.Color(0x000000), 0);
+            gl.toneMapping = THREE.ACESFilmicToneMapping;
+            gl.toneMappingExposure = 1.05;
+            gl.outputColorSpace = THREE.SRGBColorSpace;
+
+            gl.domElement.addEventListener(
+              'webglcontextlost',
+              (event) => {
+                event.preventDefault();
+                wrapRef.current?.parentElement?.classList.remove('scene-ready');
+                setContextLost(true);
+              },
+              { once: true },
+            );
+          }}
+          aria-hidden
+        >
+          <SceneContent reducedMotion={reduced} pointer={pointer} />
+        </Canvas>
+      ) : null}
     </div>
   );
 }

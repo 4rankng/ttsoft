@@ -35,13 +35,12 @@ function HeroVisual() {
           <span>TTSOFT / KIẾN TRÚC SỐ</span>
         </div>
         <div className="canvas-wrap" data-scene-wrap>
+          <CanvasFallback />
           {showScene ? (
-            <Suspense fallback={<CanvasFallback />}>
+            <Suspense fallback={null}>
               <SceneCanvas />
             </Suspense>
-          ) : (
-            <CanvasFallback />
-          )}
+          ) : null}
           <div className="scene-label scene-label-a">
             <span>01</span><strong>Luồng dữ liệu</strong><small>Kết nối theo thời gian thực</small>
           </div>

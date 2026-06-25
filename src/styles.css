@@ -123,7 +123,7 @@ button { color: inherit; }
 .scene-ready #system-scene { opacity: 1; }
 /* R3F port: the canvas lives inside a wrapper div that carries the same
    opacity transition. Fade it in once the first GL frame has rendered. */
-.scene-ready > div { opacity: 1 !important; }
+.scene-ready > .scene-canvas-layer { opacity: 1 !important; }
 .scene-ready .canvas-fallback { opacity: 0; }
 .canvas-fallback { position: absolute; z-index: 0; inset: 0; opacity: 1; transition: opacity .5s ease; }
 .fallback-core { position: absolute; left: 50%; top: 50%; width: 156px; height: 156px; border: 1px solid rgba(47,105,255,.42); border-radius: 35% 65% 57% 43% / 45% 43% 57% 55%; background: radial-gradient(circle at 35% 28%, white, rgba(210,224,255,.9) 34%, rgba(91,130,255,.18) 62%, transparent 64%), linear-gradient(135deg, rgba(47,105,255,.16), rgba(120,87,255,.08)); box-shadow: 0 25px 70px rgba(47,105,255,.18), inset 0 0 28px rgba(255,255,255,.8); transform: translate(-50%,-50%) rotate(12deg); animation: fallback-float 8s ease-in-out infinite; }
