@@ -13,3 +13,6 @@ dist/
 
 # OMC runtime state
 .omc
+
+# Local Netlify folder
+.netlify
