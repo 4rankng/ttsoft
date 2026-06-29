@@ -106,13 +106,6 @@ export function Solutions() {
             </div>
           </article>
         </div>
-
-        {/* Honesty marker: these are solution templates, not shipped client work. */}
-        <p className="integrity-note reveal">
-          <strong>Lưu ý nội dung:</strong> Các khối trên là mẫu minh họa, không phải
-          dự án khách hàng thực tế. Khi có dự án được phép công bố, Ting Ting Soft
-          sẽ thay bằng tên ngành, phạm vi và kết quả thật.
-        </p>
       </div>
     </section>
   );
