@@ -23,6 +23,7 @@ export function Footer() {
         <div>
           <h3>Liên hệ</h3>
           <a href="mailto:tingtingsoft.vn@gmail.com">tingtingsoft.vn@gmail.com</a>
+          <p className="footer-address">312 Nguyễn Công Hòa, phường An Biên, quận Lê Chân, thành phố Hải Phòng</p>
           <a href="#lien-he">Trao đổi nhu cầu</a>
         </div>
       </div>
