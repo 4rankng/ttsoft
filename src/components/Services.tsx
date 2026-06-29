@@ -1,27 +1,23 @@
 const SERVICES = [
   {
-    index: '01',
     icon: '/assets/icon-custom-software.png',
     title: 'Phần mềm theo quy trình doanh nghiệp',
     body: 'Ứng dụng web, di động và công cụ nội bộ thiết kế quanh cách bạn đang vận hành — thay thế Excel, sổ sách và các bước làm thủ công đang ngốn thời gian.',
     tags: ['Ứng dụng web', 'Ứng dụng di động', 'Quy trình riêng'],
   },
   {
-    index: '02',
     icon: '/assets/icon-automation.png',
     title: 'Tự động hóa thao tác lặp lại',
     body: 'Kết nối các phần mềm bạn đang dùng, tự động thao tác lặp lại (nhập liệu, báo cáo, đồng bộ đơn hàng) để đội ngũ nhỏ bớt việc tay.',
     tags: ['API', 'Đồng bộ dữ liệu', 'Bớt thao tác tay'],
   },
   {
-    index: '03',
     icon: '/assets/icon-data-ai.png',
     title: 'Dữ liệu, báo cáo và AI ứng dụng',
     body: 'Biến dữ liệu rải rác thành bảng đo đơn giản, báo cáo tự động và trợ lý AI giúp chủ doanh nghiệp ra quyết định nhanh hơn, ít phụ thuộc cảm tính.',
     tags: ['Báo cáo tự động', 'Trợ lý AI', 'Quyết định bằng số liệu'],
   },
   {
-    index: '04',
     icon: '/assets/icon-operations-scale.png',
     title: 'Vận hành, bảo trì và mở rộng',
     body: 'Giữ hệ thống chạy ổn định, an toàn, chi phí hợp lý — bao gồm sao lưu, bảo mật, cập nhật và mở rộng khi doanh nghiệp lớn dần.',
@@ -47,12 +43,11 @@ export function Services() {
 
         <div className="services-list">
           {SERVICES.map((s) => (
-            <article className="service-row reveal" key={s.index}>
+            <article className="service-row reveal" key={s.title}>
               <div className="service-media" aria-hidden="true">
                 <img src={s.icon} width="512" height="512" alt="" loading="lazy" />
               </div>
               <div className="service-title">
-                <span className="service-index">{s.index}</span>
                 <h3>{s.title}</h3>
               </div>
               <p>{s.body}</p>
