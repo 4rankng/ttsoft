@@ -17,10 +17,20 @@ export function Stack() {
             <p className="kicker">Công nghệ phù hợp bài toán</p>
             <h2 id="stack-title">Chọn công nghệ đủ chắc để dùng lâu, đủ gọn để bắt đầu nhanh.</h2>
           </div>
-          <div className="stack-cloud" aria-label="Công nghệ sử dụng">
-            {STACK.map((t) => (
-              <span key={t.name}><b>{t.abbr}</b> {t.name}</span>
-            ))}
+          <div className="stack-visual">
+            <img
+              className="stack-illustration"
+              src="/assets/ting-ting-productivity-illustration.png"
+              width="1588"
+              height="990"
+              alt="Minh họa hệ thống số hóa quy trình, tự động hóa và dữ liệu tập trung"
+              loading="lazy"
+            />
+            <div className="stack-cloud" aria-label="Công nghệ sử dụng">
+              {STACK.map((t) => (
+                <span key={t.name}><b>{t.abbr}</b> {t.name}</span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
