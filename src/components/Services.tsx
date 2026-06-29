@@ -1,26 +1,26 @@
 const SERVICES = [
   {
     index: '01',
-    title: 'Phần mềm theo yêu cầu',
-    body: 'Ứng dụng web, di động và công cụ nội bộ thiết kế riêng cho quy trình bạn — thay thế Excel, sổ sách và các bước làm thủ công đang ngốn thời gian.',
-    tags: ['Ứng dụng web', 'Ứng dụng di động', 'Thay thế Excel'],
+    title: 'Phần mềm theo quy trình doanh nghiệp',
+    body: 'Ứng dụng web, di động và công cụ nội bộ thiết kế quanh cách bạn đang vận hành — thay thế Excel, sổ sách và các bước làm thủ công đang ngốn thời gian.',
+    tags: ['Ứng dụng web', 'Ứng dụng di động', 'Quy trình riêng'],
   },
   {
     index: '02',
-    title: 'Tự động hóa quy trình',
+    title: 'Tự động hóa thao tác lặp lại',
     body: 'Kết nối các phần mềm bạn đang dùng, tự động thao tác lặp lại (nhập liệu, báo cáo, đồng bộ đơn hàng) để đội ngũ nhỏ bớt việc tay.',
     tags: ['API', 'Đồng bộ dữ liệu', 'Bớt thao tác tay'],
   },
   {
     index: '03',
-    title: 'Dữ liệu và AI',
-    body: 'Biến dữ liệu rải rác thành bảng đo đơn giản, báo cáo tự động và trợ lý AI giúp chủ doanh nghiệp ra quyết định nhanh hơn, bớt theo cảm tính.',
+    title: 'Dữ liệu, báo cáo và AI ứng dụng',
+    body: 'Biến dữ liệu rải rác thành bảng đo đơn giản, báo cáo tự động và trợ lý AI giúp chủ doanh nghiệp ra quyết định nhanh hơn, ít phụ thuộc cảm tính.',
     tags: ['Báo cáo tự động', 'Trợ lý AI', 'Quyết định bằng số liệu'],
   },
   {
     index: '04',
-    title: 'Vận hành và bảo trì',
-    body: 'Đảm bảo hệ thống chạy ổn định, an toàn, chi phí hợp lý — bao gồm sao lưu, bảo mật, cập nhật và mở rộng khi doanh nghiệp lớn dần.',
+    title: 'Vận hành, bảo trì và mở rộng',
+    body: 'Giữ hệ thống chạy ổn định, an toàn, chi phí hợp lý — bao gồm sao lưu, bảo mật, cập nhật và mở rộng khi doanh nghiệp lớn dần.',
     tags: ['Ổn định', 'Bảo mật', 'Chi phí hợp lý'],
   },
 ] as const;
@@ -32,12 +32,12 @@ export function Services() {
         <div className="section-heading split-heading reveal">
           <div>
             <p className="kicker">Năng lực đồng hành</p>
-            <h2>Bốn năng lực giúp doanh nghiệp nhỏ làm việc thông minh hơn.</h2>
+            <h2>Bốn nhóm năng lực biến công nghệ thành năng suất hằng ngày.</h2>
           </div>
           <p>
             Từ ứng dụng đầu tiên thay thế Excel, đến nền tảng vận hành đầy đủ —
-            TTSoft chọn cách làm phù hợp quy mô và bài toán thực tế của bạn, không
-            phải bộ công nghệ hào nhoáng.
+            Ting Ting Soft chọn cách làm phù hợp quy mô và bài toán thực tế của
+            bạn, không phải bộ công nghệ hào nhoáng.
           </p>
         </div>
 

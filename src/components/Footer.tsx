@@ -9,25 +9,25 @@ export function Footer() {
         <div className="footer-brand">
           <BrandMark />
           <p>
-            Đồng hành cùng doanh nghiệp vừa và nhỏ Việt Nam trên hành trình số
-            hóa — từng bước rõ ràng, minh bạch và bền vững.
+            Số hóa quy trình và đưa công nghệ vào đúng chỗ để doanh nghiệp nhỏ
+            làm việc nhẹ hơn, nhanh hơn và tự tin hơn với dữ liệu của mình.
           </p>
         </div>
         <div>
           <h3>Điều hướng</h3>
-          <a href="#khac-biet">Cách chúng tôi đồng hành</a>
+          <a href="#khac-biet">Cách đồng hành</a>
           <a href="#dich-vu">Dịch vụ</a>
           <a href="#giai-phap">Giải pháp</a>
           <a href="#quy-trinh">Quy trình</a>
         </div>
         <div>
           <h3>Liên hệ</h3>
-          <a href="mailto:hello@ttsoft.vn">hello@ttsoft.vn</a>
+          <a href="mailto:tingtingsoft.vn@gmail.com">tingtingsoft.vn@gmail.com</a>
           <a href="#lien-he">Trao đổi nhu cầu</a>
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>© {year} TTSoft. Bảo lưu mọi quyền.</span>
+        <span>© {year} Công ty TNHH Giải Pháp Phần Mềm Ting Ting. Bảo lưu mọi quyền.</span>
         <a href="#dau-trang">Về đầu trang ↑</a>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-# Netlify configuration for the TTSoft landing page (Vite + React + R3F).
+# Netlify configuration for the Ting Ting Soft landing page (Vite + React + R3F).
 
 [build]
   command = "npm run build"

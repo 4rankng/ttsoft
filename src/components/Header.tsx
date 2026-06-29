@@ -39,7 +39,7 @@ export function Header() {
           aria-label="Điều hướng chính"
           data-nav
         >
-          <a href="#khac-biet" onClick={close}>Cách chúng tôi đồng hành</a>
+          <a href="#khac-biet" onClick={close}>Cách đồng hành</a>
           <a href="#dich-vu" onClick={close}>Dịch vụ</a>
           <a href="#giai-phap" onClick={close}>Giải pháp</a>
           <a href="#quy-trinh" onClick={close}>Quy trình</a>

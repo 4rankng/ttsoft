@@ -73,15 +73,15 @@ function buildParticles() {
 }
 
 const SATELLITE_DATA = [
-  { color: '#2f69ff', radius: 2.18, speed: 0.27, tilt: 0.55, offset: 0 },
-  { color: '#06b6d4', radius: 2.38, speed: -0.19, tilt: 1.28, offset: 2.3 },
-  { color: '#7857ff', radius: 1.98, speed: 0.23, tilt: 2.05, offset: 4.2 },
+  { color: '#0891b2', radius: 2.18, speed: 0.27, tilt: 0.55, offset: 0 },
+  { color: '#14b8a6', radius: 2.38, speed: -0.19, tilt: 1.28, offset: 2.3 },
+  { color: '#ec4899', radius: 1.98, speed: 0.23, tilt: 2.05, offset: 4.2 },
 ] as const;
 
 const RINGS = [
-  { args: [2.18, 0.012, 8, 140], color: '#2f69ff', opacity: 0.18, rotation: [1.18, 0.1, -0.38] as const },
-  { args: [2.38, 0.009, 8, 140], color: '#06b6d4', opacity: 0.17, rotation: [0.45, 1.15, 0.28] as const },
-  { args: [1.96, 0.008, 8, 140], color: '#7857ff', opacity: 0.13, rotation: [1.75, 0.35, 0.72] as const },
+  { args: [2.18, 0.012, 8, 140], color: '#0891b2', opacity: 0.18, rotation: [1.18, 0.1, -0.38] as const },
+  { args: [2.38, 0.009, 8, 140], color: '#14b8a6', opacity: 0.17, rotation: [0.45, 1.15, 0.28] as const },
+  { args: [1.96, 0.008, 8, 140], color: '#ec4899', opacity: 0.13, rotation: [1.75, 0.35, 0.72] as const },
 ] as const;
 
 type SceneContentProps = {
@@ -182,17 +182,17 @@ export function SceneContent({ reducedMotion, pointer }: SceneContentProps) {
   return (
     <>
       {/* Lighting — matches scene.js colors/intensities/positions. */}
-      <hemisphereLight color="#ffffff" groundColor="#b9ccff" intensity={2.15} />
+      <hemisphereLight color="#ffffff" groundColor="#bbf7ec" intensity={2.15} />
       <directionalLight color="#ffffff" intensity={3.2} position={[4, 5, 6]} />
-      <pointLight color="#4b78ff" intensity={9} distance={14} decay={2} position={[-3.5, 1.2, 4]} />
-      <pointLight color="#36d7ec" intensity={6} distance={11} decay={2} position={[3.2, -2.2, 2]} />
+      <pointLight color="#14b8a6" intensity={9} distance={14} decay={2} position={[-3.5, 1.2, 4]} />
+      <pointLight color="#ec4899" intensity={5} distance={11} decay={2} position={[3.2, -2.2, 2]} />
 
       <group ref={rootRef} rotation={[-0.08, -0.22, 0.08]}>
         {/* Core: high-subdiv physical icosahedron. */}
         <mesh scale={[1.02, 1.09, 1.02]}>
           <icosahedronGeometry args={[1.48, 3]} />
           <meshPhysicalMaterial
-            color="#eaf1ff"
+            color="#eefbf8"
             roughness={0.31}
             metalness={0.02}
             clearcoat={0.75}
@@ -205,19 +205,19 @@ export function SceneContent({ reducedMotion, pointer }: SceneContentProps) {
         {/* Wireframe shell. */}
         <lineSegments ref={wireRef} scale={[1, 1.08, 1]}>
           <wireframeGeometry args={[new THREE.IcosahedronGeometry(1.515, 2)]} />
-          <lineBasicMaterial color="#3c73ff" transparent opacity={0.31} />
+          <lineBasicMaterial color="#0891b2" transparent opacity={0.31} />
         </lineSegments>
 
         {/* Inner glow mesh. */}
         <mesh ref={innerRef}>
           <icosahedronGeometry args={[0.54, 2]} />
-          <meshBasicMaterial color="#4b78ff" transparent opacity={0.13} />
+          <meshBasicMaterial color="#14b8a6" transparent opacity={0.13} />
         </mesh>
 
         {/* Instanced network nodes. Matrices are applied via useLayoutEffect. */}
         <instancedMesh ref={nodesRef} args={[undefined, undefined, NODE_COUNT]}>
           <sphereGeometry args={[0.045, 10, 10]} />
-          <meshBasicMaterial color="#2f69ff" />
+          <meshBasicMaterial color="#0891b2" />
         </instancedMesh>
 
         {/* Network edges as line segments. */}
@@ -229,7 +229,7 @@ export function SceneContent({ reducedMotion, pointer }: SceneContentProps) {
               count={edgePositions.length / 3}
             />
           </bufferGeometry>
-          <lineBasicMaterial color="#5792ff" transparent opacity={0.21} />
+          <lineBasicMaterial color="#14b8a6" transparent opacity={0.21} />
         </lineSegments>
 
         {/* Three orbital rings. */}
@@ -261,7 +261,7 @@ export function SceneContent({ reducedMotion, pointer }: SceneContentProps) {
             />
           </bufferGeometry>
           <pointsMaterial
-            color="#5e8bff"
+            color="#0891b2"
             size={0.028}
             transparent
             opacity={0.48}

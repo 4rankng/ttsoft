@@ -1,13 +1,10 @@
-/** Shared TTSoft brand glyph + wordmark. Subtitle = official name. */
-export function BrandMark({ subtitle = 'Giải pháp phần mềm Ting Ting' }: { subtitle?: string }) {
+/** Shared Ting Ting Soft brand mark + wordmark. Subtitle = official name. */
+export function BrandMark({ subtitle = 'Công ty TNHH Giải Pháp Phần Mềm Ting Ting' }: { subtitle?: string }) {
   return (
-    <a className="brand" href="#dau-trang" aria-label="TTSoft — về đầu trang">
-      <svg className="brand-mark" viewBox="0 0 42 42" aria-hidden="true">
-        <path d="M8 9h26v7H24v17h-7V16H8z" />
-        <path d="M25 20h9v13h-9z" opacity=".36" />
-      </svg>
+    <a className="brand" href="#dau-trang" aria-label="Ting Ting Soft — về đầu trang">
+      <img className="brand-mark" src="/favicon.png" width="42" height="42" alt="" aria-hidden="true" />
       <span className="brand-text">
-        <strong>TTSoft</strong>
+        <strong>Ting Ting Soft</strong>
         <small>{subtitle}</small>
       </span>
     </a>

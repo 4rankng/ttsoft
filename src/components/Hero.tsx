@@ -29,10 +29,10 @@ function HeroVisual() {
 
   return (
     <div className="hero-visual reveal" data-delay="1" ref={ref}>
-      <div className="visual-shell">
-        <div className="visual-topline">
-          <span className="signal"><i /> Hệ thống đang hoạt động</span>
-          <span>TTSOFT / ĐỒNG HÀNH SỐ</span>
+        <div className="visual-shell">
+          <div className="visual-topline">
+            <span className="signal"><i /> Hệ thống đang hoạt động</span>
+          <span>TING TING SOFT / NĂNG SUẤT SỐ</span>
         </div>
         <div className="canvas-wrap" data-scene-wrap>
           <CanvasFallback />
@@ -42,13 +42,13 @@ function HeroVisual() {
             </Suspense>
           ) : null}
           <div className="scene-label scene-label-a">
-            <span>01</span><strong>Quy trình thủ công → tự động</strong><small>Bớt việc tay, nhiều việc đúng</small>
+            <span>01</span><strong>Tác vụ thủ công → luồng số</strong><small>Bớt việc tay, nhiều việc đúng</small>
           </div>
           <div className="scene-label scene-label-b">
-            <span>02</span><strong>Dữ liệu rõ ràng</strong><small>Quyết định không còn theo cảm tính</small>
+            <span>02</span><strong>Dữ liệu tập trung</strong><small>Ra quyết định tự tin hơn</small>
           </div>
           <div className="scene-label scene-label-c">
-            <span>03</span><strong>Dễ dùng cho đội ngũ nhỏ</strong><small>Không cần chuyên gia IT</small>
+            <span>03</span><strong>Dễ dùng cho đội ngũ nhỏ</strong><small>Công nghệ vừa với cách bạn vận hành</small>
           </div>
         </div>
         <div className="visual-bottomline">
@@ -68,15 +68,14 @@ export function Hero() {
       <div className="hero-glow hero-glow-two" aria-hidden="true" />
       <div className="container hero-grid">
         <div className="hero-copy reveal">
-          <p className="eyebrow"><span /> Đối tác đồng hành số hóa</p>
+          <p className="eyebrow"><span /> Ting Ting Soft · Giải pháp phần mềm</p>
           <h1 id="hero-title">
-            Từ sổ sách và Excel, đến <em>vận hành tự động</em> — từng bước, cùng bạn.
+            Số hóa quy trình, <em>tăng năng suất</em> cho doanh nghiệp nhỏ.
           </h1>
           <p className="hero-lead">
-            TTSoft đồng hành cùng doanh nghiệp nhỏ chuyển đổi số từng bước: từ
-            những quy trình còn làm thủ công, đến phần mềm vận hành, tự động hóa
-            và ra quyết định bằng dữ liệu — nền tảng kỹ thuật vững, đi đúng tốc độ
-            của bạn.
+            Công ty TNHH Giải Pháp Phần Mềm Ting Ting giúp doanh nghiệp nhỏ đưa
+            công nghệ vào đúng chỗ: thay thế thao tác thủ công, tự động hóa quy
+            trình lặp lại và biến dữ liệu rời rạc thành quyết định rõ ràng hơn.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#lien-he">
@@ -87,9 +86,9 @@ export function Hero() {
             </a>
           </div>
           <ul className="hero-capabilities" aria-label="Năng lực chính">
-            <li><span>01</span> Phần mềm theo yêu cầu của bạn</li>
-            <li><span>02</span> Tự động hóa quy trình thủ công</li>
-            <li><span>03</span> Ra quyết định bằng dữ liệu</li>
+            <li><span>01</span> Phần mềm vừa với quy trình thật</li>
+            <li><span>02</span> Tự động hóa việc lặp lại</li>
+            <li><span>03</span> Dữ liệu rõ để quyết định nhanh</li>
           </ul>
         </div>
 
@@ -97,7 +96,7 @@ export function Hero() {
       </div>
 
       <div className="container proof-rail reveal" data-delay="2">
-        <p>Đồng hành thực sự — không bán hàng vòng vo.</p>
+        <p>Công nghệ đi vào năng suất, không chỉ đẹp trên slide.</p>
         <div className="proof-items">
           <span><i>✓</i> Bắt đầu từ nhu cầu thực của bạn</span>
           <span><i>✓</i> Kiến trúc mở rộng được</span>

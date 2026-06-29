@@ -5,7 +5,7 @@ const STACK = [
   { abbr: 'N', name: 'Node.js' },
   { abbr: 'PG', name: 'PostgreSQL' },
   { abbr: 'D', name: 'Docker' },
-  { abbr: '☁', name: 'Đám mây' },
+  { abbr: 'CL', name: 'Đám mây' },
 ] as const;
 
 export function Stack() {
@@ -15,7 +15,7 @@ export function Stack() {
         <div className="stack-panel reveal">
           <div>
             <p className="kicker">Công nghệ phù hợp bài toán</p>
-            <h2 id="stack-title">Công nghệ đúng cho bài toán của bạn — không phải công nghệ đắt nhất.</h2>
+            <h2 id="stack-title">Chọn công nghệ đủ chắc để dùng lâu, đủ gọn để bắt đầu nhanh.</h2>
           </div>
           <div className="stack-cloud" aria-label="Công nghệ sử dụng">
             {STACK.map((t) => (

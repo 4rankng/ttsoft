@@ -53,16 +53,16 @@ export function Contact() {
           <p className="kicker">Bắt đầu từ một cuộc trò chuyện</p>
           <h2>Không biết bắt đầu từ đâu? Cùng nhau tìm ra.</h2>
           <p>
-            Chia sẻ bài toán hiện tại — dù chỉ là 'đang kẹt ở Excel'. TTSoft sẽ
-            đồng hành cùng bạn tìm bước đầu tiên rõ ràng, khả thi, không áp lực.
+            Chia sẻ bài toán hiện tại — dù chỉ là 'đang kẹt ở Excel'. Ting Ting
+            Soft sẽ cùng bạn tìm bước đầu tiên rõ ràng, khả thi, không áp lực.
           </p>
           <div className="contact-points">
             <span><i>01</i> Phản hồi thẳng thắn, không bán hàng</span>
             <span><i>02</i> Bảo mật thông tin doanh nghiệp</span>
             <span><i>03</i> Đề xuất bước đầu tiên trong tầm tay</span>
           </div>
-          <a className="contact-email" href="mailto:hello@ttsoft.vn">
-            hello@ttsoft.vn <span>↗</span>
+          <a className="contact-email" href="mailto:tingtingsoft.vn@gmail.com">
+            tingtingsoft.vn@gmail.com <span>↗</span>
           </a>
         </div>
 
@@ -114,8 +114,8 @@ export function Contact() {
             {submitting ? 'Đang gửi...' : <>Gửi nhu cầu của bạn <span aria-hidden="true">↗</span></>}
           </button>
           <p className="form-note">
-            Bằng cách gửi biểu mẫu, bạn đồng ý để TTSoft liên hệ về nhu cầu này —
-            không cam kết nào khác.
+            Bằng cách gửi biểu mẫu, bạn đồng ý để Ting Ting Soft liên hệ về nhu
+            cầu này — không cam kết nào khác.
           </p>
         </form>
       </div>

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// TTSoft — Vietnamese-first landing page.
+// Ting Ting Soft — Vietnamese-first landing page.
 // Production build emits a static SPA into ./dist for Netlify.
 export default defineConfig({
   plugins: [react()],

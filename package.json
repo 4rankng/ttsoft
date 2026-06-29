@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "TTSoft — Đồng hành số hóa cho doanh nghiệp vừa và nhỏ. Vietnamese-first React + R3F landing.",
+  "description": "Ting Ting Soft — Số hóa vận hành và cải thiện năng suất cho doanh nghiệp nhỏ. Vietnamese-first React + R3F landing.",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
