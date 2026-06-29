@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const NEED_OPTIONS = [
   'Phần mềm theo yêu cầu',
@@ -16,9 +16,35 @@ const NEED_OPTIONS = [
  */
 export function Contact() {
   const [submitting, setSubmitting] = useState(false);
+  const [need, setNeed] = useState('');
+  const [needOpen, setNeedOpen] = useState(false);
+  const [needTouched, setNeedTouched] = useState(false);
+  const needRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onPointerDown = (event: PointerEvent) => {
+      if (!needRef.current?.contains(event.target as Node)) setNeedOpen(false);
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setNeedOpen(false);
+    };
+
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setNeedTouched(true);
+    if (!need) {
+      setNeedOpen(true);
+      return;
+    }
+
     const form = e.currentTarget;
     const data = new FormData(form);
     // Netlify requires form-name in the body for SPA submissions.
@@ -99,13 +125,46 @@ export function Contact() {
               <input type="tel" name="so-dien-thoai" autoComplete="tel" inputMode="tel" placeholder="09xx xxx xxx" />
             </label>
           </div>
-          <label>
-            Bạn đang cần giải quyết
-            <select name="nhu-cau" required defaultValue="">
-              <option value="" disabled>Chọn một nhu cầu</option>
-              {NEED_OPTIONS.map((o) => <option key={o}>{o}</option>)}
-            </select>
-          </label>
+          <div className="form-field">
+            <span className="field-label">Bạn đang cần giải quyết</span>
+            <div className={`custom-select${needOpen ? ' is-open' : ''}${needTouched && !need ? ' has-error' : ''}`} ref={needRef}>
+              <input type="hidden" name="nhu-cau" value={need} />
+              <button
+                className="select-trigger"
+                type="button"
+                aria-haspopup="listbox"
+                aria-expanded={needOpen}
+                aria-controls="need-options"
+                onClick={() => {
+                  setNeedOpen((v) => !v);
+                }}
+              >
+                <span className={need ? '' : 'select-placeholder'}>
+                  {need || 'Chọn một nhu cầu'}
+                </span>
+                <span className="select-chevron" aria-hidden="true" />
+              </button>
+              <div className="select-menu" id="need-options" role="listbox" aria-label="Bạn đang cần giải quyết">
+                {NEED_OPTIONS.map((option) => (
+                  <button
+                    className={`select-option${need === option ? ' is-selected' : ''}`}
+                    type="button"
+                    role="option"
+                    aria-selected={need === option}
+                    key={option}
+                    onClick={() => {
+                      setNeed(option);
+                      setNeedTouched(true);
+                      setNeedOpen(false);
+                    }}
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              <p className="field-error">Vui lòng chọn một nhu cầu.</p>
+            </div>
+          </div>
           <label>
             Mô tả ngắn bài toán
             <textarea name="mo-ta" rows={5} required placeholder="Ví dụ: đang quản lý đơn hàng bằng Excel, muốn tự động hóa..." />

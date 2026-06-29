@@ -50,9 +50,9 @@ export function Services() {
             <article className="service-row reveal" key={s.index}>
               <div className="service-media" aria-hidden="true">
                 <img src={s.icon} width="512" height="512" alt="" loading="lazy" />
-                <span>{s.index}</span>
               </div>
               <div className="service-title">
+                <span className="service-index">{s.index}</span>
                 <h3>{s.title}</h3>
               </div>
               <p>{s.body}</p>
