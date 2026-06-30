@@ -70,10 +70,10 @@ export function Hero() {
         <div className="hero-copy reveal">
           <p className="eyebrow"><span /> Ting Ting Soft · Giải pháp phần mềm</p>
           <h1 id="hero-title">
-            Số hóa quy trình, <em>tăng năng suất</em> cho doanh nghiệp nhỏ.
+            Số hóa quy trình, <em>tăng năng suất</em> cho doanh nghiệp.
           </h1>
           <p className="hero-lead">
-            Công ty TNHH Giải Pháp Phần Mềm Ting Ting giúp doanh nghiệp nhỏ đưa
+            Công ty TNHH Giải Pháp Phần Mềm Ting Ting giúp doanh nghiệp đưa
             công nghệ vào đúng chỗ: thay thế thao tác thủ công, tự động hóa quy
             trình lặp lại và biến dữ liệu rời rạc thành quyết định rõ ràng hơn.
           </p>

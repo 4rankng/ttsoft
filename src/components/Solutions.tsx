@@ -5,7 +5,7 @@ export function Solutions() {
         <div className="section-heading split-heading reveal">
           <div>
             <p className="kicker">Hướng triển khai phổ biến</p>
-            <h2>Ba điểm bắt đầu giúp doanh nghiệp nhỏ số hóa có trọng tâm.</h2>
+            <h2>Ba điểm bắt đầu giúp doanh nghiệp số hóa có trọng tâm.</h2>
           </div>
           <p>
             Đây là các hướng giải pháp minh họa — mỗi dự án sẽ được điều chỉnh

@@ -9,7 +9,7 @@ export function Footer() {
         <div className="footer-brand">
           <BrandMark />
           <p>
-            Số hóa quy trình và đưa công nghệ vào đúng chỗ để doanh nghiệp nhỏ
+            Số hóa quy trình và đưa công nghệ vào đúng chỗ để doanh nghiệp
             làm việc nhẹ hơn, nhanh hơn và tự tin hơn với dữ liệu của mình.
           </p>
         </div>
@@ -23,7 +23,7 @@ export function Footer() {
         <div>
           <h3>Liên hệ</h3>
           <a href="mailto:tingtingsoft.vn@gmail.com">tingtingsoft.vn@gmail.com</a>
-          <p className="footer-address">312 Nguyễn Công Hòa, phường An Biên, quận Lê Chân, thành phố Hải Phòng</p>
+          <p className="footer-address">312 Nguyễn Công Hòa, phường An Biên, thành phố Hải Phòng</p>
           <a href="#lien-he">Trao đổi nhu cầu</a>
         </div>
       </div>
