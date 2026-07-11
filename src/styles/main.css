@@ -1,0 +1,12 @@
+/* Ting Ting Soft — styles entry.
+   Order matters: base tokens first, components next, responsive overrides last
+   so the cascade resolves the same way the original single <style> block did. */
+
+@import './base.css';
+@import './header.css';
+@import './hero.css';
+@import './sections.css';
+@import './tech.css';
+@import './contact.css';
+@import './footer.css';
+@import './responsive.css';
