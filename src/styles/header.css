@@ -1,7 +1,7 @@
 .site-header {
   position: fixed;
   z-index: 1000;
-  top: 16px;
+  top: max(24px, env(safe-area-inset-top));
   left: 0;
   width: 100%;
   pointer-events: none;
@@ -203,6 +203,8 @@
   position: fixed;
   z-index: 990;
   inset: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 110px 22px 28px;
   background: rgba(248, 250, 252, 0.95);
   backdrop-filter: blur(22px);

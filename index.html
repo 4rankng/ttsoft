@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f8fafc" />
+  <meta name="theme-color" content="#f7faf9" />
   <meta name="color-scheme" content="light" />
-  <title>Ting Ting Soft — Số hóa vận hành cho doanh nghiệp</title>
-  <meta name="description" content="Công ty TNHH Giải Pháp Phần Mềm Ting Ting (Ting Ting Soft) giúp doanh nghiệp số hóa quy trình, tự động hóa thao tác thủ công và dùng dữ liệu để tăng năng suất." />
+  <title>TingTing Transport — Phần mềm quản lý vận tải</title>
+  <meta name="description" content="TingTing Transport giúp doanh nghiệp vận tải điều hành chuyến, quản lý đội xe, kiểm soát công nợ và nhìn rõ lợi nhuận trên cùng một hệ thống." />
   <link rel="canonical" href="https://tingtingsoft.vn/" />
   <link rel="icon" href="/src/assets/brand-logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="/src/assets/brand-logo.png" />
@@ -14,679 +14,194 @@
   <meta property="og:url" content="https://tingtingsoft.vn/" />
   <meta property="og:site_name" content="Ting Ting Soft" />
   <meta property="og:locale" content="vi_VN" />
-  <meta property="og:title" content="Ting Ting Soft — Số hóa vận hành cho doanh nghiệp" />
-  <meta property="og:description" content="Phần mềm theo quy trình, tự động hóa và dữ liệu ứng dụng giúp doanh nghiệp tăng năng suất từng bước, rõ ràng và vừa sức." />
+  <meta property="og:title" content="TingTing Transport — Mọi chuyến xe. Một hệ thống." />
+  <meta property="og:description" content="Điều hành chuyến, quản lý đội xe và kiểm soát thu chi trên cùng một nền tảng quản lý vận tải." />
   <meta property="og:image" content="https://tingtingsoft.vn/og-image.png" />
-  <meta property="og:image:url" content="https://tingtingsoft.vn/og-image.png" />
   <meta property="og:image:secure_url" content="https://tingtingsoft.vn/og-image.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Ting Ting Soft — số hóa vận hành cho doanh nghiệp" />
+  <meta property="og:image:alt" content="TingTing Transport — phần mềm quản lý vận tải" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ting Ting Soft — Số hóa vận hành cho doanh nghiệp" />
-  <meta name="twitter:description" content="Phần mềm theo quy trình, tự động hóa và dữ liệu ứng dụng giúp doanh nghiệp tăng năng suất từng bước, rõ ràng và vừa sức." />
+  <meta name="twitter:title" content="TingTing Transport — Mọi chuyến xe. Một hệ thống." />
+  <meta name="twitter:description" content="Điều hành chuyến, quản lý đội xe và kiểm soát thu chi trên cùng một nền tảng quản lý vận tải." />
   <meta name="twitter:image" content="https://tingtingsoft.vn/og-image.png" />
-  <meta name="twitter:image:alt" content="Ting Ting Soft — số hóa vận hành cho doanh nghiệp" />
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Công ty TNHH Giải Pháp Phần Mềm Ting Ting",
-    "alternateName": "Ting Ting Soft",
-    "url": "https://tingtingsoft.vn/",
-    "email": "tingtingsoft.vn@gmail.com",
-    "description": "Ting Ting Soft giúp doanh nghiệp số hóa quy trình, tự động hóa thao tác thủ công và dùng dữ liệu để cải thiện năng suất.",
-    "areaServed": "VN"
-  }
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TingTing Transport","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://tingtingsoft.vn/","description":"Phần mềm quản lý vận tải dành cho doanh nghiệp Việt Nam, kết nối điều hành chuyến, đội xe, công nợ và báo cáo lợi nhuận.","author":{"@type":"Organization","name":"Công ty TNHH Giải Pháp Phần Mềm Ting Ting","alternateName":"Ting Ting Soft"}}
   </script>
-
-  <!-- Source: styles live in /src/styles/*.css (wired via main.css), behavior
-       in /src/scripts/*.js (bundled from main.js). Vite inlines both at build. -->
-
-  <!-- GSAP + ScrollTrigger power the cinematic choreography. The page stays
-       fully legible if the CDN is blocked: every hidden state is applied by JS,
-       and the form/native content works without any animation. -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
   <link rel="stylesheet" href="/src/styles/main.css" />
 </head>
 <body>
   <a class="skip-link" href="#noi-dung">Bỏ qua điều hướng</a>
   <div class="noise" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header" id="siteHeader">
     <div class="nav-shell">
-      <a class="brand" href="#top" aria-label="Ting Ting Soft — về đầu trang">
+      <a class="brand" href="#top" aria-label="TingTing Transport — về đầu trang">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-copy">
-          <strong>Ting Ting Soft</strong>
-          <small>Công ty TNHH Giải Pháp Phần Mềm Ting Ting</small>
-        </span>
+        <span class="brand-copy"><strong>Ting Ting Soft</strong><small>Công ty TNHH Giải Pháp Phần Mềm Ting Ting</small></span>
       </a>
-
       <nav class="desktop-nav" aria-label="Điều hướng chính">
-        <a href="#cach-dong-hanh">Cách đồng hành</a>
-        <a href="#dich-vu">Dịch vụ</a>
-        <a href="#giai-phap">Giải pháp</a>
-        <a href="#quy-trinh">Quy trình</a>
+        <a href="#tong-quan">Tổng quan</a><a href="#dieu-hanh">Điều hành</a><a href="#tai-chinh">Tài chính</a><a href="#doi-xe">Đội xe</a><a href="#tai-xe">Dành cho tài xế</a>
       </nav>
-
-      <a class="nav-cta" href="#lien-he">
-        Trao đổi nhu cầu <span class="arrow-icon" aria-hidden="true">↗</span>
-      </a>
-
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Mở menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="nav-cta" href="#lien-he">Đặt lịch demo <span class="arrow-icon" aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Mở menu"><span></span><span></span><span></span></button>
     </div>
   </header>
-
   <nav class="mobile-panel" id="mobilePanel" aria-label="Điều hướng di động">
-    <a href="#cach-dong-hanh">Cách đồng hành <span>↘</span></a>
-    <a href="#dich-vu">Dịch vụ <span>↘</span></a>
-    <a href="#giai-phap">Giải pháp <span>↘</span></a>
-    <a href="#quy-trinh">Quy trình <span>↘</span></a>
-    <a href="#lien-he">Trao đổi nhu cầu <span>↗</span></a>
+    <a href="#tong-quan">Tổng quan <span>↘</span></a><a href="#dieu-hanh">Điều hành <span>↘</span></a><a href="#tai-chinh">Tài chính <span>↘</span></a><a href="#doi-xe">Đội xe <span>↘</span></a><a href="#tai-xe">Dành cho tài xế <span>↘</span></a><a href="#lien-he">Đặt lịch demo <span>↗</span></a>
   </nav>
 
   <main id="noi-dung">
-    <section class="hero" id="top">
-      <div class="parallax-shape hero-shape-one" data-parallax="-18" aria-hidden="true"></div>
-      <div class="parallax-shape hero-shape-two" data-parallax="28" aria-hidden="true"></div>
+    <section class="product-hero" id="top">
+      <div class="container hero-center">
+        <p class="product-eyebrow">Phần mềm quản lý vận tải</p>
+        <h1>Mọi chuyến xe.<br><span>Một hệ thống.</span></h1>
+        <p class="hero-summary">TingTing Transport giúp chủ doanh nghiệp vận tải điều hành chuyến, quản lý đội xe và kiểm soát thu chi trên cùng một nền tảng.</p>
+        <div class="hero-actions"><a class="btn-primary" href="#lien-he">Đặt lịch demo <span aria-hidden="true">↗</span></a><a class="btn-secondary" href="#tong-quan">Khám phá sản phẩm <span aria-hidden="true">↓</span></a></div>
 
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <div class="hero-kicker">
-              <span class="eyebrow-dot" aria-hidden="true"></span>
-              Ting Ting Soft · Giải pháp phần mềm
-            </div>
+        <figure class="real-product-shot hero-device hero-shot" data-product-visual>
+          <div class="shot-window"><img src="/src/assets/product/transport-ui-concept.png" width="1536" height="1024" alt="Minh họa giao diện quản lý vận tải với bản đồ hành trình, điều phối chuyến, trạng thái đội xe và báo cáo tài chính" fetchpriority="high" /></div>
+          <figcaption><span>Minh họa sản phẩm</span><strong>Điều hành, đội xe và tài chính trong một góc nhìn</strong></figcaption>
+        </figure>
+      </div>
+    </section>
 
-            <h1 class="hero-title">
-              <span class="line">Số hóa quy trình,</span>
-              <span class="line accent-line">tăng năng suất</span>
-              <span class="line">cho doanh nghiệp.</span>
-            </h1>
-
-            <p class="hero-lead">
-              Công ty TNHH Giải Pháp Phần Mềm Ting Ting giúp doanh nghiệp đưa công nghệ vào đúng chỗ: thay thế thao tác thủ công, tự động hóa quy trình lặp lại và biến dữ liệu rời rạc thành quyết định rõ ràng hơn.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn-primary" href="#lien-he">
-                Trao đổi nhu cầu <span class="arrow-icon" aria-hidden="true">↗</span>
-              </a>
-              <a class="btn-secondary" href="#quy-trinh">
-                Xem quy trình 4 bước <span aria-hidden="true">↓</span>
-              </a>
-            </div>
-
-            <div class="hero-note" aria-label="Ba cam kết chính">
-              <span>Hiểu bài toán</span>
-              <span>Đi từng bước</span>
-              <span>Vận hành thực tế</span>
-            </div>
-
-            <div class="hero-benefits" aria-label="Lợi ích chính">
-              <article class="hero-benefit">
-                <strong>01</strong>
-                <span>Phần mềm vừa với quy trình thật</span>
-              </article>
-              <article class="hero-benefit">
-                <strong>02</strong>
-                <span>Tự động hóa việc lặp lại</span>
-              </article>
-              <article class="hero-benefit">
-                <strong>03</strong>
-                <span>Dữ liệu rõ để quyết định nhanh</span>
-              </article>
-            </div>
-          </div>
-
-          <div class="hero-visual" id="heroVisual" aria-label="Minh họa chuyển đổi từ file Excel rời rạc sang hệ thống phần mềm trực quan">
-            <div class="visual-halo" aria-hidden="true"></div>
-            <div class="visual-grid" aria-hidden="true"></div>
-
-            <div class="excel-card tilt-card" data-tilt-strength="5">
-              <div class="excel-titlebar">
-                <span>Bảng tính vận hành.xlsx</span>
-                <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-              </div>
-              <div class="sheet-toolbar" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-              <div class="sheet-grid" aria-hidden="true">
-                <span class="sheet-cell header"></span><span class="sheet-cell header">A</span><span class="sheet-cell header">B</span><span class="sheet-cell header">C</span><span class="sheet-cell header">D</span><span class="sheet-cell header">E</span><span class="sheet-cell header">F</span><span class="sheet-cell header">G</span>
-                <span class="sheet-cell header">1</span><span class="sheet-cell active">Đơn #204</span><span class="sheet-cell">Hải Phòng</span><span class="sheet-cell warning">Chờ</span><span class="sheet-cell">1.250</span><span class="sheet-cell">12/06</span><span class="sheet-cell">NV01</span><span class="sheet-cell">Ghi chú</span>
-                <span class="sheet-cell header">2</span><span class="sheet-cell active">Đơn #205</span><span class="sheet-cell">Hà Nội</span><span class="sheet-cell">Xong</span><span class="sheet-cell">980</span><span class="sheet-cell">12/06</span><span class="sheet-cell">NV03</span><span class="sheet-cell">—</span>
-                <span class="sheet-cell header">3</span><span class="sheet-cell active">Đơn #206</span><span class="sheet-cell">Đà Nẵng</span><span class="sheet-cell warning">Thiếu</span><span class="sheet-cell">2.140</span><span class="sheet-cell">13/06</span><span class="sheet-cell">NV02</span><span class="sheet-cell">Kiểm tra</span>
-                <span class="sheet-cell header">4</span><span class="sheet-cell active">Đơn #207</span><span class="sheet-cell">Hải Phòng</span><span class="sheet-cell">Xong</span><span class="sheet-cell">730</span><span class="sheet-cell">13/06</span><span class="sheet-cell">NV04</span><span class="sheet-cell">—</span>
-                <span class="sheet-cell header">5</span><span class="sheet-cell">Đơn #208</span><span class="sheet-cell">TP.HCM</span><span class="sheet-cell warning">Chờ</span><span class="sheet-cell">1.880</span><span class="sheet-cell">14/06</span><span class="sheet-cell">NV03</span><span class="sheet-cell">Gọi lại</span>
-                <span class="sheet-cell header">6</span><span class="sheet-cell">Đơn #209</span><span class="sheet-cell">Hà Nội</span><span class="sheet-cell">Xong</span><span class="sheet-cell">640</span><span class="sheet-cell">14/06</span><span class="sheet-cell">NV01</span><span class="sheet-cell">—</span>
-                <span class="sheet-cell header">7</span><span class="sheet-cell">Đơn #210</span><span class="sheet-cell">Hải Phòng</span><span class="sheet-cell warning">Lỗi</span><span class="sheet-cell">2.470</span><span class="sheet-cell">15/06</span><span class="sheet-cell">NV05</span><span class="sheet-cell">Trùng</span>
-                <span class="sheet-cell header">8</span><span class="sheet-cell">Đơn #211</span><span class="sheet-cell">Quảng Ninh</span><span class="sheet-cell">Xong</span><span class="sheet-cell">1.120</span><span class="sheet-cell">15/06</span><span class="sheet-cell">NV02</span><span class="sheet-cell">—</span>
-                <span class="sheet-selection"></span>
-                <span class="excel-tag">Nhập tay · dễ sai</span>
-              </div>
-            </div>
-
-            <div class="excel-fragment fragment-1" data-fragment aria-hidden="true">A1</div>
-            <div class="excel-fragment fragment-2" data-fragment aria-hidden="true">B7</div>
-            <div class="excel-fragment fragment-3" data-fragment aria-hidden="true">C3</div>
-            <div class="excel-fragment fragment-4" data-fragment aria-hidden="true">D9</div>
-            <div class="excel-fragment fragment-5" data-fragment aria-hidden="true">E4</div>
-            <div class="excel-fragment fragment-6" data-fragment aria-hidden="true">F2</div>
-
-            <svg class="flow-layer" viewBox="0 0 680 650" preserveAspectRatio="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="flow-gradient" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#7fdcd4" stop-opacity="0.15" />
-                  <stop offset="45%" stop-color="#159f98" stop-opacity="0.9" />
-                  <stop offset="100%" stop-color="#4f7cff" stop-opacity="0.55" />
-                </linearGradient>
-              </defs>
-              <path id="dataPath" d="M510 230 C520 340, 420 350, 380 410 C345 465, 315 500, 260 520" />
-              <circle class="flow-particle" r="4" fill="#159f98">
-                <animateMotion dur="3.6s" repeatCount="indefinite" begin="-0.3s"><mpath href="#dataPath" /></animateMotion>
-              </circle>
-              <circle class="flow-particle" r="3" fill="#64d5cc">
-                <animateMotion dur="3.6s" repeatCount="indefinite" begin="-1.3s"><mpath href="#dataPath" /></animateMotion>
-              </circle>
-              <circle class="flow-particle" r="5" fill="#4f7cff">
-                <animateMotion dur="3.6s" repeatCount="indefinite" begin="-2.3s"><mpath href="#dataPath" /></animateMotion>
-              </circle>
-            </svg>
-
-            <div class="dashboard-card tilt-card" data-tilt-strength="4">
-              <div class="dashboard-topbar">
-                <strong>Quản lý vận hành</strong>
-                <span class="dashboard-status">Hệ thống đang hoạt động</span>
-              </div>
-              <div class="dashboard-body">
-                <aside class="dash-sidebar" aria-hidden="true">
-                  <div class="dash-logo"></div>
-                  <div class="dash-nav-item"></div>
-                  <div class="dash-nav-item"></div>
-                  <div class="dash-nav-item"></div>
-                  <div class="dash-nav-item"></div>
-                  <div class="dash-nav-item"></div>
-                </aside>
-                <div class="dash-main">
-                  <div class="dash-title-row">
-                    <strong>Tổng quan hôm nay</strong>
-                    <span>Dữ liệu trực tiếp</span>
-                  </div>
-                  <div class="metric-grid">
-                    <div class="metric-card"><small>Công việc đúng hạn</small><strong>94%</strong><span class="metric-trend">↑ 12%</span></div>
-                    <div class="metric-card"><small>Thao tác đã tự động</small><strong>1.248</strong><span class="metric-trend">+ 186 tuần này</span></div>
-                    <div class="metric-card"><small>Thời gian tiết kiệm</small><strong>42h</strong><span class="metric-trend">Mỗi tháng</span></div>
-                  </div>
-                  <div class="dash-widgets">
-                    <div class="chart-widget">
-                      <div class="widget-head"><span>Năng suất theo tuần</span><span>7 ngày</span></div>
-                      <div class="bar-chart" aria-hidden="true">
-                        <i style="--bar:36%"></i><i style="--bar:48%"></i><i style="--bar:44%"></i><i style="--bar:65%"></i><i style="--bar:72%"></i><i style="--bar:86%"></i><i style="--bar:92%"></i>
-                      </div>
-                    </div>
-                    <div class="task-widget">
-                      <div class="widget-head"><span>Luồng đang chạy</span><span>Trực tiếp</span></div>
-                      <div class="task-row"><span class="task-icon">✓</span><span class="task-lines"><i></i><i></i></span><span class="task-state"></span></div>
-                      <div class="task-row"><span class="task-icon">↻</span><span class="task-lines"><i></i><i></i></span><span class="task-state"></span></div>
-                      <div class="task-row"><span class="task-icon">!</span><span class="task-lines"><i></i><i></i></span><span class="task-state" style="background:#e7a93d"></span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="floating-label label-one">
-              <span class="label-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V8m6 11V4m6 15v-7m4 7H2"/><path d="m4 8 6-4 6 8 4-3"/></svg>
-              </span>
-              <span><small>01</small><strong>Tác vụ thủ công → luồng số</strong></span>
-            </div>
-
-            <div class="floating-label label-two">
-              <span class="label-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
-              </span>
-              <span><small>02</small><strong>Dữ liệu tập trung</strong></span>
-            </div>
-
-            <div class="floating-label label-three">
-              <span class="label-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c.6-4 2.7-6 6-6s5.4 2 6 6M10 20c.6-3.3 2.6-5 6-5s5.4 1.7 6 5"/></svg>
-              </span>
-              <span><small>03</small><strong>Dễ dùng cho đội ngũ nhỏ</strong></span>
-            </div>
-
-            <div class="system-ribbon">TING TING SOFT / NĂNG SUẤT SỐ</div>
-          </div>
-        </div>
-
-        <div class="hero-outcome" data-reveal>
-          <div class="outcome-status">
-            <small>TING TING SOFT</small>
-            <strong>Số hóa vận hành, tăng năng suất</strong>
-          </div>
-          <div class="outcome-item">
-            <small>01</small>
-            <strong>Tác vụ thủ công → luồng số</strong>
-            <span>Bớt việc tay, nhiều việc đúng</span>
-          </div>
-          <div class="outcome-item">
-            <small>02</small>
-            <strong>Dữ liệu tập trung</strong>
-            <span>Ra quyết định tự tin hơn</span>
-          </div>
-          <div class="outcome-item">
-            <small>03</small>
-            <strong>Dễ dùng cho đội ngũ nhỏ</strong>
-            <span>Công nghệ vừa với cách bạn vận hành</span>
-          </div>
+    <section class="story-section problem-section" id="tong-quan">
+      <div class="container story-grid">
+        <div class="story-copy" data-reveal><p class="chapter-label">01 · Một nguồn dữ liệu</p><h2>Vận hành không nên nằm rải rác trong Excel, Zalo và trí nhớ.</h2><p>Mỗi thay đổi về chuyến, tài xế, chi phí, chứng từ và công nợ cần đi cùng một hồ sơ — để điều hành và kế toán cùng nhìn vào một sự thật.</p></div>
+        <div class="consolidation-visual" data-product-visual aria-hidden="true">
+          <div class="source-stack"><span>Đơn hàng</span><span>Tài xế</span><span>Chi phí</span><span>Chứng từ</span><span>Công nợ</span></div><div class="flow-arrow">→</div><div class="trip-record"><small>HỒ SƠ CHUYẾN</small><strong>Một chuyến. Đủ dữ liệu.</strong><i></i><i></i><i></i></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="cach-dong-hanh">
+    <section class="lifecycle-section" aria-labelledby="lifecycleTitle">
       <div class="container">
-        <header class="section-heading" data-reveal>
-          <div class="eyebrow"><span class="eyebrow-dot"></span>Cách Ting Ting Soft đồng hành</div>
-          <h2 class="section-title">Bắt đầu từ năng suất. Đi từng bước. Đo được hiệu quả.</h2>
-          <p class="section-lead">
-            Chúng tôi không bắt đầu bằng bộ công nghệ hào nhoáng, mà bắt đầu từ cách đội ngũ bạn đang làm việc hôm nay: việc nào mất thời gian, dữ liệu nào đang rời rạc, điểm nào nếu số hóa sẽ giúp doanh nghiệp chạy nhẹ hơn.
-          </p>
-        </header>
-
-        <div class="approach-manifesto">
-          <article class="manifesto-card" data-reveal>
-            <div class="principle-row" aria-label="Nguyên tắc triển khai">
-              <span>Hiểu bài toán</span>
-              <span>Đi từng bước</span>
-              <span>Vận hành thực tế</span>
-            </div>
-            <p class="manifesto-quote">Công nghệ đi vào năng suất, không chỉ đẹp trên slide.</p>
-          </article>
-          <aside class="manifesto-proof" data-reveal>
-            <div class="check-line"><span class="check">✓</span><span>Bắt đầu từ nhu cầu thực của bạn</span></div>
-            <div class="check-line"><span class="check">✓</span><span>Kiến trúc mở rộng được</span></div>
-            <div class="check-line"><span class="check">✓</span><span>Chi phí rõ ràng, không ôm đồm</span></div>
-          </aside>
-        </div>
-
-        <div class="approach-grid" id="approachGrid">
-          <article class="approach-card">
-            <span class="card-number">01</span>
-            <h3>Chọn đúng việc cần số hóa</h3>
-            <p>Ngồi cùng bạn để hiểu quy trình hiện tại: đang làm tay ở đâu, kẹt ở đâu, tốn thời gian và chi phí thế nào — trước khi đề xuất giải pháp.</p>
-            <div class="card-footer-note">Lắng nghe · Tìm điểm nghẽn</div>
-          </article>
-          <article class="approach-card">
-            <span class="card-number">02</span>
-            <h3>Làm gọn để đội ngũ dễ dùng</h3>
-            <p>Không ép bạn làm lại toàn bộ hệ thống. Bắt đầu từ điểm nghẽn lớn nhất, ra kết quả sớm, rồi mở rộng theo nhịp kinh doanh và ngân sách.</p>
-            <div class="card-footer-note">Tinh gọn · Dễ áp dụng</div>
-          </article>
-          <article class="approach-card">
-            <span class="card-number">03</span>
-            <h3>Đo hiệu quả trước khi mở rộng</h3>
-            <p>Báo giá rõ ràng, tiến độ cập nhật liên tục, mỗi giai đoạn có bản dùng thử để kiểm chứng trước khi đầu tư tiếp.</p>
-            <div class="card-footer-note">Minh bạch · Có kiểm chứng</div>
-          </article>
+        <p class="chapter-label">Toàn bộ vòng đời chuyến xe</p>
+        <h2 id="lifecycleTitle">Từ lúc nhận chuyến đến khi biết chuyến đó lời hay lỗ.</h2>
+        <div class="journey-map">
+          <svg class="journey-route" viewBox="0 0 1180 430" preserveAspectRatio="none" aria-hidden="true">
+            <path class="route-shadow" d="M72 112 C220 32 332 52 474 112 S735 202 878 112 S1071 44 1110 112 C1146 176 1054 238 940 258 S705 293 590 340 S330 398 198 326 S75 234 72 112" />
+            <path class="route-stroke" d="M72 112 C220 32 332 52 474 112 S735 202 878 112 S1071 44 1110 112 C1146 176 1054 238 940 258 S705 293 590 340 S330 398 198 326 S75 234 72 112" />
+          </svg>
+          <ol class="lifecycle" id="lifecycle">
+            <li class="step-order"><span class="route-node"><b>01</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v4H7zM5 5v16h14V5M8 11h8M8 15h5"/></svg></span><div><strong>Đơn hàng</strong><small>Ghi nhận yêu cầu vận chuyển</small></div></li>
+            <li class="step-dispatch"><span class="route-node"><b>02</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h11v8H3zM14 11h4l3 3v2h-7zM7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM17 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg></span><div><strong>Phân xe</strong><small>Chọn xe và tài xế phù hợp</small></div></li>
+            <li class="step-trip"><span class="route-node"><b>03</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c3-5 2-10 7-14M12 5h5v5M12 5l5 5M5 19h5"/></svg></span><div><strong>Chuyến đi</strong><small>Theo dõi tiến độ thực hiện</small></div></li>
+            <li class="step-cost"><span class="route-node"><b>04</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6zM15 3v4h4M9 12h6M9 16h6"/></svg></span><div><strong>Chi phí &amp; chứng từ</strong><small>Tập hợp phát sinh theo chuyến</small></div></li>
+            <li class="step-debt"><span class="route-node"><b>05</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v11H4zM8 7V5h8v2M8 13h8M12 10v6"/></svg></span><div><strong>Công nợ</strong><small>Đối soát phải thu, phải trả</small></div></li>
+            <li class="step-profit"><span class="route-node"><b>06</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M3 19h18M5 7l5-3 6 4 4-5"/></svg></span><div><strong>Lợi nhuận</strong><small>Biết chuyến nào đang hiệu quả</small></div></li>
+          </ol>
+          <div class="journey-truck" aria-hidden="true"><span></span><i></i><i></i></div>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft" id="dich-vu">
-      <div class="parallax-shape" data-parallax="22" aria-hidden="true" style="top:8%;right:4%;width:170px;height:170px;border-radius:50%;background:radial-gradient(circle,rgba(21,159,152,.12),transparent 68%)"></div>
-      <div class="container">
-        <header class="section-heading centered" data-reveal>
-          <div class="eyebrow"><span class="eyebrow-dot"></span>Năng lực đồng hành</div>
-          <h2 class="section-title">Bốn nhóm năng lực biến công nghệ thành năng suất hằng ngày.</h2>
-          <p class="section-lead">
-            Từ ứng dụng đầu tiên thay thế Excel, đến nền tảng vận hành đầy đủ — Ting Ting Soft chọn cách làm phù hợp quy mô và bài toán thực tế của bạn, không phải bộ công nghệ hào nhoáng.
-          </p>
-        </header>
-
-        <div class="services-grid" id="servicesGrid">
-          <article class="service-card">
-            <div class="service-visual" aria-hidden="true">
-              <div class="workflow-diagram">
-                <span class="workflow-node">XLS</span><span class="workflow-link"></span><span class="workflow-node big">APP</span><span class="workflow-link"></span><span class="workflow-node">✓</span>
-              </div>
-            </div>
-            <h3>Phần mềm theo quy trình doanh nghiệp</h3>
-            <p>Ứng dụng web, di động và công cụ nội bộ thiết kế quanh cách bạn đang vận hành — thay thế Excel, sổ sách và các bước làm thủ công đang ngốn thời gian.</p>
-            <div class="tag-row"><span class="tag">Ứng dụng web</span><span class="tag">Ứng dụng di động</span><span class="tag">Quy trình riêng</span></div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-visual" aria-hidden="true">
-              <div class="automation-loop"><span class="loop-center">↻</span></div>
-            </div>
-            <h3>Tự động hóa thao tác lặp lại</h3>
-            <p>Kết nối các phần mềm bạn đang dùng, tự động thao tác lặp lại (nhập liệu, báo cáo, đồng bộ đơn hàng) để đội ngũ nhỏ bớt việc tay.</p>
-            <div class="tag-row"><span class="tag">API</span><span class="tag">Đồng bộ dữ liệu</span><span class="tag">Bớt thao tác tay</span></div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-visual" aria-hidden="true">
-              <div class="analytics-mini"><i style="--h:34%"></i><i style="--h:48%"></i><i style="--h:62%"></i><i style="--h:54%"></i><i style="--h:78%"></i><i style="--h:91%"></i></div>
-            </div>
-            <h3>Dữ liệu, báo cáo và AI ứng dụng</h3>
-            <p>Biến dữ liệu rải rác thành bảng đo đơn giản, báo cáo tự động và trợ lý AI giúp chủ doanh nghiệp ra quyết định nhanh hơn, ít phụ thuộc cảm tính.</p>
-            <div class="tag-row"><span class="tag">Báo cáo tự động</span><span class="tag">Trợ lý AI</span><span class="tag">Quyết định bằng số liệu</span></div>
-          </article>
-
-          <article class="service-card">
-            <div class="service-visual" aria-hidden="true">
-              <div class="ops-visual"><span class="server"></span><span class="server"></span><span class="server"></span><span class="shield">✓</span></div>
-            </div>
-            <h3>Vận hành, bảo trì và mở rộng</h3>
-            <p>Giữ hệ thống chạy ổn định, an toàn, chi phí hợp lý — bao gồm sao lưu, bảo mật, cập nhật và mở rộng khi doanh nghiệp lớn dần.</p>
-            <div class="tag-row"><span class="tag">Ổn định</span><span class="tag">Bảo mật</span><span class="tag">Chi phí hợp lý</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="giai-phap">
-      <div class="container">
-        <div class="solutions-intro" data-reveal>
-          <header class="section-heading">
-            <div class="eyebrow"><span class="eyebrow-dot"></span>Hướng triển khai phổ biến</div>
-            <h2 class="section-title">Ba điểm bắt đầu giúp doanh nghiệp số hóa có trọng tâm.</h2>
-          </header>
-          <p class="solutions-note">
-            Đây là các hướng giải pháp minh họa — mỗi dự án sẽ được điều chỉnh theo mô hình, ngân sách và đội ngũ thực tế. Bạn không cần làm hết, chỉ cần bắt đầu từ một điểm tạo năng suất rõ nhất.
-          </p>
-        </div>
-
-        <article class="featured-solution" id="featuredSolution">
-          <div class="featured-copy">
-            <span class="solution-label">Mẫu giải pháp · Quản lý vận hành</span>
-            <h3>Trung tâm vận hành tinh gọn</h3>
-            <p>Gom công việc, phê duyệt, chỉ số và cảnh báo vào một màn hình — chủ doanh nghiệp nhìn toàn cảnh, nhân viên biết việc cần làm, không còn rải rác qua Excel và chat.</p>
-            <div class="feature-checks">
-              <span>Một màn hình cho cả đội</span>
-              <span>Phê duyệt không cần giấy tờ</span>
-              <span>Số liệu cập nhật theo quy trình thật</span>
-            </div>
-            <a class="solution-link" href="#lien-he">Bắt đầu giải pháp này <span class="arrow-icon">↗</span></a>
+    <section class="feature-chapter" id="dieu-hanh">
+      <div class="container"><div class="chapter-intro" data-reveal><p class="chapter-label">02 · Trung tâm điều hành</p><h2>Nhìn toàn bộ vận hành.<br>Biết việc nào cần xử lý.</h2><p>Phân xe, phân tài xế, theo dõi tiến độ và xử lý cảnh báo mà không phải dò lại nhiều file.</p></div>
+        <div class="wide-screen dispatch-screen" data-product-visual aria-label="Minh họa màn hình điều phối chuyến xe với dữ liệu mẫu">
+          <div class="screen-toolbar">
+            <div><small>TRUNG TÂM ĐIỀU HÀNH</small><strong>Phân xe hôm nay</strong></div>
+            <span>Tìm theo mã chuyến, tuyến đường hoặc biển số</span>
+            <button type="button" tabindex="-1">+ Tạo chuyến</button>
           </div>
-
-          <div class="featured-visual">
-            <div class="solution-dashboard tilt-card" data-tilt-strength="2.5">
-              <div class="solution-dashboard-head">
-                <span>QUẢN LÝ VẬN HÀNH / TỔNG QUAN</span>
-                <span class="live-chip">Trực tiếp</span>
+          <div class="dispatch-overview" aria-hidden="true"><span><b>08</b> chuyến hôm nay</span><span><b>03</b> đang chạy</span><span><b>02</b> cần xử lý</span><i>12/06 · Cập nhật trực tiếp</i></div>
+          <div class="dispatch-columns">
+            <article>
+              <header class="lane-head"><div><small>CẦN XỬ LÝ</small><strong>Chờ phân công</strong></div><b>2</b></header>
+              <div class="trip-chip">
+                <div class="trip-topline"><small>CT-240612-08</small><em class="status-badge needs-action">Cần phân xe</em></div>
+                <b>Hải Phòng <i>→</i> Quảng Ninh</b><span>Container 40FT · 24 tấn</span>
+                <dl><div><dt>Nhận hàng</dt><dd>09:30</dd></div><div><dt>Xe / tài xế</dt><dd>Chưa phân công</dd></div></dl>
               </div>
-              <div class="solution-dashboard-body">
-                <div class="solution-metrics">
-                  <div class="solution-metric"><small>Yêu cầu mới</small><strong>—</strong><span>Dữ liệu thực tế</span></div>
-                  <div class="solution-metric"><small>Đang xử lý</small><strong>—</strong><span>Dữ liệu thực tế</span></div>
-                  <div class="solution-metric"><small>Đúng hạn</small><strong>—</strong><span>Dữ liệu thực tế</span></div>
-                </div>
-                <div class="solution-dashboard-grid">
-                  <div class="solution-chart">
-                    <div class="solution-chart-head"><span>Nhịp vận hành</span><span>7 ngày</span></div>
-                    <svg class="line-chart-svg" viewBox="0 0 420 160" preserveAspectRatio="none" aria-label="Biểu đồ nhịp vận hành">
-                      <defs>
-                        <linearGradient id="chart-area-gradient" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stop-color="#159f98" stop-opacity="0.24" />
-                          <stop offset="100%" stop-color="#159f98" stop-opacity="0" />
-                        </linearGradient>
-                      </defs>
-                      <line class="chart-grid-line" x1="0" y1="35" x2="420" y2="35" />
-                      <line class="chart-grid-line" x1="0" y1="80" x2="420" y2="80" />
-                      <line class="chart-grid-line" x1="0" y1="125" x2="420" y2="125" />
-                      <path class="chart-area" d="M0,126 C48,115 70,95 104,102 C142,111 171,62 206,77 C244,93 262,42 305,51 C349,60 378,18 420,27 L420,160 L0,160 Z" />
-                      <path class="chart-line" d="M0,126 C48,115 70,95 104,102 C142,111 171,62 206,77 C244,93 262,42 305,51 C349,60 378,18 420,27" />
-                    </svg>
-                  </div>
-                  <div class="solution-activity">
-                    <div class="activity-head"><span>Hoạt động gần đây</span><span>Trực tiếp</span></div>
-                    <div class="activity-item"><span class="activity-icon">✓</span><span class="activity-copy"><strong>Phê duyệt đề xuất</strong><small>Vừa cập nhật</small></span><span class="activity-state"></span></div>
-                    <div class="activity-item"><span class="activity-icon">↻</span><span class="activity-copy"><strong>Đồng bộ dữ liệu</strong><small>Đã hoàn tất</small></span><span class="activity-state"></span></div>
-                    <div class="activity-item"><span class="activity-icon">!</span><span class="activity-copy"><strong>Cảnh báo vận hành</strong><small>Cần xử lý</small></span><span class="activity-state warn"></span></div>
-                  </div>
-                </div>
+              <div class="trip-chip compact">
+                <div class="trip-topline"><small>CT-240612-11</small><em class="status-badge needs-action">Thiếu tài xế</em></div>
+                <b>Cảng Đình Vũ <i>→</i> VSIP</b><span>Hàng tổng hợp · 12 tấn</span>
               </div>
-            </div>
-          </div>
-        </article>
-
-        <div class="secondary-solutions" id="secondarySolutions">
-          <article class="solution-card">
-            <span class="solution-label">Mẫu giải pháp · Bán hàng</span>
-            <h3>Bán hàng đa kênh</h3>
-            <p>Tự động gom đơn từ sàn, website và cửa hàng vào một chỗ — đồng bộ kho, giá, khách hàng, không còn nhập tay từng đơn.</p>
-            <div class="tag-row"><span class="tag">Đa kênh</span><span class="tag">Đồng bộ kho</span><span class="tag">Một chỗ quản lý</span></div>
-            <div class="mini-solution-visual" aria-hidden="true">
-              <span class="channel-line"></span>
-              <span class="channel-card">Sàn</span><span class="channel-card">Đơn hàng</span><span class="channel-card">Cửa hàng</span>
-            </div>
-            <div class="signal-row"><span>Đa kênh</span><span>Tự động</span><span>Dự báo</span><span>Trợ lý AI</span></div>
-          </article>
-
-          <article class="solution-card">
-            <span class="solution-label">Mẫu giải pháp · Quyết định bằng dữ liệu</span>
-            <h3>Ra quyết định bằng dữ liệu</h3>
-            <p>Tổng hợp doanh thu, chi phí, tồn kho và khách hàng thành báo cáo tự động, phát hiện bất thường và gợi ý hành động tiếp theo.</p>
-            <div class="tag-row"><span class="tag">Báo cáo tự động</span><span class="tag">Phát hiện bất thường</span><span class="tag">Gợi ý hành động</span></div>
-            <div class="mini-solution-visual" aria-hidden="true">
-              <span class="insight-orbit"></span>
-              <span class="insight-core">AI</span>
-              <span class="insight-node one">Doanh thu</span><span class="insight-node two">Tồn kho</span><span class="insight-node three">Chi phí</span><span class="insight-node four">Khách hàng</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="quy-trinh">
-      <div class="container">
-        <div class="process-wrap">
-          <div class="process-sticky">
-            <header class="section-heading" data-reveal>
-              <div class="eyebrow"><span class="eyebrow-dot"></span>Cách chúng tôi cùng bạn đi</div>
-              <h2 class="section-title">Bốn bước để số hóa không bị quá sức.</h2>
-              <p class="section-lead">Quy trình từng bước nhỏ, có bản dùng thử ở mỗi giai đoạn. Bạn luôn biết mình ở đâu, chi phí bao nhiêu, bước tiếp theo là gì — không bất ngờ.</p>
-            </header>
-          </div>
-
-          <div class="process-list" id="processList">
-            <div class="timeline-track" aria-hidden="true"></div>
-            <div class="timeline-progress" id="timelineProgress" aria-hidden="true"></div>
-
-            <article class="process-card">
-              <span class="process-node" aria-hidden="true"></span>
-              <span class="process-meta">01</span>
-              <h3>Khảo sát quy trình</h3>
-              <p>Hiểu cách đội ngũ đang làm việc, điểm nghẽn lớn nhất và kết quả năng suất bạn muốn cải thiện.</p>
             </article>
-
-            <article class="process-card">
-              <span class="process-node" aria-hidden="true"></span>
-              <span class="process-meta">02</span>
-              <h3>Chọn bước số hóa đầu tiên</h3>
-              <p>Đề xuất một phạm vi nhỏ, rõ chi phí, rõ kết quả — đủ để kiểm chứng trước khi đầu tư lớn hơn.</p>
+            <article>
+              <header class="lane-head"><div><small>SẴN SÀNG</small><strong>Đã phân công</strong></div><b>3</b></header>
+              <div class="trip-chip">
+                <div class="trip-topline"><small>CT-240612-05</small><em class="status-badge assigned">Đã xác nhận</em></div>
+                <b>Bãi Nam Hải <i>→</i> Cảng Chùa Vẽ</b><span>Container 20FT · 18 tấn</span>
+                <dl><div><dt>Xe</dt><dd>15C-286.42</dd></div><div><dt>Tài xế</dt><dd>Nguyễn Văn Hùng</dd></div></dl>
+              </div>
             </article>
-
-            <article class="process-card">
-              <span class="process-node" aria-hidden="true"></span>
-              <span class="process-meta">03</span>
-              <h3>Triển khai và thử thật</h3>
-              <p>Làm theo chu kỳ ngắn, có bản dùng thử mỗi 1–2 tuần, điều chỉnh theo phản hồi vận hành thực tế.</p>
-            </article>
-
-            <article class="process-card">
-              <span class="process-node" aria-hidden="true"></span>
-              <span class="process-meta">04</span>
-              <h3>Đo hiệu quả và mở rộng</h3>
-              <p>Khi bước đầu tạo giá trị, mở rộng dần sang quy trình kế tiếp — không ép làm hệ thống lớn từ đầu.</p>
+            <article>
+              <header class="lane-head"><div><small>TRÊN ĐƯỜNG</small><strong>Đang thực hiện</strong></div><b>3</b></header>
+              <div class="trip-chip active-trip">
+                <div class="trip-topline"><small>CT-240612-02</small><em class="status-badge en-route"><i></i> Đang chạy</em></div>
+                <b>Kho An Dương <i>→</i> KCN Tràng Duệ</b><span>Vật tư sản xuất · 16 tấn</span>
+                <dl><div><dt>Xe</dt><dd>15H-042.18</dd></div><div><dt>Dự kiến đến</dt><dd>10:45</dd></div></dl>
+                <div class="trip-progress"><i></i><span>Đã hoàn thành 68% hành trình</span></div>
+              </div>
             </article>
           </div>
         </div>
+        <div class="proof-row"><span>Trạng thái chuyến</span><span>Phê duyệt</span><span>Cảnh báo cần xử lý</span><span>Nhật ký hoạt động</span></div>
       </div>
     </section>
 
-    <section class="section tech-section" id="cong-nghe">
-      <div class="container">
-        <div class="tech-grid">
-          <div class="tech-copy">
-            <header class="section-heading" data-reveal>
-              <div class="eyebrow"><span class="eyebrow-dot"></span>Công nghệ phù hợp bài toán</div>
-              <h2 class="section-title">Chọn công nghệ đủ chắc để dùng lâu, đủ gọn để bắt đầu nhanh.</h2>
-              <p class="section-lead">Minh họa hệ thống số hóa quy trình, tự động hóa và dữ liệu tập trung</p>
-            </header>
-            <div class="tech-caption" data-reveal>Kiến trúc linh hoạt, ưu tiên tính ổn định và khả năng mở rộng.</div>
-          </div>
+    <section class="feature-chapter finance-chapter" id="tai-chinh">
+      <div class="container split-chapter"><div class="finance-screen" data-product-visual aria-label="Minh họa chi phí và công nợ theo chuyến với dữ liệu mẫu"><div class="finance-head"><small>HỒ SƠ CHUYẾN · DỮ LIỆU MINH HỌA</small><strong>Thu chi đi cùng chuyến</strong></div><div class="ledger"><div><span>Doanh thu dự kiến</span><b>28.500.000 đ</b></div><div><span>Nhiên liệu & phụ cấp</span><b>8.420.000 đ</b></div><div><span>Chi phí phát sinh</span><b>1.350.000 đ</b></div><div><span>Tạm ứng & quyết toán</span><b>6.000.000 đ</b></div><div class="total"><span>Công nợ liên quan</span><b>28.500.000 đ phải thu</b></div></div></div><div class="story-copy" data-reveal><p class="chapter-label">03 · Kinh tế từng chuyến</p><h2>Mỗi chuyến đi, rõ từng khoản.</h2><p>Doanh thu, chi phí, tạm ứng, quyết toán và công nợ đi cùng từng chuyến.</p><ul class="clean-list"><li>Định mức nhiên liệu và phụ cấp đường</li><li>Chi phí, chứng từ và khoản phạt</li><li>Công nợ phải thu và phải trả</li><li>Tạm ứng, lương và quyết toán</li></ul></div></div>
+    </section>
 
-          <div class="tech-stage" aria-label="Cụm công nghệ sử dụng">
-            <div class="tech-halo" aria-hidden="true"></div>
-            <div class="tech-ring" aria-hidden="true"></div>
-            <div class="tech-core" aria-hidden="true"><span class="tech-core-logo">TT</span></div>
-            <div class="tech-pills">
-              <div class="tech-pill"><b>3D</b><span>Three.js</span></div>
-              <div class="tech-pill"><b>TS</b><span>TypeScript</span></div>
-              <div class="tech-pill"><b>R</b><span>React</span></div>
-              <div class="tech-pill"><b>N</b><span>Node.js</span></div>
-              <div class="tech-pill"><b>PG</b><span>PostgreSQL</span></div>
-              <div class="tech-pill"><b>D</b><span>Docker</span></div>
-              <div class="tech-pill"><b>CL</b><span>Đám mây</span></div>
-            </div>
+    <section class="profit-section" aria-labelledby="profitTitle">
+      <div class="container">
+        <div class="chapter-intro centered" data-reveal><p class="chapter-label">04 · Góc nhìn của chủ doanh nghiệp</p><h2 id="profitTitle">Không chỉ biết doanh thu.<br>Biết lợi nhuận đến từ đâu.</h2><p>Xem hiệu quả theo chuyến, xe và tuyến để biết điều gì đang thực sự tạo lợi nhuận.</p></div>
+        <div class="profit-visual" data-product-visual>
+          <div class="profit-toolbar"><div class="profit-tabs"><span class="active">Theo chuyến</span><span>Theo xe</span><span>Theo tuyến</span></div><small>DỮ LIỆU MINH HỌA · THÁNG 07/2026</small></div>
+          <div class="profit-summary"><div><small>Doanh thu</small><strong>128,4 triệu</strong><span>12 chuyến hoàn thành</span></div><div><small>Tổng chi phí</small><strong>93,7 triệu</strong><span>73% doanh thu</span></div><div class="is-positive"><small>Lợi nhuận ròng</small><strong>34,7 triệu</strong><span>Biên lợi nhuận 27%</span></div></div>
+          <div class="profit-analysis">
+            <figure class="profit-bridge">
+              <figcaption><div><small>CẦU LỢI NHUẬN</small><strong>Tiền đi đâu trong một chuyến</strong></div><span>Đơn vị: triệu đồng</span></figcaption>
+              <svg viewBox="0 0 720 300" role="img" aria-label="Doanh thu 28,5 triệu đồng trừ nhiên liệu, phụ cấp và chi phí phát sinh còn lợi nhuận 12,7 triệu đồng">
+                <g class="bridge-grid"><path d="M48 44H694M48 105H694M48 166H694M48 227H694"/></g>
+                <g class="bridge-connectors"><path d="M184 62H235M345 132H397M507 172H558"/></g>
+                <g class="bridge-bars">
+                  <rect class="bar-revenue" x="72" y="62" width="112" height="165" rx="10"/>
+                  <rect class="bar-cost" x="235" y="62" width="110" height="70" rx="10"/>
+                  <rect class="bar-cost secondary" x="397" y="132" width="110" height="40" rx="10"/>
+                  <rect class="bar-profit" x="558" y="153" width="112" height="74" rx="10"/>
+                </g>
+                <g class="bridge-values"><text x="128" y="52">28,5</text><text x="290" y="92">− 12,4</text><text x="452" y="156">− 3,4</text><text x="614" y="143">12,7</text></g>
+                <g class="bridge-labels"><text x="128" y="253">Doanh thu</text><text x="290" y="253">Nhiên liệu &amp; phụ cấp</text><text x="452" y="253">Chi phí khác</text><text x="614" y="253">Lợi nhuận</text></g>
+              </svg>
+            </figure>
+            <aside class="profit-insights">
+              <div class="insight-heading"><small>ĐIỂM TẠO LỢI NHUẬN</small><strong>Nhìn ra điều đang hiệu quả</strong></div>
+              <div class="insight-row"><span>01</span><div><small>Tuyến hiệu quả nhất</small><strong>Hải Phòng → Quảng Ninh</strong></div><b>+12,8 tr</b></div>
+              <div class="insight-row"><span>02</span><div><small>Xe có biên tốt nhất</small><strong>15C-286.42</strong></div><b>31%</b></div>
+              <div class="insight-row"><span>03</span><div><small>Chuyến nổi bật</small><strong>CT-240712-08</strong></div><b>+6,4 tr</b></div>
+              <p><i></i> Nhiên liệu đang chiếm 29% tổng chi phí vận hành.</p>
+            </aside>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section contact-section" id="lien-he">
-      <div class="container">
-        <div class="contact-shell">
-          <div class="contact-copy" data-reveal>
-            <div class="eyebrow"><span class="eyebrow-dot"></span>Bắt đầu từ một cuộc trò chuyện</div>
-            <h2>Không biết bắt đầu từ đâu? Cùng nhau tìm ra.</h2>
-            <p>Chia sẻ bài toán hiện tại — dù chỉ là 'đang kẹt ở Excel'. Ting Ting Soft sẽ cùng bạn tìm bước đầu tiên rõ ràng, khả thi, không áp lực.</p>
+    <section class="ecosystem-section" id="doi-xe"><div class="container"><div class="chapter-intro" data-reveal><p class="chapter-label">05 · Hệ sinh thái vận tải</p><h2>Đội xe, tài xế và đối tác luôn cùng một nhịp.</h2></div><div class="ecosystem-grid">
+      <article><span class="card-icon">01</span><h3>Đội xe luôn sẵn hồ sơ</h3><p>Quản lý xe đầu kéo, rơ-moóc, lốp và trạng thái vận hành trong một danh mục tập trung.</p><div class="fleet-illustration" aria-hidden="true"><svg viewBox="0 0 360 130"><path class="fleet-road" d="M18 103H342"/><g class="fleet-truck"><path d="M42 49h62v45H42zM104 64h30l20 20v10h-50z"/><circle cx="65" cy="101" r="10"/><circle cx="130" cy="101" r="10"/></g><g class="fleet-trailer"><path d="M172 39h132v55H172z"/><circle cx="198" cy="101" r="10"/><circle cx="278" cy="101" r="10"/></g><g class="fleet-status"><circle cx="319" cy="37" r="17"/><path d="m311 37 6 6 11-13"/></g></svg><div><span><i></i>Đầu kéo</span><span><i></i>Rơ-moóc</span><span><i></i>Bảo dưỡng</span></div></div></article>
+      <article><span class="card-icon">02</span><h3>Con người và đối tác</h3><p>Tài xế, khách hàng và nhà cung cấp được kết nối với các chuyến và công nợ liên quan.</p><div class="partner-map" aria-hidden="true"><svg viewBox="0 0 360 160"><g class="partner-lines"><path d="M180 80 72 40M180 80 72 126M180 80 288 40M180 80 288 126"/></g><g class="partner-core"><circle cx="180" cy="80" r="34"/><path d="M162 74h31v22h-31zM193 82h10l8 8v6h-18z"/></g><g class="partner-node"><circle cx="72" cy="40" r="27"/><circle cx="72" cy="33" r="7"/><path d="M58 54c4-12 24-12 28 0"/><circle cx="72" cy="126" r="27"/><path d="M59 117h26v18H59zM64 112h16v5"/><circle cx="288" cy="40" r="27"/><path d="M277 50V31h22v19M283 31v-6h10v6"/><circle cx="288" cy="126" r="27"/><path d="M276 116h24v20h-24zM281 121h14M281 127h9"/></g></svg><div><span>Tài xế</span><span>Khách hàng</span><b>Chuyến xe</b><span>Nhà cung cấp</span><span>Chứng từ</span></div></div></article>
+      <article><span class="card-icon">03</span><h3>Quy tắc vận hành</h3><p>Cấu hình tuyến đường, bảng giá, nhiên liệu, phụ cấp và nhóm chi phí theo cách doanh nghiệp đang làm.</p><div class="rules-illustration" aria-hidden="true"><div><span class="rule-symbol">↗</span><p><small>Tuyến &amp; bảng giá</small><strong>Hải Phòng → Quảng Ninh</strong></p><b>Đã cấu hình</b></div><div><span class="rule-symbol">◒</span><p><small>Định mức nhiên liệu</small><strong>32 lít / 100 km</strong></p><b>Áp dụng</b></div><div><span class="rule-symbol">₫</span><p><small>Phụ cấp đường</small><strong>Theo tuyến và loại xe</strong></p><b>Tự tính</b></div></div></article>
+    </div></div></section>
 
-            <div class="contact-points">
-              <div class="contact-point"><b>01</b><span>Phản hồi thẳng thắn, không bán hàng</span></div>
-              <div class="contact-point"><b>02</b><span>Bảo mật thông tin doanh nghiệp</span></div>
-              <div class="contact-point"><b>03</b><span>Đề xuất bước đầu tiên trong tầm tay</span></div>
-            </div>
+    <section class="driver-section" id="tai-xe"><div class="container driver-grid"><div class="story-copy" data-reveal><p class="chapter-label">06 · Dành cho tài xế</p><h2>Việc cần làm, ngay trong tầm tay.</h2><p>Tài xế xem chuyến được giao và thông tin cần thiết trên giao diện dành riêng cho mình — gọn hơn, đúng vai trò hơn.</p></div><div class="phone-frame" data-product-visual aria-label="Minh họa cổng thông tin tài xế với dữ liệu mẫu"><div class="phone-top"><i></i><span>Chuyến của tôi</span><b>•••</b></div><div class="driver-trip"><small>CHUYẾN ĐƯỢC GIAO</small><strong>Cảng Hải Phòng</strong><span>↓</span><strong>Điểm giao hàng</strong><div><em>Xe</em><b>Đã phân công</b></div><div><em>Trạng thái</em><b class="green">Sẵn sàng</b></div></div><button type="button" tabindex="-1">Xem chi tiết chuyến</button></div></div></section>
 
-            <a class="contact-email" href="mailto:tingtingsoft.vn@gmail.com">tingtingsoft.vn@gmail.com <span aria-hidden="true">↗</span></a>
-          </div>
+    <section class="assurance-section"><div class="container"><div class="chapter-intro centered" data-reveal><p class="chapter-label">Xây quanh vận hành thực tế</p><h2>Thiết kế cho cách doanh nghiệp vận tải Việt Nam vận hành.</h2></div><div class="assurance-grid"><article><b>01</b><strong>Quy trình vận tải Việt Nam</strong><span>Từ phân xe đến công nợ và quyết toán.</span></article><article><b>02</b><strong>Giao diện theo vai trò</strong><span>Giám đốc, điều hành, kế toán và tài xế nhìn đúng phần việc.</span></article><article><b>03</b><strong>Quy tắc có thể cấu hình</strong><span>Nhiên liệu, phụ cấp và nhóm chi phí theo vận hành thực tế.</span></article><article><b>04</b><strong>Dữ liệu có dấu vết</strong><span>Phê duyệt và nhật ký giúp dễ tra cứu khi cần.</span></article></div></div></section>
 
-          <div class="contact-form-wrap" data-reveal>
-            <form
-              class="contact-form"
-              id="contactForm"
-              name="yeu-cau-du-an"
-              method="POST"
-              action="/cam-on.html"
-              netlify
-              netlify-honeypot="truong-khong-dien"
-              novalidate
-            >
-              <!-- Netlify requires this hidden field to match the form name. -->
-              <input type="hidden" name="form-name" value="yeu-cau-du-an" />
-
-              <div class="honeypot" aria-hidden="true">
-                <label for="truong-khong-dien">Không điền trường này:</label>
-                <input id="truong-khong-dien" name="truong-khong-dien" type="text" autocomplete="off" tabindex="-1" />
-              </div>
-
-              <div class="form-grid">
-                <div class="form-field">
-                  <label for="ho-ten">Họ và tên</label>
-                  <input id="ho-ten" name="ho-ten" type="text" placeholder="Nguyễn Văn A" autocomplete="name" required />
-                </div>
-
-                <div class="form-field">
-                  <label for="email">Email liên hệ</label>
-                  <input id="email" name="email" type="email" placeholder="ban@email.com" autocomplete="email" required />
-                </div>
-
-                <div class="form-field">
-                  <label for="doanh-nghiep">Tên doanh nghiệp</label>
-                  <input id="doanh-nghiep" name="doanh-nghiep" type="text" placeholder="Tên doanh nghiệp" autocomplete="organization" />
-                </div>
-
-                <div class="form-field">
-                  <label for="so-dien-thoai">Số điện thoại</label>
-                  <input id="so-dien-thoai" name="so-dien-thoai" type="tel" placeholder="09xx xxx xxx" autocomplete="tel" />
-                </div>
-
-                <div class="form-field full">
-                  <label for="nhu-cau">Bạn đang cần giải quyết</label>
-                  <select id="nhu-cau" name="nhu-cau" required>
-                    <option value="" selected disabled>Chọn một nhu cầu</option>
-                    <option>Phần mềm theo yêu cầu</option>
-                    <option>Tự động hóa quy trình</option>
-                    <option>Dữ liệu và AI</option>
-                    <option>Vận hành và bảo trì</option>
-                    <option>Chưa xác định — cần tư vấn</option>
-                  </select>
-                </div>
-
-                <div class="form-field full">
-                  <label for="mo-ta">Mô tả ngắn bài toán</label>
-                  <textarea id="mo-ta" name="mo-ta" placeholder="Ví dụ: đang quản lý đơn hàng bằng Excel, muốn tự động hóa..." required></textarea>
-                </div>
-              </div>
-
-              <button class="btn-primary form-submit" type="submit">
-                Gửi nhu cầu của bạn <span class="arrow-icon" aria-hidden="true">↗</span>
-              </button>
-              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
-              <p class="form-terms">Bằng cách gửi biểu mẫu, bạn đồng ý để Ting Ting Soft liên hệ về nhu cầu này — không cam kết nào khác.</p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="section contact-section" id="lien-he"><div class="container"><div class="contact-shell"><div class="contact-copy" data-reveal><div class="eyebrow"><span class="eyebrow-dot"></span>Đặt lịch demo</div><h2>Xem TingTing Transport trên chính quy trình của bạn.</h2><p>Đặt lịch demo để cùng đi qua một chuyến xe mẫu — từ điều phối đến công nợ và lợi nhuận.</p><div class="contact-points"><div class="contact-point"><b>01</b><span>Đi qua một quy trình vận tải mẫu</span></div><div class="contact-point"><b>02</b><span>Tập trung vào bài toán bạn đang gặp</span></div><div class="contact-point"><b>03</b><span>Không cần cung cấp dữ liệu nhạy cảm</span></div></div><a class="contact-email" href="mailto:tingtingsoft.vn@gmail.com">tingtingsoft.vn@gmail.com <span aria-hidden="true">↗</span></a></div>
+        <div class="contact-form-wrap" data-reveal><form class="contact-form" id="contactForm" name="yeu-cau-du-an" method="POST" action="/cam-on.html" netlify netlify-honeypot="truong-khong-dien" novalidate><input type="hidden" name="form-name" value="yeu-cau-du-an" /><div class="honeypot" aria-hidden="true"><label for="truong-khong-dien">Không điền trường này:</label><input id="truong-khong-dien" name="truong-khong-dien" type="text" autocomplete="off" tabindex="-1" /></div><div class="form-grid">
+          <div class="form-field"><label for="ho-ten">Họ và tên</label><input id="ho-ten" name="ho-ten" type="text" placeholder="Nguyễn Văn A" autocomplete="name" required /></div><div class="form-field"><label for="email">Email liên hệ</label><input id="email" name="email" type="email" placeholder="ban@email.com" autocomplete="email" required /></div><div class="form-field"><label for="doanh-nghiep">Tên doanh nghiệp</label><input id="doanh-nghiep" name="doanh-nghiep" type="text" placeholder="Tên doanh nghiệp vận tải" autocomplete="organization" /></div><div class="form-field"><label for="so-dien-thoai">Số điện thoại</label><input id="so-dien-thoai" name="so-dien-thoai" type="tel" placeholder="09xx xxx xxx" autocomplete="tel" /></div>
+          <div class="form-field"><label for="vai-tro">Vai trò của bạn</label><select id="vai-tro" name="vai-tro"><option value="">Chọn vai trò</option><option>Chủ doanh nghiệp / Giám đốc</option><option>Điều hành vận tải</option><option>Kế toán</option><option>Quản lý đội xe</option><option>Khác</option></select></div><div class="form-field"><label for="quy-mo-doi-xe">Quy mô đội xe</label><select id="quy-mo-doi-xe" name="quy-mo-doi-xe"><option value="">Chọn quy mô</option><option>1–10 xe</option><option>11–30 xe</option><option>31–100 xe</option><option>Trên 100 xe</option><option>Đội xe thuê ngoài</option></select></div>
+          <div class="form-field full"><label for="nhu-cau">Nhu cầu chính</label><select id="nhu-cau" name="nhu-cau" required><option value="" selected disabled>Chọn một nhu cầu</option><option>Điều hành và phân xe</option><option>Theo dõi chi phí chuyến</option><option>Công nợ phải thu / phải trả</option><option>Quản lý đội xe và tài xế</option><option>Báo cáo lãi lỗ</option><option>Cần tư vấn tổng thể</option></select></div><div class="form-field full"><label for="mo-ta">Mô tả ngắn bài toán</label><textarea id="mo-ta" name="mo-ta" placeholder="Ví dụ: đang quản lý chuyến và chi phí bằng nhiều file Excel…" required></textarea></div></div><button class="btn-primary form-submit" type="submit">Đặt lịch demo <span class="arrow-icon" aria-hidden="true">↗</span></button><p class="form-status" id="formStatus" role="status" aria-live="polite"></p><p class="form-terms">Bằng cách gửi biểu mẫu, bạn đồng ý để Ting Ting Soft liên hệ về nhu cầu này.</p></form></div></div></div></section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="#top" aria-label="Ting Ting Soft — về đầu trang">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span class="brand-copy">
-              <strong>Ting Ting Soft</strong>
-              <small>Công ty TNHH Giải Pháp Phần Mềm Ting Ting</small>
-            </span>
-          </a>
-          <p>Số hóa quy trình và đưa công nghệ vào đúng chỗ để doanh nghiệp làm việc nhẹ hơn, nhanh hơn và tự tin hơn với dữ liệu của mình.</p>
-        </div>
-
-        <div class="footer-column">
-          <h3>Điều hướng</h3>
-          <nav class="footer-links" aria-label="Điều hướng chân trang">
-            <a href="#cach-dong-hanh">Cách đồng hành</a>
-            <a href="#dich-vu">Dịch vụ</a>
-            <a href="#giai-phap">Giải pháp</a>
-            <a href="#quy-trinh">Quy trình</a>
-          </nav>
-        </div>
-
-        <div class="footer-column footer-contact">
-          <h3>Liên hệ</h3>
-          <p><a href="mailto:tingtingsoft.vn@gmail.com">tingtingsoft.vn@gmail.com</a></p>
-          <p>312 Nguyễn Công Hòa, phường An Biên, thành phố Hải Phòng</p>
-          <a class="btn-primary footer-cta" href="#lien-he">Trao đổi nhu cầu <span class="arrow-icon">↗</span></a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© 2026 Công ty TNHH Giải Pháp Phần Mềm Ting Ting. Bảo lưu mọi quyền.</span>
-        <a class="back-to-top" href="#top">Về đầu trang ↑</a>
-      </div>
-    </div>
-  </footer>
-
+  <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="#top" aria-label="TingTing Transport — về đầu trang"><span class="brand-mark" aria-hidden="true"></span><span class="brand-copy"><strong>Ting Ting Soft</strong><small>Công ty TNHH Giải Pháp Phần Mềm Ting Ting</small></span></a><p>Phần mềm quản lý vận tải giúp doanh nghiệp điều hành chuyến, đội xe và tài chính trên cùng một hệ thống.</p></div><div class="footer-column"><h3>Sản phẩm</h3><nav class="footer-links" aria-label="Điều hướng chân trang"><a href="#dieu-hanh">Điều hành</a><a href="#tai-chinh">Tài chính</a><a href="#doi-xe">Đội xe</a><a href="#tai-xe">Dành cho tài xế</a></nav></div><div class="footer-column"><h3>Liên hệ</h3><a href="mailto:tingtingsoft.vn@gmail.com">tingtingsoft.vn@gmail.com</a><p>312 Nguyễn Công Hòa, phường An Biên, thành phố Hải Phòng</p><a class="footer-cta" href="#lien-he">Đặt lịch demo ↗</a></div></div><div class="footer-bottom"><span>© 2026 Công ty TNHH Giải Pháp Phần Mềm Ting Ting.</span><a href="#top">Về đầu trang ↑</a></div></div></footer>
   <script type="module" src="/src/scripts/main.js"></script>
 </body>
 </html>
