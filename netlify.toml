@@ -11,7 +11,8 @@
 # Tailwind v4 native bindings silently.
 [build.environment]
   NODE_VERSION = "20"
-  NPM_FLAGS = "--no-optional"
+  # Keep optional dependencies enabled: Rollup and Tailwind install their
+  # platform-specific native bindings through optional packages.
 
 # SPA rewrite handled by public/_redirects (serves static files first).
 

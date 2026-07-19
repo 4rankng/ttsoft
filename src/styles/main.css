@@ -10,6 +10,46 @@
 @import 'tailwindcss/utilities';
 @import 'tailwindcss/theme';
 
+@plugin "daisyui" {
+  themes: false;
+  logs: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "tingting";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: oklch(99% 0.004 180);
+  --color-base-200: oklch(97% 0.009 180);
+  --color-base-300: oklch(93% 0.015 180);
+  --color-base-content: oklch(20% 0.035 255);
+  --color-primary: oklch(64% 0.12 181);
+  --color-primary-content: oklch(99% 0.005 180);
+  --color-secondary: oklch(31% 0.045 255);
+  --color-secondary-content: oklch(98% 0.006 255);
+  --color-accent: oklch(74% 0.12 83);
+  --color-accent-content: oklch(24% 0.04 70);
+  --color-neutral: oklch(25% 0.035 255);
+  --color-neutral-content: oklch(97% 0.008 255);
+  --color-info: oklch(68% 0.13 240);
+  --color-info-content: oklch(98% 0.008 240);
+  --color-success: oklch(67% 0.14 160);
+  --color-success-content: oklch(98% 0.008 160);
+  --color-warning: oklch(78% 0.14 82);
+  --color-warning-content: oklch(24% 0.04 70);
+  --color-error: oklch(65% 0.18 28);
+  --color-error-content: oklch(98% 0.008 28);
+  --radius-selector: 1rem;
+  --radius-field: 1rem;
+  --radius-box: 2rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
 /* Brand theme: map TingTing's design tokens to Tailwind utilities so
    Tailkit sections inherit the brand (teal primary, slate ink) instead of
    default Tailwind colors. secondary-* mirrors Tailkit's slate scale. */

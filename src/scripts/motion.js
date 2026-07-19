@@ -15,6 +15,7 @@ export function initMotion() {
     .from('.hero-summary', { y: 22, duration: 0.75 }, '-=0.55')
     .from('.hero-actions > *', { y: 16, duration: 0.55, stagger: 0.09 }, '-=0.4')
     .from('.hero-device', { y: 58, scale: 0.97, duration: 1.05 }, '-=0.2')
+    .from('.hero-signal', { y: 18, scale: 0.92, duration: 0.55, stagger: 0.1 }, '-=0.45')
     .from('.kpi-row article', { y: 18, duration: 0.45, stagger: 0.07 }, '-=0.45');
 
   gsap.to('.scroll-progress', {
