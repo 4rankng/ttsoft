@@ -541,72 +541,6 @@
   transform: translateX(4px);
 }
 
-/* ============================================================
-   FOOTER — CTA band + gradient separator (Tailkit m-s-footers-14)
-   Adds a high-impact conversion band above the link grid, separated
-   by a brand gradient strip borrowed from Tailkit's footer pattern.
-   ============================================================ */
-
-.footer-cta-band {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 28px;
-  margin-bottom: 56px;
-  padding: 40px clamp(24px, 4vw, 48px);
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(21, 159, 152, 0.14), transparent 22rem),
-    radial-gradient(circle at 100% 100%, rgba(79, 124, 255, 0.10), transparent 22rem),
-    var(--surface-strong);
-  border: 1px solid var(--line);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 22px 60px rgba(15, 23, 42, 0.08);
-}
-
-.footer-cta-eyebrow {
-  margin: 0 0 8px;
-  color: var(--primary-deep);
-  font-size: 12px;
-  font-weight: 850;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.footer-cta-title {
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(26px, 3.2vw, 38px);
-  font-weight: 860;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-}
-
-.footer-cta-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* Gradient separator strip — Tailkit's signature footer divider */
-.footer-separator {
-  position: relative;
-  height: 3px;
-  margin-bottom: 48px;
-  border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(21, 159, 152, 0.5) 20%,
-    rgba(79, 124, 255, 0.45) 50%,
-    rgba(231, 169, 61, 0.4) 80%,
-    transparent
-  );
-  opacity: 0.7;
-}
-
 /* Refined footer link hover — brand-tinted slide-in arrow */
 .footer-links a {
   position: relative;
@@ -804,26 +738,5 @@
   .footer-links a:hover,
   .footer-bottom a[href="#top"]:hover {
     transform: none;
-  }
-}
-
-/* ============================================================
-   FOOTER CTA BAND — responsive
-   ============================================================ */
-
-@media (max-width: 720px) {
-  .footer-cta-band {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .footer-cta-actions {
-    width: 100%;
-  }
-
-  .footer-cta-actions a {
-    flex: 1;
-    min-width: 0;
   }
 }
