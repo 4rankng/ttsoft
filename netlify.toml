@@ -1,8 +1,17 @@
 # Netlify configuration for the Ting Ting Soft landing page (Vite, static HTML).
+# Tailwind v4 was added in v2.0; its oxide engine and PostCSS pipeline require
+# Node 20+, so NODE_VERSION is pinned explicitly below.
 
 [build]
   command = "npm run build"
   publish = "dist"
+
+# Pin Node to a version Tailwind v4 + Vite 5 are guaranteed to support.
+# Netlify's default build image lags behind, and Node <20 will fail the
+# Tailwind v4 native bindings silently.
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_FLAGS = "--no-optional"
 
 # SPA rewrite handled by public/_redirects (serves static files first).
 
@@ -13,7 +22,13 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Permissions-Policy = "geolocation=(), microphone=(), camera()"
+    # GSAP loads from cdnjs.cloudflare.com (see index.html); script-src allows
+    # it plus 'self' for our own bundled JS. style-src allows 'unsafe-inline'
+    # because Tailwind v4 ships some inline @layer styles and GSAP injects
+    # inline transforms. img-src includes the og:image and product shots,
+    # all same-origin.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
 
 # --- Caching ---
 # HTML: revalidate often so content updates roll out quickly.
@@ -27,3 +42,9 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# OG image referenced from <meta> tags — long-lived, revalidate occasionally.
+[[headers]]
+  for = "/og-image.png"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"

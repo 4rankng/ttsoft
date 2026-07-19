@@ -1,9 +1,82 @@
 /* Ting Ting Soft — styles entry.
    Order matters: base tokens first, components next, responsive overrides last
-   so the cascade resolves the same way the original single <style> block did. */
+   so the cascade resolves the the same way the original single <style> block did.
+
+   Tailwind v4 is imported with preflight DISABLED (coreplugins) so the bespoke
+   design tokens in base.css continue to drive typography, resets, and layout.
+   Tailwind utilities are only used inside Tailkit-style upgraded sections. */
+
+@import 'tailwindcss/preflight' layer(tailwind-preflight);
+@import 'tailwindcss/utilities';
+@import 'tailwindcss/theme';
+
+/* Brand theme: map TingTing's design tokens to Tailwind utilities so
+   Tailkit sections inherit the brand (teal primary, slate ink) instead of
+   default Tailwind colors. secondary-* mirrors Tailkit's slate scale. */
+@theme inline {
+  --color-primary: #159f98;
+  --color-primary-deep: #0d7773;
+  --color-primary-soft: #dff7f4;
+
+  --color-secondary-50: #f8fafc;
+  --color-secondary-100: #f1f5f9;
+  --color-secondary-200: #e2e8f0;
+  --color-secondary-300: #cbd5e1;
+  --color-secondary-400: #94a3b8;
+  --color-secondary-500: #64748b;
+  --color-secondary-600: #475569;
+  --color-secondary-700: #334155;
+  --color-secondary-800: #1e293b;
+  --color-secondary-900: #0f172a;
+  --color-secondary-950: #020617;
+
+  --color-brand: #159f98;
+  --color-brand-deep: #0d7773;
+  --color-brand-soft: #dff7f4;
+
+  --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+}
+
+/* Tailwind preflight overrides many of our bespoke resets. We turn off the
+   parts that would damage the hand-crafted system, while keeping the
+   box-sizing/border normalisations utilities rely on. */
+@layer tailwind-preflight {
+  /* Restore our typography: Tailwind preflight zeroes headings; we don't. */
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+  }
+  /* Restore default list styling where lists are used semantically. */
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    background-image: none;
+  }
+  /* Keep our links inheriting colour (preflight sets color: inherit too, but
+     we be explicit so future Tailwind upgrades can't regress this). */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
 
 @import './base.css';
 @import './header.css';
 @import './contact.css';
 @import './footer.css';
 @import './product.css';
+@import './enhancements.css';
