@@ -193,8 +193,8 @@
     gap: 8px;
   }
 
-  /* Bare marks, no pill: the icon itself is the 44px tappable element, with
-     no circle chrome around it. This is now the primary conversion path. */
+  /* Bare marks, no pill: the link is a 44px tap target (recommended touch
+     size), the icon itself sits smaller inside it with no circle chrome. */
   .nav-contact-link {
     width: 44px;
     height: 44px;
@@ -216,7 +216,7 @@
 
   .nav-contact-link svg,
   .nav-contact-link img {
-    width: 44px;
-    height: 44px;
+    width: 24px;
+    height: 24px;
   }
 }
