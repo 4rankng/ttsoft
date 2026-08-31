@@ -193,12 +193,21 @@
     gap: 8px;
   }
 
-  /* 44px keeps the primary conversion path at the recommended touch size. */
+  /* Bare marks, no pill: the icon itself is the 44px tappable element, with
+     no circle chrome around it. This is now the primary conversion path. */
   .nav-contact-link {
     width: 44px;
     height: 44px;
     padding: 0;
     justify-content: center;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .nav-contact-link:hover {
+    background: transparent;
+    box-shadow: none;
   }
 
   .nav-contact-link span {
@@ -207,7 +216,7 @@
 
   .nav-contact-link svg,
   .nav-contact-link img {
-    width: 26px;
-    height: 26px;
+    width: 44px;
+    height: 44px;
   }
 }
