@@ -193,9 +193,10 @@
     gap: 8px;
   }
 
+  /* 44px keeps the primary conversion path at the recommended touch size. */
   .nav-contact-link {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
     padding: 0;
     justify-content: center;
   }

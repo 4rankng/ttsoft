@@ -489,38 +489,6 @@
   z-index: 1;
 }
 
-/* Make the contact email link feel like a Tailkit pill CTA */
-.contact-email {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 22px;
-  border-radius: 16px;
-  background: var(--surface-strong);
-  border: 1px solid var(--line);
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-  font-weight: 600;
-  transition:
-    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 240ms ease,
-    border-color 240ms ease;
-}
-
-.contact-email:hover {
-  transform: translateY(-2px);
-  border-color: rgba(21, 159, 152, 0.4);
-  box-shadow: 0 18px 40px rgba(21, 159, 152, 0.16);
-}
-
-.contact-email span {
-  color: var(--primary-deep);
-  transition: transform 240ms ease;
-}
-
-.contact-email:hover span {
-  transform: translate(2px, -2px);
-}
-
 /* ============================================================
    PROFIT INSIGHTS — refine the insight cards with brand depth
    ============================================================ */
@@ -682,7 +650,6 @@
 @media (prefers-reduced-motion: reduce) {
   .ecosystem-grid article,
   .assurance-grid article,
-  .contact-email,
   .profit-insights .insight-row,
   .profit-summary > div,
   .dispatch-columns .trip-chip,
@@ -694,7 +661,6 @@
 
   .ecosystem-grid article:hover,
   .assurance-grid article:hover,
-  .contact-email:hover,
   .profit-insights .insight-row:hover,
   .profit-summary > div:hover,
   .dispatch-columns .trip-chip:hover,
