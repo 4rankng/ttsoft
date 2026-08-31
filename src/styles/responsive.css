@@ -1,16 +1,4 @@
 @media (max-width: 1080px) {
-  .desktop-nav {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-cta {
-    margin-left: auto;
-  }
-
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -132,10 +120,6 @@
   }
 
   .brand-copy small {
-    display: none;
-  }
-
-  .nav-cta {
     display: none;
   }
 

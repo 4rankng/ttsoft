@@ -4,13 +4,11 @@
 // matching the original inline timing.
 
 import { initNav } from './nav.js';
-import { initForm } from './form.js';
 import { initTilt } from './tilt.js';
 import { initMotion } from './motion.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   initNav();
-  initForm();
   initTilt();
 
   // Defer until external scripts have had a chance to execute.

@@ -68,29 +68,59 @@
   letter-spacing: 0.01em;
 }
 
-.desktop-nav {
+/* One-click contact: the only actions in the header. */
+.nav-contact {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
+  gap: 10px;
   margin-left: auto;
 }
 
-.desktop-nav a {
-  padding: 10px 12px;
-  border-radius: 12px;
+/* Quiet surface in the site's own language; the third-party logos stay small
+   and keep their brand colour so they read as marks, not as branded blocks. */
+.nav-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 38px;
+  padding: 0 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
   color: var(--ink-soft);
   font-size: 13px;
-  font-weight: 650;
-  transition: color 180ms ease, background 180ms ease;
+  font-weight: 720;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
 }
 
-.desktop-nav a:hover {
+/* The labels name the destination, so the marks alone carry the channel. */
+.nav-contact-link svg {
+  flex: 0 0 auto;
+  width: 19px;
+  height: 19px;
+}
+
+.nav-contact-link.is-messenger svg {
+  fill: #0084ff;
+}
+
+.nav-contact-link img {
+  flex: 0 0 auto;
+  width: 19px;
+  height: 19px;
+  border-radius: 5px;
+}
+
+.nav-contact-link:hover {
+  transform: translateY(-1px);
+  background: #fff;
+  border-color: rgba(21, 159, 152, 0.32);
   color: var(--primary-deep);
-  background: rgba(21, 159, 152, 0.08);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.07);
 }
 
-.nav-cta,
 .btn-primary,
 .btn-secondary,
 .btn-text {
@@ -108,21 +138,13 @@
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
 }
 
-.nav-cta,
 .btn-primary {
   color: white;
   background: linear-gradient(135deg, #16aaa2, #0e8b85);
   box-shadow: 0 12px 28px rgba(21, 159, 152, 0.22), inset 0 1px 0 rgba(255,255,255,.24);
 }
 
-.nav-cta {
-  min-height: 46px;
-  padding-inline: 16px;
-  font-size: 13px;
-}
-
-.btn-primary:hover,
-.nav-cta:hover {
+.btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 17px 36px rgba(21, 159, 152, 0.30), inset 0 1px 0 rgba(255,255,255,.28);
 }
@@ -160,72 +182,31 @@
 }
 
 .btn-primary:hover .arrow-icon,
-.nav-cta:hover .arrow-icon,
 .solution-link:hover .arrow-icon {
   transform: translate(2px, -2px);
 }
 
-.menu-toggle {
-  display: none;
-  width: 46px;
-  height: 46px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: rgba(255,255,255,.72);
-  color: var(--ink);
-  cursor: pointer;
-}
 
-.menu-toggle span {
-  display: block;
-  width: 18px;
-  height: 2px;
-  margin: 4px auto;
-  border-radius: 999px;
-  background: currentColor;
-  transition: transform 180ms ease, opacity 180ms ease;
-}
+/* On phones the shell is tight: drop the labels, keep both marks tappable. */
+@media (max-width: 700px) {
+  .nav-contact {
+    gap: 8px;
+  }
 
-.menu-toggle[aria-expanded="true"] span:first-child {
-  transform: translateY(6px) rotate(45deg);
-}
+  .nav-contact-link {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    justify-content: center;
+  }
 
-.menu-toggle[aria-expanded="true"] span:nth-child(2) {
-  opacity: 0;
-}
+  .nav-contact-link span {
+    display: none;
+  }
 
-.menu-toggle[aria-expanded="true"] span:last-child {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-.mobile-panel {
-  display: none;
-  position: fixed;
-  z-index: 990;
-  inset: 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  padding: 110px 22px 28px;
-  background: rgba(248, 250, 252, 0.95);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-}
-
-.mobile-panel.is-open {
-  display: grid;
-  align-content: start;
-  gap: 10px;
-}
-
-.mobile-panel a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 62px;
-  padding: 0 18px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: rgba(255,255,255,.74);
-  font-size: 17px;
-  font-weight: 750;
+  .nav-contact-link svg,
+  .nav-contact-link img {
+    width: 19px;
+    height: 19px;
+  }
 }

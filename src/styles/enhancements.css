@@ -660,40 +660,6 @@
 }
 
 /* ============================================================
-   MOBILE PANEL — refined nav items with brand depth
-   ============================================================ */
-
-.mobile-panel a {
-  position: relative;
-  overflow: hidden;
-  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
-}
-
-.mobile-panel a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, var(--primary), var(--primary-deep));
-  opacity: 0;
-  transition: opacity 220ms ease;
-}
-
-.mobile-panel a:hover,
-.mobile-panel a:focus-visible {
-  transform: translateX(4px);
-  border-color: rgba(21, 159, 152, 0.30);
-  background: rgba(21, 159, 152, 0.06);
-}
-
-.mobile-panel a:hover::after,
-.mobile-panel a:focus-visible::after {
-  opacity: 1;
-}
-
-/* ============================================================
    SOURCE-STACK CHIPS (consolidation visual) — frosted depth
    ============================================================ */
 
@@ -720,7 +686,6 @@
   .profit-insights .insight-row,
   .profit-summary > div,
   .dispatch-columns .trip-chip,
-  .mobile-panel a,
   .source-stack span,
   .footer-links a,
   .footer-bottom a[href="#top"] {
@@ -733,7 +698,6 @@
   .profit-insights .insight-row:hover,
   .profit-summary > div:hover,
   .dispatch-columns .trip-chip:hover,
-  .mobile-panel a:hover,
   .source-stack span:hover,
   .footer-links a:hover,
   .footer-bottom a[href="#top"]:hover {
