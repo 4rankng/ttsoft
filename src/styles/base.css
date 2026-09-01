@@ -1,3 +1,14 @@
+/* Self-hosted to respect the site's CSP (font-src 'self') and avoid a
+   third-party request; see src/assets/fonts/LICENSE-Inter.txt (SIL OFL 1.1).
+   Variable weight axis covers every custom weight used across the site. */
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../assets/fonts/InterVariable.woff2") format("woff2");
+}
+
 :root {
   color-scheme: light;
   --bg: #f8fafc;
