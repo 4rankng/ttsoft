@@ -36,3 +36,9 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
 - Pushed `3f9b831..1306030` (Messenger/Zalo one-click contact flow, hero CTA polish) to `main`.
 - Netlify deploy completed in 9s.
 - Live checks: HTTP 200, `m.me/tingtingsoft` and `zalo.me/0914827988` present in served HTML, CSP and X-Frame-Options headers applied.
+
+## Verified 2026-09-01
+- Build passes locally (`vite build`, 166ms).
+- Pushed `2b5eeb1..37717e1` (self-hosted Inter variable font, lifecycle map collision fix, hero image/OG/favicon compression, hero spacing) to `main`.
+- Netlify deploy completed in 1.7s.
+- Live checks: HTTP 200, `@font-face` for Inter present in served CSS pointing at a hashed `/assets/InterVariable-*.woff2`, font file returns 200 with `content-type: font/woff2` and `cache-control: public,max-age=31536000,immutable`, CSP and X-Frame-Options headers applied.
