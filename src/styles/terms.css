@@ -161,9 +161,7 @@
   margin-bottom: 0;
 }
 
-/* Inline text links only — the :not() chain keeps the shared button
-   classes (header.css) intact inside contact sections. */
-.terms-section a:not(.btn-primary):not(.btn-secondary) {
+.terms-section a {
   color: var(--primary-deep);
   font-weight: 700;
   text-decoration: underline;
@@ -171,7 +169,7 @@
   text-underline-offset: 3px;
 }
 
-.terms-section a:not(.btn-primary):not(.btn-secondary):hover {
+.terms-section a:hover {
   text-decoration-color: var(--primary);
 }
 
@@ -224,19 +222,6 @@
   color: var(--muted);
   font-size: 12px;
   font-weight: 550;
-}
-
-/* Final contact card reuses the shared button styles from header.css. */
-.terms-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 18px;
-}
-
-.terms-actions .btn-primary,
-.terms-actions .btn-secondary {
-  min-height: 48px;
 }
 
 @media (max-width: 980px) {
