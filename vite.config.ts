@@ -18,9 +18,13 @@ export default defineConfig({
   // to only look at the real entry point. The demo files still work fine
   // when opened via file:// or served as static files.
   optimizeDeps: {
-    entries: ['index.html'],
+    entries: ['index.html', 'policies.html'],
   },
   build: {
+    rollupOptions: {
+      // Second entry: the legal page at /policies.
+      input: { main: 'index.html', policies: 'policies.html' },
+    },
     target: 'es2020',
     cssCodeSplit: false,
     sourcemap: false,
