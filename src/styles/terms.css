@@ -161,7 +161,9 @@
   margin-bottom: 0;
 }
 
-.terms-section a {
+/* Inline text links only — the :not() chain keeps the shared button
+   classes (header.css) intact inside contact sections. */
+.terms-section a:not(.btn-primary):not(.btn-secondary) {
   color: var(--primary-deep);
   font-weight: 700;
   text-decoration: underline;
@@ -169,7 +171,7 @@
   text-underline-offset: 3px;
 }
 
-.terms-section a:hover {
+.terms-section a:not(.btn-primary):not(.btn-secondary):hover {
   text-decoration-color: var(--primary);
 }
 
