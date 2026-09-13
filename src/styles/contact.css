@@ -112,6 +112,11 @@
   background: rgba(0, 104, 255, .10);
 }
 
+.is-phone .contact-channel-icon {
+  background: rgba(21, 159, 152, .10);
+  color: #159f98;
+}
+
 .contact-channel-copy {
   display: grid;
   gap: 3px;
