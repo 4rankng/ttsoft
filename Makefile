@@ -28,6 +28,7 @@ deploy:
 	[ -n "$$RUN" ] || { echo "no docker.yml run found for $$HEAD"; exit 1; }; \
 	gh run watch $$RUN --exit-status
 	ssh root@bot.tingting.vip 'cd /opt/ttsoft && docker compose pull web && docker compose up -d --remove-orphans'
+	@sleep 2
 	@curl -fsS -o /dev/null -w 'tingtingsoft.vn/ttransport -> %{http_code}\n' https://tingtingsoft.vn/ttransport
 	@curl -fsS -o /dev/null -w 'tingtingsoft.vn/          -> %{http_code}\n' https://tingtingsoft.vn/
 
