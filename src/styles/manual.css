@@ -23,6 +23,9 @@
 }
 
 body.man-page {
+  /* clip (unlike base.css's body overflow-x: hidden) does not create a
+     scroll container, so position: sticky keeps working on this page */
+  overflow-x: clip;
   background: var(--sh-bg) !important;
   color: var(--sh-fg);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -248,15 +251,6 @@ body.man-page .noise {
   margin-bottom: 20px;
 }
 
-.man-navgroup h3 {
-  margin: 0 0 6px;
-  padding: 4px 8px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--sh-fg);
-}
-
 .man-navgroup a {
   display: block;
   padding: 6px 8px;
@@ -292,6 +286,51 @@ body.man-page .noise {
   width: 100%;
   margin: 0 auto;
   padding: 32px 0 96px;
+}
+
+/* Pagination: Prev / Next page navigation */
+.man-page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--sh-border);
+}
+
+.man-page-nav-link {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  border-radius: var(--sh-radius);
+  border: 1px solid var(--sh-border);
+  background: #ffffff;
+  text-decoration: none;
+  min-width: 150px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.man-page-nav-link:hover {
+  border-color: var(--sh-border-hover);
+  background: var(--sh-muted-subtle);
+}
+
+.man-page-nav-link.next {
+  margin-left: auto;
+  text-align: right;
+}
+
+.man-page-nav-sub {
+  font-size: 11.5px;
+  color: var(--sh-muted-fg);
+  margin-bottom: 2px;
+}
+
+.man-page-nav-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--sh-fg);
 }
 
 /* Breadcrumbs bar above H1 */
@@ -762,28 +801,6 @@ body.man-page .noise {
   font-weight: 600;
 }
 
-.man-toc-sublink {
-  display: block;
-  padding: 3px 0 3px 14px;
-  font-size: 12.5px;
-  line-height: 1.4;
-  color: #a1a1aa;
-  text-decoration: none;
-  transition: color 0.12s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.man-toc-sublink:hover {
-  color: var(--sh-fg);
-}
-
-.man-toc-sublink.active {
-  color: var(--sh-fg);
-  font-weight: 500;
-}
-
 /* Promo Card (Counterpart to shadcn's "Deploy on Vercel" card) */
 .man-promo-card {
   margin-top: 28px;
@@ -998,15 +1015,6 @@ body.man-page .noise {
   overflow-y: auto;
   max-height: 380px;
   padding: 8px;
-}
-
-.man-search-group-title {
-  padding: 8px 10px 4px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--sh-muted-fg);
 }
 
 .man-search-item {

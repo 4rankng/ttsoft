@@ -23,8 +23,18 @@ export default defineConfig({
   build: {
     rollupOptions: {
       // Additional entries: the legal page at /policies and the product
-      // manual at /ttransport (docs for the TransTing transport app).
-      input: { main: 'index.html', policies: 'policies.html', ttransport: 'ttransport.html' },
+      // manual — one HTML page per section, served at /ttransport/<section>
+      // by nginx try_files (see deploy/nginx.conf).
+      input: {
+        main: 'index.html',
+        policies: 'policies.html',
+        ttransport: 'ttransport.html',
+        'ttransport-bat-dau': 'ttransport/bat-dau.html',
+        'ttransport-quan-ly': 'ttransport/quan-ly.html',
+        'ttransport-ke-toan': 'ttransport/ke-toan.html',
+        'ttransport-lai-xe': 'ttransport/lai-xe.html',
+        'ttransport-giao-nhan': 'ttransport/giao-nhan.html',
+      },
     },
     target: 'es2020',
     cssCodeSplit: false,

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth" data-theme="tingting">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
+  <title>Quản lý — Hướng dẫn sử dụng TransTing</title>
+  <meta name="description" content="Quản lý có quyền hạn toàn diện trên hệ thống: điều phối xe, theo dõi kế hoạch chuyến, giám sát báo cáo tài chính - công nợ, quản lý danh mục và cấu hình quy tắc vận…" />
+  <link rel="canonical" href="https://tingtingsoft.vn/ttransport/quan-ly" />
+  <link rel="icon" href="/src/assets/brand-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/src/assets/brand-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tingtingsoft.vn/ttransport/quan-ly" />
+  <meta property="og:site_name" content="Ting Ting Soft" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:title" content="Quản lý — Hướng dẫn sử dụng TransTing" />
+  <meta property="og:description" content="Quản lý có quyền hạn toàn diện trên hệ thống: điều phối xe, theo dõi kế hoạch chuyến, giám sát báo cáo tài chính - công nợ, quản lý danh mục và cấu hình quy tắc vận…" />
+  <meta property="og:image" content="https://tingtingsoft.vn/og-image.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="/src/styles/manual.css" />
+</head>
+
+<body class="man-page" data-man-page="quan-ly">
+
+  <a class="skip-link" href="#noi-dung">Bỏ qua điều hướng</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  
+  <!-- Top Navbar (shadcn docs style) -->
+  <header class="man-topbar">
+
+
+    <div class="man-topbar-inner">
+      <button class="man-nav-toggle" type="button" id="manNavToggle" aria-expanded="false" aria-controls="manSidenav" aria-label="Mở mục lục">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a class="man-brand" href="/" aria-label="Ting Ting Soft — về trang chủ">
+        <img class="man-brand-logo" src="/src/assets/brand-logo.png" alt="" width="22" height="22" />
+        <span>Ting Ting Soft</span>
+        <span class="man-brand-badge">docs</span>
+      </a>
+            <nav class="man-topnav" aria-label="Điều hướng chính">
+        <a href="/ttransport">Tổng quan</a>
+        <a href="/ttransport/bat-dau">Bắt đầu</a>
+        <a href="/ttransport/quan-ly" class="active">Quản lý</a>
+        <a href="/ttransport/ke-toan">Kế toán</a>
+        <a href="/ttransport/lai-xe">Lái xe</a>
+        <a href="/ttransport/giao-nhan">Giao nhận</a>
+        <a href="/">Trang chủ</a>
+      </nav>
+      <div class="man-topbar-actions">
+        <button type="button" class="man-search-trigger" id="manSearchBtn" aria-label="Tìm kiếm tài liệu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="man-search-placeholder">Tìm kiếm tài liệu...</span>
+          <kbd class="man-search-kbd">⌘K</kbd>
+        </button>
+        <a class="man-topbar-cta" href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">
+          Mở bản demo ↗
+        </a>
+      </div>
+    </div>
+  
+</header>
+
+  <!-- 3-Column Layout: Sidebar + Content + Right TOC -->
+
+  <div class="man-layout" id="manLayout">
+
+
+    <button class="man-navscrim" type="button" id="manNavScrim" aria-label="Đóng mục lục" tabindex="-1"></button>
+
+    <!-- Column 1: Left Sidenav (stationary, never auto-scrolls with body) -->
+    
+    <nav class="man-sidenav" id="manSidenav" aria-label="Mục lục hướng dẫn">
+      <div class="man-navgroup">
+        <p class="man-sidenav-heading">Hướng dẫn</p>
+      <a href="/ttransport">Tổng quan</a>
+      <a href="/ttransport/bat-dau">Bắt đầu</a>
+      <a href="/ttransport/quan-ly" class="active" aria-current="page">Quản lý</a>
+      <a href="/ttransport/ke-toan">Kế toán</a>
+      <a href="/ttransport/lai-xe">Lái xe</a>
+      <a href="/ttransport/giao-nhan">Giao nhận</a>
+      </div>
+      <div class="man-navgroup">
+        <p class="man-sidenav-heading">Liên kết</p>
+        <a href="/">Trang chủ</a>
+        <a href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">Bản demo ↗</a>
+      </div>
+    </nav>
+
+    <!-- Column 2: Center Content -->
+    <main class="man-content" id="noi-dung">
+
+      <div class="man-breadcrumbs" aria-label="Đường dẫn">
+        <a href="/ttransport">Tài liệu</a>
+        <span class="man-crumb-sep">›</span>
+        <span class="man-crumb-active">Quản lý</span>
+      </div>
+
+<div class="man-hero">
+          <p class="chapter-label">Vai trò · Quản lý điều hành</p>
+          <h1>Hướng dẫn dành cho Quản lý</h1>
+          <p class="man-hero-lead">Quản lý có quyền hạn toàn diện trên hệ thống: điều phối xe, theo dõi kế hoạch chuyến, giám sát báo cáo tài chính - công nợ, quản lý danh mục và cấu hình quy tắc vận hành.</p>
+        </div>
+
+        
+          <div class="man-menu-map">
+            <h4>Phạm vi chức năng Quản lý</h4>
+            <dl>
+              <dt>Vận hành</dt><dd>Tổng quan · Điều vận · Kế hoạch vận chuyển · Bảng số liệu</dd>
+              <dt>Nhân sự</dt><dd>Lương &amp; Chấm công · Kỷ luật</dd>
+              <dt>Tài chính</dt><dd>Báo cáo lãi lỗ · Phân chia lợi nhuận · Công nợ phải thu · Công nợ phải trả · Chi phí phát sinh · Tạm ứng · Duyệt hoàn ứng</dd>
+              <dt>Danh mục</dt><dd>Đội xe · Khách hàng · Nhà cung cấp · Tuyến đường</dd>
+              <dt>Hệ thống</dt><dd>Người dùng · Nhật ký người dùng · Cấu hình</dd>
+            </dl>
+          </div>
+
+          <div class="man-task" id="giam-doc-tong-quan">
+            <h3>Tổng quan</h3>
+            <p>Màn hình tổng quan cập nhật tình hình hoạt động đầu ngày: doanh thu, chi phí, việc cần xử lý và tình trạng đội xe.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-dashboard.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-dashboard.webp" width="1440" height="900" loading="lazy" alt="Trang Tổng quan với khối Việc cần xử lý và Tình trạng đội xe được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Trang Tổng quan.</strong> Số ①② ứng với các việc cần rà soát mỗi ngày.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Kiểm tra <strong>Việc cần xử lý</strong>: công nợ quá hạn, đơn cần phân xe. Nhấn "Xem công nợ →" để xử lý trực tiếp.</li>
+              <li>Theo dõi <strong>Tình trạng đội xe</strong>: xe đang chạy, đang rảnh hoặc đang bảo dưỡng để kịp thời điều động.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-dieu-van">
+            <h3>Điều vận &amp; phân xe</h3>
+            <p>Trang <strong>Điều vận</strong> tập hợp toàn bộ đơn hàng cần xếp xe. Con số thông báo trên menu cho biết số lượng đơn đang chờ.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-dispatch.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-dispatch.webp" width="1440" height="900" loading="lazy" alt="Trang Điều vận với danh sách Đơn hàng cần điều vận và nút Tạo chuyến mới được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Trang Điều vận.</strong> Số ①② ứng với các bước thao tác.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Rà soát <strong>Đơn hàng cần điều vận</strong>: xem tuyến, mặt hàng và gán xe/lái xe trực tiếp trên đơn.</li>
+              <li>Nhấn <strong>Tạo chuyến mới</strong> để mở biểu mẫu nhập lệnh vận chuyển mới khi có phát sinh.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-ke-hoach">
+            <h3>Kế hoạch vận chuyển</h3>
+            <p>Danh sách toàn bộ chuyến đi theo kỳ tháng. Mỗi dòng tương ứng một lệnh vận chuyển — bấm vào để xem chi tiết.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-trips.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-trips.webp" width="1440" height="900" loading="lazy" alt="Danh sách Kế hoạch vận chuyển với bộ chọn tháng và một dòng chuyến được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Danh sách chuyến.</strong> Số ①② ứng với các bước.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Chọn <strong>tháng</strong> cần tra cứu trên thanh trên cùng.</li>
+              <li>Bấm vào <strong>dòng chuyến đi</strong> để xem thông tin chi tiết (mã chuyến, tuyến đường, lái xe, chi phí).</li>
+            </ol>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-trip-detail.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-trip-detail.webp" width="1440" height="900" loading="lazy" alt="Chi tiết chuyến với nút Chỉnh sửa, nút Phân xe lại và khối Phân tích tài chính được đánh số 1, 2, 3">
+              </a>
+              <figcaption><strong>Chi tiết chuyến đi.</strong> Số ①②③ ứng với các bước thao tác chỉnh sửa.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Nhấn <strong>Chỉnh sửa</strong> để cập nhật thông tin chuyến (container, tuyến đường, chi phí).</li>
+              <li>Nhấn <strong>Phân xe lại</strong> khi cần thay đổi phương tiện hoặc lái xe giữa hành trình.</li>
+              <li>Khối <strong>Phân tích tài chính</strong> hiển thị doanh thu, chi phí phát sinh và lợi nhuận của riêng chuyến đó.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-tao-lenh">
+            <h3>Tạo lệnh vận chuyển</h3>
+            <p>Nhấn nút <strong>Thêm chuyến</strong> từ Kế hoạch vận chuyển hoặc nút <strong>Tạo chuyến mới</strong> từ màn hình Điều vận để mở biểu mẫu.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-trip-new.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-trip-new.webp" width="1440" height="900" loading="lazy" alt="Form Tạo lệnh vận chuyển mới với ô Khách hàng, ô Tuyến đường và nút Tạo lệnh được đánh số 1, 2, 3">
+              </a>
+              <figcaption><strong>Form tạo lệnh vận chuyển.</strong> Số ①②③ ứng với các trường cần điền.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Chọn <strong>Khách hàng</strong> — gõ ký tự đầu để tìm kiếm nhanh.</li>
+              <li>Chọn <strong>Tuyến đường</strong> và điền các thông tin phương tiện, lái xe (trường có dấu * là bắt buộc).</li>
+              <li>Nhấn <strong>Tạo lệnh</strong> để lưu vào hệ thống.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-bang-so-lieu">
+            <h3>Bảng số liệu</h3>
+            <p>Bảng tổng hợp chi tiết theo từng dòng lệnh — phục vụ đối soát số liệu vận hành và xuất dữ liệu ra file Excel.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-ledger.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-ledger.webp" width="1440" height="900" loading="lazy" alt="Bảng số liệu với nút Thêm dòng và Xuất Excel được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Bảng số liệu.</strong> Số ①② ứng với các chức năng bổ sung và xuất file.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Nhấn <strong>Thêm dòng</strong> khi cần ghi nhận dòng phát sinh ngoài lệnh chuyến tự động.</li>
+              <li>Nhấn <strong>Xuất Excel</strong> để tải bảng tính đối soát về máy.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-luong">
+            <h3>Lương &amp; chấm công</h3>
+            <p>Bảng tổng hợp tiền công theo chuyến, ngày công, phụ cấp và các khoản trừ kỷ luật của từng lái xe trong tháng.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-salary.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-salary.webp" width="1440" height="900" loading="lazy" alt="Trang Lương và Chấm công với nút Ghi thanh toán và dòng lương một nhân viên được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Lương &amp; chấm công.</strong> Số ①② ứng với các thao tác đối soát.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Nhấn <strong>Ghi thanh toán</strong> sau khi chi lương — hệ thống ghi nhận trạng thái đã chi cùng thời gian.</li>
+              <li>Nhấn vào <strong>dòng lương nhân viên</strong> để mở bảng kê chi tiết từng khoản thu nhập.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-ky-luat">
+            <h3>Kỷ luật</h3>
+            <p>Ghi nhận biên bản vi phạm quy chế an toàn, trễ chuyến của lái xe có ảnh hưởng đến bảng lương kỳ đó.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-penalties.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-penalties.webp" width="1440" height="900" loading="lazy" alt="Trang Kỷ luật với nút Lập biên bản và Xuất báo cáo được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Trang Kỷ luật.</strong> Số ①② ứng với lập mới và xuất báo cáo.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Nhấn <strong>Lập biên bản</strong>, chọn lái xe, lý do vi phạm theo danh mục và nhập số tiền phạt.</li>
+              <li>Nhấn <strong>Xuất báo cáo</strong> để trích xuất danh sách biên bản kỷ luật gửi ban điều hành.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-lai-lo">
+            <h3>Báo cáo lãi lỗ</h3>
+            <p>Báo cáo tài chính phản ánh doanh thu, giá vốn chuyến xe, chi phí quản lý và lợi nhuận ròng toàn công ty.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-finance.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-finance.webp" width="1440" height="900" loading="lazy" alt="Báo cáo lãi lỗ với tiêu đề báo cáo và bộ chọn tháng được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Báo cáo lãi lỗ.</strong> Số ①② ứng với chọn danh mục và đổi tháng.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Chọn <strong>Báo cáo lãi lỗ</strong> trong nhóm Tài chính để theo dõi tổng thể doanh thu, chi phí.</li>
+              <li>Đổi <strong>tháng</strong> để so sánh hiệu quả kinh doanh giữa các kỳ.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-phan-chia">
+            <h3>Phân chia lợi nhuận</h3>
+            <p>Tính toán phân chia lợi nhuận cho các cổ đông theo tỷ lệ góp vốn sau khi đã hoàn thành quyết toán quý.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-profit.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-profit.webp" width="1440" height="900" loading="lazy" alt="Trang Phân chia lợi nhuận với khối Quyết toán và Chốt Quý, khối Phân chia theo tỷ lệ cổ phần được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Phân chia lợi nhuận.</strong> Số ①② ứng với quyết toán và bảng phân chia.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Rà soát <strong>Quyết toán &amp; Chốt Quý</strong> trước khi phân chia nhằm khóa các khoản phát sinh.</li>
+              <li>Xem bảng <strong>Phân chia theo tỷ lệ cổ phần</strong>: số tiền tự động phân bổ theo tỷ lệ góp vốn đã cấu hình.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-no-thu">
+            <h3>Công nợ phải thu</h3>
+            <p>Theo dõi số tiền khách hàng còn nợ theo hạn thanh toán kèm mã màu cảnh báo công nợ sắp đến hạn.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-debt.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-debt.webp" width="1440" height="900" loading="lazy" alt="Công nợ phải thu với thẻ một khách hàng và bộ chọn tháng được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Công nợ phải thu.</strong> Số ①② ứng với mở thẻ khách hàng và đổi kỳ.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Bấm vào <strong>thẻ khách hàng</strong> để xem sổ chi tiết: danh sách chuyến, đợt thanh toán và hóa đơn.</li>
+              <li>Đổi <strong>tháng</strong> để đối chiếu số dư nợ lũy kế qua từng kỳ.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-no-tra">
+            <h3>Công nợ phải trả</h3>
+            <p>Theo dõi công nợ phải trả cho nhà cung cấp xăng dầu, sửa chữa xe và dịch vụ logistics bên ngoài.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-payables.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-payables.webp" width="1440" height="900" loading="lazy" alt="Công nợ phải trả với bộ lọc nhóm chi phí Tất cả, Xăng dầu, Phí dịch vụ được đánh số 1">
+              </a>
+              <figcaption><strong>Công nợ phải trả.</strong> Số ① ứng với bộ lọc nhóm nhà cung cấp.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Dùng <strong>bộ lọc nhóm chi phí</strong> (Xăng dầu / Dịch vụ…) để lọc và mở sổ đối soát của từng nhà cung cấp.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-chi-phi">
+            <h3>Chi phí phát sinh</h3>
+            <p>Ghi nhận các khoản chi phí phát sinh ngoài lệnh: bảo trì đột xuất, chi phí bến bãi hoặc phí hành chính.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-expenses.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-expenses.webp" width="1440" height="900" loading="lazy" alt="Trang Chi phí phát sinh với nút Thêm phiếu chi và bộ chọn tháng được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Chi phí phát sinh.</strong> Số ①② ứng với tạo phiếu chi và lọc tháng.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Nhấn <strong>Thêm phiếu chi</strong>, chọn nhóm chi phí, số tiền và đính kèm hóa đơn chứng từ.</li>
+              <li>Lọc theo <strong>tháng</strong> để kiểm tra danh sách phiếu đã duyệt.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-tam-ung">
+            <h3>Tạm ứng</h3>
+            <p>Duyệt các yêu cầu tạm ứng chi phí đường bộ hoặc nhiên liệu do nhân viên giao nhận gửi lên trước chuyến đi.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-advances.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-advances.webp" width="1440" height="900" loading="lazy" alt="Trang Quản lý tạm ứng với nút Duyệt trên thẻ yêu cầu và bộ chọn tháng được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Quản lý tạm ứng.</strong> Số ①② ứng với duyệt và đổi kỳ tra cứu.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Bấm <strong>Duyệt</strong> trên thẻ yêu cầu tạm ứng hợp lệ (hoặc <strong>Từ chối</strong> kèm lý do).</li>
+              <li>Chuyển <strong>tháng</strong> để xem lại lịch sử các khoản đã cấp tạm ứng.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-duyet-hoan-ung">
+            <h3>Duyệt hoàn ứng</h3>
+            <p>Sau khi kết thúc chuyến đi, nhân viên gửi phiếu hoàn ứng đối soát chi phí thực tế so với tiền tạm ứng.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-advsettle.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-advsettle.webp" width="1440" height="900" loading="lazy" alt="Trang Duyệt hoàn ứng với tab Chờ xử lý và bộ chọn tháng được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Duyệt hoàn ứng.</strong> Số ①② ứng với tab chờ xử lý và đổi tháng.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Mở tab <strong>Chờ xử lý</strong>, kiểm tra chứng từ đính kèm của từng phiếu.</li>
+              <li>Bấm duyệt phiếu nếu chứng từ hợp lệ để hoàn tất chu trình tạm ứng.</li>
+            </ol>
+          </div>
+
+          <div class="man-task" id="giam-doc-danh-muc">
+            <h3>Danh mục: đội xe, khách hàng, nhà cung cấp, tuyến đường</h3>
+            <p>Dữ liệu nền tảng phục vụ toàn bộ các biểu mẫu tạo lệnh và phân xe trong hệ thống.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-fleet.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-fleet.webp" width="1440" height="900" loading="lazy" alt="Trang Đội xe với nút Thêm lịch và khối Lịch phương tiện được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Quản lý đội xe.</strong> Số ①② ứng với đặt lịch và theo dõi phương tiện.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Nhấn <strong>Thêm lịch</strong> để quản lý hạn đăng kiểm, bảo dưỡng và bảo hiểm xe.</li>
+              <li>Theo dõi bảng <strong>Lịch phương tiện</strong> để tránh quá hạn giấy tờ xe.</li>
+            </ol>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-customers.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-customers.webp" width="1440" height="900" loading="lazy" alt="Danh sách Khách hàng với nút Xuất Excel và một dòng khách hàng được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Khách hàng.</strong> Mở hồ sơ khách (①) hoặc xuất danh sách ra file Excel (②).</figcaption>
+            </figure>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-suppliers.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-suppliers.webp" width="1440" height="900" loading="lazy" alt="Danh sách Nhà cung cấp với nút Xuất Excel và một dòng nhà cung cấp được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Nhà cung cấp.</strong> Tra cứu sổ nợ nhà cung cấp (①) và xuất Excel (②).</figcaption>
+            </figure>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-routes.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-routes.webp" width="1440" height="900" loading="lazy" alt="Trang Tuyến đường và Cự ly với nút Thêm tuyến được đánh số 1">
+              </a>
+              <figcaption><strong>Tuyến đường.</strong> Nhấn <strong>Thêm tuyến</strong> (①) để khai báo cự ly (km) dùng tự động tính định mức dầu và chi phí đi đường.</figcaption>
+            </figure>
+          </div>
+
+          <div class="man-task" id="giam-doc-nguoi-dung">
+            <h3>Người dùng &amp; nhật ký</h3>
+            <p>Phân quyền truy cập cho nhân sự mới và tra cứu nhật ký thao tác kiểm soát bảo mật hệ thống.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-users.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-users.webp" width="1440" height="900" loading="lazy" alt="Trang Quản lý người dùng với nút Thêm tài khoản và một dòng tài khoản được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Quản lý tài khoản.</strong> Số ①② ứng với tạo mới và quản lý trạng thái tài khoản.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Nhấn <strong>Thêm tài khoản</strong>, điền thông tin và gán vai trò tương ứng (Kế toán, Lái xe, Giao nhận).</li>
+              <li>Khóa hoặc cấp lại mật khẩu ngay trên dòng tài khoản của nhân viên.</li>
+            </ol>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-audit.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-audit.webp" width="1440" height="900" loading="lazy" alt="Nhật ký người dùng với khối Danh sách hoạt động và nút Xuất Excel được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Nhật ký người dùng.</strong> Theo dõi lịch sử thao tác theo người dùng (①) và xuất Excel (②).</figcaption>
+            </figure>
+          </div>
+
+          <div class="man-task" id="giam-doc-cau-hinh">
+            <h3>Cấu hình hệ thống</h3>
+            <p>Thiết lập thông tin doanh nghiệp, định mức tiêu hao nhiên liệu, đơn giá cự ly và phụ cấp đi đường.</p>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-config.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-config.webp" width="1440" height="900" loading="lazy" alt="Trang Cấu hình hệ thống với thẻ Thông tin công ty được khoanh đỏ đánh số 1">
+              </a>
+              <figcaption><strong>Cấu hình hệ thống.</strong> Bấm vào thẻ để cập nhật thông số tương ứng (①).</figcaption>
+            </figure>
+            <div class="man-note">
+              <svg class="man-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              <div><strong>Thận trọng:</strong> Thay đổi định mức nhiên liệu hoặc đơn giá sẽ áp dụng cho toàn bộ chuyến tạo mới sau thời điểm điều chỉnh.</div>
+            </div>
+          </div>
+        <nav class="man-page-nav" aria-label="Chuyển trang">
+          <a class="man-page-nav-link prev" href="/ttransport/bat-dau">
+            <span class="man-page-nav-sub">← Trang trước</span>
+            <span class="man-page-nav-title">Bắt đầu</span>
+          </a>
+          <a class="man-page-nav-link next" href="/ttransport/ke-toan">
+            <span class="man-page-nav-sub">Trang tiếp theo →</span>
+            <span class="man-page-nav-title">Kế toán</span>
+          </a>
+        </nav>
+
+
+
+      <div class="man-feedback" id="manFeedback">
+        <span class="man-feedback-label">Tài liệu này có hữu ích cho bạn không?</span>
+        <div class="man-feedback-btns">
+          <button type="button" class="man-feedback-btn" data-val="yes">👍 Có, rất hữu ích</button>
+          <button type="button" class="man-feedback-btn" data-val="no">👎 Cần cải thiện</button>
+        </div>
+      </div>
+
+      <footer class="man-footer">
+        <p>Tài liệu áp dụng cho bản demo <a href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">demo.tingting.vip</a> — giao diện có thể khác đôi chút trên bản chính thức của doanh nghiệp. Cần bổ sung mục hướng dẫn? Nhắn cho Ting&nbsp;Ting&nbsp;Soft qua <a href="https://zalo.me/0914827988" target="_blank" rel="noopener noreferrer">Zalo 0914 827 988</a> hoặc <a href="https://m.me/tingtingsoft" target="_blank" rel="noopener noreferrer">Messenger</a>.</p>
+        <p>© 2026 Công ty TNHH MTV Giải Pháp Phần Mềm Ting Ting · <a href="/">tingtingsoft.vn</a></p>
+      </footer>
+    
+
+    </main>
+
+    <!-- Column 3: Right TOC + Promo Rail -->
+
+    <aside class="man-toc" id="manToc" aria-label="Trên trang này">
+      <p class="man-toc-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Trên trang này
+      </p>
+      <nav class="man-toc-nav" id="manTocNav" aria-label="Mục lục trang này"></nav>
+
+      <div class="man-promo-card">
+        <div class="man-promo-tag">TransTing Cloud</div>
+        <h4 class="man-promo-title">Dùng thử TransTing ngay</h4>
+        <p class="man-promo-desc">Trải nghiệm đầy đủ 4 vai trò Quản lý, Kế toán, Lái xe và Giao nhận trên dữ liệu thực tế.</p>
+        <a class="man-promo-btn" href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">Mở bản demo ↗</a>
+        <a class="man-promo-link" href="https://zalo.me/0914827988" target="_blank" rel="noopener noreferrer">Tư vấn Zalo 0914 827 988</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <dialog class="man-search-dialog" id="manSearchDialog">
+    <div class="man-search-box">
+      <div class="man-search-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" class="man-search-input" id="manSearchInput" placeholder="Tìm kiếm thao tác, vai trò hoặc màn hình..." autocomplete="off" />
+        <button type="button" class="man-search-esc" id="manSearchCloseBtn">ESC</button>
+      </div>
+      <div class="man-search-results" id="manSearchResults" role="listbox"></div>
+      <div class="man-search-footer">
+        <span><kbd>↑</kbd><kbd>↓</kbd> để di chuyển</span>
+        <span><kbd>↵</kbd> để mở mục</span>
+        <span><kbd>ESC</kbd> để đóng</span>
+      </div>
+    </div>
+  </dialog>
+
+  <script type="module" src="/src/scripts/manual.js"></script>
+</body>
+</html>
