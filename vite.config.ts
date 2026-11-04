@@ -15,15 +15,16 @@ export default defineConfig({
   // resolve bare specifiers from importmaps, so it logged a noisy
   // "three could not be resolved" error on startup. These demo files are
   // opened directly in a browser, never bundled — so we tell Vite's scanner
-  // to only look at the real entry point. The demo files still work fine
+  // to only look at the real entry points. The demo files still work fine
   // when opened via file:// or served as static files.
   optimizeDeps: {
     entries: ['index.html', 'policies.html'],
   },
   build: {
     rollupOptions: {
-      // Second entry: the legal page at /policies.
-      input: { main: 'index.html', policies: 'policies.html' },
+      // Additional entries: the legal page at /policies and the product
+      // manual at /ttransport (docs for the TransTing transport app).
+      input: { main: 'index.html', policies: 'policies.html', ttransport: 'ttransport.html' },
     },
     target: 'es2020',
     cssCodeSplit: false,

@@ -1,4 +1,26 @@
 # Deployment
+## Platform (production): Docker image via GHCR on bot.tingting.vip
+
+DNS for `tingtingsoft.vn` points at the droplet `bot.tingting.vip`
+(143.198.221.92). The Caddy edge on that server reverse-proxies the domain to
+`172.17.0.1:8082`, where the `ttsoft-web` nginx container serves the site.
+
+- **Image:** `ghcr.io/4rankng/ttsoft:main` (public repo → anonymous pulls).
+  Built by `.github/workflows/docker.yml` on every push to `main`
+  (multi-stage: `node:20-alpine` builds the Vite dist, `nginx:alpine` serves
+  it with `deploy/nginx.conf` + `deploy/ttsoft-headers.conf` baked in). Each
+  build also publishes `:sha-<commit>` for rollbacks.
+- **Server:** `/opt/ttsoft/docker-compose.yml` runs the image — no source
+  clone, no Node, no bind mounts. Clean URLs (`/policies`, `/ttransport`)
+  resolve via nginx `try_files $uri $uri.html /index.html`.
+- **Deploy:** `make deploy` — pushes `main`, waits for the workflow to finish,
+  then `docker compose pull && up -d` on the server, and curls both
+  `/` and `/ttransport`.
+- **Rollback:** `make rollback IMAGE=ghcr.io/4rankng/ttsoft:sha-<sha>`.
+
+Netlify (below) remains git-connected as a secondary mirror of the same repo;
+it no longer serves production traffic.
+
 
 ## Platform: Netlify
 - Site name: `ttsoft`
