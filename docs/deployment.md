@@ -107,3 +107,21 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
   restarted `ttsoft-web-1`.
 - Live checks: all six routes 200 with page-specific content (no SPA
   fallback leakage); served CSS contains the `overflow-x: clip` sticky fix.
+
+## Verified 2026-11-04 — manual deepened into a process guide; deps hardened
+- Content: 20 field-level glossary + lifecycle blocks added across the four
+  role pages (verified against the live demo app: dispatch fleet tiles, trip
+  form fields, receivables aging buckets, settlement lifecycle, config cards).
+- Feedback widget removed; duplicate top nav removed (sidebar is the only
+  page nav, shadcn style); stale "Phân xe lại" annotation fixed in
+  giamdoc-trip-detail.webp (action now lives inside Chỉnh sửa).
+- Mobile UX: full-width search bar (<1024px), collapsible in-page TOC
+  (<1280px), 40px tap targets, 16px/1.7 type scale (<639px) for Vietnamese
+  diacritics.
+- Dependencies: vite 6.4.4, postcss 8.5.32, source-map-js 1.2.2 — all 12
+  Dependabot alerts closed (open count now 0), npm audit clean.
+- Verification: Playwright 38/38 incl. sticky-layout assertions at
+  320-1440px; zero console errors; all six routes 200 with page-unique
+  content; deep-content markers confirmed in served HTML.
+- Deploys: `2af20f4` (deps), `4be0815` (UX/mobile/process blocks),
+  `b813bd2` (field-level content depth).
