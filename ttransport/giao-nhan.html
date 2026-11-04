@@ -41,15 +41,6 @@
         <span>Ting Ting Soft</span>
         <span class="man-brand-badge">docs</span>
       </a>
-            <nav class="man-topnav" aria-label="Điều hướng chính">
-        <a href="/ttransport">Tổng quan</a>
-        <a href="/ttransport/bat-dau">Bắt đầu</a>
-        <a href="/ttransport/quan-ly">Quản lý</a>
-        <a href="/ttransport/ke-toan">Kế toán</a>
-        <a href="/ttransport/lai-xe">Lái xe</a>
-        <a href="/ttransport/giao-nhan" class="active">Giao nhận</a>
-        <a href="/">Trang chủ</a>
-      </nav>
       <div class="man-topbar-actions">
         <button type="button" class="man-search-trigger" id="manSearchBtn" aria-label="Tìm kiếm tài liệu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -63,6 +54,15 @@
     </div>
   
 </header>
+
+  <!-- Mobile-only full-width search (hidden >=1024px by CSS) -->
+  <div class="man-mob-widgets">
+    <button type="button" class="man-search-bar" id="manSearchBtnMob" aria-label="Tìm kiếm tài liệu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span>Tìm kiếm tài liệu…</span>
+    </button>
+  </div>
+
 
   <!-- 3-Column Layout: Sidebar + Content + Right TOC -->
 
@@ -150,7 +150,12 @@
             </ol>
           </div>
 
-          <div class="man-task" id="giao-nhan-phieu-thanh-toan">
+          
+          <div class="man-note">
+            <svg class="man-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <div><strong>Sau khi gửi yêu cầu tạm ứng:</strong> yêu cầu ở trạng thái <strong>Chờ duyệt</strong> — quản lý duyệt hoặc từ chối kèm lý do. Nếu bị từ chối, sửa số tiền/lý do rồi gửi lại; nếu được duyệt, số tiền tính vào quỹ tạm ứng để bạn chi tiêu đường.</div>
+          </div>
+<div class="man-task" id="giao-nhan-phieu-thanh-toan">
             <h3>Phiếu thanh toán</h3>
             <p>Lập bảng quyết toán hoàn ứng chi phí thực tế phát sinh sau khi hoàn thành giao nhận chuyến.</p>
             <figure class="man-fig man-fig--phone">
@@ -163,7 +168,17 @@
               <li>Nhấn <strong>Thêm phiếu</strong>, đính kèm ảnh chụp hóa đơn bến bãi rồi gửi kế toán xác nhận.</li>
             </ol>
           </div>
-        <nav class="man-page-nav" aria-label="Chuyển trang">
+        
+          <div class="man-menu-map">
+            <h4>Vòng đời một phiếu thanh toán hoàn ứng</h4>
+            <dl>
+              <dt>1 · Lập phiếu</dt><dd>Bấm <strong>Thêm phiếu</strong>, kê khai từng hóa đơn bến bãi — phiếu tự khấu trừ số đã tạm ứng của chuyến (hiện ngay trên phiếu, ví dụ <strong>TU-0046</strong>).</dd>
+              <dt>2 · Gửi duyệt</dt><dd>Phiếu ở trạng thái <strong>Chờ xử lý</strong> — quản lý và kế toán thấy ngay trên trang <strong>Duyệt hoàn ứng</strong> của họ.</dd>
+              <dt>3 · Đã duyệt</dt><dd>Phiếu được duyệt kèm tên người kiểm tra và người duyệt; số tiền chính thức trừ vào tồn tạm ứng của bạn và tính vào giá thành chuyến.</dd>
+              <dt>4 · Bị từ chối</dt><dd>Kiểm tra lý do, bổ sung/chụp lại hóa đơn rõ ràng rồi lập phiếu mới — số tạm ứng chưa quyết toán vẫn giữ cho chuyến đó.</dd>
+            </dl>
+          </div>
+<nav class="man-page-nav" aria-label="Chuyển trang">
           <a class="man-page-nav-link prev" href="/ttransport/lai-xe">
             <span class="man-page-nav-sub">← Trang trước</span>
             <span class="man-page-nav-title">Lái xe</span>

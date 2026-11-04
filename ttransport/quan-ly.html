@@ -41,15 +41,6 @@
         <span>Ting Ting Soft</span>
         <span class="man-brand-badge">docs</span>
       </a>
-            <nav class="man-topnav" aria-label="Điều hướng chính">
-        <a href="/ttransport">Tổng quan</a>
-        <a href="/ttransport/bat-dau">Bắt đầu</a>
-        <a href="/ttransport/quan-ly" class="active">Quản lý</a>
-        <a href="/ttransport/ke-toan">Kế toán</a>
-        <a href="/ttransport/lai-xe">Lái xe</a>
-        <a href="/ttransport/giao-nhan">Giao nhận</a>
-        <a href="/">Trang chủ</a>
-      </nav>
       <div class="man-topbar-actions">
         <button type="button" class="man-search-trigger" id="manSearchBtn" aria-label="Tìm kiếm tài liệu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -63,6 +54,15 @@
     </div>
   
 </header>
+
+  <!-- Mobile-only full-width search (hidden >=1024px by CSS) -->
+  <div class="man-mob-widgets">
+    <button type="button" class="man-search-bar" id="manSearchBtnMob" aria-label="Tìm kiếm tài liệu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span>Tìm kiếm tài liệu…</span>
+    </button>
+  </div>
+
 
   <!-- 3-Column Layout: Sidebar + Content + Right TOC -->
 
@@ -147,7 +147,17 @@
             </ol>
           </div>
 
-          <div class="man-task" id="giam-doc-ke-hoach">
+          
+          <div class="man-menu-map">
+            <h4>Vòng đời một đơn hàng</h4>
+            <dl>
+              <dt>1 · Đơn chờ</dt><dd>Đơn hàng mới đổ về trang <strong>Điều vận</strong> — số trên menu cho biết đơn đang chờ xếp xe.</dd>
+              <dt>2 · Tạo chuyến</dt><dd>Bạn gán xe và lái xe rồi bấm <strong>Tạo chuyến mới</strong> — chuyến ra đời với trạng thái <strong>Mới tạo</strong>.</dd>
+              <dt>3 · Xuất phát</dt><dd>Mở chi tiết chuyến và bấm <strong>Xuất phát</strong> khi xe bắt đầu chạy — trạng thái chuyển sang <strong>Đang chạy</strong>.</dd>
+              <dt>4 · Kết thúc</dt><dd>Chi phí phát sinh được ghi bổ sung trong hành trình chuyến; số liệu tự đổ về <strong>Bảng số liệu</strong> và <strong>Báo cáo lãi lỗ</strong>.</dd>
+            </dl>
+          </div>
+<div class="man-task" id="giam-doc-ke-hoach">
             <h3>Kế hoạch vận chuyển</h3>
             <p>Danh sách toàn bộ chuyến đi theo kỳ tháng. Mỗi dòng tương ứng một lệnh vận chuyển — bấm vào để xem chi tiết.</p>
             <figure class="man-fig">
@@ -188,7 +198,12 @@
             </ol>
           </div>
 
-          <div class="man-task" id="giam-doc-bang-so-lieu">
+          
+          <div class="man-note">
+            <svg class="man-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <div><strong>Sau khi tạo lệnh:</strong> chuyến ở trạng thái <strong>Mới tạo</strong> — chưa chạy. Mở chi tiết chuyến để bấm <strong>Xuất phát</strong> khi xe khởi hành, và dùng <strong>Chỉnh sửa</strong> để đổi xe đầu kéo hoặc lái xe giữa đường nếu cần.</div>
+          </div>
+<div class="man-task" id="giam-doc-bang-so-lieu">
             <h3>Bảng số liệu</h3>
             <p>Bảng tổng hợp chi tiết theo từng dòng lệnh — phục vụ đối soát số liệu vận hành và xuất dữ liệu ra file Excel.</p>
             <figure class="man-fig">
@@ -218,7 +233,12 @@
             </ol>
           </div>
 
-          <div class="man-task" id="giam-doc-ky-luat">
+          
+          <div class="man-note">
+            <svg class="man-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <div><strong>Sau khi bấm Ghi thanh toán:</strong> dòng lương của nhân viên đó được <strong>khóa</strong> kèm thời điểm chi — không sửa được nữa trong kỳ, tránh lệch sổ giữa quản lý và kế toán.</div>
+          </div>
+<div class="man-task" id="giam-doc-ky-luat">
             <h3>Kỷ luật</h3>
             <p>Ghi nhận biên bản vi phạm quy chế an toàn, trễ chuyến của lái xe có ảnh hưởng đến bảng lương kỳ đó.</p>
             <figure class="man-fig">
@@ -278,7 +298,16 @@
             </ol>
           </div>
 
-          <div class="man-task" id="giam-doc-no-tra">
+          
+          <div class="man-menu-map">
+            <h4>Vòng đời một khoản công nợ phải thu</h4>
+            <dl>
+              <dt>1 · Phát sinh</dt><dd>Mỗi chuyến xuất hóa đơn làm tăng số nợ của khách hàng, xếp vào bucket hạn thanh toán tương ứng (≤30 / 31–60 / 61–90 / ≥90 ngày).</dd>
+              <dt>2 · Theo dõi</dt><dd>Thẻ khách hàng đổi <strong>màu cảnh báo</strong> khi sắp quá hạn — bấm vào thẻ để xem sổ chi tiết từng chuyến, đợt thanh toán và hóa đơn.</dd>
+              <dt>3 · Thu tiền</dt><dd>Ghi nhận đợt khách chuyển tiền ngay trong thẻ — số nợ còn lại và bucket tự cập nhật, sổ đối chiếu luôn khớp thực tế.</dd>
+            </dl>
+          </div>
+<div class="man-task" id="giam-doc-no-tra">
             <h3>Công nợ phải trả</h3>
             <p>Theo dõi công nợ phải trả cho nhà cung cấp xăng dầu, sửa chữa xe và dịch vụ logistics bên ngoài.</p>
             <figure class="man-fig">
@@ -322,7 +351,17 @@
             </ol>
           </div>
 
-          <div class="man-task" id="giam-doc-duyet-hoan-ung">
+          
+          <div class="man-menu-map">
+            <h4>Vòng đời một yêu cầu tạm ứng</h4>
+            <dl>
+              <dt>1 · Gửi</dt><dd>Giao nhận tạo yêu cầu tạm ứng trên ứng dụng di động trước chuyến đi — yêu cầu ở trạng thái <strong>Chờ duyệt</strong> trên trang này.</dd>
+              <dt>2 · Duyệt</dt><dd>Bạn bấm <strong>Duyệt</strong>, hoặc <strong>Từ chối</strong> kèm lý do để giao nhận sửa và gửi lại. Tiền đã duyệt được tính vào <strong>Tồn tạm ứng</strong> của công ty.</dd>
+              <dt>3 · Hoàn ứng</dt><dd>Sau chuyến, giao nhận lập <strong>phiếu thanh toán hoàn ứng</strong> kèm hóa đơn để quyết toán số tiền đã ứng (xem phần Duyệt hoàn ứng bên dưới).</dd>
+              <dt>4 · Tồn quỹ</dt><dd><strong>Tồn tạm ứng</strong> = tạm ứng đã duyệt − số đã vào phiếu hoàn ứng đã duyệt. Phiếu hoàn ứng chưa duyệt không trừ vào tồn.</dd>
+            </dl>
+          </div>
+<div class="man-task" id="giam-doc-duyet-hoan-ung">
             <h3>Duyệt hoàn ứng</h3>
             <p>Sau khi kết thúc chuyến đi, nhân viên gửi phiếu hoàn ứng đối soát chi phí thực tế so với tiền tạm ứng.</p>
             <figure class="man-fig">
@@ -337,7 +376,17 @@
             </ol>
           </div>
 
-          <div class="man-task" id="giam-doc-danh-muc">
+          
+          <div class="man-menu-map">
+            <h4>Sau khi bạn duyệt một phiếu hoàn ứng</h4>
+            <dl>
+              <dt>Trạng thái</dt><dd>Phiếu chuyển từ <strong>Chờ xử lý</strong> sang <strong>Đã duyệt</strong>, kèm tên người kiểm tra và người duyệt — đối chiếu được sau này.</dd>
+              <dt>Tồn tạm ứng</dt><dd>Số tiền trong phiếu trừ trực tiếp vào <strong>Tồn tạm ứng</strong> — bộ đếm ở đầu trang cập nhật ngay.</dd>
+              <dt>Giá thành chuyến</dt><dd>Các khoản chi trong phiếu tính vào chi phí chuyến — thấy ngay trên <strong>Bảng số liệu</strong> và <strong>Báo cáo lãi lỗ</strong> của kỳ.</dd>
+              <dt>Từ chối</dt><dd>Phiếu bị từ chối quay về giao nhận để bổ sung chứng từ; số tạm ứng của chuyến vẫn giữ nguyên cho đến khi có phiếu hợp lệ.</dd>
+            </dl>
+          </div>
+<div class="man-task" id="giam-doc-danh-muc">
             <h3>Danh mục: đội xe, khách hàng, nhà cung cấp, tuyến đường</h3>
             <p>Dữ liệu nền tảng phục vụ toàn bộ các biểu mẫu tạo lệnh và phân xe trong hệ thống.</p>
             <figure class="man-fig">

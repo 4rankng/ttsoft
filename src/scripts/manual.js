@@ -60,6 +60,28 @@
         tocTargets.push({ el: container, id: container.id });
       });
     tocNav.appendChild(frag);
+
+    // Mobile pages have no rail (<1280px) — mirror the TOC into a <details>
+    // block right under the breadcrumbs so phones keep section navigation.
+    if (tocTargets.length > 0) {
+      const mob = document.createElement('details');
+      mob.className = 'man-toc-mobile';
+      mob.innerHTML = '<summary>Trong trang này</summary>';
+      const mobNav = document.createElement('nav');
+      mobNav.setAttribute('aria-label', 'Mục lục trang này');
+      mobNav.innerHTML = frag.textContent ? '' : '';
+      mobNav.append(...Array.from(tocNav.children).map((a) => {
+        const c = a.cloneNode(true);
+        c.classList.remove('active');
+        return c;
+      }));
+      mob.appendChild(mobNav);
+      const crumbs = content.querySelector('.man-breadcrumbs');
+      if (crumbs) crumbs.after(mob);
+      mob.addEventListener('click', (e) => {
+        if (e.target.closest('a')) mob.removeAttribute('open');
+      });
+    }
     if (tocTargets.length === 0) toc?.querySelector('.man-toc-title')?.remove();
   }
 
@@ -184,6 +206,8 @@
     };
 
     if (searchBtn) searchBtn.addEventListener('click', openSearch);
+    const searchBtnMob = document.getElementById('manSearchBtnMob');
+    if (searchBtnMob) searchBtnMob.addEventListener('click', openSearch);
     if (searchCloseBtn) searchCloseBtn.addEventListener('click', closeSearch);
     searchDialog.addEventListener('click', (e) => {
       if (e.target === searchDialog) closeSearch();
