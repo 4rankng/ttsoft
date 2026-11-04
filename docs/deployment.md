@@ -75,3 +75,16 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
   to `172.17.0.1:8082`; Let's Encrypt cert issued on first handshake.
 - Live checks: `/ttransport` 200 with manual content and 0 broken images,
   `/` homepage intact, `/policies` 200 — all over HTTPS.
+
+## Verified 2026-11-04 — /ttransport redesign
+- Manual redesigned in shadcn/ui docs style (`97805b8`): 3-column layout with
+  right-rail TOC, breadcrumbs, ⌘K/Ctrl+K command-palette search, feedback
+  widget; fixes inline rendering of bold/code in steps.
+- Local verification: `vite build` clean; Playwright checks all pass
+  (scroll-spy TOC, breadcrumb sync, search open/type/navigate/jump, mobile
+  drawer via hamburger + scrim, `strong` inline, red step badges, no console
+  errors) at 1440/1024/390 px.
+- GHCR pipeline: workflow `docker` green in ~30s for `97805b8`; server pulled
+  the new image and restarted (`ttsoft-web-1` up, image `74af0ba24a76`).
+- Live checks: `/ttransport` and `/` 200; served HTML contains the new markup
+  (`man-search-dialog`, `man-toc-nav`, `manFeedback`, `man-promo-card`).
