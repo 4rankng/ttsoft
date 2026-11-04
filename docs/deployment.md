@@ -88,3 +88,22 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
   the new image and restarted (`ttsoft-web-1` up, image `74af0ba24a76`).
 - Live checks: `/ttransport` and `/` 200; served HTML contains the new markup
   (`man-search-dialog`, `man-toc-nav`, `manFeedback`, `man-promo-card`).
+
+## Verified 2026-11-04 — /ttransport split into per-section routes
+- Manual restructured to shadcn-docs routing (`0f4d775`): `/ttransport` is the
+  overview; each section is its own page at `/ttransport/{bat-dau,quan-ly,
+  ke-toan,lai-xe,giao-nhan}` (vite MPA entries + nginx `try_files`; Netlify
+  mirror rules added to `public/_redirects`).
+- Root-cause sticky fix: `body { overflow-x: hidden }` (base.css) made body a
+  scroll container and silently disabled every `position: sticky` on the
+  manual page; `body.man-page { overflow-x: clip }` restores pinning without
+  touching landing-page behavior.
+- Local verification: `vite build` clean; Playwright 38/38 (sticky topbar/
+  sidebar/TOC pinned at 3000px on all six pages, per-page TOC counts, sidebar
+  active state, cross-page ⌘K search deep-linking, legacy `#hash` redirects,
+  prev/next pagination, hashed figure assets, mobile drawer, 1440/1024/390
+  screenshots, zero console errors).
+- GHCR pipeline: workflow `docker` green for `0f4d775`; server pulled and
+  restarted `ttsoft-web-1`.
+- Live checks: all six routes 200 with page-specific content (no SPA
+  fallback leakage); served CSS contains the `overflow-x: clip` sticky fix.
