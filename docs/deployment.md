@@ -64,3 +64,14 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
 - Pushed `2b5eeb1..37717e1` (self-hosted Inter variable font, lifecycle map collision fix, hero image/OG/favicon compression, hero spacing) to `main`.
 - Netlify deploy completed in 1.7s.
 - Live checks: HTTP 200, `@font-face` for Inter present in served CSS pointing at a hashed `/assets/InterVariable-*.woff2`, font file returns 200 with `content-type: font/woff2` and `cache-control: public,max-age=31536000,immutable`, CSP and X-Frame-Options headers applied.
+
+## Verified 2026-11-04
+- Manual shipped at `/ttransport` (39 annotated screenshots, 4 non-admin roles).
+- GHCR pipeline: push `91b449e..` → workflow `docker` green in ~40s →
+  `ghcr.io/4rankng/ttsoft:main` + `:sha-…` published.
+- Server cutover to image-only compose; obsolete clone/build files removed
+  from `/opt/ttsoft`.
+- Caddy edge: added `tingtingsoft.vn` vhost (template + live file) proxying
+  to `172.17.0.1:8082`; Let's Encrypt cert issued on first handshake.
+- Live checks: `/ttransport` 200 with manual content and 0 broken images,
+  `/` homepage intact, `/policies` 200 — all over HTTPS.
