@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f8fafc" />
+  <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light" />
   <title>Hướng dẫn sử dụng TransTing — Ting Ting Soft</title>
   <meta name="description" content="Sổ tay hướng dẫn sử dụng phần mềm quản lý vận tải TransTing cho doanh nghiệp: đăng nhập, điều hành chuyến, tài chính, công nợ, lương, hành trình lái xe và phiếu thanh toán giao nhận — theo từng vai trò, có hình minh họa." />
@@ -25,32 +25,46 @@
   <a class="skip-link" href="#noi-dung">Bỏ qua điều hướng</a>
   <div class="noise" aria-hidden="true"></div>
 
+  <!-- Top Navbar (shadcn docs style) -->
   <header class="man-topbar">
-    <button class="man-nav-toggle" type="button" id="manNavToggle" aria-expanded="false" aria-controls="manSidenav">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      Mục lục
-    </button>
-    <a class="brand" href="/" aria-label="Ting Ting Soft — về trang chủ">
-      <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-copy"><strong>Ting Ting Soft</strong><small>Công ty TNHH Giải Pháp Phần Mềm Ting Ting</small></span>
-    </a>
-    <nav class="man-crumbs" aria-label="Điều hướng dẫn">
-      <a href="/">Trang chủ</a>
-      <span aria-hidden="true">/</span>
-      <span class="man-crumbs-here">Hướng dẫn sử dụng TransTing</span>
-    </nav>
-    <div class="man-topbar-actions">
-      <a class="man-topbar-demo" href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
-        Mở bản demo
+    <div class="man-topbar-inner">
+      <button class="man-nav-toggle" type="button" id="manNavToggle" aria-expanded="false" aria-controls="manSidenav" aria-label="Mở mục lục">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a class="man-brand" href="/" aria-label="Ting Ting Soft — về trang chủ">
+        <img class="man-brand-logo" src="/src/assets/brand-logo.png" alt="" width="22" height="22" />
+        <span>Ting Ting Soft</span>
+        <span class="man-brand-badge">docs</span>
       </a>
+      <nav class="man-topnav" aria-label="Điều hướng chính">
+        <a href="/ttransport" class="active">Hướng dẫn</a>
+        <a href="#bat-dau">Bắt đầu</a>
+        <a href="#giam-doc">Quản lý</a>
+        <a href="#ke-toan">Kế toán</a>
+        <a href="#lai-xe">Lái xe</a>
+        <a href="#giao-nhan">Giao nhận</a>
+        <a href="/">Trang chủ</a>
+      </nav>
+      <div class="man-topbar-actions">
+        <button type="button" class="man-search-trigger" id="manSearchBtn" aria-label="Tìm kiếm tài liệu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="man-search-placeholder">Tìm kiếm tài liệu...</span>
+          <kbd class="man-search-kbd">⌘K</kbd>
+        </button>
+        <a class="man-topbar-cta" href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">
+          Mở bản demo ↗
+        </a>
+      </div>
     </div>
   </header>
 
+  <!-- 3-Column Layout: Sidebar + Main Content + Right TOC -->
   <div class="man-layout" id="manLayout">
     <button class="man-navscrim" type="button" id="manNavScrim" aria-label="Đóng mục lục" tabindex="-1"></button>
+
+    <!-- Column 1: Left Sidenav -->
     <nav class="man-sidenav" id="manSidenav" aria-label="Mục lục hướng dẫn">
-      <p class="man-sidenav-title">Hướng dẫn sử dụng</p>
+      <p class="man-sidenav-heading">Tài liệu TransTing</p>
       <div class="man-navgroup">
         <h3>Bắt đầu</h3>
         <a href="#dang-nhap">Đăng nhập</a>
@@ -101,7 +115,14 @@
       </div>
     </nav>
 
+    <!-- Column 2: Center Content -->
     <main class="man-content" id="noi-dung">
+      <div class="man-breadcrumbs" aria-label="Đường dẫn">
+        <a href="/ttransport">Tài liệu</a>
+        <span class="man-crumb-sep">›</span>
+        <span class="man-crumb-active" id="manActiveCrumb">Bắt đầu</span>
+      </div>
+
       <div class="man-hero">
         <p class="chapter-label">Tài liệu · Ting Ting Soft</p>
         <h1>Hướng dẫn sử dụng TransTing</h1>
@@ -113,33 +134,63 @@
         </div>
       </div>
 
+      <!-- Role Selector (shadcn Framework-card Grid) -->
       <section class="man-section" id="chon-vai-tro" aria-label="Chọn vai trò của bạn">
         <h2>Chọn vai trò của bạn</h2>
         <p class="man-section-lead">Mỗi tài khoản đăng nhập sẽ thấy đúng phần việc của mình. Chọn vai trò bên dưới để đi thẳng tới hướng dẫn dành cho bạn.</p>
         <ul class="man-role-index">
-          <li><a href="#giam-doc">
-            <span class="man-role-badge" aria-hidden="true">QL</span>
-            <span><span class="man-role-name">Quản lý</span><span class="man-role-desc">Bức tranh toàn công ty: điều vận, kế hoạch vận chuyển, lãi lỗ, công nợ, lương và cấu hình.</span></span>
-            <span class="man-role-go">Xem hướng dẫn →</span>
-          </a></li>
-          <li><a href="#ke-toan">
-            <span class="man-role-badge" aria-hidden="true">KT</span>
-            <span><span class="man-role-name">Kế toán</span><span class="man-role-desc">Sổ sách từng ngày: bảng số liệu, sổ cái, công nợ, lương và duyệt hoàn ứng.</span></span>
-            <span class="man-role-go">Xem hướng dẫn →</span>
-          </a></li>
-          <li><a href="#lai-xe">
-            <span class="man-role-badge" aria-hidden="true">LX</span>
-            <span><span class="man-role-name">Lái xe</span><span class="man-role-desc">Dùng trên điện thoại: xem hành trình, thu nhập trong tháng và kỷ luật của mình.</span></span>
-            <span class="man-role-go">Xem hướng dẫn →</span>
-          </a></li>
-          <li><a href="#giao-nhan">
-            <span class="man-role-badge" aria-hidden="true">GN</span>
-            <span><span class="man-role-name">Giao nhận</span><span class="man-role-desc">Chuyến đi được giao, đề nghị tạm ứng và lập phiếu thanh toán hàng tháng.</span></span>
-            <span class="man-role-go">Xem hướng dẫn →</span>
-          </a></li>
+          <li>
+            <a class="man-role-card" href="#giam-doc">
+              <div>
+                <div class="man-role-card-header">
+                  <span class="man-role-badge">QL</span>
+                  <span class="man-role-card-arrow" aria-hidden="true">→</span>
+                </div>
+                <div class="man-role-name">Quản lý</div>
+                <p class="man-role-desc">Bức tranh toàn công ty: điều vận, kế hoạch vận chuyển, lãi lỗ, công nợ, lương và cấu hình.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="man-role-card" href="#ke-toan">
+              <div>
+                <div class="man-role-card-header">
+                  <span class="man-role-badge">KT</span>
+                  <span class="man-role-card-arrow" aria-hidden="true">→</span>
+                </div>
+                <div class="man-role-name">Kế toán</div>
+                <p class="man-role-desc">Sổ sách từng ngày: bảng số liệu, sổ cái, công nợ, lương và duyệt hoàn ứng.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="man-role-card" href="#lai-xe">
+              <div>
+                <div class="man-role-card-header">
+                  <span class="man-role-badge">LX</span>
+                  <span class="man-role-card-arrow" aria-hidden="true">→</span>
+                </div>
+                <div class="man-role-name">Lái xe</div>
+                <p class="man-role-desc">Dùng trên điện thoại: xem hành trình, thu nhập trong tháng và kỷ luật của mình.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="man-role-card" href="#giao-nhan">
+              <div>
+                <div class="man-role-card-header">
+                  <span class="man-role-badge">GN</span>
+                  <span class="man-role-card-arrow" aria-hidden="true">→</span>
+                </div>
+                <div class="man-role-name">Giao nhận</div>
+                <p class="man-role-desc">Chuyến đi được giao, đề nghị tạm ứng và lập phiếu thanh toán hàng tháng.</p>
+              </div>
+            </a>
+          </li>
         </ul>
       </section>
 
+      <!-- Section: Bắt đầu -->
       <section class="man-section" id="bat-dau">
         <h2>Bắt đầu</h2>
         <p class="man-section-lead">Ba việc đầu tiên ai cũng cần: đăng nhập vào hệ thống, làm quen với thanh menu và biết cách đổi mật khẩu. Các ảnh trong tài liệu được chụp từ tài khoản thật của từng vai trò.</p>
@@ -158,7 +209,10 @@
             <li>Gõ <strong>mật khẩu</strong>. Chọn biểu tượng con mắt bên phải ô mật khẩu nếu muốn hiện chữ để kiểm tra.</li>
             <li>Nhấn nút <strong>Đăng nhập</strong>. Sau khi vào, hệ thống tự đưa bạn tới trang chính của vai trò.</li>
           </ol>
-          <p class="man-note"><strong>Lưu ý:</strong> quên mật khẩu hoặc bị khóa tài khoản? Liên hệ người quản lý tại công ty hoặc nhắn Zalo <strong>0914 827 988</strong> để được đặt lại. Tài khoản demo dùng chung (giamdoc, ketoan, laixe, giaonhan) có mật khẩu do đội Ting&nbsp;Ting&nbsp;Soft cung cấp.</p>
+          <div class="man-note">
+            <svg class="man-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <div><strong>Lưu ý:</strong> quên mật khẩu hoặc bị khóa tài khoản? Liên hệ người quản lý tại công ty hoặc nhắn Zalo <strong>0914 827 988</strong> để được đặt lại. Tài khoản demo dùng chung (giamdoc, ketoan, laixe, giaonhan) có mật khẩu do đội Ting&nbsp;Ting&nbsp;Soft cung cấp.</div>
+          </div>
         </div>
 
         <div class="man-task" id="giao-dien">
@@ -173,7 +227,7 @@
           <ol class="man-steps">
             <li>Nhấn tên nhóm (ví dụ <strong>Vận hành</strong>) để bung hoặc thu gọn danh mục bên trong.</li>
             <li>Nhấn một mục để mở trang tương ứng — ví dụ <strong>Điều vận</strong>.</li>
-            <li>Các mục khác trong nhóm (như <strong>Bảng số liệu</strong>) mở tương tự; mục đang mở có nền xanh đậm hơn.</li>
+            <li>Các mục khác trong nhóm (như <strong>Bảng số liệu</strong>) mở tương tự; mục đang mở có nền xám đậm hơn.</li>
             <li>Nhấn ô <strong>Tháng …</strong> trên cùng để chọn kỳ dữ liệu — mọi danh sách và báo cáo sẽ hiển thị đúng tháng bạn chọn.</li>
           </ol>
           <p class="man-kbd-note">Mẹo: trên máy tính, tổ hợp phím <code>Ctrl/Cmd + B</code> thu gọn hoặc mở rộng thanh menu để rộng chỗ làm việc.</p>
@@ -205,6 +259,7 @@
         </div>
       </section>
 
+      <!-- Section: Quản lý -->
       <section class="man-section" id="giam-doc">
         <h2>Quản lý</h2>
         <p class="man-section-lead">Quản lý nhìn thấy toàn bộ hoạt động: từ điều vận hàng ngày, kế hoạch vận chuyển, tài chính — công nợ, tới danh mục và cấu hình hệ thống. Menu của bạn gồm đầy đủ các nhóm dưới đây.</p>
@@ -507,10 +562,14 @@
             </a>
             <figcaption><strong>Cấu hình hệ thống.</strong> Nhấn vào <strong>cả thẻ</strong> (①) — ví dụ Thông tin công ty — để mở trang chỉnh sửa của mục đó; nhấn <strong>Sửa</strong> trong thẻ cũng mở cùng trang.</figcaption>
           </figure>
-          <p class="man-note"><strong>Thận trọng:</strong> đổi định mức, đơn giá hay biểu phí sẽ ảnh hưởng tới mọi tính toán của các chuyến mới — chỉ thay đổi khi đã thống nhất với kế toán.</p>
+          <div class="man-note">
+            <svg class="man-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <div><strong>Thận trọng:</strong> đổi định mức, đơn giá hay biểu phí sẽ ảnh hưởng tới mọi tính toán của các chuyến mới — chỉ thay đổi khi đã thống nhất với kế toán.</div>
+          </div>
         </div>
       </section>
 
+      <!-- Section: Kế toán -->
       <section class="man-section" id="ke-toan">
         <h2>Kế toán</h2>
         <p class="man-section-lead">Kế toán dùng cùng hệ thống với Quản lý nhưng menu được thu gọn: <strong>không có Điều vận và Người dùng</strong> — phần mềm chỉ hiện đúng việc sổ sách. Mọi trang Tài chính, Nhân sự, Danh mục đều giống mục Quản lý ở trên.</p>
@@ -590,6 +649,7 @@
         </div>
       </section>
 
+      <!-- Section: Lái xe -->
       <section class="man-section" id="lai-xe">
         <h2>Lái xe</h2>
         <p class="man-section-lead">Lái xe dùng TransTing ngay trên <strong>điện thoại</strong>. Chỉ có ba việc cần quan tâm: hành trình được giao, thu nhập trong tháng và kỷ luật của mình. Ảnh dưới đây chụp từ điện thoại thật.</p>
@@ -647,6 +707,7 @@
         </div>
       </section>
 
+      <!-- Section: Giao nhận -->
       <section class="man-section" id="giao-nhan">
         <h2>Giao nhận</h2>
         <p class="man-section-lead">Nhân viên giao nhận theo dõi chuyến mình phụ trách, đề nghị tạm ứng trước chuyến và nộp phiếu thanh toán sau chuyến. Giao diện chính dùng tốt trên cả điện thoại và máy tính.</p>
@@ -704,12 +765,55 @@
         </div>
       </section>
 
+      <!-- Feedback Widget -->
+      <div class="man-feedback" id="manFeedback">
+        <span class="man-feedback-label">Tài liệu này có hữu ích cho bạn không?</span>
+        <div class="man-feedback-btns">
+          <button type="button" class="man-feedback-btn" data-val="yes">👍 Có, rất hữu ích</button>
+          <button type="button" class="man-feedback-btn" data-val="no">👎 Cần cải thiện</button>
+        </div>
+      </div>
+
       <footer class="man-footer">
         <p>Tài liệu áp dụng cho bản demo <a href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">demo.tingting.vip</a> — giao diện có thể khác đôi chút trên bản chính thức của doanh nghiệp. Cần bổ sung mục hướng dẫn? Nhắn cho Ting&nbsp;Ting&nbsp;Soft qua <a href="https://zalo.me/0914827988" target="_blank" rel="noopener noreferrer">Zalo 0914 827 988</a> hoặc <a href="https://m.me/tingtingsoft" target="_blank" rel="noopener noreferrer">Messenger</a>.</p>
         <p>© 2026 Công ty TNHH MTV Giải Pháp Phần Mềm Ting Ting · <a href="/">tingtingsoft.vn</a></p>
       </footer>
     </main>
+
+    <!-- Column 3: Right TOC + Promo Rail -->
+    <aside class="man-toc" id="manToc" aria-label="Trên trang này">
+      <p class="man-toc-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Trên trang này
+      </p>
+      <nav class="man-toc-nav" id="manTocNav" aria-label="Mục lục nhanh"></nav>
+
+      <div class="man-promo-card">
+        <div class="man-promo-tag">TransTing Cloud</div>
+        <h4 class="man-promo-title">Dùng thử TransTing ngay</h4>
+        <p class="man-promo-desc">Trải nghiệm đầy đủ 4 vai trò Quản lý, Kế toán, Lái xe và Giao nhận trên dữ liệu thực tế.</p>
+        <a class="man-promo-btn" href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">Mở bản demo ↗</a>
+        <a class="man-promo-link" href="https://zalo.me/0914827988" target="_blank" rel="noopener noreferrer">Tư vấn Zalo 0914 827 988</a>
+      </div>
+    </aside>
   </div>
+
+  <!-- Command Palette Modal (⌘K / Ctrl+K) -->
+  <dialog class="man-search-dialog" id="manSearchDialog">
+    <div class="man-search-box">
+      <div class="man-search-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" class="man-search-input" id="manSearchInput" placeholder="Tìm kiếm thao tác, vai trò hoặc màn hình..." autocomplete="off" />
+        <button type="button" class="man-search-esc" id="manSearchCloseBtn">ESC</button>
+      </div>
+      <div class="man-search-results" id="manSearchResults" role="listbox"></div>
+      <div class="man-search-footer">
+        <span><kbd>↑</kbd><kbd>↓</kbd> để di chuyển</span>
+        <span><kbd>↵</kbd> để mở mục</span>
+        <span><kbd>ESC</kbd> để đóng</span>
+      </div>
+    </div>
+  </dialog>
 
   <script type="module" src="/src/scripts/manual.js"></script>
 </body>
