@@ -171,3 +171,19 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
   every page load (`4f8a687`).
 - Re-run: 49/49, zero console errors; desktop and mobile screenshots
   of `/ttransport` verified visually.
+
+## Verified 2026-11-05 — level 2/3 annotated screenshots
+- Added click-through screenshots at depth >= 2 per the level standard
+  (L1 = first list page, L2 = detail/landing, L3 = dialog/form inside):
+  - Ke hoach van chuyen: L3 "Sua lenh van chuyen" page (field groups,
+    trip legs, live revenue & profit panel) — `giamdoc-trip-edit.webp`.
+  - Cong no phai thu: L2 customer debt detail (summary cards, aging bar)
+    and L3 "Ghi nhan thanh toan" dialog (amount with FIFO allocation,
+    date, receipt ref) — `giamdoc-debt-customer.webp`,
+    `giamdoc-debt-receipt.webp`.
+- Each figure ships with numbered callouts and click-through steps.
+- Remaining captured-but-not-yet-integrated screens (same treatment
+  next batch): dispatch assign dialog, discipline form, expense form,
+  fleet schedule dialog, route form, user form, payables supplier
+  detail, config editor, P&L chart, split preview, ledger row.
+- Deploy `22e39de`; suite 49/49.
