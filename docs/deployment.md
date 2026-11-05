@@ -160,3 +160,14 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
   per-container costs (buy/sell), driver portal boundaries + AI
   container/seal capture, work period + info widgets.
 - Deploy `3be0e87`; suite 49/49; deep markers verified in served HTML.
+
+## Verified 2026-11-05 — production end-to-end test + header fix
+- Ran the full 49-check Playwright suite directly against production
+  (all routes, sticky layout, navigation, cross-page search, legacy
+  redirects, mobile widgets).
+- Found and fixed a malformed `Permissions-Policy` header
+  (`camera()` -> `camera=()`) in `deploy/ttsoft-headers.conf` and
+  `netlify.toml` — Chrome logged a structured-header parse error on
+  every page load (`4f8a687`).
+- Re-run: 49/49, zero console errors; desktop and mobile screenshots
+  of `/ttransport` verified visually.
