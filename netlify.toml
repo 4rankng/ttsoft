@@ -23,7 +23,7 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "geolocation=(), microphone=(), camera()"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
     # GSAP loads from cdnjs.cloudflare.com (see index.html); script-src allows
     # it plus 'self' for our own bundled JS. style-src allows 'unsafe-inline'
     # because Tailwind v4 ships some inline @layer styles and GSAP injects
