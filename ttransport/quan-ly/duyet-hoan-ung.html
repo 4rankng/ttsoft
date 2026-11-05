@@ -154,6 +154,29 @@
             </ol>
 
         </div>
+
+          <div class="man-menu-map">
+            <h4>Phiếu thanh toán đi qua ba bước</h4>
+            <dl>
+              <dt>Chờ xử lý</dt><dd>Giao nhận lập phiếu PT-MMYY-#### từ các tạm ứng Đã duyệt + chi phí Đã kê xong; phiếu phải <strong>cân đối</strong>: tạm ứng đưa vào + công ty hoàn thêm = tổng chi phí + giao nhận hoàn trả (sai quá 1₫ bị chặn; không thể vừa hoàn thêm vừa hoàn trả).</dd>
+              <dt>KT đã kiểm tra</dt><dd><strong>Kế toán / Quản trị viên</strong> kiểm tra và được <strong>sửa số tiền từng khoản chi kèm lý do</strong> — bước kiểm riêng trước khi duyệt.</dd>
+              <dt>Đã duyệt / Từ chối</dt><dd>Quản trị/Quản lý/Kế toán duyệt (không tự duyệt phiếu của chính mình).</dd>
+            </dl>
+          </div>
+
+          <div class="man-menu-map">
+            <h4>Khi bấm Duyệt, hệ thống làm bốn việc</h4>
+            <dl>
+              <dt>1 · Duyệt khoản chi</dt><dd>Các khoản chi trong phiếu chuyển <strong>Chờ duyệt → Đã duyệt</strong>.</dd>
+              <dt>2 · Phí tính khách</dt><dd>Ghi <strong>phí tính khách</strong> vào công nợ khách hàng cho từng chi phí gắn chuyến đã xong (số "sell" của mỗi khoản chi hộ).</dd>
+              <dt>3 · Ghi bút toán tạm ứng</dt><dd>Thanh toán số tạm ứng đã cấp cho giao nhận.</dd>
+              <dt>4 · Dư tiền sang kỳ</dt><dd>Nếu giao nhận còn dư (hoàn trả &gt; 0): hệ thống <strong>tự tạo yêu cầu tạm ứng mới đã duyệt</strong> mang số dư sang kỳ sau — tiền vẫn nằm ở hiện trường.</dd>
+            </dl>
+          </div>
+
+          <div class="man-note">
+            <div><strong>Bản in phiếu:</strong> số phiếu · ngày lập · nhân viên; mục "Tạm ứng đã nhận" (tiền, nội dung, ngày, tổng); chi phí nhóm theo loại <strong>Nâng hạ · Hạ tầng · Thủ tục HQ · Cân hàng · Kiểm tra · Khác</strong>; nút In / Excel.</div>
+          </div>
         <nav class="man-page-nav" aria-label="Chuyển trang">
           <a class="man-page-nav-link prev" href="/ttransport/quan-ly/tam-ung">
             <span class="man-page-nav-sub">← Quy trình trước</span>

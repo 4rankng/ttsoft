@@ -164,6 +164,39 @@
             </ol>
 
         </div>
+
+          <div class="man-menu-map">
+            <h4>Năm trạng thái của lệnh vận chuyển</h4>
+            <dl>
+              <dt>Mới tạo</dt><dd>Lệnh đã lập, chưa xuất phát — có thể chưa phân xe. Chưa ghi sổ. Quản lý / Quản trị viên chuyển tiếp.</dd>
+              <dt>Đang chạy</dt><dd>Đã bấm Khởi hành, xe đang trên đường. Chưa ghi sổ.</dd>
+              <dt>Hoàn thành</dt><dd>Xe đã xong chuyến — <strong>tại thời điểm này doanh thu, chi phí, lương được ghi vào sổ cái</strong>.</dd>
+              <dt>Đã khóa</dt><dd>Số liệu đã chốt — <strong>chỉ chuyến Đã khóa được đưa vào phân chia lợi nhuận</strong>.</dd>
+              <dt>Đã hủy</dt><dd>Lệnh bỏ — mọi số tiền về 0, bút toán đã ghi được đảo ngược (chỉ khi chưa khóa).</dd>
+            </dl>
+          </div>
+
+          <div class="man-menu-map">
+            <h4>Ba quy tắc kế toán cần nhớ</h4>
+            <dl>
+              <dt>Giấy báo nợ & bảng thanh toán nhà xe</dt><dd>Chỉ tính chuyến <strong>Hoàn thành + Đã khóa</strong>.</dd>
+              <dt>Báo cáo lãi lỗ</dt><dd>Chỉ tính chuyến <strong>Hoàn thành + Đã khóa</strong>.</dd>
+              <dt>Phân chia lợi nhuận</dt><dd>Chỉ tính chuyến <strong>Đã khóa</strong> — lãi gộp chốt hẳn khi khóa.</dd>
+            </dl>
+          </div>
+
+          <div class="man-menu-map">
+            <h4>Sau khi khóa — ba lối xử lý từ menu ⋯</h4>
+            <dl>
+              <dt>Điều chỉnh</dt><dd>Nhập <strong>số tiền + lý do + số phụ lục thỏa thuận</strong> (ba trường bắt buộc) — ghi bút toán điều chỉnh riêng, giữ số gốc.</dd>
+              <dt>Mở khóa</dt><dd>Xác nhận *"Mở khóa chuyến này sẽ hoàn tác các bút toán tài chính đã ghi nhận"* — chuyến về Hoàn thành, sửa được rồi khóa lại (ghi sổ lại từ đầu).</dd>
+              <dt>Hủy chuyến</dt><dd>Chỉ khi <strong>chưa khóa</strong> — *"Không thể hủy chuyến đi đã chốt"*. Về 0 toàn bộ số tiền, đảo bút toán đã ghi.</dd>
+            </dl>
+          </div>
+
+          <div class="man-note">
+            <div><strong>Điều kiện để khóa chuyến:</strong> phải có ít nhất 1 ảnh chuyến (loại hàng yêu cầu chứng từ thì cần cả ảnh container lẫn ảnh seal); doanh thu bằng 0 phải xác nhận lại *"Bạn có chắc chắn muốn khóa chuyến với doanh thu bằng 0?"*. Sau khi khóa, số đóng băng và lãi gộp được đưa vào phân chia lợi nhuận quý.</div>
+          </div>
         <nav class="man-page-nav" aria-label="Chuyển trang">
           <a class="man-page-nav-link prev" href="/ttransport/quan-ly/dieu-van-phan-xe">
             <span class="man-page-nav-sub">← Quy trình trước</span>

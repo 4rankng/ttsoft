@@ -154,6 +154,39 @@
             </ol>
 
         </div>
+
+          <div class="man-menu-map">
+            <h4>Bốn trạng thái công nợ của một khách hàng</h4>
+            <dl>
+              <dt>Nợ quá hạn</dt><dd>Có hóa đơn mở đã quá hạn thanh toán theo hợp đồng.</dd>
+              <dt>Trong hạn</dt><dd>Nợ nhưng chưa đến hạn.</dd>
+              <dt>Trả trước</dt><dd>Số dư âm — khách trả trước.</dd>
+              <dt>Đã thanh toán đủ</dt><dd>Số dư bằng 0.</dd>
+            </dl>
+          </div>
+
+          <div class="man-menu-map">
+            <h4>Nợ của khách từ đâu ra</h4>
+            <dl>
+              <dt>Chuyến hoàn tất</dt><dd>Chuyến <strong>Hoàn thành / Đã khóa</strong> ghi doanh thu (gồm VAT) vào công nợ khách.</dd>
+              <dt>Phụ phí tính khách</dt><dd>Ghi thêm khi <strong>phiếu thanh toán được duyệt</strong> (số "tính lại khách" của các khoản chi hộ).</dd>
+              <dt>Điều chỉnh</dt><dd>Tăng/giảm bằng bút toán điều chỉnh kèm lý do.</dd>
+              <dt>Khách trả tiền</dt><dd>Mục <strong>Phiếu thu → Ghi nhận thanh toán</strong>: số tiền + ngày nhận (không lớn hơn hôm nay) + mã phiếu — khoản thu phân bổ <strong>FIFO</strong> vào các chuyến còn nợ, cũ nhất trước. Sửa/xóa bản thu → hệ thống tính lại số dư và phân bổ.</dd>
+            </dl>
+          </div>
+
+          <div class="man-menu-map">
+            <h4>Ba tab làm việc của chi tiết công nợ</h4>
+            <dl>
+              <dt>Thanh toán</dt><dd>Các chuyến còn nợ của khách.</dd>
+              <dt>Bảng kê</dt><dd>Lập chứng từ thanh toán.</dd>
+              <dt>Giấy báo nợ</dt><dd>Chứng từ nhắc nợ gửi khách, lập từ chuyến Hoàn thành/Đã khóa theo <strong>hai chế độ: theo tháng hoặc theo lô</strong>; mỗi dòng là cước vận chuyển / phí dịch vụ / khoản phụ. Công ty cấu hình <strong>mẫu Excel riêng</strong> — bản đã xuất đóng băng mẫu tại thời điểm xuất.</dd>
+            </dl>
+          </div>
+
+          <div class="man-note">
+            <div><strong>Khách hàng "Rủi ro cao"</strong> (nợ lớn hoặc hóa đơn trên 90 ngày) có bộ lọc riêng để tập trung thu hồi; danh mục khách hàng còn có <strong>hạn mức tín dụng</strong> — chạm hạn mức thì xử trước khi nhận thêm hàng.</div>
+          </div>
         <nav class="man-page-nav" aria-label="Chuyển trang">
           <a class="man-page-nav-link prev" href="/ttransport/quan-ly/phan-chia-loi-nhuan">
             <span class="man-page-nav-sub">← Quy trình trước</span>

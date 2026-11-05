@@ -196,6 +196,37 @@
               <dt>4 · Bị từ chối</dt><dd>Kiểm tra lý do, bổ sung/chụp lại hóa đơn rõ ràng rồi lập phiếu mới — số tạm ứng chưa quyết toán vẫn giữ cho chuyến đó.</dd>
             </dl>
           </div>
+
+          <div class="man-menu-map">
+            <h4>Nhập chi phí theo container — trọng tâm cổng Giao nhận</h4>
+            <dl>
+              <dt>Tám loại phí chuẩn</dt><dd>Phí nâng container · Phí hạ container · Phí cân hàng · Phí làm tờ khai hải quan · Phí kết cấu hạ tầng · Phí kiểm hóa tại cảng · Phí phục vụ kiểm hóa · Phí chi hộ khác.</dd>
+              <dt>Hai số mỗi khoản</dt><dd><strong>Chi hộ thực tế</strong> (tiền đã ứng ra) và <strong>Số tính lại khách</strong> (vào giấy báo nợ khi phiếu được duyệt) — nhập riêng, không tự ép bằng nhau.</dd>
+              <dt>"Đã kê xong"</dt><dd>Nhập xong từng nhóm bấm "Đã kê xong" — chỉ chi phí <strong>đã kê xong</strong> mới được đưa vào phiếu thanh toán; cần sửa bấm "Mở lại".</dd>
+              <dt>Gắn cont hoặc chung</dt><dd>Khoản chi đi kèm số container cụ thể hoặc để "chi phí chung" của chuyến — không cần bịa số container.</dd>
+              <dt>Số hóa đơn</dt><dd>Loại có hóa đơn thì nhập số hóa đơn ngay tại khoản chi.</dd>
+              <dt>Trạng thái duyệt từng khoản</dt><dd>Chờ duyệt / Đã duyệt / Từ chối — kế toán duyệt khi xử phiếu thanh toán.</dd>
+            </dl>
+          </div>
+
+          <div class="man-menu-map">
+            <h4>Quy tắc tiền của tạm ứng</h4>
+            <dl>
+              <dt>Chỉ tạo cho chính mình</dt><dd>Yêu cầu chỉ cần <strong>số tiền + lý do</strong>; không ai duyệt phiếu của chính mình.</dd>
+              <dt>Duyệt = đã nhận tiền</dt><dd>Bút toán ghi sổ ngay lúc duyệt — không có bước "đã chi" riêng.</dd>
+              <dt>Sửa / xóa</dt><dd>Chỉ yêu cầu <strong>Chờ duyệt</strong> hoặc <strong>Từ chối</strong> và là của mình; yêu cầu đã vào phiếu thanh toán thì không xóa được. Từ chối có thể khôi phục về Chờ duyệt.</dd>
+            </dl>
+          </div>
+
+          <div class="man-menu-map">
+            <h4>Lập phiếu thanh toán — điều kiện cân đối</h4>
+            <dl>
+              <dt>Chọn nguồn</dt><dd>Chọn các tạm ứng <strong>Đã duyệt</strong> + các khoản chi phí <strong>Đã kê xong</strong>; số phiếu tự sinh dạng PT-MMYY-####.</dd>
+              <dt>Cân đối bắt buộc</dt><dd>Tạm ứng đưa vào + Công ty hoàn thêm = Tổng chi phí + Giao nhận hoàn trả — sai quá 1₫ bị chặn; không thể vừa hoàn thêm vừa hoàn trả.</dd>
+              <dt>Ba bước duyệt</dt><dd>Chờ xử lý → <strong>KT đã kiểm tra</strong> (kế toán kiểm, được sửa số tiền từng khoản kèm lý do) → Đã duyệt / Từ chối.</dd>
+              <dt>Bản in</dt><dd>Số phiếu · ngày lập · nhân viên; mục "Tạm ứng đã nhận"; chi phí nhóm theo Nâng hạ · Hạ tầng · Thủ tục HQ · Cân hàng · Kiểm tra · Khác; nút In / Excel.</dd>
+            </dl>
+          </div>
 <nav class="man-page-nav" aria-label="Chuyển trang">
           <a class="man-page-nav-link prev" href="/ttransport/lai-xe">
             <span class="man-page-nav-sub">← Trang trước</span>
