@@ -152,6 +152,33 @@
               <li>Bấm vào <strong>thẻ khách hàng</strong> để xem sổ chi tiết: danh sách chuyến, đợt thanh toán và hóa đơn.</li>
               <li>Đổi <strong>tháng</strong> để đối chiếu số dư nợ lũy kế qua từng kỳ.</li>
             </ol>
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-debt-customer.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-debt-customer.webp" width="1440" height="900" loading="lazy" alt="Sổ chi tiết công nợ khách hàng với các thẻ tổng quan, phân bố tuổi nợ và nút Ghi nhận thanh toán được đánh số 1, 2, 3">
+              </a>
+              <figcaption><strong>Sổ chi tiết khách hàng.</strong> Số ①②③ ứng với các khối thông tin.</figcaption>
+            </figure>
+
+            <ol class="man-steps">
+              <li>Bấm vào <strong>thẻ khách hàng</strong> để mở sổ chi tiết: dư nợ hiện tại, số chuyến chưa thu và nhóm tuổi nợ nổi bật (①).</li>
+              <li>Dải <strong>Phân bố tuổi nợ</strong> cho biết từng bucket chiếm bao nhiêu % tổng công nợ (②) — có cảnh báo riêng khi có nợ quá hạn trên 90 ngày.</li>
+              <li>Bấm <strong>Ghi nhận thanh toán</strong> (③) để ghi đợt tiền khách vừa chuyển.</li>
+            </ol>
+
+            <figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-debt-receipt.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-debt-receipt.webp" width="1440" height="900" loading="lazy" alt="Hộp thoại Ghi nhận thanh toán với Số tiền nhận, Ngày nhận, Mã biên lai phiếu thu và nút Ghi nhận được đánh số 1, 2, 3, 4">
+              </a>
+              <figcaption><strong>Ghi nhận thanh toán.</strong> Số ①②③④ ứng với các trường của hộp thoại.</figcaption>
+            </figure>
+
+            <ol class="man-steps">
+              <li>Nhập <strong>Số tiền nhận</strong> — hệ thống phân bổ <strong>FIFO</strong> vào các chuyến còn nợ, bắt đầu từ chuyến cũ nhất.</li>
+              <li>Chọn <strong>Ngày nhận</strong> (mặc định hôm nay; được chọn ngày trước để ghi nhận bổ sung, không nhận ngày tương lai).</li>
+              <li>Nhập <strong>Mã biên lai / phiếu thu</strong> — bắt buộc, đối chiếu với sao kê ngân hàng / sổ quỹ.</li>
+              <li>Bấm <strong>Ghi nhận</strong> — số dư, bucket tuổi nợ và phân bố tự cập nhật lại toàn bộ.</li>
+            </ol>
+
 
         </div>
 
