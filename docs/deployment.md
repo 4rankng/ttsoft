@@ -187,3 +187,15 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
   fleet schedule dialog, route form, user form, payables supplier
   detail, config editor, P&L chart, split preview, ledger row.
 - Deploy `22e39de`; suite 49/49.
+
+## Verified 2026-11-05 — L2/L3 screenshots across all roles
+- 17 new annotated screenshots captured from the live demo and inserted:
+  Quan ly topics (penalty form, expense form, user form, dispatch with
+  inline assign + GPS, ledger row detail, P&L chart, split preview,
+  receivables Bảng kê + Giấy báo nợ tabs, supplier detail with fuel
+  reconciliation, fleet schedule dialog, route form, advance page,
+  settlement view, fuel norm editor); Ke toan reuses the receivables
+  L2/L3 shots; Giao nhan mobile: advance request form and the 2-step
+  settlement creation flow (captured with a dedicated demo forwarder
+  account created via the admin UI).
+- Deploy `ce78b28`; suite 49/49; figure counts verified per page.
