@@ -8,6 +8,9 @@ dist/
 # vite cache
 .vite/
 
+# astro cache
+.astro/
+
 # OS / editor
 .DS_Store
 
