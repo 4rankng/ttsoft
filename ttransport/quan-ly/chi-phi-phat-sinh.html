@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth" data-theme="tingting">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light" />
+  <title>Quản lý — Hướng dẫn sử dụng TransTing</title>
+  <meta name="description" content="Quản lý có quyền hạn toàn diện trên hệ thống: điều phối xe, theo dõi kế hoạch chuyến, giám sát báo cáo tài chính - công nợ, quản lý danh mục và cấu hình quy tắc vận…" />
+  <link rel="canonical" href="https://tingtingsoft.vn/ttransport/quan-ly" />
+  <link rel="icon" href="/src/assets/brand-logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/src/assets/brand-logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tingtingsoft.vn/ttransport/quan-ly" />
+  <meta property="og:site_name" content="Ting Ting Soft" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:title" content="Quản lý — Hướng dẫn sử dụng TransTing" />
+  <meta property="og:description" content="Quản lý có quyền hạn toàn diện trên hệ thống: điều phối xe, theo dõi kế hoạch chuyến, giám sát báo cáo tài chính - công nợ, quản lý danh mục và cấu hình quy tắc vận…" />
+  <meta property="og:image" content="https://tingtingsoft.vn/og-image.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="/src/styles/manual.css" />
+</head>
+
+<body class="man-page" data-man-page="quan-ly/chi-phi-phat-sinh">
+
+  <a class="skip-link" href="#noi-dung">Bỏ qua điều hướng</a>
+  <div class="noise" aria-hidden="true"></div>
+
+  
+  
+  <!-- Top Navbar (shadcn docs style) -->
+  <header class="man-topbar">
+
+
+
+
+    <div class="man-topbar-inner">
+      <button class="man-nav-toggle" type="button" id="manNavToggle" aria-expanded="false" aria-controls="manSidenav" aria-label="Mở mục lục">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a class="man-brand" href="/" aria-label="Ting Ting Soft — về trang chủ">
+        <img class="man-brand-logo" src="/src/assets/brand-logo.png" alt="" width="22" height="22" />
+        <span>Ting Ting Soft</span>
+        <span class="man-brand-badge">docs</span>
+      </a>
+      <div class="man-topbar-actions">
+        <button type="button" class="man-search-trigger" id="manSearchBtn" aria-label="Tìm kiếm tài liệu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <span class="man-search-placeholder">Tìm kiếm tài liệu...</span>
+          <kbd class="man-search-kbd">⌘K</kbd>
+        </button>
+        <a class="man-topbar-cta" href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">
+          Mở bản demo ↗
+        </a>
+      </div>
+    </div>
+  
+
+</header>
+
+
+
+    <div class="man-mob-widgets">
+    <button type="button" class="man-search-bar" id="manSearchBtnMob" aria-label="Tìm kiếm tài liệu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <span>Tìm kiếm tài liệu…</span>
+    </button>
+  </div>
+  
+
+
+  <!-- 3-Column Layout -->
+  <div class="man-layout" id="manLayout">
+
+
+
+
+    <button class="man-navscrim" type="button" id="manNavScrim" aria-label="Đóng mục lục" tabindex="-1"></button>
+
+    <!-- Column 1: Left Sidenav (stationary, never auto-scrolls with body) -->
+    
+    
+    <nav class="man-sidenav" id="manSidenav" aria-label="Mục lục hướng dẫn">
+      <div class="man-navgroup">
+        <p class="man-sidenav-heading">Tài liệu</p>
+      <a href="/ttransport">Tổng quan</a>
+      <a href="/ttransport/bat-dau">Bắt đầu</a>
+      <a href="/ttransport/quan-ly" class="active" aria-current="page">Quản lý</a>
+      <a href="/ttransport/ke-toan">Kế toán</a>
+      <a href="/ttransport/lai-xe">Lái xe</a>
+      <a href="/ttransport/giao-nhan">Giao nhận</a>
+      </div>
+      <div class="man-navgroup">
+        <p class="man-sidenav-heading">Quản lý · Vận hành</p>
+      <a href="/ttransport/quan-ly/tong-quan-he-thong">Tổng quan</a>
+      <a href="/ttransport/quan-ly/dieu-van-phan-xe">Điều vận & phân xe</a>
+      <a href="/ttransport/quan-ly/ke-hoach-van-chuyen">Kế hoạch vận chuyển</a>
+      <a href="/ttransport/quan-ly/tao-lenh-van-chuyen">Tạo lệnh vận chuyển</a>
+      <a href="/ttransport/quan-ly/bang-so-lieu">Bảng số liệu</a>
+      </div>
+      <div class="man-navgroup">
+        <p class="man-sidenav-heading">Quản lý · Nhân sự</p>
+      <a href="/ttransport/quan-ly/luong-cham-cong">Lương & chấm công</a>
+      <a href="/ttransport/quan-ly/ky-luat">Kỷ luật</a>
+      </div>
+      <div class="man-navgroup">
+        <p class="man-sidenav-heading">Quản lý · Tài chính</p>
+      <a href="/ttransport/quan-ly/bao-cao-lai-lo">Báo cáo lãi lỗ</a>
+      <a href="/ttransport/quan-ly/phan-chia-loi-nhuan">Phân chia lợi nhuận</a>
+      <a href="/ttransport/quan-ly/cong-no-phai-thu">Công nợ phải thu</a>
+      <a href="/ttransport/quan-ly/cong-no-phai-tra">Công nợ phải trả</a>
+      <a href="/ttransport/quan-ly/chi-phi-phat-sinh">Chi phí phát sinh</a>
+      <a href="/ttransport/quan-ly/tam-ung">Tạm ứng</a>
+      <a href="/ttransport/quan-ly/duyet-hoan-ung">Duyệt hoàn ứng</a>
+      </div>
+      <div class="man-navgroup">
+        <p class="man-sidenav-heading">Quản lý · Danh mục & hệ thống</p>
+      <a href="/ttransport/quan-ly/danh-muc">Danh mục: xe, khách, NCC</a>
+      <a href="/ttransport/quan-ly/nguoi-dung-nhat-ky">Người dùng & nhật ký</a>
+      <a href="/ttransport/quan-ly/cau-hinh-he-thong">Cấu hình hệ thống</a>
+      </div>
+      <div class="man-navgroup">
+        <p class="man-sidenav-heading">Liên kết</p>
+        <a href="/">Trang chủ</a>
+        <a href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">Bản demo ↗</a>
+      </div>
+    </nav>
+
+    <main class="man-content" id="noi-dung">
+
+      <div class="man-breadcrumbs" aria-label="Đường dẫn">
+        <a href="/ttransport">Tài liệu</a>
+<span class="man-crumb-sep">›</span><span class="man-crumb-active">Quản lý</span><span class="man-crumb-sep">›</span><span class="man-crumb-active">Chi phí phát sinh</span>
+      </div>
+
+<div class="man-hero">
+          <p class="chapter-label">Quản lý · Quy trình nghiệp vụ</p>
+          <h1>Chi phí phát sinh</h1>
+          <p class="man-hero-lead">Ghi nhận các khoản chi phí phát sinh ngoài lệnh: bảo trì đột xuất, chi phí bến bãi hoặc phí hành chính.</p>
+        </div>
+
+        <div class="man-task" id="giam-doc-chi-phi">
+
+<figure class="man-fig">
+              <a class="man-fig-media" href="/src/assets/manual/giamdoc-expenses.webp" target="_blank" rel="noopener">
+                <img src="/src/assets/manual/giamdoc-expenses.webp" width="1440" height="900" loading="lazy" alt="Trang Chi phí phát sinh với nút Thêm phiếu chi và bộ chọn tháng được đánh số 1, 2">
+              </a>
+              <figcaption><strong>Chi phí phát sinh.</strong> Số ①② ứng với tạo phiếu chi và lọc tháng.</figcaption>
+            </figure>
+            <ol class="man-steps">
+              <li>Nhấn <strong>Thêm phiếu chi</strong>, chọn nhóm chi phí, số tiền và đính kèm hóa đơn chứng từ.</li>
+              <li>Lọc theo <strong>tháng</strong> để kiểm tra danh sách phiếu đã duyệt.</li>
+            </ol>
+
+        </div>
+        <nav class="man-page-nav" aria-label="Chuyển trang">
+          <a class="man-page-nav-link prev" href="/ttransport/quan-ly/cong-no-phai-tra">
+            <span class="man-page-nav-sub">← Quy trình trước</span>
+            <span class="man-page-nav-title">Công nợ phải trả</span>
+          </a>
+          <a class="man-page-nav-link next" href="/ttransport/quan-ly/tam-ung">
+            <span class="man-page-nav-sub">Quy trình tiếp theo →</span>
+            <span class="man-page-nav-title">Tạm ứng</span>
+          </a>
+        </nav>
+
+
+
+<footer class="man-footer">
+        <p>Tài liệu áp dụng cho bản demo <a href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">demo.tingting.vip</a> — giao diện có thể khác đôi chút trên bản chính thức của doanh nghiệp. Cần bổ sung mục hướng dẫn? Nhắn cho Ting&nbsp;Ting&nbsp;Soft qua <a href="https://zalo.me/0914827988" target="_blank" rel="noopener noreferrer">Zalo 0914 827 988</a> hoặc <a href="https://m.me/tingtingsoft" target="_blank" rel="noopener noreferrer">Messenger</a>.</p>
+        <p>© 2026 Công ty TNHH MTV Giải Pháp Phần Mềm Ting Ting · <a href="/">tingtingsoft.vn</a></p>
+      </footer>
+    
+
+    
+
+    </main>
+
+    <aside class="man-toc" id="manToc" aria-label="Trên trang này">
+      <p class="man-toc-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        Trên trang này
+      </p>
+      <nav class="man-toc-nav" id="manTocNav" aria-label="Mục lục trang này"></nav>
+
+      <div class="man-promo-card">
+        <div class="man-promo-tag">TransTing Cloud</div>
+        <h4 class="man-promo-title">Dùng thử TransTing ngay</h4>
+        <p class="man-promo-desc">Trải nghiệm đầy đủ 4 vai trò Quản lý, Kế toán, Lái xe và Giao nhận trên dữ liệu thực tế.</p>
+        <a class="man-promo-btn" href="https://demo.tingting.vip/" target="_blank" rel="noopener noreferrer">Mở bản demo ↗</a>
+        <a class="man-promo-link" href="https://zalo.me/0914827988" target="_blank" rel="noopener noreferrer">Tư vấn Zalo 0914 827 988</a>
+      </div>
+    
+</aside>
+  </div>
+
+  <dialog class="man-search-dialog" id="manSearchDialog">
+    <div class="man-search-box">
+      <div class="man-search-header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" class="man-search-input" id="manSearchInput" placeholder="Tìm kiếm thao tác, vai trò hoặc màn hình..." autocomplete="off" />
+        <button type="button" class="man-search-esc" id="manSearchCloseBtn">ESC</button>
+      </div>
+      <div class="man-search-results" id="manSearchResults" role="listbox"></div>
+      <div class="man-search-footer">
+        <span><kbd>↑</kbd><kbd>↓</kbd> để di chuyển</span>
+        <span><kbd>↵</kbd> để mở mục</span>
+        <span><kbd>ESC</kbd> để đóng</span>
+      </div>
+    </div>
+  </dialog>
+
+  
+<script type="module" src="/src/scripts/manual.js"></script>
+</body>
+</html>

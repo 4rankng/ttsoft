@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { readdirSync } from 'node:fs';
 import tailwindcss from '@tailwindcss/vite';
 
 // Ting Ting Soft — Vietnamese-first static landing page.
@@ -34,6 +35,12 @@ export default defineConfig({
         'ttransport-ke-toan': 'ttransport/ke-toan.html',
         'ttransport-lai-xe': 'ttransport/lai-xe.html',
         'ttransport-giao-nhan': 'ttransport/giao-nhan.html',
+        // Quan ly topic pages: one HTML per business process
+        ...Object.fromEntries(
+          readdirSync(new URL('./ttransport/quan-ly', import.meta.url))
+            .filter((f) => f.endsWith('.html'))
+            .map((f) => [`ttransport-quan-ly-${f.replace('.html', '')}`, `ttransport/quan-ly/${f}`]),
+        ),
       },
     },
     target: 'es2020',
