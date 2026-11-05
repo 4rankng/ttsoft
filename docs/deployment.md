@@ -145,3 +145,18 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
   page-unique content; grouped sidebar and 3-level breadcrumbs confirmed in
   served HTML; redirect map present in the served JS bundle.
 - Deploy: `2389e7a` (docker workflow green in 44s).
+
+## Verified 2026-11-05 — process book integrated into the manual
+- Read the authoritative TransTing process documentation (folio wiki,
+  space `ttransport`, 11 chapters) via MCP and integrated it into every
+  topic page: 5-state order lifecycle with posting rules and
+  lock/unlock/adjust/cancel, dispatch dialog rules and batch start,
+  order creation rules with config snapshot, ledger modes and edit
+  permissions, payroll formula/timesheet states/payroll lock, discipline
+  fields and salary effect, P&L reading + YoY + locked trips, quarterly
+  profit split, receivables aging/FIFO/debit notes, payables incl. fuel
+  reconciliation, expense posting modes, advance cash rules,
+  settlement balance constraint + 4 actions on approval, forwarder
+  per-container costs (buy/sell), driver portal boundaries + AI
+  container/seal capture, work period + info widgets.
+- Deploy `3be0e87`; suite 49/49; deep markers verified in served HTML.
