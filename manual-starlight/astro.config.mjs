@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// TransTing manual — rebuilt with Astro Starlight, replacing the hand-written
+// TTransport manual — rebuilt with Astro Starlight, replacing the hand-written
 // static .html pages in /ttransport. The site URL scheme is preserved:
 // every page keeps its /ttransport/... path (build.format 'file' emits
 // quan-ly.html style files that nginx try_files resolves extensionless).
@@ -17,7 +17,7 @@ export default defineConfig({
     starlight({
       title: 'Ting Ting Soft',
       description:
-        'Tài liệu hướng dẫn sử dụng phần mềm quản lý vận tải TransTing cho bốn vai trò: Quản lý, Kế toán, Lái xe và Giao nhận.',
+        'Tài liệu hướng dẫn sử dụng phần mềm quản lý vận tải TTransport cho bốn vai trò: Quản lý, Kế toán, Lái xe và Giao nhận.',
       logo: { src: './src/assets/brand-logo.png', alt: 'Ting Ting Soft' },
       favicon: 'favicon.png',
       customCss: ['./src/custom.css'],

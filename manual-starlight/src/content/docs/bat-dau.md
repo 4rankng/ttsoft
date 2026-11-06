@@ -1,5 +1,5 @@
 ---
-title: Bắt đầu sử dụng TransTing
+title: Bắt đầu sử dụng TTransport
 description: "Ba bước chuẩn bị cần thiết cho mọi tài khoản: đăng nhập hệ thống, làm quen với thanh điều hướng và đổi mật khẩu bảo vệ tài khoản cá nhân."
 sidebar:
   label: Bắt đầu
@@ -11,7 +11,7 @@ Ba bước chuẩn bị cần thiết cho mọi tài khoản: đăng nhập hệ
 
 Mở trình duyệt (Chrome, Edge, Safari…) và truy cập địa chỉ **https://demo.tingting.vip/**. Đăng nhập bằng tài khoản được cấp.
 
-[![Màn hình đăng nhập TransTing với ô tài khoản, ô mật khẩu và nút Đăng nhập được đánh số 1, 2, 3 bằng chú thích đỏ](/ttransport/assets/login.webp)](/ttransport/assets/login.webp)
+[![Màn hình đăng nhập TTransport với ô tài khoản, ô mật khẩu và nút Đăng nhập được đánh số 1, 2, 3 bằng chú thích đỏ](/ttransport/assets/login.webp)](/ttransport/assets/login.webp)
 
 ***Màn hình đăng nhập.** Số ①②③ trên ảnh ứng với các bước bên dưới.*
 
