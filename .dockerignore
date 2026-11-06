@@ -1,5 +1,8 @@
 node_modules
+manual-starlight/node_modules
 dist
+manual-starlight/dist
+manual-starlight/.astro
 .git
 .github
 docs
