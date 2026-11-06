@@ -20,6 +20,7 @@ export default defineConfig({
         'Tài liệu hướng dẫn sử dụng phần mềm quản lý vận tải TransTing cho bốn vai trò: Quản lý, Kế toán, Lái xe và Giao nhận.',
       logo: { src: './src/assets/brand-logo.png', alt: 'Ting Ting Soft' },
       favicon: 'favicon.png',
+      customCss: ['./src/custom.css'],
       locales: {
         root: {
           lang: 'vi',
