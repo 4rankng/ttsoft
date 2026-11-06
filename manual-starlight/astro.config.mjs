@@ -47,6 +47,9 @@ export default defineConfig({
         { label: 'Zalo 0914 827 988', icon: 'comment', href: 'https://zalo.me/0914827988' },
         { label: 'Messenger', icon: 'comment-alt', href: 'https://m.me/tingtingsoft' },
       ],
+      components: {
+        Pagination: './src/components/Pagination.astro',
+      },
       sidebar: [
         { label: 'Tổng quan', slug: '' },
         { label: 'Bắt đầu', slug: 'bat-dau' },

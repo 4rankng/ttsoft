@@ -1,0 +1,66 @@
+---
+// Pagination override — grouped "shadcn" card (zinc): arrow + label + title
+// form one content block, replacing Starlight's edge-floating-arrow layout.
+// DeepSeek-consulted direction 1 (06/11). Arrows are inline Lucide path data
+// (ISC) — Starlight's export map doesn't expose Icon.astro.
+const { dir, pagination } = Astro.locals.starlightRoute;
+const { prev, next } = pagination;
+const isRtl = dir === 'rtl';
+const arrows = {
+	left: '<path d="m12 19-7-7 7-7" /><path d="M19 12H5" />',
+	right: '<path d="M5 12h14" /><path d="m12 5 7 7-7 7" />',
+};
+---
+
+<div class="pagination-links print:hidden" dir={dir}>
+	{
+		prev && (
+			<a href={prev.href} rel="prev" class="pagination-card prev">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+					class="pagination-arrow"
+				>
+					<Fragment set:html={isRtl ? arrows.right : arrows.left} />
+				</svg>
+				<span class="pagination-content">
+					<span class="pagination-label">{Astro.locals.t('page.previousLink')}</span>
+					<span class="pagination-title">{prev.label}</span>
+				</span>
+			</a>
+		)
+	}
+	{
+		next && (
+			<a href={next.href} rel="next" class="pagination-card next">
+				<span class="pagination-content">
+					<span class="pagination-label">{Astro.locals.t('page.nextLink')}</span>
+					<span class="pagination-title">{next.label}</span>
+				</span>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					aria-hidden="true"
+					class="pagination-arrow"
+				>
+					<Fragment set:html={isRtl ? arrows.left : arrows.right} />
+				</svg>
+			</a>
+		)
+	}
+</div>
