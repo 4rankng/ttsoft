@@ -27,3 +27,6 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Starlight output lands on top of the Vite dist's ttransport/ directory,
 # replacing the legacy manual .html files at identical URLs.
 COPY --from=manual-build /app/manual-starlight/dist/ /usr/share/nginx/html/ttransport/
+# Legacy single-page + old manual dir leftovers shadow the Starlight routes
+# (root ttransport.html wins /ttransport via $uri.html) — remove them.
+RUN rm -f /usr/share/nginx/html/ttransport.html
