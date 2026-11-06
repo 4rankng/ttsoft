@@ -20,7 +20,22 @@ export default defineConfig({
         'Tài liệu hướng dẫn sử dụng phần mềm quản lý vận tải TTransport cho bốn vai trò: Quản lý, Kế toán, Lái xe và Giao nhận.',
       logo: { src: './src/assets/brand-logo.png', alt: 'Ting Ting Soft' },
       favicon: 'favicon.png',
-      customCss: ['./src/custom.css'],
+      customCss: [
+        '@fontsource/inter/400.css',
+        '@fontsource/inter/500.css',
+        '@fontsource/inter/600.css',
+        '@fontsource/inter/700.css',
+        './src/styles/tokens.css',
+        './src/styles/chrome.css',
+        './src/styles/content.css',
+        './src/styles/landing.css',
+      ],
+      head: [
+        {
+          tag: 'script',
+          attrs: { type: 'module', src: '/ttransport/lightbox.js' },
+        },
+      ],
       locales: {
         root: {
           lang: 'vi',

@@ -1,0 +1,160 @@
+/*
+ * TTransport manual — zinc design tokens (replaces src/custom.css).
+ *
+ * Owner requests kept (06/11):
+ *  1. Light theme only — palette pinned on every theme state, picker hidden.
+ *  2. Normal-web typography scale, refined on mobile.
+ *
+ * Zinc values are the repo-canonical ramp from the legacy manual
+ * (src/styles/manual.css, --sh-* shadcn/ui zinc neutral) so the docs match
+ * the legacy manual exactly.
+ *
+ * Intentionally UNLAYERED: unlayered author CSS always outranks Starlight's
+ * @layer starlight.* styles at equal or lower specificity.
+ */
+
+/* ------------------------------------------------------------------
+ * 1. Light palette pinned everywhere, re-tuned to zinc.
+ *
+ * Starlight 0.42's bare `:root` is the DARK palette (pre-JS/FOUC state)
+ * and the inline theme script only resolves data-theme to 'light' or
+ * 'dark', so every state must carry the palette. Structure mirrors
+ * Starlight's own :root[data-theme='light'] block (dist/style/props.css,
+ * v0.42.9); values are zinc.
+ * ----------------------------------------------------------------- */
+:root,
+:root[data-theme='dark'],
+:root[data-theme='auto'],
+[data-theme='dark'] ::backdrop,
+[data-theme='auto'] ::backdrop {
+	/* Font — Inter, self-hosted via @fontsource/inter (loaded in customCss). */
+	--sl-font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+	/* Colours (zinc light mode) */
+	--sl-color-white: #09090b; /* primary text */
+	--sl-color-black: #ffffff; /* page background */
+	--sl-color-gray-1: #18181b;
+	--sl-color-gray-2: #3f3f46;
+	--sl-color-gray-3: #52525b;
+	--sl-color-gray-4: #71717a;
+	--sl-color-gray-5: #a1a1aa;
+	--sl-color-gray-6: #e4e4e7;
+	--sl-color-gray-7: #f4f4f5;
+
+	/* Accent = zinc primary: Starlight's link/active states. */
+	--sl-color-accent-high: #09090b;
+	--sl-color-accent: #18181b;
+	--sl-color-accent-low: #f4f4f5;
+	--sl-color-text-accent: #18181b;
+
+	/* Semantic triples, muted. */
+	--sl-color-orange-high: hsl(35 95% 30%);
+	--sl-color-orange: hsl(35 90% 48%);
+	--sl-color-orange-low: hsl(44 92% 93%);
+	--sl-color-green-high: hsl(161 90% 24%);
+	--sl-color-green: hsl(161 78% 38%);
+	--sl-color-green-low: hsl(160 80% 95%);
+	/* Blue is Starlight's default note-aside/badge hue (indigo): mapped to
+	   zinc so no indigo survives anywhere. */
+	--sl-color-blue-high: #09090b;
+	--sl-color-blue: #18181b;
+	--sl-color-blue-low: #f4f4f5;
+	--sl-color-purple-high: hsl(262 83% 32%);
+	--sl-color-purple: hsl(262 80% 56%);
+	--sl-color-purple-low: hsl(262 85% 94%);
+	--sl-color-red-high: hsl(350 85% 32%);
+	--sl-color-red: hsl(350 80% 50%);
+	--sl-color-red-low: hsl(350 90% 95%);
+
+	--sl-color-text-invert: var(--sl-color-black);
+	--sl-color-bg-nav: #fafafa;
+	--sl-color-bg-sidebar: #ffffff;
+	--sl-color-bg-inline-code: #f4f4f5;
+	--sl-color-bg-accent: var(--sl-color-accent);
+	--sl-color-hairline-light: #e4e4e7;
+	--sl-color-hairline-shade: #e4e4e7;
+
+	--sl-color-backdrop-overlay: hsla(225, 9%, 36%, 0.66);
+
+	/* Shadows (light mode, kept from Starlight defaults). */
+	--sl-shadow-sm: 0px 1px 1px hsla(0, 0%, 0%, 0.06), 0px 2px 1px hsla(0, 0%, 0%, 0.06);
+	--sl-shadow-md: 0px 8px 4px hsla(0, 0%, 0%, 0.03), 0px 5px 2px hsla(0, 0%, 0%, 0.03),
+		0px 3px 2px hsla(0, 0%, 0%, 0.06), 0px 1px 1px hsla(0, 0%, 0%, 0.06);
+	--sl-shadow-lg: 0px 25px 7px rgba(0, 0, 0, 0.01), 0px 16px 6px hsla(0, 0%, 0%, 0.03),
+		0px 9px 5px hsla(223, 13%, 10%, 0.08), 0px 4px 4px hsla(0, 0%, 0%, 0.16),
+		0px 4px 2px hsla(0, 0%, 0%, 0.04);
+}
+
+/* Native widgets (scrollbars, form controls) must render light too:
+   Starlight's reset sets `color-scheme: dark` on the bare html. */
+html {
+	color-scheme: light;
+}
+
+::selection {
+	background: #e4e4e7;
+}
+
+/* Hide the theme picker (desktop header + mobile menu footer). It is a
+   <starlight-theme-select> custom element in this Starlight version —
+   there is no `.theme-toggle`/`.starlight-theme-toggle` class. */
+starlight-theme-select {
+	display: none !important;
+}
+
+/* ------------------------------------------------------------------
+ * 2. Typography scale — normal-web sizes (owner request).
+ *
+ * Starlight ships display-scale sizes that read as large-print on
+ * mobile. Compress the xl–5xl steps; base and sm are pinned at the
+ * defaults for clarity.
+ * ----------------------------------------------------------------- */
+:root {
+	--sl-text-base: 1rem; /* 16px */
+	--sl-text-sm: 0.875rem; /* 14px */
+	--sl-text-xl: 1.125rem; /* 18px, was 1.25rem */
+	--sl-text-2xl: 1.25rem; /* 20px, was 1.5rem */
+	--sl-text-3xl: 1.5rem; /* 24px, was 1.8125rem */
+	--sl-text-4xl: 1.75rem; /* 28px, was 2.1875rem */
+	--sl-text-5xl: 2rem; /* 32px, was 2.625rem */
+}
+
+/* Pagination prev/next cards: small label, modest title. */
+.pagination-links a {
+	font-size: var(--sl-text-sm);
+}
+.pagination-links .link-title {
+	font-size: var(--sl-text-lg);
+}
+
+/* Mobile refinement (< 800px): body text slightly tighter, headings
+   down to normal-article sizes, compact header, pagination title at
+   most the body size. */
+@media (max-width: 50rem) {
+	body {
+		font-size: 0.95rem;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+	}
+	h2 {
+		font-size: 1.2rem;
+	}
+	h3 {
+		font-size: 1.05rem;
+	}
+
+	.site-title {
+		font-size: 1rem;
+	}
+
+	:root {
+		--sl-nav-pad-x: 0.75rem;
+		--sl-nav-height: 3rem;
+	}
+
+	.pagination-links .link-title {
+		font-size: var(--sl-text-base);
+	}
+}

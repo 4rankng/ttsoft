@@ -1,0 +1,224 @@
+/*
+ * TTransport manual — chrome: header, sidebar, TOC, pagination, mobile,
+ * search modal.
+ *
+ * Unlayered author CSS: outranks every Starlight @layer starlight.*
+ * style (including scoped component styles, which Starlight 0.42 puts
+ * in layers). Zinc values follow tokens.css / legacy manual.css.
+ */
+
+/* ------------------------------------------------------------------
+ * Header
+ * ----------------------------------------------------------------- */
+
+/* Site title */
+.site-title {
+	font-weight: 700;
+	color: #09090b;
+	letter-spacing: -0.01em;
+}
+
+/* Search trigger — quiet pill on desktop (Starlight styles it layered). */
+button[data-open-modal] {
+	border: 1px solid #e4e4e7;
+	background-color: #f4f4f5;
+	color: #71717a;
+	border-radius: 999px;
+}
+
+button[data-open-modal]:hover {
+	border-color: #d4d4d8;
+	color: #52525b;
+}
+
+/* Social icon links */
+.social-icons a {
+	color: #71717a;
+}
+
+.social-icons a:hover {
+	color: #09090b;
+}
+
+/* ------------------------------------------------------------------
+ * Sidebar
+ * ----------------------------------------------------------------- */
+
+/* Nesting ladder: each nested level indents with a subtle left hairline. */
+.sidebar-content ul ul {
+	padding-left: 0.9rem;
+	margin-left: 0.55rem;
+	border-left: 1px solid #e4e4e7;
+}
+
+/* Item links (all levels) */
+.sidebar-content a {
+	padding: 0.3rem 0.55rem;
+	border-radius: 8px;
+	font-size: 0.875rem;
+	color: #52525b;
+}
+
+.sidebar-content a:hover {
+	background-color: #f4f4f5;
+	color: #09090b;
+}
+
+/* Top-level role links (Tổng quan, Bắt đầu, Kế toán, …) */
+.sidebar-content a.large {
+	font-weight: 600;
+	color: #3f3f46;
+}
+
+/* Collapsible group labels (Quản lý, Vận hành, Tài chính, …) */
+.sidebar-content summary .group-label .large {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #71717a;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}
+
+.sidebar-content summary .caret {
+	color: #71717a;
+}
+
+/* Active page: top-level → solid dark pill; nested → tinted pill. */
+.sidebar-content a[aria-current='page'].large {
+	background-color: #18181b;
+	color: #fafafa;
+}
+
+.sidebar-content a[aria-current='page']:not(.large) {
+	background-color: #f4f4f5;
+	color: #09090b;
+	font-weight: 500;
+}
+
+.sidebar-content a.large[aria-current='page']:hover {
+	background-color: #18181b;
+	color: #fafafa;
+}
+
+/* ------------------------------------------------------------------
+ * Table of contents (right sidebar)
+ * ----------------------------------------------------------------- */
+
+starlight-toc h2 {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: #71717a;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+starlight-toc a {
+	font-size: 0.8125rem;
+	color: #71717a;
+}
+
+starlight-toc a:hover {
+	color: #3f3f46;
+}
+
+starlight-toc a[aria-current='true'] {
+	color: #09090b;
+	font-weight: 500;
+}
+
+/* ------------------------------------------------------------------
+ * Pagination
+ * ----------------------------------------------------------------- */
+
+.pagination-links a {
+	border: 1px solid #e4e4e7;
+	border-radius: 10px;
+}
+
+.pagination-links a:hover {
+	border-color: #d4d4d8;
+	box-shadow: var(--sl-shadow-sm);
+}
+
+/* ------------------------------------------------------------------
+ * Mobile chrome
+ * ----------------------------------------------------------------- */
+
+/* Menu button: Starlight paints it with the inverted --sl-color-white /
+   --sl-color-black pair, which reads as a black circle; pin a quiet
+   white chip instead. */
+button.sl-menu-button {
+	background-color: #ffffff;
+	color: #18181b;
+	border: 1px solid #e4e4e7;
+	border-radius: 10px;
+}
+
+/* Drawer-open feedback, mirroring Starlight's :has(~ :popover-open). */
+button.sl-menu-button:has(~ :popover-open) {
+	background-color: #f4f4f5;
+	box-shadow: none;
+}
+
+/* Mobile drawer: hairline edge + generous item padding. */
+#starlight__sidebar {
+	border-inline-end: 1px solid #e4e4e7;
+}
+
+@media (max-width: 49.9999rem) {
+	#starlight__sidebar .sidebar-content a {
+		padding: 0.45rem 0.65rem;
+	}
+
+	#starlight__sidebar .sidebar-content {
+		padding-bottom: 1.5rem;
+	}
+}
+
+/* Mobile TOC chip + dropdown */
+#starlight__mobile-toc .toggle {
+	background-color: #ffffff;
+	border-color: #e4e4e7;
+	border-radius: 10px;
+}
+
+#starlight__mobile-toc .dropdown {
+	background-color: #ffffff;
+	border: 1px solid #e4e4e7;
+	border-radius: 10px;
+	box-shadow: var(--sl-shadow-md);
+}
+
+/* ------------------------------------------------------------------
+ * Search modal
+ * ----------------------------------------------------------------- */
+
+/* Pagefind's untranslated "Clear" button. */
+.pagefind-ui__search-clear {
+	display: none;
+}
+
+site-search dialog {
+	background-color: #ffffff;
+	border-color: #e4e4e7;
+	border-radius: 12px;
+}
+
+/* ------------------------------------------------------------------
+ * Motion (every transition this overhaul adds)
+ * ----------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+	.sidebar-content a,
+	.pagination-links a,
+	button[data-open-modal],
+	button.sl-menu-button,
+	.social-icons a,
+	starlight-toc a {
+		transition:
+			background-color 140ms ease,
+			color 140ms ease,
+			border-color 140ms ease,
+			box-shadow 140ms ease;
+	}
+}
