@@ -21,6 +21,13 @@
 	text-decoration: none;
 }
 
+/* content.css underlines .sl-markdown-content a at (0,2,1); out-rank it so
+   the whole card text isn't underlined. */
+.sl-markdown-content a.role-card,
+.sl-markdown-content a.role-card:hover {
+	text-decoration: none;
+}
+
 .role-card:hover {
 	border-color: #d4d4d8;
 	box-shadow: 0 8px 24px rgb(0 0 0 / 0.06);
@@ -34,7 +41,11 @@
 	border-radius: 10px;
 	display: grid;
 	place-items: center;
-	font-size: 1.15rem;
+	color: #18181b;
+}
+
+.role-icon svg {
+	display: block;
 }
 
 .role-name {
