@@ -12,7 +12,7 @@ RUN npm run build
 # TransTing manual (/ttransport) — built separately with Astro Starlight in
 # manual-starlight/ and copied over the legacy static .html pages. Same Node
 # version as the site build; pnpm via corepack (see manual-starlight/package.json).
-FROM node:20-alpine AS manual-build
+FROM node:22-alpine AS manual-build
 WORKDIR /app
 RUN corepack enable
 COPY manual-starlight/package.json manual-starlight/pnpm-lock.yaml ./manual-starlight/
