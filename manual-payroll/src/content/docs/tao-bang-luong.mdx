@@ -1,0 +1,38 @@
+---
+title: Tạo bảng lương
+description: Khai bảng lương 3 lớp Vị trí × nhóm ngày × khung giờ cho dự án.
+sidebar:
+  label: 3. Tạo bảng lương
+---
+
+Bảng lương là bảng 3 lớp: **Vị trí** × nhóm ngày (**Ngày thường**, **Ngày nghỉ**, **Ngày lễ**) × **khung giờ** (ví dụ Ca ngày, Ca đêm, Tăng ca). Mỗi ô là một mức tiền.
+
+Xem bảng đang dùng: mở dự án → tab **Lương**. Bảng có nhãn **Đang dùng** là bảng đang áp dụng.
+
+Tạo bảng mới:
+1. Mở dự án → tab **Lương** → **Tạo mới** (lần đầu: **Tạo cấu hình đầu tiên**).
+2. Chọn **Từ ngày** — ngày bảng bắt đầu áp dụng. Bảng cũ tự hết hiệu lực từ ngày này.
+3. Khai từng **Vị trí**:
+   - Tên vị trí đặt theo mẫu file Excel của dự án (cuối [trang 6](/guides/payroll/nhap-bang-cham-cong#bảng-lương-cần-có-cho-từng-mẫu-file)). Ví dụ: Lương 500, Có tay nghề, Lái xe nâng, 800000.
+   - Nếu file dùng mã ca riêng (HC, TCN, TCNN…), thêm cột khung giờ và đặt tên ĐÚNG theo mã ca trong file.
+   - Điền mức tiền từng ô. Ô để 0 hoặc bỏ trống nghĩa là dự án không trả tiền cho tổ hợp đó — dòng công rơi vào ô đó sẽ bị từ chối khi nhập.
+4. Bấm **Lưu** → xem lại bảng so sánh → **Xác nhận tạo cấu hình mới**.
+
+Sửa bảng: tab **Lương** → **Sửa**.
+
+Nút **Tạo cấu hình mặc định** sinh sẵn các vị trí thông dụng (phổ thông, thợ điện, thợ hàn…) — đổi tên lại cho khớp file của dự án.
+
+Dự án trả lương theo ca trọn ca: dùng chế độ linh hoạt — khai từng ca (giờ bắt đầu – kết thúc, ví dụ 08:00–17:00 tên Hành chính) rồi điền giá cho trọn ca.
+
+[![Màn Tạo cấu hình lương mới: chọn Từ ngày, khai Vị trí × Loại ngày × Khung giờ, điền mức tiền từng ô, rồi Lưu](/guides/payroll/assets/ann_p3_partner.png)](/guides/payroll/assets/ann_p3_partner.png)
+
+## Mẫu file ví dụ
+
+- [Mau-bang-cham-cong-ThaiBinhDuong.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-ThaiBinhDuong.xlsx)
+- [Mau-bang-cham-cong-189.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-189.xlsx)
+- [Mau-bang-cham-cong-BUMHAN.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-BUMHAN.xlsx)
+- [Mau-bang-cham-cong-SDS.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-SDS.xlsx)
+- [Mau-bang-cham-cong-EPE.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-EPE.xlsx)
+- [Mau-bang-cham-cong-EVA.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-EVA.xlsx)
+- [Mau-bang-cham-cong-PQC.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-PQC.xlsx)
+- [Mau-bang-cham-cong-POURIN.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-POURIN.xlsx)

@@ -1,0 +1,255 @@
+/*
+ * TTransport manual — content: typography, <dl> spec cards, asides,
+ * images + captions, lightbox, ordered lists, a11y, print.
+ *
+ * Unlayered author CSS (outranks Starlight's @layer starlight.* styles).
+ */
+
+/* ------------------------------------------------------------------
+ * Body & links
+ * ----------------------------------------------------------------- */
+
+.sl-markdown-content p {
+	line-height: 1.75;
+}
+
+.sl-markdown-content a:not(.sl-anchor-link) {
+	color: #18181b;
+	text-decoration: underline;
+	text-decoration-color: #d4d4d8;
+	text-underline-offset: 3px;
+}
+
+.sl-markdown-content a:not(.sl-anchor-link):hover {
+	text-decoration-color: #71717a;
+}
+
+/* ------------------------------------------------------------------
+ * Headings
+ * ----------------------------------------------------------------- */
+
+/* Hairline under section titles (shadcn-docs convention). */
+.sl-markdown-content h2 {
+	padding-bottom: 0.3rem;
+	border-bottom: 1px solid #e4e4e7;
+}
+
+/* Anchor links: revealed on heading hover. */
+.sl-markdown-content .sl-anchor-link {
+	color: #71717a;
+	opacity: 0;
+}
+
+.sl-markdown-content .sl-heading-wrapper:hover .sl-anchor-link,
+.sl-markdown-content .sl-anchor-link:focus-visible {
+	opacity: 1;
+}
+
+/* ------------------------------------------------------------------
+ * <dl> spec tables → bordered two-column spec cards
+ * (markup on every process page is strictly alternating dt/dd).
+ * ----------------------------------------------------------------- */
+
+.sl-markdown-content dl {
+	display: grid;
+	grid-template-columns: 11rem 1fr;
+	border: 1px solid #e4e4e7;
+	border-radius: 12px;
+	overflow: hidden;
+	background: #ffffff;
+	margin: 1.25rem 0;
+}
+
+.sl-markdown-content dt {
+	padding: 0.65rem 0.9rem;
+	background: #fafafa;
+	font-weight: 600;
+	font-size: 0.8125rem;
+	color: #09090b;
+	border-bottom: 1px solid #f4f4f5;
+}
+
+.sl-markdown-content dd {
+	padding: 0.65rem 0.9rem;
+	margin: 0;
+	font-size: 0.875rem;
+	color: #3f3f46;
+	border-bottom: 1px solid #f4f4f5;
+	line-height: 1.6;
+}
+
+/* Last pair: no trailing border. */
+.sl-markdown-content dt:nth-last-of-type(1),
+.sl-markdown-content dd:last-of-type {
+	border-bottom: 0;
+}
+
+@media (max-width: 48rem) {
+	.sl-markdown-content dl {
+		grid-template-columns: 1fr;
+	}
+
+	/* dt becomes a tinted section label band above its dd. */
+	.sl-markdown-content dt {
+		border-bottom: 0;
+		padding-bottom: 0.1rem;
+	}
+}
+
+/* ------------------------------------------------------------------
+ * Asides → left-accent-bar cards
+ * (Starlight maps variants to custom props: note=blue, tip=purple,
+ * caution=orange, danger=red; we re-point the props.)
+ * ----------------------------------------------------------------- */
+
+.starlight-aside {
+	border: 1px solid #e4e4e7;
+	border-left: 3px solid var(--sl-color-asides-border);
+	border-radius: 10px;
+	background-color: #fafafa;
+	padding: 0.9rem 1rem;
+}
+
+.starlight-aside--note {
+	--sl-color-asides-border: #71717a;
+	--sl-color-asides-text-accent: #09090b;
+}
+
+.starlight-aside--tip {
+	--sl-color-asides-border: var(--sl-color-purple-high);
+	--sl-color-asides-text-accent: var(--sl-color-purple-high);
+}
+
+.starlight-aside--caution {
+	--sl-color-asides-border: var(--sl-color-orange-high);
+	--sl-color-asides-text-accent: var(--sl-color-orange-high);
+}
+
+.starlight-aside--danger {
+	--sl-color-asides-border: var(--sl-color-red-high);
+	--sl-color-asides-text-accent: var(--sl-color-red-high);
+}
+
+.starlight-aside__title {
+	font-weight: 600;
+}
+
+/* ------------------------------------------------------------------
+ * Images & captions
+ * ----------------------------------------------------------------- */
+
+/* Content screenshots are link-wrapped markdown images. */
+.sl-markdown-content a > img {
+	border: 1px solid #e4e4e7;
+	border-radius: 12px;
+	box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+}
+
+.sl-markdown-content a > img:hover {
+	border-color: #d4d4d8;
+	box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+}
+
+/* Injected width/height (postbuild script) must never distort ratio. */
+.sl-markdown-content img {
+	height: auto;
+	max-width: 100%;
+}
+
+/* Captions: paragraphs whose only child is a single <em>
+   (*<strong>lead</strong> …* pattern used across all pages). */
+.sl-markdown-content p:has(> em:only-child) {
+	font-size: 0.8125rem;
+	color: #71717a;
+	margin-top: 0.4rem;
+}
+
+.sl-markdown-content p:has(> em:only-child) > em {
+	font-style: normal;
+}
+
+/* ------------------------------------------------------------------
+ * Ordered lists
+ * ----------------------------------------------------------------- */
+
+.sl-markdown-content ol li::marker {
+	color: #71717a;
+	font-weight: 600;
+}
+
+.sl-markdown-content ol li {
+	margin-block: 0.35rem;
+}
+
+/* ------------------------------------------------------------------
+ * Screenshot lightbox (public/lightbox.js)
+ * ----------------------------------------------------------------- */
+
+dialog.img-lightbox {
+	border: 0;
+	background: transparent;
+	padding: 0;
+	max-width: none;
+	max-height: none;
+}
+
+dialog.img-lightbox::backdrop {
+	background: rgb(9 9 11 / 0.66);
+}
+
+dialog.img-lightbox img {
+	display: block;
+	max-width: 92vw;
+	max-height: 92vh;
+	border-radius: 12px;
+}
+
+/* ------------------------------------------------------------------
+ * Motion (every transition/animation this overhaul adds)
+ * ----------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+	.sl-markdown-content a > img {
+		transition:
+			border-color 140ms ease,
+			box-shadow 140ms ease;
+	}
+}
+
+/* ------------------------------------------------------------------
+ * Accessibility
+ * ----------------------------------------------------------------- */
+
+:focus-visible {
+	outline: 2px solid #18181b;
+	outline-offset: 2px;
+	border-radius: 4px;
+}
+
+/* ------------------------------------------------------------------
+ * Print
+ * ----------------------------------------------------------------- */
+
+@media print {
+	header,
+	.sidebar-content,
+	.right-sidebar-container,
+	.pagination-links,
+	button.sl-menu-button,
+	dialog.img-lightbox,
+	#starlight__mobile-toc,
+	starlight-theme-select {
+		display: none !important;
+	}
+
+	/* Asides print-safe: white card, black frame, variant left bar stays. */
+	.starlight-aside {
+		background: #ffffff;
+		border: 1px solid #000000;
+		border-left: 3px solid var(--sl-color-asides-border);
+	}
+
+	@page {
+		margin: 1.5cm;
+	}
+}

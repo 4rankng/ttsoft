@@ -1,0 +1,115 @@
+---
+title: Nhập bảng chấm công từ Excel
+description: Tải file Excel bảng chấm công lên hệ thống, đọc kết quả và xử lý các lỗi thường gặp.
+sidebar:
+  label: 6. Nhập bảng chấm công
+---
+
+1. Menu **Bảng công** → nút **Tải lên BCC**.
+2. Trong màn **Tải lên Bảng Chấm Công**:
+   - **Dự án áp dụng**: chọn dự án.
+   - **Tháng áp dụng**: chọn tháng của file.
+   - Tùy chọn: **Import lương linh hoạt** (chỉ tạo ngày chưa có) và **Bổ sung giờ vào ngày đã chốt** — chỉ dùng khi cần giữ nguyên số cũ.
+3. Kéo file .xlsx vào ô **Tệp bảng chấm công** (tối đa 10 MB).
+4. Chờ kết quả: thành công, hoặc thành công một phần kèm danh sách dòng lỗi, hoặc thất bại.
+
+Mỗi file chỉ chứa công của đúng 1 tháng. File có ngày của tháng khác sẽ bị từ chối: "File có ngày công ngoài tháng đang import (tháng MM/YYYY) — tách file theo từng tháng".
+
+[![Hộp Tải lên Bảng Chấm Công: chọn Dự án áp dụng, Tháng áp dụng, kéo file .xlsx vào ô Tệp bảng chấm công](/guides/payroll/assets/ann_p6_partner.png)](/guides/payroll/assets/ann_p6_partner.png)
+
+Lỗi thường gặp:
+
+| Báo lỗi | Nguyên nhân | Cách xử lý |
+|---|---|---|
+| Mẫu file chấm công không đúng. Vui lòng tải lên tệp Excel theo đúng mẫu chấm công của dự án. | Bố cục file không khớp mẫu nào | Đối chiếu phần bên dưới, lấy đúng mẫu file của dự án |
+| Vị trí "…" chưa có trong bảng lương của dự án — cần cập nhật bảng lương hiệu lực từ đầu kỳ… | Tên vị trí trong file chưa có trong bảng lương đang hiệu lực | Thêm vị trí vào bảng lương mới, đặt Từ ngày là đầu tháng import |
+| không tìm thấy mức lương cho ca …, vị trí …, ngày … | Thiếu cột khung giờ hoặc mức tiền | Bổ sung ô thiếu trong bảng lương ([trang 3](/guides/payroll/tao-bang-luong) và phần bên dưới) |
+| không tìm thấy nhân viên "…" trong dự án | Nhân viên chưa được thêm vào dự án | Làm [trang 5](/guides/payroll/them-nhan-vien-vao-du-an) trước khi nhập |
+| tên BCC (…) và tên STK (…) khác nhau cho cùng CCCD … | Tên và CCCD không khớp giữa 2 sheet | Sửa cho khớp trong file |
+| nhân viên "…" xuất hiện ở nhiều sheet vị trí (…, …) | Nhân viên nằm ở 2 sheet vị trí | Chỉ để nhân viên ở 1 sheet |
+| không có dữ liệu hợp lệ để tạo bảng chấm công | Sheet rỗng hoặc sai dòng tiêu đề | Kiểm tra lại file |
+
+Trước khi nhập lần đầu cho một dự án mới: kiểm tra bảng lương khớp mẫu file theo phần bên dưới.
+
+## Bảng lương cần có cho từng mẫu file
+
+Hệ thống tự nhận dạng mẫu file theo bố cục sheet — không cần chọn mẫu. Mỗi mẫu yêu cầu bảng lương khai khác nhau.
+
+Quy tắc chung cho mọi mẫu:
+- Nhân viên được đối chiếu qua số CCCD. CCCD trong file phải trùng CCCD đã lưu trong hồ sơ.
+- Chỉ phần ngày công và giờ tăng ca được đọc vào hệ thống. Các cột tính tiền sẵn trong file (Tổng hợp, Suất ăn tăng ca, Thành tiền…) bị bỏ qua.
+- Sheet STK (danh sách tài khoản ngân hàng) được dùng để đối chiếu CCCD và tên.
+- Tên vị trí và nhóm ngày trong bảng lương không cần đúng dấu; tên khung giờ (mã ca) phải viết đúng chữ như trong file, hoa/thường không quan trọng.
+
+### ThaiBinhDuong, 189
+
+[![Mẫu ThaiBinhDuong: dòng 8–10 là tiêu đề, dòng 10 là mã ca, tên sheet là tên vị trí](/guides/payroll/assets/ann_tdt.png)](/guides/payroll/assets/ann_tdt.png)
+
+Làm bảng lương như sau:
+1. Tạo 1 vị trí cho mỗi sheet tính công của file: Lương 500, Lương 520, Lương 700… — đặt tên ĐÚNG như tên sheet.
+2. Với mỗi vị trí, thêm cột khung giờ đặt tên ĐÚNG mã ca ở dòng 10 của file: HC, TCN, TCNN…
+3. Chỉ điền tiền cho nhóm Ngày thường — file này tính toàn bộ công vào Ngày thường, kể cả thứ 7, chủ nhật.
+4. Số trong cột "Lương 8h" của file KHÔNG được dùng — tiền trả lấy từ bảng lương.
+
+Tải file mẫu:
+- [Mau-bang-cham-cong-ThaiBinhDuong.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-ThaiBinhDuong.xlsx)
+- [Mau-bang-cham-cong-189.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-189.xlsx)
+
+### POURIN
+
+[![Mẫu POURIN: cột Vị trí lương/8h, mã ca HC/TC ở dòng 10](/guides/payroll/assets/ann_POURIN.png)](/guides/payroll/assets/ann_POURIN.png)
+
+Giống ThaiBinhDuong, khác 1 điểm:
+1. File có cột "Vị trí lương/8h". Nếu bạn đặt tên vị trí bằng số (ví dụ 800000), hệ thống lấy số trong cột này để tìm vị trí — số phải trùng tên vị trí đó.
+2. Không đặt tên bằng số → hệ thống lấy tên sheet làm vị trí.
+3. Khai khung giờ (mã ca) và nhóm ngày như ThaiBinhDuong.
+
+Tải file mẫu:
+- [Mau-bang-cham-cong-POURIN.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-POURIN.xlsx)
+
+### BUMHAN
+
+[![Mẫu BUMHAN: mỗi ngày 2 cột nhỏ — giờ thường và OT, không có mức tiền trong file](/guides/payroll/assets/ann_BUMHAN.png)](/guides/payroll/assets/ann_BUMHAN.png)
+
+1. Khung giờ: tạo 2 khung giờ — "Ca ngày" cho giờ thường và "Tăng ca" cho cột OT.
+2. Nhóm ngày: dùng cả Ngày thường và Ngày nghỉ — thứ 7, chủ nhật tính theo lịch.
+3. File không có mức tiền — tiền trả lấy từ bảng lương.
+4. Một file chỉ chứa 1 tháng công.
+
+Tải file mẫu:
+- [Mau-bang-cham-cong-BUMHAN.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-BUMHAN.xlsx)
+
+### EVA, EPE
+
+[![Mẫu EVA: sheet BCC, cột CCCD phải khớp hồ sơ](/guides/payroll/assets/ann_EVA.png)](/guides/payroll/assets/ann_EVA.png)
+
+Cả 2 file dùng sheet tên "BCC" (EPE: tên sheet dư dấu cách cuối — không sao; cột CCCD đứng ngay sau STT).
+1. Tạo bảng lương có các ô số tiền BẰNG NHAU với các số tiền trong hàng mức tiền của file (chênh 1 đồng vẫn chấp nhận).
+2. Giờ công → Ngày thường × Ca ngày; OT ngày thường → Ngày thường × Tăng ca; công ngày nghỉ → nhóm Ngày nghỉ.
+3. Tránh đặt 2 ô trùng số tiền — nếu trùng, hệ thống ưu tiên ô Ngày thường.
+
+Tải file mẫu:
+- [Mau-bang-cham-cong-EVA.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-EVA.xlsx)
+- [Mau-bang-cham-cong-EPE.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-EPE.xlsx)
+
+### SDS
+
+[![Mẫu SDS: dòng 4 là tiêu đề, dòng 5 là mức tiền, mỗi sheet là một vị trí](/guides/payroll/assets/ann_SDS.png)](/guides/payroll/assets/ann_SDS.png)
+
+1. Mỗi sheet tính công là 1 vị trí (Chia chọn, Lái xe nâng, Ca đêm…) — đặt tên vị trí ĐÚNG như tên sheet.
+2. Dòng 5 của file là mức tiền — các số này phải CÓ ĐỦ trong vị trí đó của bảng lương (chênh 1 đồng vẫn chấp nhận).
+3. Mỗi nhân viên chỉ nằm ở 1 sheet. Sheet không phải chấm công (Hỗ trợ khác…) bị bỏ qua.
+
+Tải file mẫu:
+- [Mau-bang-cham-cong-SDS.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-SDS.xlsx)
+
+### PQC
+
+[![Mẫu PQC: dòng 4 là tiêu đề, dòng 5 là mức tiền, ví dụ vị trí Có tay nghề](/guides/payroll/assets/ann_PQC.png)](/guides/payroll/assets/ann_PQC.png)
+
+Như SDS:
+1. Mỗi sheet = 1 vị trí (ví dụ Có tay nghề) — đặt tên ĐÚNG như tên sheet.
+2. Dòng 5 là mức tiền — phải có đủ trong bảng lương (chênh 1 đồng vẫn chấp nhận).
+
+Tải file mẫu:
+- [Mau-bang-cham-cong-PQC.xlsx](/guides/payroll/downloads/Mau-bang-cham-cong-PQC.xlsx)

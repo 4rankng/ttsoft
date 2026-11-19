@@ -20,6 +20,16 @@ RUN cd manual-starlight && pnpm install --frozen-lockfile
 COPY manual-starlight/ ./manual-starlight/
 RUN cd manual-starlight && pnpm build
 
+# Payroll manual (/guides/payroll) — same pattern: Astro Starlight project in
+# manual-payroll/, mirrored from the Payroll KB in the private Folio wiki.
+FROM node:22-alpine AS payroll-build
+WORKDIR /app
+RUN corepack enable
+COPY manual-payroll/package.json manual-payroll/pnpm-lock.yaml ./manual-payroll/
+RUN cd manual-payroll && pnpm install --frozen-lockfile
+COPY manual-payroll/ ./manual-payroll/
+RUN cd manual-payroll && pnpm build
+
 FROM nginx:alpine
 COPY deploy/nginx.conf /etc/nginx/conf.d/default.conf
 COPY deploy/ttsoft-headers.conf /etc/nginx/ttsoft-headers.conf
@@ -28,5 +38,8 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # /ttransport, where the Vite dist still carries the legacy manual pages;
 # deploy/nginx.conf 301s every legacy /ttransport URL to the new base.
 COPY --from=manual-build /app/manual-starlight/dist/ /usr/share/nginx/html/guides/ttransport/
+# Payroll manual output lands at /guides/payroll. Starlight emits a flat dist/
+# (no base prefix), so copy it into the payroll directory itself.
+COPY --from=payroll-build /app/manual-payroll/dist/ /usr/share/nginx/html/guides/payroll/
 # Drop the legacy single-page manual so no duplicate content is served.
 RUN rm -f /usr/share/nginx/html/ttransport.html
