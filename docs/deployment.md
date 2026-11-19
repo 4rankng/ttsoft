@@ -211,6 +211,10 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
   Location stays https in a single hop; query strings preserved.
 - Dockerfile copies the manual dist to `html/guides/ttransport/`; legacy root
   `ttransport.html` still dropped from the image.
+- Dependabot sweep: astro 7.4.6 → 7.4.13 in `manual-starlight` (`334967d`,
+  closes alert #18 — image-endpoint file read, fixed in 7.4.7); stale PRs
+  #3/#4 closed — postcss 8.5.32 and source-map-js 1.2.2 were already on main
+  from the 11-05 hardening. Open alerts and open Dependabot PRs: 0.
 - GHCR pipeline: `b3d2dc7` + `b2ec4361` (relative-Location fix) → workflow
   `docker` green; server pulled and restarted `ttsoft-web-1`.
 - Live checks: `/guides/ttransport`, `/bat-dau`,
