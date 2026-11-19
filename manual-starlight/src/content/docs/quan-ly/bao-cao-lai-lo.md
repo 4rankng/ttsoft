@@ -7,7 +7,7 @@ sidebar:
 
 Báo cáo tài chính phản ánh doanh thu, giá vốn chuyến xe, chi phí quản lý và lợi nhuận ròng toàn công ty.
 
-[![Báo cáo lãi lỗ với tiêu đề báo cáo và bộ chọn tháng được đánh số 1, 2](/ttransport/assets/giamdoc-finance.webp)](/ttransport/assets/giamdoc-finance.webp)
+[![Báo cáo lãi lỗ với tiêu đề báo cáo và bộ chọn tháng được đánh số 1, 2](/guides/ttransport/assets/giamdoc-finance.webp)](/guides/ttransport/assets/giamdoc-finance.webp)
 
 ***Báo cáo lãi lỗ.** Số ①② ứng với chọn danh mục và đổi tháng.*
 
@@ -27,6 +27,6 @@ Báo cáo tài chính phản ánh doanh thu, giá vốn chuyến xe, chi phí qu
 **Công nợ khách tính gồm VAT** (dùng cho phiếu thu, giấy báo nợ); **Lãi/lỗ và báo cáo tính chưa VAT** (lãi gộp, phân chia lợi nhuận). Cùng một chuyến, hai số này khác nhau đúng phần thuế — không lấy số này đi khớp số kia.
 :::
 
-[![Biểu đồ doanh thu và lợi nhuận gộp cùng cơ cấu chi phí trong Báo cáo lãi lỗ](/ttransport/assets/giamdoc-plo-chart.webp)](/ttransport/assets/giamdoc-plo-chart.webp)
+[![Biểu đồ doanh thu và lợi nhuận gộp cùng cơ cấu chi phí trong Báo cáo lãi lỗ](/guides/ttransport/assets/giamdoc-plo-chart.webp)](/guides/ttransport/assets/giamdoc-plo-chart.webp)
 
 ***Biểu đồ & cơ cấu chi phí** trong Báo cáo lãi lỗ — xem theo ngày, cộng dồn hoặc theo tháng.*

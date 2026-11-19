@@ -11,7 +11,7 @@ Hỗ trợ nhân viên giao nhận phụ trách chuyến tại cảng và kho b�
 
 Danh sách các chuyến hàng được giao phụ trách giao nhận trong kỳ.
 
-[![Danh sách Chuyến đi trên điện thoại với bộ chọn tháng và thẻ một chuyến được đánh số 1, 2](/ttransport/assets/giaonhan-trips.webp)](/ttransport/assets/giaonhan-trips.webp)
+[![Danh sách Chuyến đi trên điện thoại với bộ chọn tháng và thẻ một chuyến được đánh số 1, 2](/guides/ttransport/assets/giaonhan-trips.webp)](/guides/ttransport/assets/giaonhan-trips.webp)
 
 ***Danh sách chuyến đi.** Chọn tháng (①) và chạm vào thẻ chuyến (②).*
 
@@ -30,7 +30,7 @@ Danh sách các chuyến hàng được giao phụ trách giao nhận trong kỳ
 
 Gán người lái xe thực tế nhận lệnh tại hiện trường và bổ sung số container, số chì niêm phong (seal).
 
-[![Chi tiết chuyến trên điện thoại với nút Gán lái xe và khối Container được đánh số 1, 2](/ttransport/assets/giaonhan-trip-detail.webp)](/ttransport/assets/giaonhan-trip-detail.webp)
+[![Chi tiết chuyến trên điện thoại với nút Gán lái xe và khối Container được đánh số 1, 2](/guides/ttransport/assets/giaonhan-trip-detail.webp)](/guides/ttransport/assets/giaonhan-trip-detail.webp)
 
 ***Chi tiết chuyến giao nhận.** Gán lái xe (①) và khai báo container (②).*
 
@@ -49,7 +49,7 @@ Gán người lái xe thực tế nhận lệnh tại hiện trường và bổ 
 
 Lập đề xuất xin tạm ứng chi phí nâng hạ, bốc xếp hoặc cước đường bộ trước khi nhận hàng.
 
-[![Trang Tạm ứng trên điện thoại với nút Tạo yêu cầu được đánh số 1](/ttransport/assets/giaonhan-advances.webp)](/ttransport/assets/giaonhan-advances.webp)
+[![Trang Tạm ứng trên điện thoại với nút Tạo yêu cầu được đánh số 1](/guides/ttransport/assets/giaonhan-advances.webp)](/guides/ttransport/assets/giaonhan-advances.webp)
 
 ***Yêu cầu tạm ứng.** Bấm Tạo yêu cầu (①) để gửi đề xuất cho quản lý.*
 
@@ -59,7 +59,7 @@ Lập đề xuất xin tạm ứng chi phí nâng hạ, bốc xếp hoặc cư�
 yêu cầu ở trạng thái **Chờ duyệt** — quản lý duyệt hoặc từ chối kèm lý do. Nếu bị từ chối, sửa số tiền/lý do rồi gửi lại; nếu được duyệt, số tiền tính vào quỹ tạm ứng để bạn chi tiêu đường.
 :::
 
-[![Hộp thoại Tạo yêu cầu tạm ứng trên điện thoại với Số tiền, Lý do và nút Gửi yêu cầu được đánh số 1, 2, 3](/ttransport/assets/giaonhan-advance-request.webp)](/ttransport/assets/giaonhan-advance-request.webp)
+[![Hộp thoại Tạo yêu cầu tạm ứng trên điện thoại với Số tiền, Lý do và nút Gửi yêu cầu được đánh số 1, 2, 3](/guides/ttransport/assets/giaonhan-advance-request.webp)](/guides/ttransport/assets/giaonhan-advance-request.webp)
 
 ***Tạo yêu cầu tạm ứng.** Số ①②③ ứng với số tiền, lý do và nút gửi.*
 
@@ -67,7 +67,7 @@ yêu cầu ở trạng thái **Chờ duyệt** — quản lý duyệt hoặc t�
 
 Lập bảng quyết toán hoàn ứng chi phí thực tế phát sinh sau khi hoàn thành giao nhận chuyến.
 
-[![Trang Phiếu thanh toán trên điện thoại với nút Thêm phiếu được đánh số 1](/ttransport/assets/giaonhan-settlements.webp)](/ttransport/assets/giaonhan-settlements.webp)
+[![Trang Phiếu thanh toán trên điện thoại với nút Thêm phiếu được đánh số 1](/guides/ttransport/assets/giaonhan-settlements.webp)](/guides/ttransport/assets/giaonhan-settlements.webp)
 
 ***Phiếu thanh toán hoàn ứng.** Nhấn Thêm phiếu (①) để kê khai hóa đơn.*
 
@@ -110,6 +110,6 @@ Lập bảng quyết toán hoàn ứng chi phí thực tế phát sinh sau khi h
   <dt>Bản in</dt><dd>Số phiếu · ngày lập · nhân viên; mục "Tạm ứng đã nhận"; chi phí nhóm theo Nâng hạ · Hạ tầng · Thủ tục HQ · Cân hàng · Kiểm tra · Khác; nút In / Excel.</dd>
 </dl>
 
-[![Màn Tạo phiếu thanh toán trên điện thoại với Bước 1 chọn tạm ứng chưa quyết toán, Bước 2 chọn chi phí phát sinh, Tổng kết cân đối và nút Gửi phiếu được đánh số 1, 2, 3](/ttransport/assets/giaonhan-settlement-form.webp)](/ttransport/assets/giaonhan-settlement-form.webp)
+[![Màn Tạo phiếu thanh toán trên điện thoại với Bước 1 chọn tạm ứng chưa quyết toán, Bước 2 chọn chi phí phát sinh, Tổng kết cân đối và nút Gửi phiếu được đánh số 1, 2, 3](/guides/ttransport/assets/giaonhan-settlement-form.webp)](/guides/ttransport/assets/giaonhan-settlement-form.webp)
 
 ***Tạo phiếu thanh toán.** Số ①②③ ứng với hai bước chọn nguồn chi phí và khối tổng kết cân đối trước khi gửi phiếu.*

@@ -29,8 +29,9 @@ deploy:
 	gh run watch $$RUN --exit-status
 	ssh root@bot.tingting.vip 'cd /opt/ttsoft && docker compose pull web && docker compose up -d --remove-orphans'
 	@sleep 2
-	@curl -fsS -o /dev/null -w 'tingtingsoft.vn/ttransport -> %{http_code}\n' https://tingtingsoft.vn/ttransport
-	@curl -fsS -o /dev/null -w 'tingtingsoft.vn/          -> %{http_code}\n' https://tingtingsoft.vn/
+	@curl -fsS -o /dev/null -w 'tingtingsoft.vn/guides/ttransport -> %{http_code}\n' https://tingtingsoft.vn/guides/ttransport
+	@curl -fsS -o /dev/null -w 'tingtingsoft.vn/ttransport (301)  -> %{http_code}\n' https://tingtingsoft.vn/ttransport
+	@curl -fsS -o /dev/null -w 'tingtingsoft.vn/                   -> %{http_code}\n' https://tingtingsoft.vn/
 
 # Roll prod back to a previously published image, e.g.
 #   make rollback IMAGE=ghcr.io/4rankng/ttsoft:sha-1a2b3c4

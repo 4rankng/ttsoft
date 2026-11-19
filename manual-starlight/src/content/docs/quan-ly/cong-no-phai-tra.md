@@ -7,7 +7,7 @@ sidebar:
 
 Theo dõi công nợ phải trả cho nhà cung cấp xăng dầu, sửa chữa xe và dịch vụ logistics bên ngoài.
 
-[![Công nợ phải trả với bộ lọc nhóm chi phí Tất cả, Xăng dầu, Phí dịch vụ được đánh số 1](/ttransport/assets/giamdoc-payables.webp)](/ttransport/assets/giamdoc-payables.webp)
+[![Công nợ phải trả với bộ lọc nhóm chi phí Tất cả, Xăng dầu, Phí dịch vụ được đánh số 1](/guides/ttransport/assets/giamdoc-payables.webp)](/guides/ttransport/assets/giamdoc-payables.webp)
 
 ***Công nợ phải trả.** Số ① ứng với bộ lọc nhóm nhà cung cấp.*
 
@@ -23,6 +23,6 @@ Theo dõi công nợ phải trả cho nhà cung cấp xăng dầu, sửa chữa 
   <dt>Thanh toán</dt><dd>Ghi phiếu chi từng NCC, phân bổ FIFO như phía thu; aging 4 bucket như phải thu; xuất file đối chiếu.</dd>
 </dl>
 
-[![Chi tiết công nợ nhà cung cấp với bảng kê đối chiếu xăng dầu](/ttransport/assets/giamdoc-supplier-detail.webp)](/ttransport/assets/giamdoc-supplier-detail.webp)
+[![Chi tiết công nợ nhà cung cấp với bảng kê đối chiếu xăng dầu](/guides/ttransport/assets/giamdoc-supplier-detail.webp)](/guides/ttransport/assets/giamdoc-supplier-detail.webp)
 
 ***Chi tiết nhà cung cấp** — bảng kê công nợ phải trả và đối chiếu từng lần bơm dầu với file NCC gửi (khớp / lệch lít / lệch tiền được chỉ rõ).*

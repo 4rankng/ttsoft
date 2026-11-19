@@ -7,7 +7,7 @@ sidebar:
 
 Nhấn nút **Thêm chuyến** từ Kế hoạch vận chuyển hoặc nút **Tạo chuyến mới** từ màn hình Điều vận để mở biểu mẫu.
 
-[![Form Tạo lệnh vận chuyển mới với ô Khách hàng, ô Tuyến đường và nút Tạo lệnh được đánh số 1, 2, 3](/ttransport/assets/giamdoc-trip-new.webp)](/ttransport/assets/giamdoc-trip-new.webp)
+[![Form Tạo lệnh vận chuyển mới với ô Khách hàng, ô Tuyến đường và nút Tạo lệnh được đánh số 1, 2, 3](/guides/ttransport/assets/giamdoc-trip-new.webp)](/guides/ttransport/assets/giamdoc-trip-new.webp)
 
 ***Form tạo lệnh vận chuyển.** Số ①②③ ứng với các trường cần điền.*
 

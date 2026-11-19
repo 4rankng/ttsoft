@@ -7,7 +7,7 @@ sidebar:
 
 Ghi nhận biên bản vi phạm quy chế an toàn, trễ chuyến của lái xe có ảnh hưởng đến bảng lương kỳ đó.
 
-[![Trang Kỷ luật với nút Lập biên bản và Xuất báo cáo được đánh số 1, 2](/ttransport/assets/giamdoc-penalties.webp)](/ttransport/assets/giamdoc-penalties.webp)
+[![Trang Kỷ luật với nút Lập biên bản và Xuất báo cáo được đánh số 1, 2](/guides/ttransport/assets/giamdoc-penalties.webp)](/guides/ttransport/assets/giamdoc-penalties.webp)
 
 ***Trang Kỷ luật.** Số ①② ứng với lập mới và xuất báo cáo.*
 
@@ -23,6 +23,6 @@ Ghi nhận biên bản vi phạm quy chế an toàn, trễ chuyến của lái x
   <dt>Lái xe thấy gì</dt><dd>Trên cổng Lái xe: banner tháng không vi phạm *"Bạn đang chấp hành tốt nội quy"*; có vi phạm hiện sổ 12 tháng gần nhất kèm tổng khấu trừ tháng.</dd>
 </dl>
 
-[![Hộp thoại Lập biên bản kỷ luật với các trường Lái xe vi phạm, Mã lệnh, Lý do danh mục, Lý do chi tiết, Số tiền khấu trừ, Ngày vi phạm và nút Xác nhận được đánh số 1, 2, 3, 4](/ttransport/assets/giamdoc-penalty-form.webp)](/ttransport/assets/giamdoc-penalty-form.webp)
+[![Hộp thoại Lập biên bản kỷ luật với các trường Lái xe vi phạm, Mã lệnh, Lý do danh mục, Lý do chi tiết, Số tiền khấu trừ, Ngày vi phạm và nút Xác nhận được đánh số 1, 2, 3, 4](/guides/ttransport/assets/giamdoc-penalty-form.webp)](/guides/ttransport/assets/giamdoc-penalty-form.webp)
 
 ***Lập biên bản kỷ luật.** Số ①②③④ ứng với nhóm trường của biên bản và nút xác nhận.*

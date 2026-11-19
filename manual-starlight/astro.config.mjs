@@ -3,12 +3,12 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 // TTransport manual — rebuilt with Astro Starlight, replacing the hand-written
-// static .html pages in /ttransport. The site URL scheme is preserved:
-// every page keeps its /ttransport/... path (build.format 'file' emits
+// static .html pages in /ttransport. The manual now lives under /guides:
+// every page keeps its /guides/ttransport/... path (build.format 'file' emits
 // quan-ly.html style files that nginx try_files resolves extensionless).
 export default defineConfig({
   site: 'https://tingtingsoft.vn',
-  base: '/ttransport',
+  base: '/guides/ttransport',
   trailingSlash: 'never',
   build: {
     format: 'file',
@@ -33,7 +33,7 @@ export default defineConfig({
       head: [
         {
           tag: 'script',
-          attrs: { type: 'module', src: '/ttransport/lightbox.js' },
+          attrs: { type: 'module', src: '/guides/ttransport/lightbox.js' },
         },
       ],
       locales: {

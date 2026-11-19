@@ -7,7 +7,7 @@ sidebar:
 
 Duyệt các yêu cầu tạm ứng chi phí đường bộ hoặc nhiên liệu do nhân viên giao nhận gửi lên trước chuyến đi.
 
-[![Trang Quản lý tạm ứng với nút Duyệt trên thẻ yêu cầu và bộ chọn tháng được đánh số 1, 2](/ttransport/assets/giamdoc-advances.webp)](/ttransport/assets/giamdoc-advances.webp)
+[![Trang Quản lý tạm ứng với nút Duyệt trên thẻ yêu cầu và bộ chọn tháng được đánh số 1, 2](/guides/ttransport/assets/giamdoc-advances.webp)](/guides/ttransport/assets/giamdoc-advances.webp)
 
 ***Quản lý tạm ứng.** Số ①② ứng với duyệt và đổi kỳ tra cứu.*
 
@@ -23,6 +23,6 @@ Duyệt các yêu cầu tạm ứng chi phí đường bộ hoặc nhiên liệu
   <dt>Nộp lại tiền</dt><dd>Khi lập phiếu hoàn ứng, nếu giao nhận còn dư tiền: số dư <strong>không thu về</strong> — hệ thống tự tạo <strong>yêu cầu tạm ứng mới đã duyệt</strong> mang số dư sang kỳ sau.</dd>
 </dl>
 
-[![Trang Quản lý tạm ứng kỳ 10 với các yêu cầu và trạng thái](/ttransport/assets/giamdoc-advance-detail.webp)](/ttransport/assets/giamdoc-advance-detail.webp)
+[![Trang Quản lý tạm ứng kỳ 10 với các yêu cầu và trạng thái](/guides/ttransport/assets/giamdoc-advance-detail.webp)](/guides/ttransport/assets/giamdoc-advance-detail.webp)
 
 ***Quản lý tạm ứng** theo kỳ — duyệt / từ chối kèm lý do; tồn tạm ứng cập nhật ngay khi duyệt.*

@@ -5,7 +5,7 @@ sidebar:
   label: Tổng quan
 ---
 
-[![Trang Tổng quan với khối Việc cần xử lý và Tình trạng đội xe được đánh số 1, 2](/ttransport/assets/giamdoc-dashboard.webp)](/ttransport/assets/giamdoc-dashboard.webp)
+[![Trang Tổng quan với khối Việc cần xử lý và Tình trạng đội xe được đánh số 1, 2](/guides/ttransport/assets/giamdoc-dashboard.webp)](/guides/ttransport/assets/giamdoc-dashboard.webp)
 
 ***Trang Tổng quan.** Số ①② ứng với các việc cần rà soát mỗi ngày.*
 

@@ -21,7 +21,7 @@ Giao diện kế toán tập trung hoàn toàn vào công việc sổ sách: đ�
 
 Menu kế toán được tối ưu tinh gọn: ẩn các mục điều vận và tài khoản người dùng để tập trung vào số liệu tài chính.
 
-[![Menu của kế toán với các mục Kế hoạch vận chuyển, Bảng số liệu và bộ chọn tháng được đánh số 1, 2, 3](/ttransport/assets/ketoan-nav.webp)](/ttransport/assets/ketoan-nav.webp)
+[![Menu của kế toán với các mục Kế hoạch vận chuyển, Bảng số liệu và bộ chọn tháng được đánh số 1, 2, 3](/guides/ttransport/assets/ketoan-nav.webp)](/guides/ttransport/assets/ketoan-nav.webp)
 
 ***Menu làm việc của Kế toán.** Số ①–③ ứng với các vị trí nghiệp vụ trọng tâm.*
 
@@ -33,7 +33,7 @@ Menu kế toán được tối ưu tinh gọn: ẩn các mục điều vận và
 
 Hỗ trợ ghi thêm các dòng phát sinh tay, đối soát sổ cái theo từng khách hàng hoặc nhà cung cấp và xuất file lưu trữ.
 
-[![Bảng số liệu của kế toán với tab Sổ cái và nút Xuất Excel được đánh số 1, 2](/ttransport/assets/ketoan-ledger.webp)](/ttransport/assets/ketoan-ledger.webp)
+[![Bảng số liệu của kế toán với tab Sổ cái và nút Xuất Excel được đánh số 1, 2](/guides/ttransport/assets/ketoan-ledger.webp)](/guides/ttransport/assets/ketoan-ledger.webp)
 
 ***Bảng số liệu góc nhìn Kế toán.** Số ①② ứng với chuyển tab sổ và xuất file.*
 
@@ -48,7 +48,7 @@ kế toán xem cùng các trang Bảng số liệu, Tài chính, Danh mục như
 
 Kế toán theo dõi tiến độ thu tiền từ khách hàng, tạo đợt thanh toán và xuất bảng kê công nợ đối soát định kỳ.
 
-[![Công nợ phải thu với thẻ một khách hàng được đánh số 1](/ttransport/assets/ketoan-debt.webp)](/ttransport/assets/ketoan-debt.webp)
+[![Công nợ phải thu với thẻ một khách hàng được đánh số 1](/guides/ttransport/assets/ketoan-debt.webp)](/guides/ttransport/assets/ketoan-debt.webp)
 
 ***Công nợ phải thu.** Bấm vào thẻ khách hàng (①) để ghi nhận thanh toán.*
 
@@ -66,7 +66,7 @@ Kế toán theo dõi tiến độ thu tiền từ khách hàng, tạo đợt tha
 
 Sau khi rà soát ngày công, chuyến chạy và các khoản trừ kỷ luật, kế toán tiến hành xác nhận đã trả lương.
 
-[![Trang lương của kế toán với nút Ghi thanh toán được đánh số 1](/ttransport/assets/ketoan-salary.webp)](/ttransport/assets/ketoan-salary.webp)
+[![Trang lương của kế toán với nút Ghi thanh toán được đánh số 1](/guides/ttransport/assets/ketoan-salary.webp)](/guides/ttransport/assets/ketoan-salary.webp)
 
 ***Lương & chấm công.** Bấm Ghi thanh toán (①) sau khi chuyển khoản cho lái xe.*
 
@@ -80,7 +80,7 @@ phiếu chuyển sang **Đã duyệt** và trừ vào tồn tạm ứng; các kh
 
 Kiểm tra tính hợp lệ của hóa đơn, vé cầu đường và chi phí phát sinh trước khi duyệt hoàn tiền cho giao nhận.
 
-[![Trang Duyệt hoàn ứng của kế toán với tab Chờ xử lý được đánh số 1](/ttransport/assets/ketoan-advsettle.webp)](/ttransport/assets/ketoan-advsettle.webp)
+[![Trang Duyệt hoàn ứng của kế toán với tab Chờ xử lý được đánh số 1](/guides/ttransport/assets/ketoan-advsettle.webp)](/guides/ttransport/assets/ketoan-advsettle.webp)
 
 ***Duyệt hoàn ứng.** Mở tab Chờ xử lý (①) để đối soát hóa đơn chứng từ.*
 
@@ -105,10 +105,10 @@ Kiểm tra tính hợp lệ của hóa đơn, vé cầu đường và chi phí p
   <dt>Ghi thanh toán</dt><dd>Ghi số đã trả cho lái — trừ vào "Lương chưa thanh toán" mà lái xe thấy trên cổng của mình.</dd>
 </dl>
 
-[![Sổ chi tiết công nợ khách hàng với thẻ tổng quan, phân bố tuổi nợ và nút Ghi nhận thanh toán](/ttransport/assets/giamdoc-debt-customer.webp)](/ttransport/assets/giamdoc-debt-customer.webp)
+[![Sổ chi tiết công nợ khách hàng với thẻ tổng quan, phân bố tuổi nợ và nút Ghi nhận thanh toán](/guides/ttransport/assets/giamdoc-debt-customer.webp)](/guides/ttransport/assets/giamdoc-debt-customer.webp)
 
 ***Sổ chi tiết khách hàng.** Kế toán ghi nhận thanh toán ngay tại đây — số dư và bucket tuổi nợ tự cập nhật.*
 
-[![Hộp thoại Ghi nhận thanh toán với Số tiền nhận, Ngày nhận, Mã biên lai và nút Ghi nhận](/ttransport/assets/giamdoc-debt-receipt.webp)](/ttransport/assets/giamdoc-debt-receipt.webp)
+[![Hộp thoại Ghi nhận thanh toán với Số tiền nhận, Ngày nhận, Mã biên lai và nút Ghi nhận](/guides/ttransport/assets/giamdoc-debt-receipt.webp)](/guides/ttransport/assets/giamdoc-debt-receipt.webp)
 
 ***Ghi nhận thanh toán.** Số tiền phân bổ FIFO vào các chuyến còn nợ, cũ nhất trước; mã biên lai đối chiếu sao kê.*

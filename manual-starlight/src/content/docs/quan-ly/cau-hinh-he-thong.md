@@ -7,7 +7,7 @@ sidebar:
 
 Thiết lập thông tin doanh nghiệp, định mức tiêu hao nhiên liệu, đơn giá cự ly và phụ cấp đi đường.
 
-[![Trang Cấu hình hệ thống với thẻ Thông tin công ty được khoanh đỏ đánh số 1](/ttransport/assets/giamdoc-config.webp)](/ttransport/assets/giamdoc-config.webp)
+[![Trang Cấu hình hệ thống với thẻ Thông tin công ty được khoanh đỏ đánh số 1](/guides/ttransport/assets/giamdoc-config.webp)](/guides/ttransport/assets/giamdoc-config.webp)
 
 ***Cấu hình hệ thống.** Bấm vào thẻ để cập nhật thông số tương ứng (①).*
 
@@ -26,6 +26,6 @@ Thay đổi định mức nhiên liệu hoặc đơn giá sẽ áp dụng cho to
   <dt>Phí quản lý & kỳ lương</dt><dd>Phí quản lý trừ vào lợi nhuận ròng; kỳ lương mặc định tháng dương lịch, cấu hình được kỳ riêng.</dd>
 </dl>
 
-[![Trang cấu hình Định mức nhiên liệu theo xe, loại tải và loại tuyến](/ttransport/assets/giamdoc-config-norm.webp)](/ttransport/assets/giamdoc-config-norm.webp)
+[![Trang cấu hình Định mức nhiên liệu theo xe, loại tải và loại tuyến](/guides/ttransport/assets/giamdoc-config-norm.webp)](/guides/ttransport/assets/giamdoc-config-norm.webp)
 
 ***Cấu hình Định mức nhiên liệu** — theo xe, loại tải (vỏ rỗng / dưới 20t / trên 20t) và loại tuyến (đồng bằng / núi).*

@@ -1,9 +1,9 @@
 // Post-build normalization for the TransTing Starlight manual.
 //
 // Starlight with build.format 'file' emits nav links, canonical URLs and
-// sitemap entries with a .html suffix (e.g. /ttransport/bat-dau.html). The
+// sitemap entries with a .html suffix (e.g. /guides/ttransport/bat-dau.html). The
 // legacy manual served the same paths extensionless (nginx try_files resolves
-// /ttransport/bat-dau -> bat-dau.html), and the old pages carried
+// /guides/ttransport/bat-dau -> bat-dau.html), and the old pages carried
 // extensionless canonical URLs. To keep the public URL space identical to the
 // previous site, rewrite every self-referential ".html" URL emitted inside
 // dist/ back to the extensionless form. File names on disk are untouched —
@@ -13,32 +13,32 @@
 //   href=".../x.html"      — Starlight nav, content links to manual pages
 //   src=".../x.html"       — none expected, rewritten for safety
 //   <loc>.../x.html</loc>  — sitemap.xml entries
-// Only URLs under the /ttransport base are rewritten.
+// Only URLs under the /guides/ttransport base are rewritten.
 import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const dist = new URL('../dist', import.meta.url).pathname;
-const BASE = '/ttransport';
+const BASE = '/guides/ttransport';
 
-// /ttransport/bat-dau.html -> /ttransport/bat-dau  (also matches the absolute
-// form used by canonical/og:url: https://tingtingsoft.vn/ttransport/bat-dau.html)
+// /guides/ttransport/bat-dau.html -> /guides/ttransport/bat-dau  (also matches the absolute
+// form used by canonical/og:url: https://tingtingsoft.vn/guides/ttransport/bat-dau.html)
 const ORIGIN = 'https://tingtingsoft.vn';
 const hrefRe = new RegExp(
   `((?:href|src|content)=")((?:${ORIGIN.replace(/\./g, '\\.')})?)${BASE}/([^"?#]+?)\\.html(")`,
   'g',
 );
-// <loc>https://tingtingsoft.vn/ttransport/bat-dau.html</loc>
+// <loc>https://tingtingsoft.vn/guides/ttransport/bat-dau.html</loc>
 const locRe = new RegExp(`(<loc>${BASE.replace(/\//g, '\\/')}/[^<]+?)\\.html(</loc>)`, 'g');
 
 let files = 0;
 let links = 0;
 let images = 0;
 
-// Screenshots are raw public/ assets (src="/ttransport/assets/*.webp"), so
+// Screenshots are raw public/ assets (src="/guides/ttransport/assets/*.webp"), so
 // Astro never adds dimensions or lazy-loading itself. Inject them here so
 // every screenshot reserves layout space and loads off-thread.
-//   <img src="/ttransport/assets/foo.webp" ...>  (markdown-rendered images)
-const imgRe = /<img\b[^>]*\bsrc="(\/ttransport\/assets\/[^"?#]+\.webp)"[^>]*>/g;
+//   <img src="/guides/ttransport/assets/foo.webp" ...>  (markdown-rendered images)
+const imgRe = /<img\b[^>]*\bsrc="(\/guides\/ttransport\/assets\/[^"?#]+\.webp)"[^>]*>/g;
 // Astro strips the base from output paths: public/assets lands at dist/assets.
 const assetsDir = join(dist, 'assets');
 const assetsPrefix = `${BASE}/assets/`;
@@ -111,7 +111,7 @@ function walk(dir) {
     let count = 0;
     text = text.replace(hrefRe, (m, pre, origin, path, post) => {
       count++;
-      // Home page: .../index.html -> /ttransport/
+      // Home page: .../index.html -> /guides/ttransport/
       const tail = path === 'index' ? '' : path;
       return `${pre}${origin ?? ''}${BASE}/${tail}${post}`;
     });

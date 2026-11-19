@@ -7,7 +7,7 @@ sidebar:
 
 Tính toán phân chia lợi nhuận cho các cổ đông theo tỷ lệ góp vốn sau khi đã hoàn thành quyết toán quý.
 
-[![Trang Phân chia lợi nhuận với khối Quyết toán và Chốt Quý, khối Phân chia theo tỷ lệ cổ phần được đánh số 1, 2](/ttransport/assets/giamdoc-profit.webp)](/ttransport/assets/giamdoc-profit.webp)
+[![Trang Phân chia lợi nhuận với khối Quyết toán và Chốt Quý, khối Phân chia theo tỷ lệ cổ phần được đánh số 1, 2](/guides/ttransport/assets/giamdoc-profit.webp)](/guides/ttransport/assets/giamdoc-profit.webp)
 
 ***Phân chia lợi nhuận.** Số ①② ứng với quyết toán và bảng phân chia.*
 
@@ -24,6 +24,6 @@ Tính toán phân chia lợi nhuận cho các cổ đông theo tỷ lệ góp v�
   <dt>Kiểm soát chốt</dt><dd>Tổng các dòng chia phải <strong>đúng bằng</strong> tổng lãi các xe — lệch đồng nào hệ thống cũng không cho chốt.</dd>
 </dl>
 
-[![Màn Phân chia lợi nhuận với khối Quyết toán chốt quý và bảng phân chia theo tỷ lệ cổ phần](/ttransport/assets/giamdoc-split-preview.webp)](/ttransport/assets/giamdoc-split-preview.webp)
+[![Màn Phân chia lợi nhuận với khối Quyết toán chốt quý và bảng phân chia theo tỷ lệ cổ phần](/guides/ttransport/assets/giamdoc-split-preview.webp)](/guides/ttransport/assets/giamdoc-split-preview.webp)
 
 ***Quyết toán & Chốt Quý** và bảng phân chia theo tỷ lệ góp vốn của từng chủ xe.*

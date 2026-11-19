@@ -7,7 +7,7 @@ sidebar:
 
 Sau khi kết thúc chuyến đi, nhân viên gửi phiếu hoàn ứng đối soát chi phí thực tế so với tiền tạm ứng.
 
-[![Trang Duyệt hoàn ứng với tab Chờ xử lý và bộ chọn tháng được đánh số 1, 2](/ttransport/assets/giamdoc-advsettle.webp)](/ttransport/assets/giamdoc-advsettle.webp)
+[![Trang Duyệt hoàn ứng với tab Chờ xử lý và bộ chọn tháng được đánh số 1, 2](/guides/ttransport/assets/giamdoc-advsettle.webp)](/guides/ttransport/assets/giamdoc-advsettle.webp)
 
 ***Duyệt hoàn ứng.** Số ①② ứng với tab chờ xử lý và đổi tháng.*
 
@@ -35,6 +35,6 @@ Sau khi kết thúc chuyến đi, nhân viên gửi phiếu hoàn ứng đối s
 số phiếu · ngày lập · nhân viên; mục "Tạm ứng đã nhận" (tiền, nội dung, ngày, tổng); chi phí nhóm theo loại **Nâng hạ · Hạ tầng · Thủ tục HQ · Cân hàng · Kiểm tra · Khác**; nút In / Excel.
 :::
 
-[![Trang Duyệt hoàn ứng với các phiếu thanh toán chờ xử lý và đã duyệt](/ttransport/assets/giamdoc-settlement-view.webp)](/ttransport/assets/giamdoc-settlement-view.webp)
+[![Trang Duyệt hoàn ứng với các phiếu thanh toán chờ xử lý và đã duyệt](/guides/ttransport/assets/giamdoc-settlement-view.webp)](/guides/ttransport/assets/giamdoc-settlement-view.webp)
 
 ***Duyệt hoàn ứng** theo kỳ — kiểm tra chứng từ từng phiếu rồi duyệt; phiếu đã duyệt trừ vào tồn tạm ứng.*

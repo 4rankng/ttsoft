@@ -11,7 +11,7 @@ Ba bước chuẩn bị cần thiết cho mọi tài khoản: đăng nhập hệ
 
 Mở trình duyệt (Chrome, Edge, Safari…) và truy cập địa chỉ **https://demo.tingting.vip/**. Đăng nhập bằng tài khoản được cấp.
 
-[![Màn hình đăng nhập TTransport với ô tài khoản, ô mật khẩu và nút Đăng nhập được đánh số 1, 2, 3 bằng chú thích đỏ](/ttransport/assets/login.webp)](/ttransport/assets/login.webp)
+[![Màn hình đăng nhập TTransport với ô tài khoản, ô mật khẩu và nút Đăng nhập được đánh số 1, 2, 3 bằng chú thích đỏ](/guides/ttransport/assets/login.webp)](/guides/ttransport/assets/login.webp)
 
 ***Màn hình đăng nhập.** Số ①②③ trên ảnh ứng với các bước bên dưới.*
 
@@ -27,7 +27,7 @@ Quên mật khẩu hoặc bị khóa tài khoản? Vui lòng liên hệ quản l
 
 Menu bên trái chia theo nhóm nghiệp vụ: **Vận hành, Nhân sự, Tài chính, Danh mục, Hệ thống**. Nhóm đang chọn sẽ giữ mở khi chuyển giữa các trang.
 
-[![Trang Kế hoạch vận chuyển với menu trái nhóm Vận hành, mục Điều vận, Bảng số liệu và bộ chọn tháng được đánh số 1 đến 4](/ttransport/assets/giamdoc-nav.webp)](/ttransport/assets/giamdoc-nav.webp)
+[![Trang Kế hoạch vận chuyển với menu trái nhóm Vận hành, mục Điều vận, Bảng số liệu và bộ chọn tháng được đánh số 1 đến 4](/guides/ttransport/assets/giamdoc-nav.webp)](/guides/ttransport/assets/giamdoc-nav.webp)
 
 ***Menu trái và bộ chọn kỳ dữ liệu.** Số ①–④ ứng với các bước dưới đây.*
 
@@ -51,14 +51,14 @@ Mẹo: trên máy tính, nhấn `Ctrl/Cmd + B` để thu gọn menu giúp mở r
 
 Tên và vai trò của bạn luôn hiển thị ở góc trên bên phải. Mọi thao tác tài khoản bắt đầu từ đây.
 
-[![Menu tài khoản mở từ góc phải với các mục Đổi mật khẩu và Đăng xuất được đánh số 1, 2](/ttransport/assets/user-menu.webp)](/ttransport/assets/user-menu.webp)
+[![Menu tài khoản mở từ góc phải với các mục Đổi mật khẩu và Đăng xuất được đánh số 1, 2](/guides/ttransport/assets/user-menu.webp)](/guides/ttransport/assets/user-menu.webp)
 
 ***Menu tài khoản.** Số ①② ứng với các bước 1 và 2.*
 
 1. Nhấn vào tên bạn ở góc phải và chọn **Đổi mật khẩu**.
 2. Chọn **Đăng xuất** khi rời khỏi máy tính dùng chung.
 
-[![Cửa sổ Đổi mật khẩu với ô Mật khẩu hiện tại và nút Đổi mật khẩu được đánh số 1, 2](/ttransport/assets/password-modal.webp)](/ttransport/assets/password-modal.webp)
+[![Cửa sổ Đổi mật khẩu với ô Mật khẩu hiện tại và nút Đổi mật khẩu được đánh số 1, 2](/guides/ttransport/assets/password-modal.webp)](/guides/ttransport/assets/password-modal.webp)
 
 ***Cửa sổ đổi mật khẩu.** Số ①② ứng với bước nhập và lưu.*
 

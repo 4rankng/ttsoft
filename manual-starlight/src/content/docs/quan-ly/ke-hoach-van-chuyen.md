@@ -7,21 +7,21 @@ sidebar:
 
 Danh sách toàn bộ chuyến đi theo kỳ tháng. Mỗi dòng tương ứng một lệnh vận chuyển — bấm vào để xem chi tiết.
 
-[![Danh sách Kế hoạch vận chuyển với bộ chọn tháng và một dòng chuyến được đánh số 1, 2](/ttransport/assets/giamdoc-trips.webp)](/ttransport/assets/giamdoc-trips.webp)
+[![Danh sách Kế hoạch vận chuyển với bộ chọn tháng và một dòng chuyến được đánh số 1, 2](/guides/ttransport/assets/giamdoc-trips.webp)](/guides/ttransport/assets/giamdoc-trips.webp)
 
 ***Danh sách chuyến.** Số ①② ứng với các bước.*
 
 1. Chọn **tháng** cần tra cứu trên thanh trên cùng.
 2. Bấm vào **dòng chuyến đi** để xem thông tin chi tiết (mã chuyến, tuyến đường, lái xe, chi phí).
 
-[![Chi tiết chuyến với nút Chỉnh sửa và khối Phân tích tài chính được đánh số 1, 2](/ttransport/assets/giamdoc-trip-detail.webp)](/ttransport/assets/giamdoc-trip-detail.webp)
+[![Chi tiết chuyến với nút Chỉnh sửa và khối Phân tích tài chính được đánh số 1, 2](/guides/ttransport/assets/giamdoc-trip-detail.webp)](/guides/ttransport/assets/giamdoc-trip-detail.webp)
 
 ***Chi tiết chuyến đi.** Số ①② ứng với các bước thao tác chỉnh sửa.*
 
 1. Nhấn **Chỉnh sửa** để cập nhật thông tin chuyến (tuyến đường, xe đầu kéo, lái xe, chi phí) — việc thay đổi phương tiện hoặc lái xe giữa hành trình cũng thực hiện tại đây.
 2. Khối **Phân tích tài chính** hiển thị doanh thu, chi phí phát sinh và lợi nhuận của riêng chuyến đó.
 
-[![Trang Sửa lệnh vận chuyển với nhóm trường khách hàng, tuyến, xe, lái xe, chặng hành trình và bảng Doanh thu & Lợi nhuận trực tiếp được đánh số 1, 2, 3](/ttransport/assets/giamdoc-trip-edit.webp)](/ttransport/assets/giamdoc-trip-edit.webp)
+[![Trang Sửa lệnh vận chuyển với nhóm trường khách hàng, tuyến, xe, lái xe, chặng hành trình và bảng Doanh thu & Lợi nhuận trực tiếp được đánh số 1, 2, 3](/guides/ttransport/assets/giamdoc-trip-edit.webp)](/guides/ttransport/assets/giamdoc-trip-edit.webp)
 
 ***Sửa lệnh vận chuyển.** Số ①②③ ứng với các nhóm thông tin và bảng kết quả trực tiếp.*
 

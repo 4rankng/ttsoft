@@ -7,7 +7,7 @@ sidebar:
 
 Bảng tổng hợp chi tiết theo từng dòng lệnh — phục vụ đối soát số liệu vận hành và xuất dữ liệu ra file Excel.
 
-[![Bảng số liệu với nút Thêm dòng và Xuất Excel được đánh số 1, 2](/ttransport/assets/giamdoc-ledger.webp)](/ttransport/assets/giamdoc-ledger.webp)
+[![Bảng số liệu với nút Thêm dòng và Xuất Excel được đánh số 1, 2](/guides/ttransport/assets/giamdoc-ledger.webp)](/guides/ttransport/assets/giamdoc-ledger.webp)
 
 ***Bảng số liệu.** Số ①② ứng với các chức năng bổ sung và xuất file.*
 
@@ -29,6 +29,6 @@ Bảng tổng hợp chi tiết theo từng dòng lệnh — phục vụ đối s
 Quản lý, Quản trị viên **hoặc Kế toán** — nhập/chốt số thực tế khi chuyến Đang chạy và sau khi xong: số lít dầu từng lần bơm (kèm giá tại trụ), tiền đi đường, lương chuyến, vé. Lệnh **Đã khóa / Đã hủy chỉ đọc** (Đã khóa dùng Điều chỉnh hoặc Mở khóa).
 :::
 
-[![Bảng số liệu mở chi tiết một dòng lệnh vận chuyển](/ttransport/assets/giamdoc-ledger-detail.webp)](/ttransport/assets/giamdoc-ledger-detail.webp)
+[![Bảng số liệu mở chi tiết một dòng lệnh vận chuyển](/guides/ttransport/assets/giamdoc-ledger-detail.webp)](/guides/ttransport/assets/giamdoc-ledger-detail.webp)
 
 ***Mở một dòng lệnh** trong Bảng số liệu để xem chi tiết theo container (seal, khối lượng, loại).*

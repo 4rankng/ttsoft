@@ -7,7 +7,7 @@ sidebar:
 
 Bảng tổng hợp tiền công theo chuyến, ngày công, phụ cấp và các khoản trừ kỷ luật của từng lái xe trong tháng.
 
-[![Trang Lương và Chấm công với nút Ghi thanh toán và dòng lương một nhân viên được đánh số 1, 2](/ttransport/assets/giamdoc-salary.webp)](/ttransport/assets/giamdoc-salary.webp)
+[![Trang Lương và Chấm công với nút Ghi thanh toán và dòng lương một nhân viên được đánh số 1, 2](/guides/ttransport/assets/giamdoc-salary.webp)](/guides/ttransport/assets/giamdoc-salary.webp)
 
 ***Lương & chấm công.** Số ①② ứng với các thao tác đối soát.*
 

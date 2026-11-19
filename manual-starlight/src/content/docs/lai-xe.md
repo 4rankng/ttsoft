@@ -11,7 +11,7 @@ Giao diện tối ưu hóa cho màn hình điện thoại di động: giúp lái
 
 Màn hình đầu tiên sau khi đăng nhập: hiển thị toàn bộ chuyến đi được điều vận phân công trong tháng.
 
-[![Trang Hành trình trên điện thoại với chip trạng thái Đang chạy và bộ chọn tháng được đánh số 1, 2](/ttransport/assets/laixe-mytrips.webp)](/ttransport/assets/laixe-mytrips.webp)
+[![Trang Hành trình trên điện thoại với chip trạng thái Đang chạy và bộ chọn tháng được đánh số 1, 2](/guides/ttransport/assets/laixe-mytrips.webp)](/guides/ttransport/assets/laixe-mytrips.webp)
 
 ***Hành trình chuyến xe.** Số ①② ứng với bộ lọc trạng thái và đổi tháng.*
 
@@ -22,7 +22,7 @@ Màn hình đầu tiên sau khi đăng nhập: hiển thị toàn bộ chuyến 
 
 Bấm vào một chuyến để xem đầy đủ thông tin: tuyến đường, thời gian giao nhận, biển số xe và tiền công chuyến.
 
-[![Chi tiết chuyến trên điện thoại với nút Sửa và thanh điều hướng Hành trình được đánh số 1, 2](/ttransport/assets/laixe-trip-detail.webp)](/ttransport/assets/laixe-trip-detail.webp)
+[![Chi tiết chuyến trên điện thoại với nút Sửa và thanh điều hướng Hành trình được đánh số 1, 2](/guides/ttransport/assets/laixe-trip-detail.webp)](/guides/ttransport/assets/laixe-trip-detail.webp)
 
 ***Chi tiết chuyến.** Số ①② ứng với cập nhật số liệu và thanh điều hướng.*
 
@@ -37,7 +37,7 @@ Bấm vào một chuyến để xem đầy đủ thông tin: tuyến đường, 
 
 Minh bạch thu nhập: tổng tiền công theo chuyến, tiền làm thêm giờ và các khoản hỗ trợ trong tháng.
 
-[![Trang Thu nhập trên điện thoại với tiêu đề Thu nhập và bộ chọn tháng được đánh số 1, 2](/ttransport/assets/laixe-earnings.webp)](/ttransport/assets/laixe-earnings.webp)
+[![Trang Thu nhập trên điện thoại với tiêu đề Thu nhập và bộ chọn tháng được đánh số 1, 2](/guides/ttransport/assets/laixe-earnings.webp)](/guides/ttransport/assets/laixe-earnings.webp)
 
 ***Màn hình thu nhập.** Theo dõi tổng tiền công tháng (①) và chọn kỳ (②).*
 
@@ -48,7 +48,7 @@ Minh bạch thu nhập: tổng tiền công theo chuyến, tiền làm thêm gi�
 
 Tra cứu danh sách các biên bản kỷ luật hoặc lỗi nghiệp vụ đã ghi nhận trong tháng.
 
-[![Trang Kỷ luật của tôi trên điện thoại được đánh số 1 ở tiêu đề](/ttransport/assets/laixe-penalties.webp)](/ttransport/assets/laixe-penalties.webp)
+[![Trang Kỷ luật của tôi trên điện thoại được đánh số 1 ở tiêu đề](/guides/ttransport/assets/laixe-penalties.webp)](/guides/ttransport/assets/laixe-penalties.webp)
 
 ***Biên bản kỷ luật.** Nhấn vào từng biên bản để xem chi tiết lý do và mức phạt.*
 

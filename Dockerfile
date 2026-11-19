@@ -9,7 +9,7 @@ RUN npm ci --no-audit --no-fund
 COPY . .
 RUN npm run build
 
-# TransTing manual (/ttransport) — built separately with Astro Starlight in
+# TransTing manual (/guides/ttransport) — built separately with Astro Starlight in
 # manual-starlight/ and copied over the legacy static .html pages. Same Node
 # version as the site build; pnpm via corepack (see manual-starlight/package.json).
 FROM node:22-alpine AS manual-build
@@ -24,9 +24,9 @@ FROM nginx:alpine
 COPY deploy/nginx.conf /etc/nginx/conf.d/default.conf
 COPY deploy/ttsoft-headers.conf /etc/nginx/ttsoft-headers.conf
 COPY --from=build /app/dist /usr/share/nginx/html
-# Starlight output lands on top of the Vite dist's ttransport/ directory,
-# replacing the legacy manual .html files at identical URLs.
-COPY --from=manual-build /app/manual-starlight/dist/ /usr/share/nginx/html/ttransport/
-# Legacy single-page + old manual dir leftovers shadow the Starlight routes
-# (root ttransport.html wins /ttransport via $uri.html) — remove them.
+# Starlight output lands at /guides/ttransport — the manual moved out of
+# /ttransport, where the Vite dist still carries the legacy manual pages;
+# deploy/nginx.conf 301s every legacy /ttransport URL to the new base.
+COPY --from=manual-build /app/manual-starlight/dist/ /usr/share/nginx/html/guides/ttransport/
+# Drop the legacy single-page manual so no duplicate content is served.
 RUN rm -f /usr/share/nginx/html/ttransport.html

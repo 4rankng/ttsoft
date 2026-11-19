@@ -11,11 +11,12 @@ DNS for `tingtingsoft.vn` points at the droplet `bot.tingting.vip`
   it with `deploy/nginx.conf` + `deploy/ttsoft-headers.conf` baked in). Each
   build also publishes `:sha-<commit>` for rollbacks.
 - **Server:** `/opt/ttsoft/docker-compose.yml` runs the image — no source
-  clone, no Node, no bind mounts. Clean URLs (`/policies`, `/ttransport`)
-  resolve via nginx `try_files $uri $uri.html /index.html`.
+  clone, no Node, no bind mounts. Clean URLs (`/policies`, `/cam-on`)
+  resolve via nginx `try_files $uri $uri.html /index.html`. The manual
+  lives under `/guides/ttransport`; legacy `/ttransport` URLs 301 there.
 - **Deploy:** `make deploy` — pushes `main`, waits for the workflow to finish,
-  then `docker compose pull && up -d` on the server, and curls both
-  `/` and `/ttransport`.
+  then `docker compose pull && up -d` on the server, and curls `/`,
+  `/guides/ttransport`, and the legacy `/ttransport` → 301 redirect.
 - **Rollback:** `make rollback IMAGE=ghcr.io/4rankng/ttsoft:sha-<sha>`.
 
 Netlify (below) remains git-connected as a secondary mirror of the same repo;

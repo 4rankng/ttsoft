@@ -7,14 +7,14 @@ sidebar:
 
 Theo dõi số tiền khách hàng còn nợ theo hạn thanh toán kèm mã màu cảnh báo công nợ sắp đến hạn.
 
-[![Công nợ phải thu với thẻ một khách hàng và bộ chọn tháng được đánh số 1, 2](/ttransport/assets/giamdoc-debt.webp)](/ttransport/assets/giamdoc-debt.webp)
+[![Công nợ phải thu với thẻ một khách hàng và bộ chọn tháng được đánh số 1, 2](/guides/ttransport/assets/giamdoc-debt.webp)](/guides/ttransport/assets/giamdoc-debt.webp)
 
 ***Công nợ phải thu.** Số ①② ứng với mở thẻ khách hàng và đổi kỳ.*
 
 1. Bấm vào **thẻ khách hàng** để xem sổ chi tiết: danh sách chuyến, đợt thanh toán và hóa đơn.
 2. Đổi **tháng** để đối chiếu số dư nợ lũy kế qua từng kỳ.
 
-[![Sổ chi tiết công nợ khách hàng với các thẻ tổng quan, phân bố tuổi nợ và nút Ghi nhận thanh toán được đánh số 1, 2, 3](/ttransport/assets/giamdoc-debt-customer.webp)](/ttransport/assets/giamdoc-debt-customer.webp)
+[![Sổ chi tiết công nợ khách hàng với các thẻ tổng quan, phân bố tuổi nợ và nút Ghi nhận thanh toán được đánh số 1, 2, 3](/guides/ttransport/assets/giamdoc-debt-customer.webp)](/guides/ttransport/assets/giamdoc-debt-customer.webp)
 
 ***Sổ chi tiết khách hàng.** Số ①②③ ứng với các khối thông tin.*
 
@@ -22,7 +22,7 @@ Theo dõi số tiền khách hàng còn nợ theo hạn thanh toán kèm mã mà
 2. Dải **Phân bố tuổi nợ** cho biết từng bucket chiếm bao nhiêu % tổng công nợ (②) — có cảnh báo riêng khi có nợ quá hạn trên 90 ngày.
 3. Bấm **Ghi nhận thanh toán** (③) để ghi đợt tiền khách vừa chuyển.
 
-[![Hộp thoại Ghi nhận thanh toán với Số tiền nhận, Ngày nhận, Mã biên lai phiếu thu và nút Ghi nhận được đánh số 1, 2, 3, 4](/ttransport/assets/giamdoc-debt-receipt.webp)](/ttransport/assets/giamdoc-debt-receipt.webp)
+[![Hộp thoại Ghi nhận thanh toán với Số tiền nhận, Ngày nhận, Mã biên lai phiếu thu và nút Ghi nhận được đánh số 1, 2, 3, 4](/guides/ttransport/assets/giamdoc-debt-receipt.webp)](/guides/ttransport/assets/giamdoc-debt-receipt.webp)
 
 ***Ghi nhận thanh toán.** Số ①②③④ ứng với các trường của hộp thoại.*
 
@@ -61,10 +61,10 @@ Theo dõi số tiền khách hàng còn nợ theo hạn thanh toán kèm mã mà
 (nợ lớn hoặc hóa đơn trên 90 ngày) có bộ lọc riêng để tập trung thu hồi; danh mục khách hàng còn có **hạn mức tín dụng** — chạm hạn mức thì xử trước khi nhận thêm hàng.
 :::
 
-[![Tab Bảng kê trong chi tiết công nợ khách hàng — lập chứng từ thanh toán](/ttransport/assets/giamdoc-debt-bangke.webp)](/ttransport/assets/giamdoc-debt-bangke.webp)
+[![Tab Bảng kê trong chi tiết công nợ khách hàng — lập chứng từ thanh toán](/guides/ttransport/assets/giamdoc-debt-bangke.webp)](/guides/ttransport/assets/giamdoc-debt-bangke.webp)
 
 ***Tab Bảng kê** — lập chứng từ thanh toán cho khách.*
 
-[![Tab Giấy báo nợ trong chi tiết công nợ khách hàng — nhắc nợ theo mẫu Excel công ty cấu hình](/ttransport/assets/giamdoc-debt-baono.webp)](/ttransport/assets/giamdoc-debt-baono.webp)
+[![Tab Giấy báo nợ trong chi tiết công nợ khách hàng — nhắc nợ theo mẫu Excel công ty cấu hình](/guides/ttransport/assets/giamdoc-debt-baono.webp)](/guides/ttransport/assets/giamdoc-debt-baono.webp)
 
 ***Tab Giấy báo nợ** — nhắc nợ theo mẫu Excel của công ty; bản đã xuất giữ nguyên mẫu tại thời điểm xuất.*

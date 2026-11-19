@@ -7,7 +7,7 @@ sidebar:
 
 Trang **Điều vận** tập hợp toàn bộ đơn hàng cần xếp xe. Con số thông báo trên menu cho biết số lượng đơn đang chờ.
 
-[![Trang Điều vận với danh sách Đơn hàng cần điều vận và nút Tạo chuyến mới được đánh số 1, 2](/ttransport/assets/giamdoc-dispatch.webp)](/ttransport/assets/giamdoc-dispatch.webp)
+[![Trang Điều vận với danh sách Đơn hàng cần điều vận và nút Tạo chuyến mới được đánh số 1, 2](/guides/ttransport/assets/giamdoc-dispatch.webp)](/guides/ttransport/assets/giamdoc-dispatch.webp)
 
 ***Trang Điều vận.** Số ①② ứng với các bước thao tác.*
 
@@ -29,6 +29,6 @@ Trang **Điều vận** tập hợp toàn bộ đơn hàng cần xếp xe. Con s
 chuyến **Đang chạy** hiện trên bản đồ "Vị trí thời gian thực" cập nhật mỗi 10 giây (đang chạy / dừng / mất tín hiệu). Điều vận chỉ đọc vị trí — không can thiệp GPS từ xa.
 :::
 
-[![Màn Điều vận với chỉ số đội xe, bảng Trạng thái đội xe, bản đồ Vị trí thời gian thực và bảng Đơn hàng cần điều vận có gán xe lái trực tiếp trên từng dòng](/ttransport/assets/giamdoc-dispatch-assign.webp)](/ttransport/assets/giamdoc-dispatch-assign.webp)
+[![Màn Điều vận với chỉ số đội xe, bảng Trạng thái đội xe, bản đồ Vị trí thời gian thực và bảng Đơn hàng cần điều vận có gán xe lái trực tiếp trên từng dòng](/guides/ttransport/assets/giamdoc-dispatch-assign.webp)](/guides/ttransport/assets/giamdoc-dispatch-assign.webp)
 
 ***Màn Điều vận.** Gán xe/lái trực tiếp trên từng đơn chờ: chọn Xe nhà / Xe ngoài → chọn xe đầu kéo → lái xe → Khởi hành; kèm chỉ số đội xe và bản đồ GPS thời gian thực.*
