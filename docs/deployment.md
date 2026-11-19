@@ -200,3 +200,21 @@ No DNS changes are needed for deploys; push to `main` and Netlify rebuilds.
   settlement creation flow (captured with a dedicated demo forwarder
   account created via the admin UI).
 - Deploy `ce78b28`; suite 49/49; figure counts verified per page.
+
+## Verified 2026-11-19 — manual moved to /guides/ttransport
+- Starlight `base` → `/guides/ttransport`; all content links, lightbox src and
+  the postbuild link normalizer follow (build: 24 pages, 645 .html URLs
+  rewritten, 61 screenshot imgs). Sitemap/canonical/og:url emit the new base.
+- `deploy/nginx.conf`: `location ^~ /ttransport` 301s every legacy URL
+  (extensionless, `.html`, deep topics, `/ttransport/assets/*`) to the new
+  base with `absolute_redirect off` — the Caddy edge terminates TLS, so the
+  Location stays https in a single hop; query strings preserved.
+- Dockerfile copies the manual dist to `html/guides/ttransport/`; legacy root
+  `ttransport.html` still dropped from the image.
+- GHCR pipeline: `b3d2dc7` + `b2ec4361` (relative-Location fix) → workflow
+  `docker` green; server pulled and restarted `ttsoft-web-1`.
+- Live checks: `/guides/ttransport`, `/bat-dau`,
+  `/quan-ly/dieu-van-phan-xe`, screenshot asset (`image/webp`) and
+  `lightbox.js` all 200; every sampled legacy `/ttransport…` URL 301s to its
+  `https://tingtingsoft.vn/guides/ttransport…` counterpart in one hop;
+  sitemap-0 serves the new locs; `/` homepage 200.
